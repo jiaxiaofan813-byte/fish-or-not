@@ -10,6 +10,8 @@ An iPhone app that helps you decide **whether to fish, when to go, where to go, 
 
 **Status:** Working SwiftUI prototype with offline demo recommendations. Live weather, maps, location, and real water coverage are not connected yet.
 
+> **Development note:** Before changing product scope or core UX, read [`docs/PRODUCT_DECISIONS.md`](docs/PRODUCT_DECISIONS.md). It is the current source of truth for approved product decisions, scope guardrails, localization, sharing, maps, ice-fishing safety, knots, tips, and the planned Fish Camera.
+
 ## Run the Prototype
 
 Open `FishOrNot.xcodeproj` in Xcode 16 or later, select the **FishOrNot** scheme and an iPhone simulator, then Run. The deployment target is **iOS 17+**. No API keys, account, or paid services are required for the demo. To run on a physical iPhone, select your own signing team and a unique bundle identifier in Xcode.
