@@ -13,7 +13,7 @@ struct PreferencesView: View {
                     Button { showLocation = true } label: {
                         Label(store.startingPoint?.name ?? L10n.text("Choose starting point"), systemImage: "location")
                     }
-                }
+                }.listRowBackground(Palette.card)
                 Section {
                     Stepper(L10n.text("Max drive: %d min", store.preferences.maxDriveMinutes), value: $store.preferences.maxDriveMinutes, in: 10...90, step: 5)
                         .accessibilityIdentifier("maxDrive")
@@ -27,16 +27,18 @@ struct PreferencesView: View {
                     SpeciesChoiceRow(selection: $store.preferences.species)
                 } header: { Text("Your kind of trip") }
                 footer: { Text("Changes save on this device and apply to the next recommendation.") }
+                .listRowBackground(Palette.card)
                 Section("Launch coverage") {
                     Text(LaunchCoverage.displayName)
                     Text(LaunchCoverage.status).foregroundStyle(.secondary)
                     Text("Real Apple Maps drive times and NOAA/NWS hourly forecasts. Open-water planning only.")
                     Text("The score describes weather comfort for a trip, not catch probability. Species come from DNR records; verify current regulations and access before travel.")
                         .foregroundStyle(.secondary)
-                }
+                }.listRowBackground(Palette.card)
             }
             .scrollContentBackground(.hidden)
             .frame(maxWidth: 720).frame(maxWidth: .infinity).background(Palette.ink)
+            .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Preferences")
             .sheet(isPresented: $showLocation) { StartingPointView(store: store) }
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } } }

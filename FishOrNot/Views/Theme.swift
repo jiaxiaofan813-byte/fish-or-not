@@ -5,6 +5,7 @@ enum Palette {
     static let card = Color(red: 0.08, green: 0.16, blue: 0.14)
     static let lime = Color(red: 0.81, green: 0.96, blue: 0.36)
     static let muted = Color(red: 0.64, green: 0.73, blue: 0.67)
+    static let border = Color.white.opacity(0.08)
 }
 
 struct DemoNotice: View {
@@ -23,10 +24,51 @@ struct SectionCard<Content: View>: View {
     @ViewBuilder var content: Content
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text(LocalizedStringKey(title)).textCase(.uppercase).font(.caption.weight(.bold)).tracking(2).foregroundStyle(Palette.muted)
+            Text(LocalizedStringKey(title)).font(.subheadline.weight(.semibold)).foregroundStyle(Palette.muted)
             content
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(22).background(Palette.card, in: RoundedRectangle(cornerRadius: 24))
+        .padding(20)
+        .background(Palette.card, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: 24, style: .continuous).strokeBorder(Palette.border))
+    }
+}
+
+/// A quiet secondary action; the home circle remains the primary visual anchor.
+struct QuietButtonStyle: ButtonStyle {
+    @Environment(\.isEnabled) private var isEnabled
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .font(.subheadline.weight(.semibold))
+            .foregroundStyle(Palette.lime)
+            .padding(.horizontal, 16)
+            .frame(minHeight: 48)
+            .background(Palette.card.opacity(configuration.isPressed ? 0.6 : 1), in: RoundedRectangle(cornerRadius: 16))
+            .overlay(RoundedRectangle(cornerRadius: 16).strokeBorder(Palette.border))
+            .opacity(isEnabled ? 1 : 0.45)
+    }
+}
+
+struct FishTargetRow: View {
+    let species: Species
+    var recommended = false
+
+    var body: some View {
+        HStack(spacing: 12) {
+            Image(systemName: "fish.fill")
+                .font(.body)
+                .foregroundStyle(recommended ? Palette.lime : Palette.muted)
+                .frame(width: 36, height: 36)
+                .background(.white.opacity(0.04), in: RoundedRectangle(cornerRadius: 10))
+            VStack(alignment: .leading, spacing: 3) {
+                Text(species.displayName).font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.primary).fixedSize(horizontal: false, vertical: true)
+                if recommended {
+                    Text("Recommended").font(.caption).foregroundStyle(Palette.lime)
+                }
+            }
+            Spacer(minLength: 0)
+        }
     }
 }

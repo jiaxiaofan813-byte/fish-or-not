@@ -36,7 +36,7 @@ struct HomeView: View {
             GeometryReader { geometry in
             let compact = geometry.size.height < 500
             ScrollView {
-                VStack(spacing: compact ? 12 : 24) {
+                VStack(spacing: compact ? 12 : 20) {
                     HStack(spacing: 8) {
                         Circle().fill(Palette.lime).frame(width: 8, height: 8)
                         Text("brand.name").tracking(2).font(.caption.weight(.black))
@@ -67,53 +67,71 @@ struct HomeView: View {
                             .padding(.top, 8)
                             .opacity(checking ? 0 : 1)
                     }
-                    .padding(.bottom, 12)
+                    .padding(.bottom, 4)
 
-                    Button { sheet = .search } label: {
-                        Label("Customize search", systemImage: "slider.horizontal.3")
-                            .font(.subheadline.weight(.semibold))
-                            .frame(minHeight: 44)
-                    }
-                    .accessibilityIdentifier("customizeSearchButton")
-                    .disabled(checking)
-
-                    VStack(spacing: 12) {
-                        Text("home.window").font(.headline)
-                        Text("home.horizon")
-                            .font(.caption).foregroundStyle(Palette.muted)
-                        if demo { DemoNotice() }
-                        else {
-                            Button { sheet = .location } label: {
-                                Label(store.startingPoint?.name ?? L10n.text("Choose starting point"), systemImage: "location")
-                            }.disabled(checking).accessibilityIdentifier("startingPointButton")
-                            Text("Apple Maps · NOAA/NWS · Minnesota DNR").font(.caption2).foregroundStyle(Palette.muted)
+                    if checking {
+                        VStack(spacing: 12) {
+                            ProgressView().tint(Palette.lime)
+                            Text(progressText).font(.subheadline).multilineTextAlignment(.center)
+                            Button("Cancel") { resetTransition() }
+                                .frame(minHeight: 44).accessibilityIdentifier("cancelPlanningButton")
                         }
-                        if checking {
-                            ProgressView(progressText).tint(Palette.lime)
-                            Button("Cancel") { resetTransition() }.accessibilityIdentifier("cancelPlanningButton")
+                        .frame(maxWidth: .infinity).padding(16)
+                        .background(Palette.card, in: RoundedRectangle(cornerRadius: 18))
+                    } else {
+                        Button { sheet = .search } label: {
+                            Label("Customize search", systemImage: "slider.horizontal.3")
+                                .font(.subheadline.weight(.semibold))
+                                .frame(minHeight: 20)
                         }
-                        if let errorText {
-                            Text(errorText).foregroundStyle(Palette.lime).font(.subheadline)
-                                .accessibilityIdentifier("planningError")
-                            Button("Try again") { beginCheck() }
+                        .buttonStyle(QuietButtonStyle())
+                        .accessibilityIdentifier("customizeSearchButton")
+                        .disabled(checking)
+
+                        VStack(spacing: 10) {
+                            Text("home.window").font(.subheadline.weight(.semibold))
+                            Text("home.horizon")
+                                .font(.caption).foregroundStyle(Palette.muted)
+                            if demo { DemoNotice() }
+                            else {
+                                Button { sheet = .location } label: {
+                                    Label(store.startingPoint?.name ?? L10n.text("Choose starting point"), systemImage: "location")
+                                        .font(.subheadline).multilineTextAlignment(.center)
+                                        .frame(minHeight: 44)
+                                }.disabled(checking).accessibilityIdentifier("startingPointButton")
+                            }
+                            if let errorText {
+                                VStack(spacing: 12) {
+                                    Label(errorText, systemImage: "exclamationmark.circle")
+                                        .foregroundStyle(Palette.muted).font(.subheadline)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                        .accessibilityIdentifier("planningError")
+                                    Button("Try again") { beginCheck() }.buttonStyle(QuietButtonStyle())
+                                }
+                            }
                         }
-                        Text(LaunchCoverage.displayName)
-                            .font(.caption2).foregroundStyle(Palette.muted)
-                    }
 
-                    Button { showWaters = true } label: {
-                        Label(LaunchCoverage.exploreTitle, systemImage: "map")
-                            .font(.subheadline.weight(.semibold)).frame(maxWidth: .infinity, minHeight: 44)
-                    }
-                    .foregroundStyle(Palette.lime)
-                    .accessibilityIdentifier("exploreWatersButton")
-                    .disabled(checking)
+                        Button { showWaters = true } label: {
+                            Label(LaunchCoverage.exploreTitle, systemImage: "map")
+                                .font(.subheadline.weight(.semibold)).frame(maxWidth: .infinity, minHeight: 44)
+                        }
+                        .buttonStyle(QuietButtonStyle())
+                        .accessibilityIdentifier("exploreWatersButton")
+                        .disabled(checking)
 
-                    HStack(spacing: 14) {
-                        utilityButton("My Gear", icon: "backpack", destination: .gear)
-                        utilityButton("Preferences", icon: "slider.horizontal.3", destination: .preferences)
+                        HStack(spacing: 14) {
+                            utilityButton("My Gear", icon: "backpack", destination: .gear)
+                            utilityButton("Preferences", icon: "gearshape", destination: .preferences)
+                        }
+                        .disabled(checking)
+
+                        VStack(spacing: 4) {
+                            Text(LaunchCoverage.displayName)
+                            if !demo { Text("Apple Maps · NOAA/NWS · Minnesota DNR") }
+                        }
+                        .font(.caption2).foregroundStyle(Palette.muted)
+                        .multilineTextAlignment(.center).padding(.top, 4)
                     }
-                    .disabled(checking)
                 }
                 .padding(.horizontal, 26).padding(.bottom, 24)
                 .frame(maxWidth: 640)
@@ -235,8 +253,7 @@ struct HomeView: View {
         Button { sheet = destination } label: {
             Label(title, systemImage: icon)
                 .font(.subheadline.weight(.medium)).frame(maxWidth: .infinity, minHeight: 54)
-                .background(Palette.card, in: RoundedRectangle(cornerRadius: 18))
-        }.foregroundStyle(.white)
+        }.buttonStyle(QuietButtonStyle())
     }
 }
 

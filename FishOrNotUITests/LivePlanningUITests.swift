@@ -102,6 +102,11 @@ final class LivePlanningUITests: XCTestCase {
     }
     @MainActor func testChineseLiveResult() {
         let app = launch("live-success", chinese: true)
+        capture("Chinese live home")
+        app.buttons["customizeSearchButton"].tap()
+        XCTAssertTrue(app.buttons["doneCustomizingSearch"].waitForExistence(timeout: 5))
+        capture("Chinese search settings")
+        app.buttons["doneCustomizingSearch"].tap()
         app.buttons["fishButton"].tap()
         XCTAssertTrue(app.staticTexts["liveDecision"].waitForExistence(timeout: 10))
         XCTAssertFalse(app.staticTexts["NOAA/NWS hourly forecast"].exists)
@@ -201,6 +206,8 @@ final class LivePlanningUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["liveDecision"].waitForExistence(timeout: 10))
         XCTAssertTrue(app.staticTexts["Harriet"].exists)
         XCTAssertEqual(Set(app.descendants(matching: .any).matching(NSPredicate(format: "identifier BEGINSWITH %@", "topFish-")).allElementsBoundByIndex.map(\.identifier)).count, 3)
+        XCTAssertFalse(app.descendants(matching: .any)["topFish-crappie"].exists)
+        capture("Three distinct target choices")
         for _ in 0..<8 {
             if app.staticTexts["Hennepin County reference weather"].isHittable { break }
             app.swipeUp()

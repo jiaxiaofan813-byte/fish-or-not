@@ -23,9 +23,15 @@ final class FishOrNotUITests: XCTestCase {
 
         app.buttons["My Gear"].tap()
         XCTAssertTrue(app.textFields["gearName"].waitForExistence(timeout: 3))
+        capture("Gear form")
         app.buttons["Done"].tap()
 
         app.buttons["Preferences"].tap()
+        capture("Preferences form")
+        app.buttons["chooseTargetSpecies"].tap()
+        XCTAssertTrue(app.navigationBars["Target fish"].waitForExistence(timeout: 3))
+        capture("Species selection")
+        app.navigationBars.buttons.firstMatch.tap()
         app.buttons["Fishing time"].tap()
         app.buttons["4 hours"].tap()
         app.buttons["Done"].tap()
@@ -95,6 +101,7 @@ final class FishOrNotUITests: XCTestCase {
     }
 
     @MainActor private func capture(_ name: String) {
+        Thread.sleep(forTimeInterval: 0.6)
         let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         attachment.name = name
         attachment.lifetime = .keepAlways

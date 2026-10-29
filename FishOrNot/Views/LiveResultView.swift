@@ -12,11 +12,13 @@ struct LiveResultView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 22) {
                 if let best = assessment.best {
-                    Text(LocalizedStringKey(assessment.goToday ? "YES." : "NOT TODAY."))
-                        .font(.system(size: 48, weight: .black, design: .rounded)).foregroundStyle(Palette.lime)
-                        .accessibilityIdentifier("liveDecision")
-                    Text(LocalizedStringKey(assessment.goToday ? "A good window today." : "A better window ahead."))
-                        .font(.title3).foregroundStyle(Palette.muted)
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(LocalizedStringKey(assessment.goToday ? "YES." : "NOT TODAY."))
+                            .font(.system(.largeTitle, design: .rounded, weight: .black)).foregroundStyle(Palette.lime)
+                            .accessibilityIdentifier("liveDecision")
+                        Text(LocalizedStringKey(assessment.goToday ? "A good window today." : "A better window ahead."))
+                            .font(.title3).foregroundStyle(Palette.muted)
+                    }.padding(.vertical, 8)
                     if geometry.size.width >= 900 {
                         HStack(alignment: .top, spacing: 22) {
                             bestWindow(best).frame(maxWidth: .infinity)
@@ -26,9 +28,9 @@ struct LiveResultView: View {
                         bestWindow(best)
                         access(best)
                     }
+                    weather(best)
                     speciesAndGear(best)
                     speciesOptions(best)
-                    weather(best)
                     if let backup = assessment.backup {
                         SectionCard(title: "Backup option") {
                             Text(backup.water.name).font(.headline)
@@ -46,8 +48,10 @@ struct LiveResultView: View {
                         .foregroundStyle(Palette.muted)
                 }
                 comparison
-                Button("Adjust preferences", action: adjustPreferences)
-                    .frame(maxWidth: .infinity, minHeight: 48)
+                Button(action: adjustPreferences) {
+                    Label("Adjust preferences", systemImage: "slider.horizontal.3")
+                        .frame(maxWidth: .infinity)
+                }.buttonStyle(QuietButtonStyle())
                 SectionCard(title: "Before you go") {
                     Text("Open-water planning only. Air temperature cannot establish whether a lake is ice-free or safe. Check conditions, access hours and current fishing regulations locally.")
                         .font(.subheadline)
@@ -89,23 +93,38 @@ struct LiveResultView: View {
             Text("All trip times use Minnesota time.").font(.caption).foregroundStyle(Palette.muted)
             VStack(alignment: .leading, spacing: 8) {
                 Text("Fish to target").font(.subheadline.weight(.semibold))
-                ForEach(([best.species] + best.evidence.supported.filter { $0 != best.species }
-                    .sorted { $0.approachRank < $1.approachRank }).prefix(3)) { species in
-                    HStack {
-                        Label(species.displayName, systemImage: "fish.fill")
-                        if species == best.species {
-                            Text("Recommended").font(.caption.weight(.semibold)).foregroundStyle(Palette.lime)
-                        }
-                    }.accessibilityIdentifier("topFish-" + species.rawValue)
+                ForEach(summarySpecies(best)) { species in
+                    FishTargetRow(species: species, recommended: species == best.species)
+                        .accessibilityIdentifier("topFish-" + species.rawValue)
                 }
-                if best.evidence.supported.count < 3 {
+                if summarySpecies(best).count < 3 {
                     Text("Fewer than three supported species are recorded at this water.")
                         .font(.caption).foregroundStyle(Palette.muted)
                 }
             }
+            Divider()
             Text("Weather comfort for a trip · not catch probability").font(.caption).foregroundStyle(Palette.muted)
             Text("Verify open-water conditions locally.").font(.caption).foregroundStyle(Palette.muted)
         }
+    }
+
+    private func summarySpecies(_ best: LiveCandidate) -> [Species] {
+        // Broad search choices must not use a second slot beside their exact species.
+        let groups: [Species: Set<String>] = [
+            .crappie: ["black crappie", "white crappie", "hybrid crappie"],
+            .bass: ["largemouth bass", "smallmouth bass"]
+        ]
+        let alternatives = best.evidence.supported.filter { species in
+            guard species != best.species else { return false }
+            for (group, members) in groups {
+                if best.species == group && members.contains(species.rawValue) { return false }
+                if species == group && best.evidence.supported.contains(where: { members.contains($0.rawValue) }) { return false }
+            }
+            return true
+        }.sorted {
+            $0.approachRank == $1.approachRank ? $0.rawValue < $1.rawValue : $0.approachRank < $1.approachRank
+        }
+        return Array(([best.species] + alternatives).prefix(3))
     }
 
     private func access(_ best: LiveCandidate) -> some View {
@@ -164,12 +183,23 @@ struct LiveResultView: View {
         return SectionCard(title: "Fish to target here") {
             Text("Highlighted: simplest starting approach among recorded species. This is a general tackle-based suggestion, not a measured catch forecast.").font(.caption)
             ForEach(fish) { species in
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(species.displayName + (species == fish.first && species.approachRank < 99 ? " ★ Easiest starting point" : "")).font(.headline).foregroundStyle(species == fish.first ? Palette.lime : .primary)
-                    Text("Hooks: " + species.tackle.hook)
-                    Text("Natural bait: " + species.tackle.bait)
-                    Text("Lures: " + species.tackle.lure)
-                }.font(.subheadline).padding(.vertical, 8)
+                DisclosureGroup {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Label("Hooks: " + species.tackle.hook, systemImage: "link")
+                        Label("Natural bait: " + species.tackle.bait, systemImage: "leaf")
+                        Label("Lures: " + species.tackle.lure, systemImage: "water.waves")
+                    }
+                    .font(.subheadline).foregroundStyle(Palette.muted)
+                    .fixedSize(horizontal: false, vertical: true).padding(.vertical, 12)
+                } label: {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(species.displayName).font(.headline).foregroundStyle(.primary)
+                        if species == fish.first && species.approachRank < 99 {
+                            Text("Easiest starting point").font(.caption).foregroundStyle(Palette.lime)
+                        }
+                    }.padding(.vertical, 6)
+                }
+                if species != fish.last { Divider() }
             }
             if fish.count < 5 {
                 Text("Fewer than five supported species are recorded here. Explore the guide for other species; their presence at this water is not confirmed.").font(.caption)

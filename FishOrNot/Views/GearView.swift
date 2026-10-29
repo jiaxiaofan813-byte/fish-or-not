@@ -30,6 +30,7 @@ struct GearView: View {
                     }.accessibilityIdentifier("newGearTarget")
                 } header: { Text("Add what you own") }
                 footer: { Text("Choose the category and fish this item suits. Only classified gear is matched to recommendations. Any species applies to general tools. Swipe left to remove an item.") }
+                .listRowBackground(Palette.card)
                 Section(L10n.text("My gear · %d", store.gear.count)) {
                     if store.gear.isEmpty {
                         Text("A rod, your favorite tackle, a trusty net. Start with the basics.")
@@ -46,15 +47,22 @@ struct GearView: View {
                             }
                             Toggle("Packed", isOn: $item.packed)
                         } label: {
-                            Text(item.name)
-                            Text(item.category.title).font(.caption).foregroundStyle(.secondary)
+                            HStack(spacing: 12) {
+                                Image(systemName: item.packed ? "checkmark.circle.fill" : "backpack")
+                                    .foregroundStyle(item.packed ? Palette.lime : Palette.muted)
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(item.name).font(.body.weight(.medium))
+                                    Text(item.category.title).font(.caption).foregroundStyle(Palette.muted)
+                                }
+                            }.padding(.vertical, 4)
                         }
                     }
                     .onDelete { store.gear.remove(atOffsets: $0) }
-                }
+                }.listRowBackground(Palette.card)
             }
             .scrollContentBackground(.hidden)
             .frame(maxWidth: 720).frame(maxWidth: .infinity).background(Palette.ink)
+            .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("My Gear")
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } } }
         }

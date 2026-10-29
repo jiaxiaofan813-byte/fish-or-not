@@ -21,6 +21,7 @@ struct StartingPointView: View {
                     if location.locating { ProgressView("Finding your location…") }
                     if let message = location.message { Text(message).foregroundStyle(.secondary) }
                 } footer: { Text("Current location is kept only for this session. A city or address you choose is saved on this device.") }
+                .listRowBackground(Palette.card)
                 Section("Or choose a starting point") {
                     HStack {
                         TextField("City or address", text: $query).textInputAutocapitalization(.words)
@@ -44,17 +45,18 @@ struct StartingPointView: View {
                         }
                         .accessibilityIdentifier("originResult-" + String(index))
                     }
-                }
+                }.listRowBackground(Palette.card)
                 Section {
                     Text("Apple Maps receives the starting point and destination to calculate driving routes. NOAA/NWS receives only the public access coordinates for weather. No account is required.")
                         .font(.footnote).foregroundStyle(.secondary)
                     if store.startingPoint != nil {
                         Button("Clear starting point", role: .destructive) { store.startingPoint = nil; dismiss() }
                     }
-                }
+                }.listRowBackground(Palette.card)
             }
             .scrollContentBackground(.hidden)
             .frame(maxWidth: 720).frame(maxWidth: .infinity).background(Palette.ink)
+            .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Starting point")
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } } }
             .task(id: searchID) {

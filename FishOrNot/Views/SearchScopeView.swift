@@ -4,33 +4,52 @@ struct SearchScopeView: View {
     @Bindable var store: AppStore
     let manageFavorites: () -> Void
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Picker("Search scope", selection: $store.preferences.searchScope) {
-                ForEach(SearchScope.allCases) { Text($0.title).tag($0) }
-            }.accessibilityIdentifier("searchScopePicker")
-            Toggle("Compare more waters (up to 60)", isOn: $store.preferences.compareAllWaters)
-            Text(store.preferences.compareAllWaters ? "Broader comparison takes longer." : "Quick search compares the 12 nearest eligible waters.")
-                .font(.caption).foregroundStyle(Palette.muted)
-            SpeciesChoiceRow(selection: $store.preferences.species)
-            Picker("Typical fish size", selection: $store.preferences.targetSize) {
-                ForEach(FishSize.allCases) { Text($0.rawValue.capitalized).tag($0) }
-            }
-            Text("Size groups describe species, not guaranteed catch size.").font(.caption).foregroundStyle(Palette.muted)
-            NavigationLink("Fish, hooks & bait guide") { FishGuideView() }
-            switch store.preferences.searchScope {
-            case .all: Text("Search eligible waters across Minnesota.").font(.caption).foregroundStyle(Palette.muted)
-            case .radius:
-                Stepper(L10n.text("Within %d miles", store.preferences.radiusMiles), value: $store.preferences.radiusMiles, in: 5...150, step: 5)
-                Text("Straight-line distance from your starting point; driving limits also apply.").font(.caption).foregroundStyle(Palette.muted)
-            case .county:
-                Picker("County", selection: $store.preferences.scopeCounty) {
-                    ForEach(LaunchCoverage.counties.sorted(), id: \.self) { Text(L10n.text("%@ County", $0)).tag($0) }
+        Form {
+            Section {
+                Picker("Search scope", selection: $store.preferences.searchScope) {
+                    ForEach(SearchScope.allCases) { Text($0.title).tag($0) }
+                }.accessibilityIdentifier("searchScopePicker")
+                switch store.preferences.searchScope {
+                case .all:
+                    Text("Search eligible waters across Minnesota.")
+                        .font(.subheadline).foregroundStyle(Palette.muted)
+                case .radius:
+                    Stepper(L10n.text("Within %d miles", store.preferences.radiusMiles), value: $store.preferences.radiusMiles, in: 5...150, step: 5)
+                    Text("Straight-line distance from your starting point; driving limits also apply.")
+                        .font(.caption).foregroundStyle(Palette.muted)
+                case .county:
+                    Picker("County", selection: $store.preferences.scopeCounty) {
+                        ForEach(LaunchCoverage.counties.sorted(), id: \.self) { Text(L10n.text("%@ County", $0)).tag($0) }
+                    }
+                case .favorites:
+                    Text(L10n.text(store.preferences.favoriteWaterIDs.count == 1 ? "%d favorite water" : "%d favorite waters", store.preferences.favoriteWaterIDs.count))
+                        .font(.subheadline).foregroundStyle(Palette.muted)
+                    Button("Choose favorites", action: manageFavorites)
                 }
-            case .favorites:
-                Text(L10n.text(store.preferences.favoriteWaterIDs.count == 1 ? "%d favorite water" : "%d favorite waters", store.preferences.favoriteWaterIDs.count)).font(.caption)
-                Button("Choose favorites", action: manageFavorites)
+            } header: { Label("Where to fish", systemImage: "map") }
+            .listRowBackground(Palette.card)
+
+            Section {
+                SpeciesChoiceRow(selection: $store.preferences.species)
+                Picker("Typical fish size", selection: $store.preferences.targetSize) {
+                    ForEach(FishSize.allCases) { Text($0.rawValue.capitalized).tag($0) }
+                }
+                NavigationLink("Fish, hooks & bait guide") { FishGuideView() }
+            } header: { Label("Fish to target", systemImage: "fish") }
+            footer: { Text("Size groups describe species, not guaranteed catch size.") }
+            .listRowBackground(Palette.card)
+
+            Section {
+                Toggle("Compare more waters (up to 60)", isOn: $store.preferences.compareAllWaters)
+            } header: { Label("Search depth", systemImage: "slider.horizontal.3") }
+            footer: {
+                Text(store.preferences.compareAllWaters ? "Broader comparison takes longer." : "Quick search compares the 12 nearest eligible waters.")
             }
-        }.frame(maxWidth: .infinity, alignment: .leading).padding(16).background(Palette.card, in: RoundedRectangle(cornerRadius: 18))
+            .listRowBackground(Palette.card)
+        }
+        .scrollContentBackground(.hidden)
+        .frame(maxWidth: 640).frame(maxWidth: .infinity)
+        .background(Palette.ink)
     }
 }
 
@@ -43,7 +62,8 @@ struct FavoriteWaterButton: View {
         Button {
             if saved { store.preferences.favoriteWaterIDs.remove(water.id) }
             else { store.preferences.favoriteWaterIDs.insert(water.id) }
-        } label: { Image(systemName: saved ? "star.fill" : "star").foregroundStyle(color) }
+        } label: { Image(systemName: saved ? "star.fill" : "star").foregroundStyle(color)
+            .frame(minWidth: 44, minHeight: 44).contentShape(Rectangle()) }
             .buttonStyle(.borderless)
             .accessibilityLabel(L10n.text(saved ? "Remove %@ from favorites" : "Add %@ to favorites", water.name))
             .accessibilityIdentifier("favorite-" + water.id)
@@ -58,7 +78,10 @@ struct FishGuideView: View {
                 Text("Natural bait: " + fish.tackle.bait)
                 Text("Artificial lures: " + fish.tackle.lure)
             }
+            .listRowBackground(Palette.card)
         }
+        .scrollContentBackground(.hidden)
+        .background(Palette.ink)
         .navigationTitle("Fish & tackle")
         .safeAreaInset(edge: .bottom) {
             Link("DNR tackle guidance · check local bait rules", destination: URL(string: "https://www.dnr.state.mn.us/fishing/fin/equipment.html")!).font(.caption).padding().background(.regularMaterial)
@@ -73,9 +96,7 @@ struct CustomizeSearchView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                SearchScopeView(store: store) { showWaters = true }.padding(20).frame(maxWidth: 640).frame(maxWidth: .infinity)
-            }
+            SearchScopeView(store: store) { showWaters = true }
             .background(Palette.ink)
             .navigationTitle("Customize search")
             .navigationBarTitleDisplayMode(.inline)
@@ -117,10 +138,17 @@ struct SpeciesSelectionView: View {
                 HStack {
                     Text(species.displayName).foregroundStyle(.primary)
                     Spacer()
-                    if selection == species { Image(systemName: "checkmark").foregroundStyle(Palette.lime) }
+                    Image(systemName: selection == species ? "checkmark.circle.fill" : "circle")
+                        .foregroundStyle(selection == species ? Palette.lime : Palette.muted.opacity(0.4))
                 }
-            }.accessibilityIdentifier("chooseSpecies-" + species.rawValue)
+                .frame(minHeight: 36)
+            }
+            .listRowBackground(Palette.card)
+            .accessibilityIdentifier("chooseSpecies-" + species.rawValue)
+            .accessibilityAddTraits(selection == species ? .isSelected : [])
         }
+        .scrollContentBackground(.hidden)
+        .background(Palette.ink)
         .searchable(text: $query, prompt: "Search fish, e.g. muskie, trout, catfish")
         .navigationTitle("Target fish")
         .toolbar(.visible, for: .navigationBar)

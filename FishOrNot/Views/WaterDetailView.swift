@@ -22,8 +22,11 @@ struct WaterDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 22) {
-                Text(water.name).font(.largeTitle.bold())
-                Text(L10n.text("%@ County", water.county)).foregroundStyle(Palette.muted)
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(water.name).font(.system(.largeTitle, design: .rounded, weight: .bold))
+                    Label(L10n.text("%@ County", water.county), systemImage: "mappin.and.ellipse")
+                        .font(.subheadline).foregroundStyle(Palette.muted)
+                }.padding(.vertical, 4)
                 SectionCard(title: "Lake information") {
                     Text("DNR ID: " + water.lakeNumber)
                     if let area = water.areaAcres, area > 0 { Text("Area: \(area.formatted()) acres") }
@@ -49,7 +52,9 @@ struct WaterDetailView: View {
                                         .font(.caption).foregroundStyle(Palette.muted)
                                 }
                                 Spacer(minLength: 0)
-                            }.frame(maxWidth: .infinity, alignment: .leading).padding(.vertical, 8)
+                            }.frame(maxWidth: .infinity, alignment: .leading).padding(12)
+                                .background(selectedID == point.id ? Palette.lime.opacity(0.07) : .clear, in: RoundedRectangle(cornerRadius: 14))
+                                .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(selectedID == point.id ? Palette.lime.opacity(0.3) : Palette.border))
                         }
                         .buttonStyle(.plain)
                         .accessibilityIdentifier("access-" + point.id)
@@ -62,7 +67,11 @@ struct WaterDetailView: View {
                 if let record = try? SpeciesEvidence.bundled().first(where: { $0.lakeNumber == water.lakeNumber }) {
                     SectionCard(title: "Recorded target species") {
                         if record.supported.isEmpty { Text("No supported target species are listed in this DNR record.") }
-                        else { ForEach(record.supported) { Text($0.displayName) } }
+                        else {
+                            LazyVGrid(columns: [GridItem(.adaptive(minimum: 170), alignment: .leading)], alignment: .leading, spacing: 12) {
+                                ForEach(record.supported) { FishTargetRow(species: $0) }
+                            }
+                        }
                         if !record.recordedNames.isEmpty {
                             DisclosureGroup("All recorded fish (DNR names)") {
                                 Text(record.recordedNames.joined(separator: ", ")).font(.caption)
@@ -83,7 +92,7 @@ struct WaterDetailView: View {
                 ShareLink(item: shareText) {
                     Label("Share water & access", systemImage: "square.and.arrow.up")
                         .frame(maxWidth: .infinity, minHeight: 44)
-                }.accessibilityIdentifier("shareWaterButton")
+                }.buttonStyle(QuietButtonStyle()).accessibilityIdentifier("shareWaterButton")
             }.padding(24).frame(maxWidth: 860).frame(maxWidth: .infinity)
         }
         .background(Palette.ink)

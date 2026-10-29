@@ -75,7 +75,7 @@ struct WatersView: View {
                 }
                 .pickerStyle(.segmented)
                 .accessibilityIdentifier("waterAccessFilter")
-            }
+            }.listRowBackground(Palette.card)
             Section {
                 ForEach(waters) { water in
                     HStack {
@@ -94,6 +94,7 @@ struct WatersView: View {
                     .accessibilityIdentifier("water-" + water.id)
                     if let store { FavoriteWaterButton(store: store, water: water, color: selectedWaterID == water.id ? Palette.ink : Palette.lime) }
                     }
+                    .listRowBackground(selectedWaterID == water.id ? Palette.lime : Palette.card)
                 }
             } header: { Text(L10n.text(waters.count == 1 ? "%d water" : "%d waters", waters.count)).accessibilityIdentifier("waterCount") }
             if waters.isEmpty {

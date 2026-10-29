@@ -23,7 +23,7 @@ struct ResultView: View {
                             }
                             Spacer()
                             VStack(spacing: 2) {
-                                Text("\(plan.score)").font(.system(size: 42, weight: .bold, design: .rounded))
+                                Text("\(plan.score)").font(.system(.largeTitle, design: .rounded, weight: .bold))
                                 Text("/ 100").font(.caption).foregroundStyle(Palette.muted)
                             }
                         }
@@ -126,7 +126,7 @@ struct ResultView: View {
     private func header(_ plan: TripPlan) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(LocalizedStringKey(plan.goToday ? "YES." : "NOT TODAY."))
-                .font(.system(size: 48, weight: .black, design: .rounded))
+                .font(.system(.largeTitle, design: .rounded, weight: .black))
                 .foregroundStyle(Palette.lime)
                 .accessibilityIdentifier("decision")
             Text(plan.goToday ? L10n.text("Your window is today.") : L10n.text("Next window: %@", plan.dateText(for: plan.best)))
