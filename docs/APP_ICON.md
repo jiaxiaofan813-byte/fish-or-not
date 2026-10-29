@@ -1,0 +1,13 @@
+# Fish or Not app icon
+
+Minimal fish silhouette with question-mark negative space, using the app's dark pine and lime palette. No text, border, or pre-rendered outer corner mask. The shipped asset is `FishOrNot/Assets.xcassets/AppIcon.appiconset/fish-or-not-icon-v1.png`: 1024 × 1024, opaque PNG, shared by the iPhone/iPad universal app icon slot. Small-size appearance was visually checked at 60 px.
+
+Created with the built-in image generation tool, then exported to the required asset dimensions with macOS image utilities. The original generated images are preserved outside the repository; the app consumes the workspace PNG above. Palette values below are design targets, not a claim that every raster pixel is exactly one of two colors.
+
+## Initial prompt
+
+Use case: logo-brand. Asset type: production iOS app icon, exactly square 1024 x 1024, full-bleed opaque background, no rounded outer corners (iOS applies the mask). Brand: Fish or Not, a minimal fishing decision app. Create ONE finished icon, not a contact sheet, not a mockup. Ultra minimal flat geometric emblem: one bold lime-green fish silhouette swimming right, with a small dark circular eye. A simple bold question-mark curve is integrated elegantly into the fish body as dark negative space, so the emblem communicates fish + a question without extra objects. The fish silhouette must remain immediately recognizable, calm and beautifully proportioned, with a small triangular tail and smooth oval body. Center the emblem within generous balanced clear space; emblem occupies about 62 percent of square width. Deep solid pine ink green background #0A1A17; emblem solid vivid lime #CFF55C. Exactly two colors plus antialiasing. Very clean vector-like edges. No typography, no words, no initials, no hook, no waves, no fishing rod, no borders, no scenery, no gradients, no glow, no shadows, no 3D, no photographic texture, no tiny fins or decorative detail. Legible as an app icon at 32 px.
+
+## Refinement prompt
+
+Refine this exact app icon into a perfectly flat ultra-minimal two-color logo. Preserve the exact fish silhouette, integrated question mark negative space, small eye, central composition and clear margin. Change only the rendering: remove ALL paper texture, shading, gradients, glow, vignetting and noise. Background must be a perfectly uniform solid dark green #0A1A17. Fish must be perfectly uniform solid lime #CFF55C. Negative space question mark and eye exactly match the background color. Clean crisp vector-like antialiased edges only. Square full-bleed opaque iOS app icon, no rounded outer corners, no labels, no typography, no mockup. Export at 1024 x 1024 if possible.
