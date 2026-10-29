@@ -13,7 +13,11 @@ struct LiveRecommendationEngine: Sendable {
         guard origin.coordinate.valid else { throw PlanningIssue.location }
         let evidenceByID = Dictionary(evidence.map { ($0.lakeNumber, $0) }, uniquingKeysWith: { first, _ in first })
         let eligible = catalog.waters.compactMap { water -> (WaterRecord, AccessPoint, SpeciesEvidence)? in
-            guard let fish = evidenceByID[water.lakeNumber], !fish.supported.filter { (preferences.targetSize == .any || $0.sizeGroup == preferences.targetSize) && (preferences.species == .any || $0 == preferences.species) }.isEmpty,
+            guard let fish = evidenceByID[water.lakeNumber],
+                  !fish.supported.filter({
+                      (preferences.targetSize == .any || $0.sizeGroup == preferences.targetSize)
+                          && (preferences.species == .any || $0 == preferences.species)
+                  }).isEmpty,
                   preferences.species == .any || fish.supported.contains(preferences.species),
                   let access = water.accessPoints.filter({ $0.permitsNavigation(for: preferences.access, at: now) })
                     .min(by: { origin.coordinate.distance(to: .init(latitude: $0.latitude, longitude: $0.longitude)) < origin.coordinate.distance(to: .init(latitude: $1.latitude, longitude: $1.longitude)) }) else { return nil }
