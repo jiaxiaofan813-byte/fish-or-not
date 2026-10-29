@@ -44,7 +44,15 @@ This interaction is a core piece of the Fish or Not brand and must preserve the 
 
 ### Home screen before the tap
 
-The initial screen should remain extremely minimal. The user sees a clean **circular Fish or Not button** and should **not be able to tell that the circle is part of a fish**.
+The initial screen should remain extremely minimal. The user sees a clean **large circular Fish or Not button** and should **not be able to tell that the circle is part of a fish**.
+
+The button should be visually inviting and clearly feel tappable:
+
+- larger than a normal utility button and visually dominant on the screen
+- soft, restrained glow / halo around the circle
+- subtle depth, lighting, pulse, or breathing effect may be used to create tactile curiosity
+- the effect should make the user want to press it without revealing what the circle really is
+- avoid excessive neon, busy animation, or anything that makes the interface feel game-like or cheap
 
 Before the user taps, do not show visual clues that reveal the trick:
 
@@ -54,52 +62,67 @@ Before the user taps, do not show visual clues that reveal the trick:
 - no hook or fishing line
 - no eye styling that makes the button obviously look like an eye
 
-The circle should read simply as a polished round button.
+The circle should read simply as a polished, mysterious round button.
 
 The key design requirement is:
 
 > **The user first discovers what the circle really is only after tapping it.**
 
-### Result-dependent reveal
+### Shared reveal, then result-dependent ending
 
-The recommendation result determines which of two distinct branded transitions plays.
+Both positive and negative recommendations must begin with the **same reveal**. The user should not know the result from the first part of the animation.
+
+Shared sequence:
+
+1. The user taps the circular button.
+2. The button reacts physically to the tap with a brief compression / light response.
+3. The interface rapidly **zooms out / pulls back**, while preserving visual continuity with the original circle.
+4. During the zoom-out, the user realizes that the original circular button is actually **the eye of a fish**.
+5. The zoom continues until the full fish is visible.
+6. A fishing line and hook appear in sync with the reveal.
+
+Only after this point does the animation branch.
 
 #### FISH — good fishing conditions
 
 If the recommendation is positive:
 
-1. The user taps the circular button.
-2. The interface rapidly **zooms out / pulls back**, while keeping visual continuity with the original circle.
-3. During the zoom-out, the user realizes that the original circular button is actually **the eye of a fish**.
-4. The zoom continues until the full fish is visible.
-5. A fishing line and hook appear in sync with the reveal.
-6. The hook catches the fish.
-7. The fish gives a brief, playful movement or struggle.
-8. The fish is pulled away/off screen.
-9. The fishing recommendation result screen is revealed.
+1. The hook reaches the fish.
+2. The fish bites / is caught by the hook.
+3. The fish gives a brief, playful movement or struggle.
+4. The fish is pulled away/off screen.
+5. The positive fishing recommendation result screen is revealed.
 
-The intended surprise is:
+The intended sequence is:
 
 **Button → Eye → Full Fish → Hook → Caught → Result**
-
-The zoom-out is a visual/scale transition; it does not require a literal camera system.
 
 #### NOT — poor fishing conditions
 
 If the recommendation is negative:
 
-1. The user taps the same circular button.
-2. Instead of becoming a fish eye, the circle is revealed/transformed as a **ping-pong ball**.
-3. A ping-pong paddle quickly enters the scene.
-4. The paddle strikes the ball.
-5. The ball is hit rapidly out of the screen.
-6. The **NOT TODAY** / negative recommendation result screen is revealed.
+1. The same fish and hook are visible after the shared reveal.
+2. The hook approaches or presents the opportunity to bite.
+3. The fish **does not take the hook** and instead escapes / swims away.
+4. The hook is left behind or misses as the fish exits the scene.
+5. The negative recommendation result screen is revealed.
 
-The intended surprise is:
+The intended sequence is:
 
-**Button → Ping-Pong Ball → Paddle Hit → Ball Flies Away → Result**
+**Button → Eye → Full Fish → Hook → Fish Escapes → Result**
 
-This is a deliberate Chinese-language visual pun as well as a playful global animation: when the user should not go fishing, the app visually switches from fishing to “doing something else / 摸鱼”. The animation should still make sense without requiring the user to understand the Chinese pun.
+The negative animation should feel playful rather than punishing. The idea is not “failure”; it is simply that **today the fish are not cooperating / it is not worth going**.
+
+### Why both outcomes share the fish reveal
+
+The surprise is the discovery that the original button was the fish's eye all along. That discovery is stronger if it happens consistently for both outcomes.
+
+The result should be revealed only by what happens **after** the fish and hook appear:
+
+- **FISH:** the fish gets caught.
+- **NOT:** the fish gets away.
+
+This preserves the core visual identity and avoids introducing an unrelated second metaphor for the negative state.
 
 ### Critical design rule
 
@@ -107,15 +130,17 @@ This is a deliberate Chinese-language visual pun as well as a playful global ani
 
 The earlier concept where the home screen visibly contained a fish with the button already acting as its eye is rejected. The reveal itself is the experience.
 
-Likewise, the negative state should not be telegraphed before the tap. The same home-screen circle must support both outcomes so the user does not know which animation is coming.
+The previously proposed negative ping-pong-ball / paddle animation is also rejected. Both outcomes now use the same fish-eye reveal and diverge only at the catch-vs-escape moment.
+
+The same home-screen circle must support both outcomes so the user cannot predict the result before the reveal.
 
 ### Timing and implementation
 
-The transition should be fast enough to feel responsive and short enough not to become annoying with repeated use. Aim for roughly **0.8–1.4 seconds**, subject to animation tuning.
+The transition should be fast enough to feel responsive and short enough not to become annoying with repeated use. Aim for roughly **0.9–1.5 seconds**, subject to animation tuning.
 
-Implementation preference: native SwiftUI animation where practical, using scale, position, masking, shape/path animation, keyframes, and transitions. Avoid introducing SpriteKit or another game engine solely for this interaction unless native SwiftUI proves unable to achieve the required polish.
+Implementation preference: native SwiftUI animation where practical, using scale, position, masking, shape/path animation, keyframes, matched visual continuity, and transitions. Avoid introducing SpriteKit or another game engine solely for this interaction unless native SwiftUI proves unable to achieve the required polish.
 
-The recommendation can be computed immediately on tap (or already be ready), and the animation can then branch to the FISH or NOT sequence without exposing a loading state unless data retrieval actually requires one.
+The recommendation can be computed immediately on tap (or already be ready), and the animation can then branch at the catch/escape point without exposing a loading state unless data retrieval actually requires one.
 
 ---
 
