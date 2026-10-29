@@ -10,13 +10,21 @@
   - **Accessibility & Reduce Motion**: `accessibilityReduceMotion` instantly bypasses animation delays and navigates directly to the recommendation result. Duplicate taps are locked out during transit (`checking = true`), and the interaction safely resets on dismiss or app backgrounding.
   - **Neutral home copy**: Updated String Catalog `Localizable.xcstrings` so `home.tapEye` now reads *"Tap to find your window."* / *"轻点寻找最佳时机。"*, removing the giveaway before tapping.
 
+- **MapKit Location & Practical Access Point Handoff (`PRODUCT_DECISIONS` Section 5):**
+  - **Practical Access Data Model**: Added `AccessPoint` and `AccessPointType` (fishing piers, public boat launches, shoreline access trails, parking areas) with verified geographic coordinates and localized metadata.
+  - **Embedded MapKit Map**: Embedded an interactive preview map in `ResultView` with a custom `Marker` pinned directly to the practical legal access point (not the center of the lake).
+  - **One-Tap Apple Maps Navigation**: Added a prominent **"Navigate in Apple Maps"** action that hands off driving directions to Apple Maps via `MKMapItem.openInMaps(...)`.
+
+- **Native iOS Share Sheet (`PRODUCT_DECISIONS` Section 6):**
+  - Added native `ShareLink` actions (both in the navigation bar toolbar and a dedicated share action card) to share a formatted fishing plan summary with decision, best window, target species, weather forecast, access point, and deep-link reference (`fishornot://plan/...`).
+
 ## Verification performed
 
 - **Swift Package Core Tests**: All 7 persistence and recommendation unit tests passed (`swift test`).
 - **Full iOS App Build**: `xcodebuild -scheme FishOrNot -sdk iphonesimulator` completed with `** BUILD SUCCEEDED **`.
 - **UI Test Suite on iPhone Simulator**: `xcodebuild test` executed on an iOS Simulator device (iOS 27.0 runtime / iPhone 17 simulator), passing all 3 UI test cases:
   - `testChineseHomeKeepsThePrimaryActionAccessible` (PASSED)
-  - `testCoreFlowAndLocalPersistence` (PASSED)
+  - `testCoreFlowAndLocalPersistence` (PASSED — verifies navigation button and share link accessibility)
   - `testFishEyeCanBeUsedAgainAfterReturningHome` (PASSED)
   - Final result: `** TEST SUCCEEDED **`.
 

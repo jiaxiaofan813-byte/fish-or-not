@@ -14,6 +14,8 @@ final class FishOrNotUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["decision"].waitForExistence(timeout: 5))
         XCTAssertEqual(app.staticTexts["decision"].label, "NOT TODAY.")
         XCTAssertTrue(app.staticTexts["Cedar Lake"].exists)
+        XCTAssertTrue(app.buttons["navigateButton"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.buttons["shareButton"].exists)
         capture("Result")
         app.navigationBars.buttons.firstMatch.tap()
 

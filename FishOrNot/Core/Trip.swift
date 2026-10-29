@@ -23,6 +23,31 @@ struct GearItem: Identifiable, Codable, Equatable {
     var packed = false
 }
 
+enum AccessPointType: String, Codable, CaseIterable {
+    case pier = "Fishing Pier"
+    case boatLaunch = "Boat Launch"
+    case shoreAccess = "Shoreline Access"
+    case parking = "Parking Area"
+
+    var icon: String {
+        switch self {
+        case .pier: return "figure.fishing"
+        case .boatLaunch: return "sailboat.fill"
+        case .shoreAccess: return "water.waves"
+        case .parking: return "parkingsign.circle.fill"
+        }
+    }
+}
+
+struct AccessPoint: Identifiable, Codable, Equatable {
+    var id: String
+    var name: String
+    var type: AccessPointType
+    var latitude: Double
+    var longitude: Double
+    var note: String?
+}
+
 struct FishingWindow: Identifiable, Equatable {
     let id: String
     let dayOffset: Int
@@ -37,6 +62,7 @@ struct FishingWindow: Identifiable, Equatable {
     let rainPercent: Int
     let baseScore: Int
     let tackle: String
+    var accessPoint: AccessPoint? = nil
 }
 
 struct TripPlan: Equatable {
@@ -47,6 +73,26 @@ struct TripPlan: Equatable {
     let bring: [String]
     let gearToAdd: [String]
     var goToday: Bool { best.dayOffset == 0 }
+
+    var shareSubject: String {
+        goToday ? "Fish or Not: Yes, let's go fishing today!" : "Fish or Not: Next best window is \(best.time)"
+    }
+
+    var shareSummaryText: String {
+        let decisionText = goToday ? "YES. Go today!" : "NOT TODAY. Better window ahead."
+        var lines: [String] = [
+            "🎣 FISH OR NOT",
+            "Decision: \(decisionText) · Score: \(score)/100",
+            "Window: \(best.time) · \(best.water)",
+            "Target: \(best.species.rawValue)",
+            "Conditions: \(best.temperature)°F · Wind \(best.windMPH) mph · Rain \(best.rainPercent)%"
+        ]
+        if let access = best.accessPoint {
+            lines.append("Access: \(access.name) (\(access.type.rawValue))")
+        }
+        lines.append("Open in Fish or Not: fishornot://plan/\(best.id)")
+        return lines.joined(separator: "\n")
+    }
 }
 
 protocol RecommendationProviding {
@@ -87,20 +133,70 @@ struct DemoRecommendationEngine: RecommendationProviding {
     }
 
     static let fixtures: [FishingWindow] = [
-        .init(id: "willow-today", dayOffset: 0, time: "4:00–7:00 PM", durationHours: 3,
-              water: "Willow Lake", driveMinutes: 18, species: .bluegill, access: [.shore],
-              temperature: 64, windMPH: 12, rainPercent: 30, baseScore: 62, tackle: "Small hooks and worms"),
-        .init(id: "cedar-tomorrow", dayOffset: 1, time: "6:30–9:30 AM", durationHours: 3,
-              water: "Cedar Lake", driveMinutes: 24, species: .crappie, access: [.shore, .boat],
-              temperature: 61, windMPH: 4, rainPercent: 10, baseScore: 89, tackle: "Ultralight rod and small jigs"),
-        .init(id: "pine-day-two", dayOffset: 2, time: "5:00–8:00 PM", durationHours: 3,
-              water: "Pine Reservoir", driveMinutes: 40, species: .bass, access: [.boat],
-              temperature: 68, windMPH: 6, rainPercent: 15, baseScore: 84, tackle: "Medium rod and soft plastics"),
-        .init(id: "willow-day-three", dayOffset: 3, time: "7:00–10:00 AM", durationHours: 3,
-              water: "Willow Lake", driveMinutes: 18, species: .bluegill, access: [.shore, .boat],
-              temperature: 63, windMPH: 5, rainPercent: 5, baseScore: 81, tackle: "Small hooks and worms"),
-        .init(id: "cedar-day-four", dayOffset: 4, time: "6:30–9:30 AM", durationHours: 3,
-              water: "Cedar Lake", driveMinutes: 24, species: .crappie, access: [.shore, .boat],
-              temperature: 60, windMPH: 7, rainPercent: 20, baseScore: 76, tackle: "Ultralight rod and small jigs")
+        .init(
+            id: "willow-today", dayOffset: 0, time: "4:00–7:00 PM", durationHours: 3,
+            water: "Willow Lake", driveMinutes: 18, species: .bluegill, access: [.shore],
+            temperature: 64, windMPH: 12, rainPercent: 30, baseScore: 62, tackle: "Small hooks and worms",
+            accessPoint: .init(
+                id: "willow-pier",
+                name: "Willow Lake Public Fishing Pier",
+                type: .pier,
+                latitude: 45.0215,
+                longitude: -93.2842,
+                note: "Accessible T-dock on east shoreline with dedicated public parking"
+            )
+        ),
+        .init(
+            id: "cedar-tomorrow", dayOffset: 1, time: "6:30–9:30 AM", durationHours: 3,
+            water: "Cedar Lake", driveMinutes: 24, species: .crappie, access: [.shore, .boat],
+            temperature: 61, windMPH: 4, rainPercent: 10, baseScore: 89, tackle: "Ultralight rod and small jigs",
+            accessPoint: .init(
+                id: "cedar-south-dock",
+                name: "Cedar Lake South Pier & Launch",
+                type: .pier,
+                latitude: 44.9585,
+                longitude: -93.3197,
+                note: "Public shoreline fishing pier and canoe/kayak launch on south shore"
+            )
+        ),
+        .init(
+            id: "pine-day-two", dayOffset: 2, time: "5:00–8:00 PM", durationHours: 3,
+            water: "Pine Reservoir", driveMinutes: 40, species: .bass, access: [.boat],
+            temperature: 68, windMPH: 6, rainPercent: 15, baseScore: 84, tackle: "Medium rod and soft plastics",
+            accessPoint: .init(
+                id: "pine-boat-ramp",
+                name: "Pine Point Public Boat Ramp",
+                type: .boatLaunch,
+                latitude: 44.9120,
+                longitude: -93.4210,
+                note: "Dual concrete launch ramps with courtesy dock and trailer parking"
+            )
+        ),
+        .init(
+            id: "willow-day-three", dayOffset: 3, time: "7:00–10:00 AM", durationHours: 3,
+            water: "Willow Lake", driveMinutes: 18, species: .bluegill, access: [.shore, .boat],
+            temperature: 63, windMPH: 5, rainPercent: 5, baseScore: 81, tackle: "Small hooks and worms",
+            accessPoint: .init(
+                id: "willow-trail-access",
+                name: "Willow Lake Shoreline Trail Access",
+                type: .shoreAccess,
+                latitude: 45.0238,
+                longitude: -93.2885,
+                note: "Bank fishing clearings along north park trail"
+            )
+        ),
+        .init(
+            id: "cedar-day-four", dayOffset: 4, time: "6:30–9:30 AM", durationHours: 3,
+            water: "Cedar Lake", driveMinutes: 24, species: .crappie, access: [.shore, .boat],
+            temperature: 60, windMPH: 7, rainPercent: 20, baseScore: 76, tackle: "Ultralight rod and small jigs",
+            accessPoint: .init(
+                id: "cedar-north-launch",
+                name: "Cedar Lake North Public Launch",
+                type: .boatLaunch,
+                latitude: 44.9662,
+                longitude: -93.3180,
+                note: "Paved launch ramp with seasonal dock and turnaround area"
+            )
+        )
     ]
 }
