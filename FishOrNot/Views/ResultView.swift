@@ -173,7 +173,7 @@ struct ResultView: View {
                 Text(LaunchCoverage.displayName).foregroundStyle(Palette.lime)
                 Text("This recommendation uses fictional waters. You can explore real public access separately.")
                     .font(.subheadline).foregroundStyle(Palette.muted)
-                Button("Explore 10 real waters") { showWaters = true }
+                Button(LaunchCoverage.exploreTitle) { showWaters = true }
                     .accessibilityIdentifier("resultExploreWatersButton")
                 Text("Demo locations cannot be opened as real destinations.")
                     .font(.caption).foregroundStyle(Palette.muted)

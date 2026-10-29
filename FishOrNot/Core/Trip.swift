@@ -52,6 +52,7 @@ enum AccessPointType: String, Codable, CaseIterable {
     case boatLaunch = "boat_launch"
     case shoreAccess = "shore_access"
     case parking = "parking"
+    case breakwater = "breakwater"
 
     var displayName: String {
         switch self {
@@ -59,6 +60,7 @@ enum AccessPointType: String, Codable, CaseIterable {
         case .boatLaunch: return L10n.text("Boat Launch")
         case .shoreAccess: return L10n.text("Shoreline Access")
         case .parking: return L10n.text("Parking Area")
+        case .breakwater: return L10n.text("Breakwater fishing site")
         }
     }
 
@@ -68,6 +70,7 @@ enum AccessPointType: String, Codable, CaseIterable {
         case .boatLaunch: return "sailboat.fill"
         case .shoreAccess: return "water.waves"
         case .parking: return "parkingsign.circle.fill"
+        case .breakwater: return "water.waves"
         }
     }
 }

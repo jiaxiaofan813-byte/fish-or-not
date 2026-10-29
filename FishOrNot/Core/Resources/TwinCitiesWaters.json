@@ -19,8 +19,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B54953140-07DA-47BE-BBE5-DAB38CF35B71%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "shore"
@@ -38,8 +38,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BD23DF6CC-2C76-4B6C-89B7-8CA466C10895%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "boat"
@@ -66,8 +66,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BF3043AB4-71AA-416A-BA7A-60F997068346%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "shore"
@@ -85,8 +85,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B775940BD-5975-4DFF-9844-584F09B09E08%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "boat"
@@ -113,8 +113,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B2BC73F8D-389E-4F41-A92A-B11E2265283B%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "shore"
@@ -132,8 +132,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B0349C501-676A-45F0-99BE-01D0C5F1D571%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "boat"
@@ -160,8 +160,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B94A47690-9563-48B7-B2DE-A2ABE9407077%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "shore"
@@ -179,8 +179,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B7C019910-E54B-425B-951C-228B4D8536D8%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "boat"
@@ -207,8 +207,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B17BD94D9-906D-4B11-8928-3129003A53B4%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "shore"
@@ -235,8 +235,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B5831DF86-AA0F-46AC-A4C6-CF8BE2DFDED1%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "shore"
@@ -263,8 +263,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B30409357-C5F4-4EC4-9D62-ADFC20E12816%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "shore"
@@ -282,8 +282,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B1D9E8F5B-75E5-48D1-9676-9B436DC2D1E2%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "boat"
@@ -310,8 +310,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B84998DB3-38E4-4CB4-ABDC-F171F162B81C%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "shore"
@@ -329,8 +329,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BB487F100-3FD7-40FE-AE03-CC3973801DAC%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "boat"
@@ -357,8 +357,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B27E4E140-356F-4309-BAD6-1A329D5E903B%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "shore"
@@ -376,8 +376,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BFD6F507D-7584-4FAC-8900-822044206142%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "boat"
@@ -404,8 +404,8 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BD80D0E76-1677-4599-9957-7D510F57AC11%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "shore"
@@ -423,8 +423,1755 @@
           "isDemo": false,
           "verification": {
             "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BA8B8CF74-CCE8-465B-9F2A-A8750A35BCDF%7D%27&outFields=%2A&outSR=4326&f=pjson",
-            "checkedAt": "2026-10-29T16:47:11Z",
-            "reviewBy": "2027-01-27T16:47:11Z",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-02008400",
+      "name": "Crooked Lake",
+      "county": "Anoka",
+      "lakeNumber": "02008400",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=02008400",
+      "accessPoints": [
+        {
+          "id": "c73a80cf-139e-413a-a347-6a05701ba4e9",
+          "name": "Crooked Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.20918291025627,
+          "longitude": -93.33942635824968,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BC73A80CF-139E-413A-A347-6A05701BA4E9%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "2b2c3aef-9d7b-4b8a-b1f2-f15817cd0fbc",
+          "name": "Crooked Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.2187530191346,
+          "longitude": -93.34175236056423,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B2B2C3AEF-9D7B-4B8A-B1F2-F15817CD0FBC%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-02004500",
+      "name": "Golden Lake",
+      "county": "Anoka",
+      "lakeNumber": "02004500",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=02004500",
+      "accessPoints": [
+        {
+          "id": "fb8649dc-b2ef-4991-ba30-e72c98d4d880",
+          "name": "Golden Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.13766322288061,
+          "longitude": -93.15220675466956,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BFB8649DC-B2EF-4991-BA30-E72C98D4D880%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "7dafaabe-6cc5-4b24-8c19-6e818d9e8899",
+          "name": "Golden Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.13683944919189,
+          "longitude": -93.1535256614819,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B7DAFAABE-6CC5-4B24-8C19-6E818D9E8899%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-02005300",
+      "name": "Ham Lake",
+      "county": "Anoka",
+      "lakeNumber": "02005300",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=02005300",
+      "accessPoints": [
+        {
+          "id": "b62dcb25-86d5-43e9-a092-e4ae976a5079",
+          "name": "Ham Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.25300338955073,
+          "longitude": -93.22398536388695,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BB62DCB25-86D5-43E9-A092-E4AE976A5079%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "c92d230b-f788-43a5-9de4-18bf530f911a",
+          "name": "Ham Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.252761186496954,
+          "longitude": -93.22409311348854,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BC92D230B-F788-43A5-9DE4-18BF530F911A%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-02002600",
+      "name": "Linwood Lake",
+      "county": "Anoka",
+      "lakeNumber": "02002600",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=02002600",
+      "accessPoints": [
+        {
+          "id": "dd3c053a-7414-402d-a05d-70f8e3aaddfb",
+          "name": "Linwood Lake Breakwater Fishing Site",
+          "type": "breakwater",
+          "latitude": 45.35711889978208,
+          "longitude": -93.09749962108586,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BDD3C053A-7414-402D-A05D-70F8E3AADDFB%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "1bdb5875-09a7-4d8c-b449-56c3c5ff3646",
+          "name": "Linwood Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.357124748775696,
+          "longitude": -93.09693817204183,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B1BDB5875-09A7-4D8C-B449-56C3C5FF3646%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-02000400",
+      "name": "Peltier Lake",
+      "county": "Anoka",
+      "lakeNumber": "02000400",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=02000400",
+      "accessPoints": [
+        {
+          "id": "ac87577a-bb94-4211-ad80-320d8c6d2a89",
+          "name": "Peltier Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.172232375550415,
+          "longitude": -93.06890803244703,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BAC87577A-BB94-4211-AD80-320D8C6D2A89%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "908faa4f-63f5-4dc3-b246-86db50382bc0",
+          "name": "Peltier Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.17508645066512,
+          "longitude": -93.06921167086698,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B908FAA4F-63F5-4DC3-B246-86DB50382BC0%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-10001200",
+      "name": "Ann Lake",
+      "county": "Carver",
+      "lakeNumber": "10001200",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=10001200",
+      "accessPoints": [
+        {
+          "id": "9ea4cda3-d259-4ec3-b29c-ed97023ca663",
+          "name": "Ann Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.86964011703602,
+          "longitude": -93.555990268895,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B9EA4CDA3-D259-4EC3-B29C-ED97023CA663%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "0554fd8b-be90-445b-87b5-9b4c684e687a",
+          "name": "Lake Ann, Lake Ann Park Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.86892621018239,
+          "longitude": -93.55669744288895,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B0554FD8B-BE90-445B-87B5-9B4C684E687A%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-10004400",
+      "name": "Auburn Lake",
+      "county": "Carver",
+      "lakeNumber": "10004400",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=10004400",
+      "accessPoints": [
+        {
+          "id": "6b389945-6ca4-4413-85ff-919403ca8720",
+          "name": "Auburn Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.87120499372054,
+          "longitude": -93.69559367214838,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B6B389945-6CA4-4413-85FF-919403CA8720%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-10000900",
+      "name": "Minnewashta Lake",
+      "county": "Carver",
+      "lakeNumber": "10000900",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=10000900",
+      "accessPoints": [
+        {
+          "id": "e22e2977-fc74-4fbd-b39d-67da47b2f22d",
+          "name": "Minnewashta Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.87825006963922,
+          "longitude": -93.61993591475715,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BE22E2977-FC74-4FBD-B39D-67DA47B2F22D%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "855e05e1-94a5-4d25-877e-753571a1ec3d",
+          "name": "Lake Minnewashta, Regional Park (E) Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.87882258873929,
+          "longitude": -93.60209669993068,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B855E05E1-94A5-4D25-877E-753571A1EC3D%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-10004500",
+      "name": "Steiger Lake",
+      "county": "Carver",
+      "lakeNumber": "10004500",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=10004500",
+      "accessPoints": [
+        {
+          "id": "bdb90dcd-b6b8-4e48-a56a-a3e3e08a7f15",
+          "name": "Steiger Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.86511352707061,
+          "longitude": -93.65760770411809,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BBDB90DCD-B6B8-4E48-A56A-A3E3E08A7F15%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "db4c1e87-b609-428f-b056-d3f8b71405c5",
+          "name": "Steiger Lake, Carver Co Park Reserve Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.865300409016356,
+          "longitude": -93.65651335901262,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BDB4C1E87-B609-428F-B056-D3F8B71405C5%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-10001300",
+      "name": "Lake Susan",
+      "county": "Carver",
+      "lakeNumber": "10001300",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=10001300",
+      "accessPoints": [
+        {
+          "id": "ac30c272-7fc9-48d0-a40b-9ec606fc2c40",
+          "name": "Lake Susan Park Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.85381521506278,
+          "longitude": -93.54194335063073,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BAC30C272-7FC9-48D0-A40B-9EC606FC2C40%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "17145802-d199-468f-9d86-c469f8c9f108",
+          "name": "Lake Susan, City Park Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.854248779402845,
+          "longitude": -93.54326570944339,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B17145802-D199-468F-9D86-C469F8C9F108%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-10005900",
+      "name": "Waconia Lake",
+      "county": "Carver",
+      "lakeNumber": "10005900",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=10005900",
+      "accessPoints": [
+        {
+          "id": "0127b9bb-c932-42db-be8f-12fcd9f43ea6",
+          "name": "Waconia Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.852701452475586,
+          "longitude": -93.7926019969027,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B0127B9BB-C932-42DB-BE8F-12FCD9F43EA6%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "0f0b184c-5fc2-4eb8-8117-26c109bcf2e7",
+          "name": "Lake Waconia, Lakeview Terrace Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.85915451861374,
+          "longitude": -93.7995809218174,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B0F0B184C-5FC2-4EB8-8117-26C109BCF2E7%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-19005900",
+      "name": "Blackhawk Lake",
+      "county": "Dakota",
+      "lakeNumber": "19005900",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=19005900",
+      "accessPoints": [
+        {
+          "id": "1119f5a0-c343-4750-87a1-13cc8628774c",
+          "name": "Blackhawk Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.8185735346968,
+          "longitude": -93.18311481470029,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B1119F5A0-C343-4750-87A1-13CC8628774C%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-19045600",
+      "name": "Cobblestone Lake",
+      "county": "Dakota",
+      "lakeNumber": "19045600",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=19045600",
+      "accessPoints": [
+        {
+          "id": "f65563fc-4ae8-4a2e-acf6-f58501ae98ed",
+          "name": "Cobblestone Park Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.72163756410206,
+          "longitude": -93.16655907211117,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BF65563FC-4AE8-4A2E-ACF6-F58501AE98ED%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-19002700",
+      "name": "Crystal Lake",
+      "county": "Dakota",
+      "lakeNumber": "19002700",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=19002700",
+      "accessPoints": [
+        {
+          "id": "9bf70ba2-1dab-4caf-a117-981806013819",
+          "name": "Crystal Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.72517700529474,
+          "longitude": -93.27185426530431,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B9BF70BA2-1DAB-4CAF-A117-981806013819%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "6881555d-b5d4-41af-ac61-49cccd1ea8f0",
+          "name": "Crystal Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.726708069591055,
+          "longitude": -93.27755611029397,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B6881555D-B5D4-41AF-AC61-49CCCD1EA8F0%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-19005700",
+      "name": "Fish Lake",
+      "county": "Dakota",
+      "lakeNumber": "19005700",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=19005700",
+      "accessPoints": [
+        {
+          "id": "f4dca88e-3371-4a30-99d6-72b2c0fc5ddf",
+          "name": "Fish Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.82254635756661,
+          "longitude": -93.16368455949181,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BF4DCA88E-3371-4A30-99D6-72B2C0FC5DDF%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "9c541cbe-673e-4849-b1ac-3622f4811346",
+          "name": "Fish Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.82223134005562,
+          "longitude": -93.16120649990928,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B9C541CBE-673E-4849-B1AC-3622F4811346%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-19006500",
+      "name": "Holland Lake",
+      "county": "Dakota",
+      "lakeNumber": "19006500",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=19006500",
+      "accessPoints": [
+        {
+          "id": "3097566c-7831-4e26-8fdf-cd04ef4830da",
+          "name": "Holland Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.78897609182875,
+          "longitude": -93.14378072579059,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B3097566C-7831-4E26-8FDF-CD04EF4830DA%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-19002600",
+      "name": "Marion Lake",
+      "county": "Dakota",
+      "lakeNumber": "19002600",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=19002600",
+      "accessPoints": [
+        {
+          "id": "7e80c8f0-f27a-4add-8b29-eb6f81d845c1",
+          "name": "Marion Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.67153870289131,
+          "longitude": -93.29304928808007,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B7E80C8F0-F27A-4ADD-8B29-EB6F81D845C1%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "f3788b92-a244-4441-8b01-f15968e17b84",
+          "name": "Marion Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.66663336955249,
+          "longitude": -93.28485163994266,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BF3788B92-A244-4441-8B01-F15968E17B84%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-27006700",
+      "name": "Bryant Lake",
+      "county": "Hennepin",
+      "lakeNumber": "27006700",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=27006700",
+      "accessPoints": [
+        {
+          "id": "8ec2afb6-fad5-41bd-a9ff-550b4d6a9dc6",
+          "name": "Bryant Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.88157727409358,
+          "longitude": -93.43115482689564,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B8EC2AFB6-FAD5-41BD-A9FF-550B4D6A9DC6%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "fa8eab56-bacf-4d7f-a93d-f21341ed0c36",
+          "name": "Bryant Lake, Regional Park Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.881955829577066,
+          "longitude": -93.43153369055018,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BFA8EAB56-BACF-4D7F-A93D-F21341ED0C36%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-27004700",
+      "name": "Bush Lake",
+      "county": "Hennepin",
+      "lakeNumber": "27004700",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=27004700",
+      "accessPoints": [
+        {
+          "id": "b5d02a67-02c4-48c7-a51f-4d11b515875c",
+          "name": "Bush Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.831831763652,
+          "longitude": -93.38153557119743,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BB5D02A67-02C4-48C7-A51F-4D11B515875C%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "46268735-f110-4b75-b521-14d7d7597894",
+          "name": "West Bush Lake Park Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.831295359822455,
+          "longitude": -93.38156899026846,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B46268735-F110-4B75-B521-14D7D7597894%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-27004800",
+      "name": "Hyland Lake",
+      "county": "Hennepin",
+      "lakeNumber": "27004800",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=27004800",
+      "accessPoints": [
+        {
+          "id": "0f06d637-5045-461a-a327-ce5a0bd9c630",
+          "name": "Hyland Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.81924368298817,
+          "longitude": -93.36811816815708,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B0F06D637-5045-461A-A327-CE5A0BD9C630%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "f60ac351-6a71-4ea0-b52d-4551978e79a5",
+          "name": "Hyland Lake, Park Reserve Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.824093459395804,
+          "longitude": -93.37105540950242,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BF60AC351-6A71-4EA0-B52D-4551978E79A5%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-27017600",
+      "name": "Independence Lake",
+      "county": "Hennepin",
+      "lakeNumber": "27017600",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=27017600",
+      "accessPoints": [
+        {
+          "id": "87e49ad3-25b1-46aa-a910-f4612d5b0d28",
+          "name": "Independence Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.019494268622374,
+          "longitude": -93.64416590870702,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B87E49AD3-25B1-46AA-A910-F4612D5B0D28%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "9a70de80-b57a-468d-8659-8d58ceda9757",
+          "name": "Lake Indepenence, Baker Park Reserve Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.025900938691855,
+          "longitude": -93.63580292966337,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B9A70DE80-B57A-468D-8659-8D58CEDA9757%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-27013300",
+      "name": "Lake Minnetonka",
+      "county": "Hennepin",
+      "lakeNumber": "27013300",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=27013300",
+      "accessPoints": [
+        {
+          "id": "cec805c2-20f9-4c9a-8510-9cfc7d7eb9d2",
+          "name": "Lake Minnetonka, Regional Park Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.89759159724576,
+          "longitude": -93.66856958694463,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BCEC805C2-20F9-4C9A-8510-9CFC7D7EB9D2%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "352be07c-7908-426c-bada-0e6e715aafad",
+          "name": "Lake Minnetonka, Regional Park Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.89795478895819,
+          "longitude": -93.66877532937308,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B352BE07C-7908-426C-BADA-0E6E715AAFAD%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-27011800",
+      "name": "Fish Lake",
+      "county": "Hennepin",
+      "lakeNumber": "27011800",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=27011800",
+      "accessPoints": [
+        {
+          "id": "f3cf7744-567c-4f86-9175-672bc5513580",
+          "name": "Fish Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.08468542939188,
+          "longitude": -93.46562493050763,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BF3CF7744-567C-4F86-9175-672BC5513580%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "d5f54e47-260c-49b1-aed5-3d19c134c1c3",
+          "name": "Fish Lake, Regional Park Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.0837680891426,
+          "longitude": -93.46399344010182,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BD5F54E47-260C-49B1-AED5-3D19C134C1C3%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-10000200",
+      "name": "Riley Lake",
+      "county": "Hennepin",
+      "lakeNumber": "10000200",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=10000200",
+      "accessPoints": [
+        {
+          "id": "1ca6c3ba-9a93-411b-a826-a71e9e82cd79",
+          "name": "Riley Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.836871263922475,
+          "longitude": -93.51233920532472,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B1CA6C3BA-9A93-411B-A826-A71E9E82CD79%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "7363b470-b008-4034-94b0-0e8063a7c56c",
+          "name": "Riley Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.8343663996798,
+          "longitude": -93.51234595921882,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B7363B470-B008-4034-94B0-0E8063A7C56C%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-27007100",
+      "name": "Round Lake",
+      "county": "Hennepin",
+      "lakeNumber": "27007100",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=27007100",
+      "accessPoints": [
+        {
+          "id": "8c56788a-4cd2-4086-9526-889fc66d8fe2",
+          "name": "Round Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.86816564306036,
+          "longitude": -93.49036468756388,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B8C56788A-4CD2-4086-9526-889FC66D8FE2%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "969a9077-4358-447f-b01f-046b97c0492a",
+          "name": "Round Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.86920988931367,
+          "longitude": -93.49025763959797,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B969A9077-4358-447F-B01F-046B97C0492A%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-27011700",
+      "name": "Weaver Lake",
+      "county": "Hennepin",
+      "lakeNumber": "27011700",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=27011700",
+      "accessPoints": [
+        {
+          "id": "be0af51f-30ba-4223-874e-32eaf1ba9c30",
+          "name": "Weaver Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.10797302358683,
+          "longitude": -93.4972226974882,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BBE0AF51F-30BA-4223-874E-32EAF1BA9C30%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "61dd7176-02a0-4540-936f-c513ae3b5314",
+          "name": "Weaver Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.11073794869168,
+          "longitude": -93.5096415409754,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B61DD7176-02A0-4540-936F-C513AE3B5314%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-27003700",
+      "name": "Wirth Lake",
+      "county": "Hennepin",
+      "lakeNumber": "27003700",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=27003700",
+      "accessPoints": [
+        {
+          "id": "52a4286d-3f64-4fab-81dd-bd9781a67145",
+          "name": "Wirth Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.98344654040468,
+          "longitude": -93.32020987782937,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B52A4286D-3F64-4FAB-81DD-BD9781A67145%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "1736cf77-c7b0-422d-8e1a-7d437aaa8787",
+          "name": "Theo Wirth Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.982228629727786,
+          "longitude": -93.32136271018467,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B1736CF77-C7B0-422D-8E1A-7D437AAA8787%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-62001600",
+      "name": "Beaver Lake",
+      "county": "Ramsey",
+      "lakeNumber": "62001600",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=62001600",
+      "accessPoints": [
+        {
+          "id": "54f369bc-db09-4155-8d92-392f50157d4a",
+          "name": "Beaver Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.97346643565237,
+          "longitude": -93.0082027533625,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B54F369BC-DB09-4155-8D92-392F50157D4A%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-62004800",
+      "name": "Bennett Lake",
+      "county": "Ramsey",
+      "lakeNumber": "62004800",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=62004800",
+      "accessPoints": [
+        {
+          "id": "fce014b4-22e1-4249-bbc1-a8962d3074a9",
+          "name": "Bennet Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.01868173870594,
+          "longitude": -93.14469669914519,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BFCE014B4-22E1-4249-BBC1-A8962D3074A9%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-62000700",
+      "name": "Gervais Lake",
+      "county": "Ramsey",
+      "lakeNumber": "62000700",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=62000700",
+      "accessPoints": [
+        {
+          "id": "8e4f916e-bf20-4a0d-987d-d873efef1b14",
+          "name": "Gervais Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.015108008601715,
+          "longitude": -93.07567169049614,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B8E4F916E-BF20-4A0D-987D-D873EFEF1B14%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-62001000",
+      "name": "Keller Lake",
+      "county": "Ramsey",
+      "lakeNumber": "62001000",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=62001000",
+      "accessPoints": [
+        {
+          "id": "ad8b26bf-7f39-4a3e-98e8-678d3b9f92c9",
+          "name": "Spoon (Keller) Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.01272997788295,
+          "longitude": -93.06331232654146,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BAD8B26BF-7F39-4A3E-98E8-678D3B9F92C9%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "825b74a6-2e7e-4056-9ce2-2b926124cd48",
+          "name": "Keller Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.01323915007242,
+          "longitude": -93.06518140098208,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B825B74A6-2E7E-4056-9CE2-2B926124CD48%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-62000100",
+      "name": "Silver Lake",
+      "county": "Ramsey",
+      "lakeNumber": "62000100",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=62000100",
+      "accessPoints": [
+        {
+          "id": "d5a5d78e-3710-4eca-9257-4c857a4feda3",
+          "name": "Silver Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.02403903602346,
+          "longitude": -92.98959924876549,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BD5A5D78E-3710-4ECA-9257-4C857A4FEDA3%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "1861d9e1-08e2-43e0-a9e9-d5e056dc3486",
+          "name": "Silver Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.03015265977249,
+          "longitude": -92.98751008166674,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B1861D9E1-08E2-43E0-A9E9-D5E056DC3486%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-70009100",
+      "name": "Cedar Lake",
+      "county": "Scott",
+      "lakeNumber": "70009100",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=70009100",
+      "accessPoints": [
+        {
+          "id": "c0a74a64-6a25-4e9a-bf18-6d054a411b7c",
+          "name": "Cedar Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.57414293456385,
+          "longitude": -93.52832754619217,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BC0A74A64-6A25-4E9A-BF18-6D054A411B7C%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "24c03fc5-8823-4b6a-9e1d-722116b6ea0e",
+          "name": "Cedar Lake (E) Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.592171979419156,
+          "longitude": -93.50967078918872,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B24C03FC5-8823-4B6A-9E1D-722116B6EA0E%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-70002200",
+      "name": "Cleary Lake",
+      "county": "Scott",
+      "lakeNumber": "70002200",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=70002200",
+      "accessPoints": [
+        {
+          "id": "7da8f5b9-742e-454a-9a2a-ae20489b2cb0",
+          "name": "Cleary Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.69118679845073,
+          "longitude": -93.38626537839795,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B7DA8F5B9-742E-454A-9A2A-AE20489B2CB0%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "88191fee-c732-415f-8776-29ec3e305279",
+          "name": "Cleary Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.68947573994007,
+          "longitude": -93.39009472953667,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B88191FEE-C732-415F-8776-29EC3E305279%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-70002600",
+      "name": "Lower Prior Lake",
+      "county": "Scott",
+      "lakeNumber": "70002600",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=70002600",
+      "accessPoints": [
+        {
+          "id": "f692db10-8ec4-4533-978b-6e5260839d22",
+          "name": "Lower Prior Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.7192602203059,
+          "longitude": -93.43499766051093,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BF692DB10-8EC4-4533-978B-6E5260839D22%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "8523d328-1175-4f25-995c-ab63f713cdc5",
+          "name": "Lower Prior Lake, Sand Point Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.73940220949676,
+          "longitude": -93.40769815020356,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B8523D328-1175-4F25-995C-AB63F713CDC5%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-70009500",
+      "name": "O'Dowd Lake",
+      "county": "Scott",
+      "lakeNumber": "70009500",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=70009500",
+      "accessPoints": [
+        {
+          "id": "6a413fba-78dc-41f7-8940-215621e13ed0",
+          "name": "O'Dowd Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.74644977827107,
+          "longitude": -93.51642931185171,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B6A413FBA-78DC-41F7-8940-215621E13ED0%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "3f8cfd69-b8d6-43a7-b5fa-925390bc847d",
+          "name": "O'Dowd Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.74275077937132,
+          "longitude": -93.52387803981378,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B3F8CFD69-B8D6-43A7-B5FA-925390BC847D%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-82005200",
+      "name": "Big Marine Lake",
+      "county": "Washington",
+      "lakeNumber": "82005200",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=82005200",
+      "accessPoints": [
+        {
+          "id": "bdfc2aba-e758-400d-be25-eb490d57e06f",
+          "name": "Big Marine Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.205889149925554,
+          "longitude": -92.87238836233168,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BBDFC2ABA-E758-400D-BE25-EB490D57E06F%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "9dd479bf-0c3b-43f8-8b7b-fc40756325f5",
+          "name": "Big Marine Lake, Co Park Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.20408611932418,
+          "longitude": -92.869875852553,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B9DD479BF-0C3B-43F8-8B7B-FC40756325F5%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-82010600",
+      "name": "Elmo Lake",
+      "county": "Washington",
+      "lakeNumber": "82010600",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=82010600",
+      "accessPoints": [
+        {
+          "id": "84447a92-a6d7-4fd2-9583-b789a6d3fb8e",
+          "name": "Elmo Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.980595823839614,
+          "longitude": -92.88851870446129,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B84447A92-A6D7-4FD2-9583-B789A6D3FB8E%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "f44cef95-f5c6-4e00-87b5-df87491ac2bf",
+          "name": "Lake Elmo Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.98707503956915,
+          "longitude": -92.88546284114332,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BF44CEF95-F5C6-4E00-87B5-DF87491AC2BF%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-82004600",
+      "name": "Square Lake",
+      "county": "Washington",
+      "lakeNumber": "82004600",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=82004600",
+      "accessPoints": [
+        {
+          "id": "6811aff3-1528-4014-8c79-446f0b702c59",
+          "name": "Square Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.15499705100381,
+          "longitude": -92.79505485940818,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B6811AFF3-1528-4014-8C79-446F0B702C59%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "feca0b12-c7c6-4812-9295-bd51be08bd0f",
+          "name": "Square Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.152663059521885,
+          "longitude": -92.79636966175559,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BFECA0B12-C7C6-4812-9295-BD51BE08BD0F%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-82011500",
+      "name": "Tanners Lake",
+      "county": "Washington",
+      "lakeNumber": "82011500",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=82011500",
+      "accessPoints": [
+        {
+          "id": "cddfe73d-2ec8-4ed4-8be7-d2a5f1f600b4",
+          "name": "Tanners Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.95274222276362,
+          "longitude": -92.97934338509928,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BCDDFE73D-2EC8-4ED4-8BE7-D2A5F1F600B4%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "d2d2b647-ef7d-4c3b-9d38-744abf6272b9",
+          "name": "Tanners Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.95239005952294,
+          "longitude": -92.9796371212714,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BD2D2B647-EF7D-4C3B-9D38-744ABF6272B9%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:59:02Z",
+            "reviewBy": "2027-01-27T16:59:02Z",
             "publicAccessConfirmed": true,
             "supportedAccess": [
               "boat"

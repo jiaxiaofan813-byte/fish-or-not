@@ -2,13 +2,15 @@ import XCTest
 @testable import FishOrNotCore
 
 final class WaterCatalogTests: XCTestCase {
-    func testBundledCatalogHasTenDistinctWatersAndEighteenPublicAccessRecords() throws {
+    func testBundledCatalogHasFiftyDistinctWatersAndNinetyOnePublicAccessRecords() throws {
         let catalog = try WaterCatalog.bundled()
-        XCTAssertEqual(catalog.waters.count, 10)
-        XCTAssertEqual(Set(catalog.waters.map(\.lakeNumber)).count, 10)
-        XCTAssertEqual(catalog.waters.flatMap(\.accessPoints).count, 18)
-        XCTAssertEqual(catalog.waters.filter { $0.supportedAccess.contains(.shore) }.count, 10)
-        XCTAssertEqual(catalog.waters.filter { $0.supportedAccess.contains(.boat) }.count, 8)
+        XCTAssertEqual(catalog.waters.count, 50)
+        XCTAssertEqual(Set(catalog.waters.map(\.lakeNumber)).count, 50)
+        XCTAssertEqual(catalog.waters.flatMap(\.accessPoints).count, 91)
+        XCTAssertEqual(catalog.waters.filter { $0.supportedAccess.contains(.shore) }.count, 50)
+        XCTAssertEqual(catalog.waters.filter { $0.supportedAccess.contains(.boat) }.count, 41)
+        XCTAssertEqual(Set(catalog.counties), LaunchCoverage.counties)
+        XCTAssertEqual(LaunchCoverage.waterCount, catalog.waters.count)
         for water in catalog.waters {
             for point in water.accessPoints {
                 let verification = try XCTUnwrap(point.verification)
@@ -42,6 +44,18 @@ final class WaterCatalogTests: XCTestCase {
         XCTAssertEqual(catalog.waters.filter { $0.matches("Como", access: .boat) }.count, 0)
         XCTAssertEqual(catalog.waters.filter { $0.matches("62005500", access: .shore) }.count, 1)
         XCTAssertEqual(catalog.waters.filter { $0.matches("no-such-lake", access: nil) }.count, 0)
+    }
+
+    func testCountyAndMultiwordSearchDisambiguateSameNamedLakes() throws {
+        let catalog = try WaterCatalog.bundled()
+        XCTAssertEqual(catalog.search("Fish Lake").count, 2)
+        XCTAssertEqual(catalog.search("Fish Hennepin").map(\.id), ["mn-27011800"])
+        XCTAssertEqual(catalog.search("Fish", county: "Dakota").map(\.id), ["mn-19005700"])
+        XCTAssertEqual(catalog.search("", county: "Carver").count, 6)
+        XCTAssertEqual(catalog.search("", access: .boat, county: "Carver").count, 5)
+        XCTAssertEqual(catalog.search("", county: "Unknown").count, 0)
+        let linwood = try XCTUnwrap(catalog.waters.first { $0.id == "mn-02002600" })
+        XCTAssertEqual(linwood.accessPoints.first?.type, .breakwater)
     }
 
     func testInvalidCatalogFailsClosed() throws {

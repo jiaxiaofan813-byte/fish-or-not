@@ -12,11 +12,12 @@ struct WaterRecord: Codable, Identifiable, Equatable {
         accessPoints.reduce(into: Set<Access>()) { $0.formUnion($1.verification?.supportedAccess ?? []) }
     }
 
-    func matches(_ query: String, access: Access?) -> Bool {
+    func matches(_ query: String, access: Access?, county: String? = nil) -> Bool {
+        if let county, self.county != county { return false }
         if let access, !supportedAccess.contains(access) { return false }
-        let text = [name, county, lakeNumber, name == "Bde Maka Ska" ? "Calhoun" : ""].joined(separator: " ")
-        return query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
-            text.localizedStandardContains(query.trimmingCharacters(in: .whitespacesAndNewlines))
+        let text = [name, self.county, lakeNumber, name == "Bde Maka Ska" ? "Calhoun" : ""].joined(separator: " ")
+        let terms = query.split(whereSeparator: \.isWhitespace)
+        return terms.allSatisfy { text.localizedStandardContains(String($0)) }
     }
 
     func destination(accessID: String, for mode: Access, at date: Date = .now) -> WaterDestination? {
@@ -41,6 +42,13 @@ struct WaterCatalog: Codable {
     let schemaVersion: Int
     let regionID: String
     let waters: [WaterRecord]
+
+    var counties: [String] { Array(Set(waters.map(\.county))).sorted() }
+
+    func search(_ query: String, access: Access? = nil, county: String? = nil) -> [WaterRecord] {
+        waters.filter { $0.matches(query, access: access, county: county) }
+            .sorted { $0.name == $1.name ? $0.county < $1.county : $0.name < $1.name }
+    }
 
     enum CatalogError: Error { case missingResource, invalidRecords }
 
@@ -67,7 +75,7 @@ struct WaterCatalog: Codable {
         var pointIDs = Set<String>()
         for water in catalog.waters {
             guard water.id == "mn-" + water.lakeNumber, water.lakeNumber.count == 8,
-                  !water.name.isEmpty, !water.accessPoints.isEmpty,
+                  !water.name.isEmpty, LaunchCoverage.counties.contains(water.county), !water.accessPoints.isEmpty,
                   water.lakeFinderURL.host == "www.dnr.state.mn.us" else { throw CatalogError.invalidRecords }
             for point in water.accessPoints {
                 guard pointIDs.insert(point.id).inserted, !point.isDemo,
@@ -78,7 +86,7 @@ struct WaterCatalog: Codable {
                       verification.sourceURL.scheme == "https",
                       verification.sourceURL.host == "enterprise.gisdata.mn.gov",
                       verification.sourceURL.path.hasPrefix("/aghost/rest/services/us_mn_state_dnr/"),
-                      (44.7...45.3).contains(point.latitude), (-93.65 ... -92.85).contains(point.longitude)
+                      LaunchCoverage.contains(latitude: point.latitude, longitude: point.longitude)
                 else { throw CatalogError.invalidRecords }
             }
         }

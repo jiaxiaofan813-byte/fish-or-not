@@ -10,6 +10,7 @@ private enum WaterFilter: String, CaseIterable, Identifiable {
 struct WatersView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var query = ""
+    @State private var county: String?
     @State private var filter: WaterFilter = .all
     @State private var catalog: WaterCatalog?
     @State private var failed = false
@@ -37,7 +38,7 @@ struct WatersView: View {
     }
 
     private func catalogList(_ catalog: WaterCatalog) -> some View {
-        let waters = catalog.waters.filter { $0.matches(query, access: filter.mode) }.sorted { $0.name < $1.name }
+        let waters = catalog.search(query, access: filter.mode, county: county)
         return List {
             Section {
                 Text(LaunchCoverage.displayName).font(.headline)
@@ -45,6 +46,13 @@ struct WatersView: View {
                     .font(.subheadline).foregroundStyle(Palette.muted)
                 Text("Choose a water and a public access point. Weather and bite forecasts are not included here.")
                     .font(.caption).foregroundStyle(Palette.muted)
+                Picker("County", selection: $county) {
+                    Text("All counties").tag(Optional<String>.none)
+                    ForEach(catalog.counties, id: \.self) { name in
+                        Text(L10n.text("%@ County", name)).tag(Optional(name))
+                    }
+                }
+                .accessibilityIdentifier("waterCountyFilter")
                 Picker("Access", selection: $filter) {
                     ForEach(WaterFilter.allCases) { Text($0.title).tag($0) }
                 }
@@ -69,7 +77,7 @@ struct WatersView: View {
                     }
                     .accessibilityIdentifier("water-" + water.id)
                 }
-            } header: { Text(L10n.text("%d waters", waters.count)).accessibilityIdentifier("waterCount") }
+            } header: { Text(L10n.text(waters.count == 1 ? "%d water" : "%d waters", waters.count)).accessibilityIdentifier("waterCount") }
             if waters.isEmpty {
                 ContentUnavailableView.search(text: query)
             }

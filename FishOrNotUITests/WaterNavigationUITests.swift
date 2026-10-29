@@ -14,15 +14,17 @@ final class WaterNavigationUITests: XCTestCase {
         return app
     }
 
-    @MainActor func testTenWatersFilterAndAppleMapsHandoff() {
+    @MainActor func testFiftyWatersFilterAndAppleMapsHandoff() {
         let app = launch()
-        XCTAssertEqual(app.staticTexts["waterCount"].label, "10 waters")
+        XCTAssertEqual(app.staticTexts["waterCount"].label, "50 waters")
         app.segmentedControls.buttons["Boat"].tap()
-        XCTAssertEqual(app.staticTexts["waterCount"].label, "8 waters")
+        XCTAssertEqual(app.staticTexts["waterCount"].label, "41 waters")
         app.segmentedControls.buttons["All access"].tap()
-        XCTAssertEqual(app.staticTexts["waterCount"].label, "10 waters")
-        capture("Ten real waters")
-        app.buttons["water-mn-62000200"].tap()
+        XCTAssertEqual(app.staticTexts["waterCount"].label, "50 waters")
+        capture("Fifty real waters")
+        let baldEagle = app.buttons["water-mn-62000200"]
+        if !baldEagle.isHittable { app.swipeUp() }
+        baldEagle.tap()
         let launch = app.buttons["access-fd6f507d-7584-4fac-8900-822044206142"]
         XCTAssertTrue(launch.waitForExistence(timeout: 5))
         if !launch.isHittable { app.swipeUp() }
@@ -41,7 +43,7 @@ final class WaterNavigationUITests: XCTestCase {
 
     @MainActor func testChineseCatalogSearchAndShoreOnlyWater() {
         let app = launch(language: "zh-Hans", locale: "zh_CN")
-        XCTAssertEqual(app.staticTexts["waterCount"].label, "10 个水域")
+        XCTAssertEqual(app.staticTexts["waterCount"].label, "50 个水域")
         let search = app.searchFields.firstMatch
         XCTAssertTrue(search.waitForExistence(timeout: 5))
         search.tap()
@@ -53,6 +55,23 @@ final class WaterNavigationUITests: XCTestCase {
         if !app.buttons["navigateWaterButton"].isHittable { app.swipeUp() }
         XCTAssertTrue(app.buttons["navigateWaterButton"].isEnabled)
         capture("Chinese real water detail")
+    }
+
+    @MainActor func testCountyFilterAndMultiwordSearch() {
+        let app = launch()
+        app.buttons["waterCountyFilter"].tap()
+        app.buttons["Carver County"].tap()
+        XCTAssertEqual(app.staticTexts["waterCount"].label, "6 waters")
+        app.buttons["waterCountyFilter"].tap()
+        app.buttons["All counties"].tap()
+        XCTAssertEqual(app.staticTexts["waterCount"].label, "50 waters")
+        let search = app.searchFields.firstMatch
+        search.tap()
+        search.typeText("Fish Hennepin\n")
+        XCTAssertEqual(app.staticTexts["waterCount"].label, "1 water")
+        app.buttons["water-mn-27011800"].tap()
+        XCTAssertTrue(app.navigationBars["Fish Lake"].waitForExistence(timeout: 5))
+        capture("Same-name lake disambiguated")
     }
 
     @MainActor private func capture(_ name: String) {

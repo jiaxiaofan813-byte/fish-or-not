@@ -64,7 +64,7 @@ struct HomeView: View {
                     }
 
                     Button { sheet = .waters } label: {
-                        Label("Explore 10 real waters", systemImage: "map")
+                        Label(LaunchCoverage.exploreTitle, systemImage: "map")
                             .font(.subheadline.weight(.semibold)).frame(maxWidth: .infinity, minHeight: 44)
                     }
                     .foregroundStyle(Palette.lime)
