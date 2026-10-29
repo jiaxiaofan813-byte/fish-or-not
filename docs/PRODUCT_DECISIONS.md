@@ -345,3 +345,11 @@ Before adding a new feature, ask:
 If the answer to #5 is yes, default to postponing it.
 
 The product's competitive advantage should come from **useful recommendations, speed, trust, and memorable interaction**, not from having the largest feature list.
+
+---
+
+## 14. Initial Launch Geography
+
+Confirmed by the product owner on October 29, 2026: **Minnesota, United States** is the initial launch region.
+
+This sets the geographic direction; it does not imply statewide verified coverage. Select a small initial set of waters and confirm practical public access points, species records, source provenance, and update dates before enabling live recommendations or navigation. The initial city / subregion and specific waters remain to be selected.

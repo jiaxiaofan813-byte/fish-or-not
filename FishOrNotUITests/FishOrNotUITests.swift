@@ -5,6 +5,7 @@ final class FishOrNotUITests: XCTestCase {
     func testCoreFlowAndLocalPersistence() {
         let app = XCUIApplication()
         app.launchEnvironment["FISH_OR_NOT_TEST_PROFILE"] = "ui-tests.\(UUID().uuidString)"
+        app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         app.launch()
         XCTAssertTrue(app.buttons["fishButton"].waitForExistence(timeout: 10))
         capture("Home")
@@ -33,6 +34,37 @@ final class FishOrNotUITests: XCTestCase {
         app.launch()
         app.buttons["fishButton"].tap()
         XCTAssertTrue(app.staticTexts["No matching sample trips"].waitForExistence(timeout: 5))
+    }
+
+    @MainActor
+    func testFishEyeCanBeUsedAgainAfterReturningHome() {
+        let app = XCUIApplication()
+        app.launchEnvironment["FISH_OR_NOT_TEST_PROFILE"] = "ui-repeat.\(UUID().uuidString)"
+        app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+        app.launch()
+        for _ in 0..<2 {
+            let eye = app.buttons["fishButton"]
+            XCTAssertTrue(eye.waitForExistence(timeout: 5))
+            XCTAssertTrue(eye.isEnabled)
+            eye.tap()
+            XCTAssertTrue(app.staticTexts["decision"].waitForExistence(timeout: 5))
+            app.navigationBars.buttons.firstMatch.tap()
+        }
+    }
+
+    @MainActor
+    func testChineseHomeKeepsThePrimaryActionAccessible() {
+        let app = XCUIApplication()
+        app.launchEnvironment["FISH_OR_NOT_TEST_PROFILE"] = "ui-chinese.\(UUID().uuidString)"
+        app.launchArguments = ["-AppleLanguages", "(zh-Hans)", "-AppleLocale", "zh_CN"]
+        app.launch()
+        let eye = app.buttons["fishButton"]
+        XCTAssertTrue(eye.waitForExistence(timeout: 5))
+        XCTAssertEqual(eye.label, "钓鱼还是摸鱼？")
+        XCTAssertTrue(app.staticTexts["钓鱼还是摸鱼"].exists)
+        capture("Chinese Home")
+        eye.tap()
+        XCTAssertTrue(app.staticTexts["decision"].waitForExistence(timeout: 5))
     }
 
     @MainActor private func capture(_ name: String) {
