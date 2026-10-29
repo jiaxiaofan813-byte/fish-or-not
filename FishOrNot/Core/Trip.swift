@@ -1,13 +1,37 @@
 import Foundation
 
+// Persist semantic identifiers; accept the original English values when reading old profiles.
 enum Access: String, Codable, CaseIterable, Identifiable {
-    case shore = "Shore", boat = "Boat"
+    case shore, boat
     var id: String { rawValue }
+    var displayName: String { L10n.text(self == .shore ? "Shore" : "Boat") }
+    init(from decoder: Decoder) throws {
+        let value = try decoder.singleValueContainer().decode(String.self)
+        guard let access = Self(rawValue: value.lowercased()) else {
+            throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Unknown access ID"))
+        }
+        self = access
+    }
 }
 
 enum Species: String, Codable, CaseIterable, Identifiable {
-    case any = "Any species", crappie = "Crappie", bass = "Bass", bluegill = "Bluegill"
+    case any, crappie, bass, bluegill
     var id: String { rawValue }
+    var displayName: String {
+        switch self {
+        case .any: return L10n.text("Any species")
+        case .crappie: return L10n.text("Crappie")
+        case .bass: return L10n.text("Bass")
+        case .bluegill: return L10n.text("Bluegill")
+        }
+    }
+    init(from decoder: Decoder) throws {
+        let value = try decoder.singleValueContainer().decode(String.self)
+        guard let species = Self(rawValue: value == "Any species" ? "any" : value.lowercased()) else {
+            throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Unknown species ID"))
+        }
+        self = species
+    }
 }
 
 struct Preferences: Codable, Equatable {
@@ -24,10 +48,19 @@ struct GearItem: Identifiable, Codable, Equatable {
 }
 
 enum AccessPointType: String, Codable, CaseIterable {
-    case pier = "Fishing Pier"
-    case boatLaunch = "Boat Launch"
-    case shoreAccess = "Shoreline Access"
-    case parking = "Parking Area"
+    case pier = "fishing_pier"
+    case boatLaunch = "boat_launch"
+    case shoreAccess = "shore_access"
+    case parking = "parking"
+
+    var displayName: String {
+        switch self {
+        case .pier: return L10n.text("Fishing Pier")
+        case .boatLaunch: return L10n.text("Boat Launch")
+        case .shoreAccess: return L10n.text("Shoreline Access")
+        case .parking: return L10n.text("Parking Area")
+        }
+    }
 
     var icon: String {
         switch self {
@@ -46,12 +79,15 @@ struct AccessPoint: Identifiable, Codable, Equatable {
     var latitude: Double
     var longitude: Double
     var note: String?
+    var isDemo = true
+    var verification: AccessVerification? = nil
 }
 
 struct FishingWindow: Identifiable, Equatable {
     let id: String
     let dayOffset: Int
-    let time: String
+    let startHour: Int
+    let startMinute: Int
     let durationHours: Int
     let water: String
     let driveMinutes: Int
@@ -72,27 +108,71 @@ struct TripPlan: Equatable {
     let reasons: [String]
     let bring: [String]
     let gearToAdd: [String]
+    var createdAt = Date()
+    var fishingAccess: Access = .shore
+    var isDemo = true
     var goToday: Bool { best.dayOffset == 0 }
 
-    var shareSubject: String {
-        goToday ? "Fish or Not: Yes, let's go fishing today!" : "Fish or Not: Next best window is \(best.time)"
+    // Freeze the plan's date when it is created, including across midnight and sharing.
+    var calendar: Calendar {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(identifier: "America/Chicago")!
+        return calendar
     }
 
+    func start(of window: FishingWindow) -> Date {
+        let day = calendar.date(byAdding: .day, value: window.dayOffset, to: calendar.startOfDay(for: createdAt))!
+        return calendar.date(bySettingHour: window.startHour, minute: window.startMinute, second: 0, of: day)!
+    }
+
+    func dateText(for window: FishingWindow, locale: Locale = .current) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = locale
+        formatter.timeZone = calendar.timeZone
+        formatter.setLocalizedDateFormatFromTemplate("EEEyMMMd")
+        return formatter.string(from: start(of: window))
+    }
+
+    func timeText(for window: FishingWindow, locale: Locale = .current) -> String {
+        let formatter = DateIntervalFormatter()
+        formatter.locale = locale
+        formatter.timeZone = calendar.timeZone
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        let date = start(of: window)
+        let end = calendar.date(byAdding: .hour, value: window.durationHours, to: date)!
+        return formatter.string(from: date, to: end)
+    }
+
+    func navigableAccessPoint(at date: Date = .now) -> AccessPoint? {
+        guard !isDemo, let point = best.accessPoint,
+              point.permitsNavigation(for: fishingAccess, at: date) else { return nil }
+        return point
+    }
+
+    var shareSubject: String { L10n.text("Fish or Not · Fishing plan") }
+
     var shareSummaryText: String {
-        let decisionText = goToday ? "YES. Go today!" : "NOT TODAY. Better window ahead."
-        var lines: [String] = [
-            "🎣 FISH OR NOT",
-            "Decision: \(decisionText) · Score: \(score)/100",
-            "Window: \(best.time) · \(best.water)",
-            "Target: \(best.species.rawValue)",
-            "Conditions: \(best.temperature)°F · Wind \(best.windMPH) mph · Rain \(best.rainPercent)%"
+        var lines = [
+            L10n.text("Fish or Not · Fishing plan"),
+            L10n.text(goToday ? "YES. Go today!" : "NOT TODAY. Better window ahead."),
+            L10n.text("Score: %d/100 · Trip suitability, not catch probability", score),
+            L10n.text("Date: %@ (Minnesota time)", dateText(for: best)),
+            L10n.text("Window: %@", timeText(for: best)),
+            L10n.text("Water: %@", L10n.text(best.water)),
+            L10n.text("Target: %@", best.species.displayName),
+            L10n.text("Conditions: %@ · Wind %@ · Rain %d%%", L10n.temperature(best.temperature), L10n.wind(best.windMPH), best.rainPercent)
         ]
-        if let access = best.accessPoint {
-            lines.append("Access: \(access.name) (\(access.type.rawValue))")
+        if isDemo { lines.insert(L10n.text("DEMO ONLY · Fictional waters and weather. Do not use for navigation."), at: 0) }
+        if let point = navigableAccessPoint() {
+            lines.append(L10n.text("Access: %@", point.name))
+        } else {
+            lines.append(L10n.text("Navigation unavailable: no verified access point."))
         }
-        lines.append("Open in Fish or Not: fishornot://plan/\(best.id)")
+        // No app link until URL registration and restoration of the exact plan are implemented.
         return lines.joined(separator: "\n")
     }
+
 }
 
 protocol RecommendationProviding {
@@ -123,18 +203,19 @@ struct DemoRecommendationEngine: RecommendationProviding {
             best: best, score: min(100, max(0, best.baseScore)),
             backup: ranked.dropFirst().first,
             reasons: [
-                "Light wind: \(best.windMPH) mph in this sample forecast.",
-                "\(best.driveMinutes)-minute sample drive, within your \(preferences.maxDriveMinutes)-minute limit.",
-                "Supports \(preferences.access.rawValue.lowercased()) fishing and a \(preferences.durationHours)-hour trip."
+                L10n.text("Sample wind: %@.", L10n.wind(best.windMPH)),
+                L10n.text("%d-minute sample drive, within your %d-minute limit.", best.driveMinutes, preferences.maxDriveMinutes),
+                L10n.text("%@ fishing · %d-hour trip.", preferences.access.displayName, preferences.durationHours)
             ],
             bring: owned,
-            gearToAdd: [best.tackle, "Water, sun protection, and a valid fishing license"]
+            gearToAdd: [L10n.text(best.tackle), L10n.text("Water, sun protection, and a valid fishing license")],
+            fishingAccess: preferences.access
         )
     }
 
     static let fixtures: [FishingWindow] = [
         .init(
-            id: "willow-today", dayOffset: 0, time: "4:00–7:00 PM", durationHours: 3,
+            id: "willow-today", dayOffset: 0, startHour: 16, startMinute: 0, durationHours: 3,
             water: "Willow Lake", driveMinutes: 18, species: .bluegill, access: [.shore],
             temperature: 64, windMPH: 12, rainPercent: 30, baseScore: 62, tackle: "Small hooks and worms",
             accessPoint: .init(
@@ -147,7 +228,7 @@ struct DemoRecommendationEngine: RecommendationProviding {
             )
         ),
         .init(
-            id: "cedar-tomorrow", dayOffset: 1, time: "6:30–9:30 AM", durationHours: 3,
+            id: "cedar-tomorrow", dayOffset: 1, startHour: 6, startMinute: 30, durationHours: 3,
             water: "Cedar Lake", driveMinutes: 24, species: .crappie, access: [.shore, .boat],
             temperature: 61, windMPH: 4, rainPercent: 10, baseScore: 89, tackle: "Ultralight rod and small jigs",
             accessPoint: .init(
@@ -160,7 +241,7 @@ struct DemoRecommendationEngine: RecommendationProviding {
             )
         ),
         .init(
-            id: "pine-day-two", dayOffset: 2, time: "5:00–8:00 PM", durationHours: 3,
+            id: "pine-day-two", dayOffset: 2, startHour: 17, startMinute: 0, durationHours: 3,
             water: "Pine Reservoir", driveMinutes: 40, species: .bass, access: [.boat],
             temperature: 68, windMPH: 6, rainPercent: 15, baseScore: 84, tackle: "Medium rod and soft plastics",
             accessPoint: .init(
@@ -173,7 +254,7 @@ struct DemoRecommendationEngine: RecommendationProviding {
             )
         ),
         .init(
-            id: "willow-day-three", dayOffset: 3, time: "7:00–10:00 AM", durationHours: 3,
+            id: "willow-day-three", dayOffset: 3, startHour: 7, startMinute: 0, durationHours: 3,
             water: "Willow Lake", driveMinutes: 18, species: .bluegill, access: [.shore, .boat],
             temperature: 63, windMPH: 5, rainPercent: 5, baseScore: 81, tackle: "Small hooks and worms",
             accessPoint: .init(
@@ -186,7 +267,7 @@ struct DemoRecommendationEngine: RecommendationProviding {
             )
         ),
         .init(
-            id: "cedar-day-four", dayOffset: 4, time: "6:30–9:30 AM", durationHours: 3,
+            id: "cedar-day-four", dayOffset: 4, startHour: 6, startMinute: 30, durationHours: 3,
             water: "Cedar Lake", driveMinutes: 24, species: .crappie, access: [.shore, .boat],
             temperature: 60, windMPH: 7, rainPercent: 20, baseScore: 76, tackle: "Ultralight rod and small jigs",
             accessPoint: .init(

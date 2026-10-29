@@ -1,33 +1,29 @@
 # Development status — October 29, 2026
 
-## Implemented in this increment
+## Current increment: Twin Cities pilot and trusted-data boundaries
 
-- **Home-screen signature interaction redesign adhering to Section 3 of `docs/PRODUCT_DECISIONS.md`:**
-  - **Zero-spoilers before tap**: The home screen initially renders only a minimal, polished circular button (`#142924` card background, subtle lime border, tactile `arrow.up.right` icon). All fish outlines, fins, tails, hooks, and fish-eye visual hints are completely hidden prior to the tap.
-  - **Result-dependent reveal branching**:
-    - **FISH branch (positive recommendation / `goToday == true`)**: The button serves as the anchor point, rapidly revealing that it is the eye of a fish as the fish body (`Palette.lime`), tail, dorsal fin, and gill expand around it (~320 ms). A fishing hook drops down to the mouth (~240 ms), the fish wiggles playfully in struggle (~320 ms), and is lifted upward off-screen (~260 ms) before revealing the fishing plan.
-    - **NOT branch (negative / `goToday == false` / no match, "摸鱼" pun)**: The central circular button morphs into a competition orange ping-pong ball with 3-star rating markings (`★★★ 40+`) (~240 ms). A vector ping-pong paddle (red rubber face, black edge tape, wooden handle) swings in from the side (~240 ms), smashes the ball with an impact burst flash (~110 ms), and rockets the ball off-screen into the upper right (~320 ms) before presenting the "NOT TODAY" or fallback result.
-  - **Accessibility & Reduce Motion**: `accessibilityReduceMotion` instantly bypasses animation delays and navigates directly to the recommendation result. Duplicate taps are locked out during transit (`checking = true`), and the interaction safely resets on dismiss or app backgrounding.
-  - **Neutral home copy**: Updated String Catalog `Localizable.xcstrings` so `home.tapEye` now reads *"Tap to find your window."* / *"轻点寻找最佳时机。"*, removing the giveaway before tapping.
+Product scope follows `docs/PRODUCT_DECISIONS.md`. The launch pilot is **Twin Cities, Minnesota**, confirmed by the product owner. No real waters or access points have been enabled yet.
 
-- **MapKit Location & Practical Access Point Handoff (`PRODUCT_DECISIONS` Section 5):**
-  - **Practical Access Data Model**: Added `AccessPoint` and `AccessPointType` (fishing piers, public boat launches, shoreline access trails, parking areas) with verified geographic coordinates and localized metadata.
-  - **Embedded MapKit Map**: Embedded an interactive preview map in `ResultView` with a custom `Marker` pinned directly to the practical legal access point (not the center of the lake).
-  - **One-Tap Apple Maps Navigation**: Added a prominent **"Navigate in Apple Maps"** action that hands off driving directions to Apple Maps via `MKMapItem.openInMaps(...)`.
+### Implemented
 
-- **Native iOS Share Sheet (`PRODUCT_DECISIONS` Section 6):**
-  - Added native `ShareLink` actions (both in the navigation bar toolbar and a dedicated share action card) to share a formatted fishing plan summary with decision, best window, target species, weather forecast, access point, and deep-link reference (`fishornot://plan/...`).
+- Home and preferences identify the selected pilot area without claiming verified coverage. The resting button is a dominant 232-point neutral circle with a restrained halo and press response. Both outcomes share the fish-eye zoom-out and hook reveal; only then does the fish get caught and lifted, or escape while the hook stays behind. The rejected ping-pong artwork has been removed. Transition budgets are 1.12 seconds for catch and 1.04 seconds for escape; Reduce Motion bypasses the sequence.
+- Map previews and Apple Maps handoff require both a non-demo plan and a non-demo, verified access record. Verification must include an HTTPS source, a check date, a future review deadline, confirmation of public access, the supported fishing access modes, the pilot-region ID, and valid coordinates. The handoff rechecks eligibility when tapped. Review deadlines are supplied by record curators, not inferred from a coordinate.
+- Fictional samples cannot launch navigation. The result explains that verified access is unavailable instead of displaying a real-world map of a fictional destination.
+- Share summaries carry the demo disclaimer, an absolute plan date and window in Minnesota time, weather context, target species, and the score interpretation. They omit unverified access names and the unsupported `fishornot://` link. Exact-plan links remain deferred until routing and plan restoration exist.
+- Result, preferences, gear, coverage, recommendation explanations, and share copy use English / Simplified Chinese String Catalog entries. Temperature and wind units follow the locale. User-entered gear names are preserved.
+- Access, species, and access-point types use stable IDs. Legacy English access/species values remain readable so existing preferences and gear do not need to be discarded.
+- Window dates are anchored when the recommendation is created; time ranges are formatted from structured hours/minutes in `America/Chicago` rather than hard-coded English time strings.
 
-## Verification performed
+## Validation
 
-- **Swift Package Core Tests**: All 7 persistence and recommendation unit tests passed (`swift test`).
-- **Full iOS App Build**: `xcodebuild -scheme FishOrNot -sdk iphonesimulator` completed with `** BUILD SUCCEEDED **`.
-- **UI Test Suite on iPhone Simulator**: `xcodebuild test` executed on an iOS Simulator device (iOS 27.0 runtime / iPhone 17 simulator), passing all 3 UI test cases:
-  - `testChineseHomeKeepsThePrimaryActionAccessible` (PASSED)
-  - `testCoreFlowAndLocalPersistence` (PASSED — verifies navigation button and share link accessibility)
-  - `testFishEyeCanBeUsedAgainAfterReturningHome` (PASSED)
-  - Final result: `** TEST SUCCEEDED **`.
+- Core recommendation, persistence, migration, navigation eligibility, share formatting, and the shared reveal/timing contract: 12 tests passed.
+- iOS simulator build passed. All 4 UI tests passed on the iPhone 17 / iOS 27.0 simulator: Chinese home/result, preference persistence and no-match fallback, repeated return/tap, and the positive catch ending.
+- The first attempt to launch the updated UI suite stalled in the simulator test service. Restarting only the selected test device and running the already-built test products resolved it.
+- The String Catalog contains 92 bilingual entries, checked for matching format placeholders.
+- Earlier MapKit demo pins and their coordinates are **fictional fixtures**, not verified public access records. Earlier verification of a visible navigation button did not establish the validity of those destinations; this increment deliberately removes that behavior.
 
-## Next product/data milestone
+## Next data milestone
 
-Select a small initial Minnesota coverage area and source verified water/access-point records before enabling maps, navigation, or live recommendations. The current fictional samples must never be used as real navigation destinations.
+Curate a small initial set of Twin Cities waters. For each, record a stable water ID, species sources, an actual practical public access point, compatible shore/boat use, source URL, check date, and review deadline. Validate coordinates against the source and check current access restrictions before enabling any real destination. Integrate real forecasts separately; selecting a pilot area does not turn demo conditions into live recommendations.
+
+No accounts, social feed, Fish Camera, ice-thickness prediction, or separate article library are introduced in this increment.

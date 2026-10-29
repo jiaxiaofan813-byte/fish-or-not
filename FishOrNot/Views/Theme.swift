@@ -23,7 +23,7 @@ struct SectionCard<Content: View>: View {
     @ViewBuilder var content: Content
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            Text(title.uppercased()).font(.caption.weight(.bold)).tracking(2).foregroundStyle(Palette.muted)
+            Text(LocalizedStringKey(title)).textCase(.uppercase).font(.caption.weight(.bold)).tracking(2).foregroundStyle(Palette.muted)
             content
         }
         .frame(maxWidth: .infinity, alignment: .leading)

@@ -20,7 +20,7 @@ struct GearView: View {
                     }
                 } header: { Text("Add what you own") }
                 footer: { Text("Gear is saved on your iPhone. Swipe left to remove an item.") }
-                Section("My gear · \(store.gear.count)") {
+                Section(L10n.text("My gear · %d", store.gear.count)) {
                     if store.gear.isEmpty {
                         Text("A rod, your favorite tackle, a trusty net. Start with the basics.")
                             .foregroundStyle(.secondary)
@@ -28,7 +28,7 @@ struct GearView: View {
                     ForEach($store.gear) { $item in
                         Toggle(isOn: $item.packed) {
                             Text(item.name)
-                            Text(item.packed ? "Packed" : "Not packed yet").font(.caption).foregroundStyle(.secondary)
+                            Text(LocalizedStringKey(item.packed ? "Packed" : "Not packed yet")).font(.caption).foregroundStyle(.secondary)
                         }
                     }
                     .onDelete { store.gear.remove(atOffsets: $0) }

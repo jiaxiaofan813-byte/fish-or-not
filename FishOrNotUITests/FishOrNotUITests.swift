@@ -14,8 +14,9 @@ final class FishOrNotUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["decision"].waitForExistence(timeout: 5))
         XCTAssertEqual(app.staticTexts["decision"].label, "NOT TODAY.")
         XCTAssertTrue(app.staticTexts["Cedar Lake"].exists)
-        XCTAssertTrue(app.buttons["navigateButton"].waitForExistence(timeout: 3))
-        XCTAssertTrue(app.buttons["shareButton"].exists)
+        XCTAssertFalse(app.buttons["navigateButton"].exists)
+        XCTAssertTrue(app.staticTexts["navigationUnavailable"].waitForExistence(timeout: 3))
+        XCTAssertTrue(app.buttons["toolbarShareButton"].exists)
         capture("Result")
         app.navigationBars.buttons.firstMatch.tap()
 
@@ -67,6 +68,26 @@ final class FishOrNotUITests: XCTestCase {
         capture("Chinese Home")
         eye.tap()
         XCTAssertTrue(app.staticTexts["decision"].waitForExistence(timeout: 5))
+        XCTAssertEqual(app.staticTexts["decision"].label, "今天先不钓。")
+        XCTAssertFalse(app.buttons["navigateButton"].exists)
+        capture("Chinese Result")
+    }
+
+    @MainActor
+    func testPositiveCatchEndingReachesTodayPlan() {
+        let app = XCUIApplication()
+        app.launchEnvironment["FISH_OR_NOT_TEST_PROFILE"] = "ui-catch.\(UUID().uuidString)"
+        app.launchEnvironment["FISH_OR_NOT_TEST_SCENARIO"] = "today"
+        app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+        app.launch()
+        XCTAssertTrue(app.buttons["fishButton"].waitForExistence(timeout: 10))
+        capture("Large neutral button")
+        app.buttons["fishButton"].tap()
+        XCTAssertTrue(app.staticTexts["decision"].waitForExistence(timeout: 5))
+        XCTAssertEqual(app.staticTexts["decision"].label, "YES.")
+        XCTAssertTrue(app.staticTexts["Willow Lake"].exists)
+        XCTAssertFalse(app.buttons["navigateButton"].exists)
+        capture("Positive Result")
     }
 
     @MainActor private func capture(_ name: String) {

@@ -14,7 +14,12 @@ struct HomeView: View {
     @State private var checking = false
     @State private var phase: HomeTransitionPhase = .idle
     @State private var plan: TripPlan?
-    private let engine = DemoRecommendationEngine()
+    private let engine: DemoRecommendationEngine
+
+    init(store: AppStore, engine: DemoRecommendationEngine = DemoRecommendationEngine()) {
+        self.store = store
+        self.engine = engine
+    }
 
     var body: some View {
         NavigationStack {
@@ -42,9 +47,6 @@ struct HomeView: View {
                             guard !checking else { return }
                             checking = true
                         }
-                        Text(LocalizedStringKey(checking ? "home.checking" : "home.action"))
-                            .font(.title2.weight(.black))
-                            .foregroundStyle(Palette.lime)
                         Text("home.tapEye")
                             .font(.caption).foregroundStyle(Palette.muted)
                             .padding(.top, 8)
@@ -57,6 +59,8 @@ struct HomeView: View {
                         Text("home.horizon")
                             .font(.caption).foregroundStyle(Palette.muted)
                         DemoNotice()
+                        Text(LaunchCoverage.displayName)
+                            .font(.caption2).foregroundStyle(Palette.muted)
                     }
 
                     HStack(spacing: 14) {
@@ -106,34 +110,15 @@ struct HomeView: View {
             if reduceMotion {
                 // No travel, shaking, or artificial delay for Reduce Motion users.
                 try Task.checkCancellation()
-            } else if isFish {
-                // MARK: - Branch A: FISH REVEAL (~1.1s)
-                withAnimation(.easeOut(duration: 0.32)) { phase = .fishZoomOut }
-                try await Task.sleep(for: .milliseconds(320))
-
-                withAnimation(.easeIn(duration: 0.24)) { phase = .fishHookDrop }
-                try await Task.sleep(for: .milliseconds(240))
-
-                withAnimation(.easeInOut(duration: 0.08).repeatCount(4, autoreverses: true)) {
-                    phase = .fishStruggle
-                }
-                try await Task.sleep(for: .milliseconds(320))
-
-                withAnimation(.easeIn(duration: 0.26)) { phase = .fishLift }
-                try await Task.sleep(for: .milliseconds(260))
             } else {
-                // MARK: - Branch B: NOT / PING-PONG REVEAL (~0.95s)
-                withAnimation(.spring(response: 0.24, dampingFraction: 0.72)) { phase = .pingPongMorph }
-                try await Task.sleep(for: .milliseconds(240))
-
-                withAnimation(.easeIn(duration: 0.24)) { phase = .paddleSwing }
-                try await Task.sleep(for: .milliseconds(240))
-
-                withAnimation(.easeInOut(duration: 0.10)) { phase = .paddleSmash }
-                try await Task.sleep(for: .milliseconds(110))
-
-                withAnimation(.easeOut(duration: 0.32)) { phase = .ballFlyAway }
-                try await Task.sleep(for: .milliseconds(320))
+                for step in HomeTransitionStep.sequence(for: isFish ? .fish : .escape) {
+                    let duration = Double(step.milliseconds) / 1_000
+                    let animation: Animation = step.phase == .fishStruggle
+                        ? .easeInOut(duration: 0.06).repeatCount(4, autoreverses: true)
+                        : .easeInOut(duration: duration)
+                    withAnimation(animation) { phase = step.phase }
+                    try await Task.sleep(for: .milliseconds(step.milliseconds))
+                }
             }
             try Task.checkCancellation()
             guard checking, scenePhase == .active else { return }

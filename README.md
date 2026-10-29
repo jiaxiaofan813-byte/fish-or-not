@@ -16,7 +16,7 @@ An iPhone app that helps you decide **whether to fish, when to go, where to go, 
 
 Open `FishOrNot.xcodeproj` in Xcode 16 or later, select the **FishOrNot** scheme and an iPhone simulator, then Run. The deployment target is **iOS 17+**. No API keys, account, or paid services are required for the demo. To run on a physical iPhone, select your own signing team and a unique bundle identifier in Xcode.
 
-The prototype includes the fish-eye home button with a native hook-and-catch transition, a recommendation result, a no-match state, editable trip preferences, and a locally saved gear checklist. All weather, water names, scores, and drive times are fictional sample data. Dates are relative to the day you open the app. Gear you own is listed separately from general suggestions; tackle compatibility is not yet scored.
+The prototype includes the neutral circular home button with a shared fish-eye reveal and catch-or-escape endings, a recommendation result, a no-match state, editable trip preferences, and a locally saved gear checklist. All weather, water names, scores, and drive times are fictional sample data. Dates are anchored when the plan is created, with times in Minnesota’s America/Chicago time zone. Gear you own is listed separately from general suggestions; tackle compatibility is not yet scored.
 
 **Validation:** Run `swift test` for the local recommendation engine. In Xcode, use Product → Test to run the simulator flow and persistence checks. The core tests run independently of the iOS UI via the small Swift package in this repository.
 
@@ -24,11 +24,11 @@ The prototype includes the fish-eye home button with a native hook-and-catch tra
 
 Turn a simple question—“Should I go fishing?”—into a clear, practical plan. Fish or Not starts with a recommendation, then explains the conditions behind it so anglers can make their own call.
 
-The first release will focus on short freshwater trips in a limited launch area, with a curated set of waters and species. The launch region is Minnesota; the initial subset of waters and access points still needs to be curated.
+The first release will focus on short freshwater trips in a limited launch area, with a curated set of waters and species. The launch pilot is the Twin Cities metropolitan area in Minnesota; its initial waters and access points still need to be verified.
 
 ## Core Experience
 
-1. **Open the app.** Tap the fish’s eye above **FISH OR NOT?**. A roughly one-second hook-and-catch animation leads into the plan; Reduce Motion skips the animation. Small **My Gear** and **Preferences** entries support the main action.
+1. **Open the app.** Tap a neutral circular **Fish or Not** button. Only after the tap, a roughly one-second fish reveal and catch-or-escape ending leads into the plan; Reduce Motion skips the animation. Small **My Gear** and **Preferences** entries support the main action.
 2. **Tap once.** Compare available fishing windows over the next five days with nearby locations, target species, and your preferences.
 3. **Get a direct answer.** See **YES** or **NOT TODAY**, followed by the best available plan. If today looks poor, show the next better opportunity when one is available.
 4. **Understand the plan.** See why the window ranks well, where to fish, what to target, what to bring, and a backup option when available.
@@ -101,8 +101,9 @@ Milestones describe planned work, not release commitments. The current build is 
 
 ## October 29, 2026 development increment
 
-- Native SwiftUI fish-eye interaction: tap reaction, falling hook, short struggle, and lift into the existing results flow (about 1.05 seconds).
+- Native SwiftUI signature interaction: a large neutral glowing circle compresses, shrinks into a fish eye, and reveals a fish and hook. Both results share this reveal; a positive result catches and lifts the fish, while a negative result lets it swim away (about 1.0–1.1 seconds).
 - Repeated taps are disabled during the transition. Returning home or interrupting the app resets the interaction. Reduce Motion skips the decorative motion and delay.
-- Added an English / Simplified Chinese String Catalog for the home screen, shared demo notice, and utility labels. Remaining result / settings copy and data-model localization are still pending; the entire app is not yet bilingual.
-- Minnesota is the confirmed launch region. Data remains explicitly fictional until verified waters, access points, and forecast integration are ready.
+- English / Simplified Chinese String Catalogs cover the home, results, settings, gear, and share summary. Dates and measurement units follow the locale; stored species and access IDs remain language-independent.
+- The Twin Cities metropolitan area in Minnesota is the confirmed launch pilot. Data remains fictional; map previews and navigation require a non-demo plan plus a sourced, current, public, compatible access record.
+- Shared demo plans include a demo disclaimer, an absolute date and time window, and a suitability-score explanation. No app links are emitted until exact-plan restoration is implemented.
 - Simulator verification requires a full Xcode installation. Command Line Tools alone cannot build or run this iOS interface.

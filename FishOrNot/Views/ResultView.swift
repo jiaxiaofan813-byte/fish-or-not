@@ -16,8 +16,9 @@ struct ResultView: View {
                     SectionCard(title: "Your best window") {
                         HStack(alignment: .top) {
                             VStack(alignment: .leading, spacing: 8) {
-                                Text(day(plan.best.dayOffset)).font(.title2.bold())
-                                Text(plan.best.time).font(.title3).foregroundStyle(Palette.lime)
+                                Text(plan.dateText(for: plan.best)).font(.title2.bold())
+                                Text(plan.timeText(for: plan.best)).font(.title3).foregroundStyle(Palette.lime)
+                                Text("Times shown in Minnesota time.").font(.caption2).foregroundStyle(Palette.muted)
                             }
                             Spacer()
                             VStack(spacing: 2) {
@@ -26,14 +27,14 @@ struct ResultView: View {
                             }
                         }
                         Divider()
-                        Label(plan.best.water, systemImage: "water.waves").font(.title3.weight(.semibold))
-                        Text("Fictional water · \(plan.best.driveMinutes) min sample drive")
+                        Label(L10n.text(plan.best.water), systemImage: "water.waves").font(.title3.weight(.semibold))
+                        Text(L10n.text("Fictional water · %d min sample drive", plan.best.driveMinutes))
                             .font(.caption).foregroundStyle(Palette.muted)
-                        Label("Target \(plan.best.species.rawValue)", systemImage: "fish")
+                        Label(L10n.text("Target: %@", plan.best.species.displayName), systemImage: "fish")
                         HStack(spacing: 18) {
-                            Label("\(plan.best.temperature)°F", systemImage: "thermometer.medium")
-                            Label("\(plan.best.windMPH) mph", systemImage: "wind")
-                            Label("\(plan.best.rainPercent)%", systemImage: "cloud.rain")
+                            Label(L10n.temperature(plan.best.temperature), systemImage: "thermometer.medium")
+                            Label(L10n.wind(plan.best.windMPH), systemImage: "wind")
+                            Label(L10n.text("Rain: %d%%", plan.best.rainPercent), systemImage: "cloud.rain")
                         }.font(.caption).foregroundStyle(Palette.muted)
                     }
 
@@ -66,8 +67,8 @@ struct ResultView: View {
                     // Secondary Option Card
                     if let backup = plan.backup {
                         SectionCard(title: "A second option") {
-                            Text("\(day(backup.dayOffset)) · \(backup.time)").font(.headline)
-                            Text("\(backup.water) · \(backup.species.rawValue)")
+                            Text("\(plan.dateText(for: backup)) · \(plan.timeText(for: backup))").font(.headline)
+                            Text("\(L10n.text(backup.water)) · \(backup.species.displayName)")
                                 .foregroundStyle(Palette.muted)
                         }
                     }
@@ -104,6 +105,7 @@ struct ResultView: View {
         .background(Palette.ink)
         .navigationTitle("Your fishing plan")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.visible, for: .navigationBar)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 if let plan {
@@ -112,6 +114,7 @@ struct ResultView: View {
                             .font(.body.weight(.medium))
                             .foregroundStyle(Palette.lime)
                     }
+                    .accessibilityLabel("Share Fishing Plan")
                     .accessibilityIdentifier("toolbarShareButton")
                 }
             }
@@ -120,78 +123,55 @@ struct ResultView: View {
 
     private func header(_ plan: TripPlan) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(plan.goToday ? "YES." : "NOT TODAY.")
+            Text(LocalizedStringKey(plan.goToday ? "YES." : "NOT TODAY."))
                 .font(.system(size: 48, weight: .black, design: .rounded))
                 .foregroundStyle(Palette.lime)
                 .accessibilityIdentifier("decision")
-            Text(plan.goToday ? "Your window is today." : "Go \(day(plan.best.dayOffset).lowercased()) instead.")
+            Text(plan.goToday ? L10n.text("Your window is today.") : L10n.text("Next window: %@", plan.dateText(for: plan.best)))
                 .font(.title2.weight(.medium))
             Text("A little planning. A better day outside.").font(.subheadline).foregroundStyle(Palette.muted)
         }.padding(.vertical, 8)
     }
 
-    // MARK: - Location & Practical Access Point Card (MapKit + Apple Maps)
     @ViewBuilder
     private func accessLocationSection(_ plan: TripPlan) -> some View {
-        if let access = plan.best.accessPoint {
-            SectionCard(title: "Location & Access") {
-                VStack(alignment: .leading, spacing: 14) {
-                    // MapKit map centered on verified practical access point
-                    Map(initialPosition: .region(MKCoordinateRegion(
-                        center: CLLocationCoordinate2D(latitude: access.latitude, longitude: access.longitude),
-                        span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
-                    ))) {
-                        Marker(
-                            access.name,
-                            monogram: Text("🎣"),
-                            coordinate: CLLocationCoordinate2D(latitude: access.latitude, longitude: access.longitude)
-                        )
+        SectionCard(title: "Location & Access") {
+            if let access = plan.navigableAccessPoint() {
+                Map(initialPosition: .region(MKCoordinateRegion(
+                    center: CLLocationCoordinate2D(latitude: access.latitude, longitude: access.longitude),
+                    span: MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
+                ))) {
+                    Marker(access.name, coordinate: CLLocationCoordinate2D(latitude: access.latitude, longitude: access.longitude))
                         .tint(Palette.lime)
-                    }
-                    .frame(height: 180)
-                    .clipShape(RoundedRectangle(cornerRadius: 16))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 16)
-                            .strokeBorder(.white.opacity(0.12), lineWidth: 1)
-                    )
-
-                    VStack(alignment: .leading, spacing: 6) {
-                        HStack(alignment: .firstTextBaseline) {
-                            Text(access.name)
-                                .font(.headline)
-                            Spacer()
-                            Label(LocalizedStringKey(access.type.rawValue), systemImage: access.type.icon)
-                                .font(.caption.bold())
-                                .foregroundStyle(Palette.lime)
-                                .padding(.horizontal, 10)
-                                .padding(.vertical, 4)
-                                .background(Palette.ink, in: Capsule())
-                        }
-
-                        if let note = access.note {
-                            Text(note)
-                                .font(.subheadline)
-                                .foregroundStyle(Palette.muted)
-                        }
-
-                        Text("\(plan.best.water) · \(plan.best.driveMinutes) min sample drive")
-                            .font(.caption)
-                            .foregroundStyle(Palette.muted)
-                    }
-
-                    // One-click handoff to Apple Maps driving navigation
-                    Button {
-                        openAppleMaps(access: access, waterName: plan.best.water)
-                    } label: {
-                        Label("Navigate in Apple Maps", systemImage: "arrow.triangle.turn.up.right.diamond.fill")
-                            .font(.subheadline.weight(.semibold))
-                            .foregroundStyle(Palette.ink)
-                            .frame(maxWidth: .infinity, minHeight: 46)
-                            .background(Palette.lime, in: RoundedRectangle(cornerRadius: 14))
-                    }
-                    .buttonStyle(.plain)
-                    .accessibilityIdentifier("navigateButton")
                 }
+                .frame(height: 180)
+                .clipShape(RoundedRectangle(cornerRadius: 16))
+                Text(access.name).font(.headline)
+                Label(access.type.displayName, systemImage: access.type.icon)
+                    .font(.caption).foregroundStyle(Palette.muted)
+                if let note = access.note { Text(note).font(.subheadline) }
+                if let verification = access.verification {
+                    Link("Access information source", destination: verification.sourceURL)
+                    Text(L10n.text("Last reviewed: %@", verification.checkedAt.formatted(date: .abbreviated, time: .omitted)))
+                        .font(.caption).foregroundStyle(Palette.muted)
+                }
+                Button {
+                    // Recheck at the moment of handoff; a review can expire while the screen is open.
+                    guard let destination = plan.navigableAccessPoint() else { return }
+                    openAppleMaps(access: destination, waterName: plan.best.water)
+                } label: {
+                    Label("Navigate in Apple Maps", systemImage: "arrow.triangle.turn.up.right.diamond.fill")
+                        .frame(maxWidth: .infinity, minHeight: 46)
+                }
+                .buttonStyle(.borderedProminent).foregroundStyle(Palette.ink)
+                .accessibilityIdentifier("navigateButton")
+            } else {
+                Label("Navigation unavailable: no verified access point.", systemImage: "mappin.slash")
+                    .font(.headline).accessibilityIdentifier("navigationUnavailable")
+                Text(LaunchCoverage.displayName).foregroundStyle(Palette.lime)
+                Text(LaunchCoverage.status).font(.subheadline).foregroundStyle(Palette.muted)
+                Text("Demo locations cannot be opened as real destinations.")
+                    .font(.caption).foregroundStyle(Palette.muted)
             }
         }
     }
@@ -206,10 +186,4 @@ struct ResultView: View {
         ])
     }
 
-    private func day(_ offset: Int) -> String {
-        if offset == 0 { return "Today" }
-        if offset == 1 { return "Tomorrow" }
-        let date = Calendar.current.date(byAdding: .day, value: offset, to: .now) ?? .now
-        return date.formatted(.dateTime.weekday(.wide))
-    }
 }

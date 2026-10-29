@@ -435,4 +435,4 @@ The product's competitive advantage should come from **useful recommendations, s
 
 Confirmed by the product owner on October 29, 2026: **Minnesota, United States** is the initial launch region.
 
-This sets the geographic direction; it does not imply statewide verified coverage. Select a small initial set of waters and confirm practical public access points, species records, source provenance, and update dates before enabling live recommendations or navigation. The initial city / subregion and specific waters remain to be selected.
+This sets the geographic direction; it does not imply statewide verified coverage. Select a small initial set of waters and confirm practical public access points, species records, source provenance, and update dates before enabling live recommendations or navigation. The initial pilot subregion is the **Twin Cities metropolitan area**, confirmed by the product owner on October 29, 2026. Specific waters and access points remain to be selected and verified.
