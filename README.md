@@ -8,7 +8,15 @@ An iPhone app that helps you decide **whether to fish, when to go, where to go, 
 >
 > Find your best fishing window.
 
-**Status:** Product planning. This repository establishes the product vision and MVP scope; the iOS app is not implemented yet.
+**Status:** Working SwiftUI prototype with offline demo recommendations. Live weather, maps, location, and real water coverage are not connected yet.
+
+## Run the Prototype
+
+Open `FishOrNot.xcodeproj` in Xcode 16 or later, select the **FishOrNot** scheme and an iPhone simulator, then Run. The deployment target is **iOS 17+**. No API keys, account, or paid services are required for the demo. To run on a physical iPhone, select your own signing team and a unique bundle identifier in Xcode.
+
+The prototype includes the large-button home screen, a recommendation result, a no-match state, editable trip preferences, and a locally saved gear checklist. All weather, water names, scores, and drive times are fictional sample data. Dates are relative to the day you open the app. Gear you own is listed separately from general suggestions; tackle compatibility is not yet scored.
+
+**Validation:** Run `swift test` for the local recommendation engine. In Xcode, use Product → Test to run the simulator flow and persistence checks. The core tests run independently of the iOS UI via the small Swift package in this repository.
 
 ## Product Vision
 
@@ -76,15 +84,15 @@ Start with a native app and local data. Validate the recommendation flow before 
 
 - [x] Establish the project name, product vision, and repository homepage.
 - [ ] **1 · Define the first trip:** Choose the launch area, initial waters and species, data sources, and scoring factors.
-- [ ] **2 · Prototype the core flow:** Build the large-button home screen and result screen using clearly labeled sample data.
+- [x] **2 · Prototype the core flow:** Build the large-button home screen and result screen using clearly labeled sample data, including local preferences and gear storage.
 - [ ] **3 · Connect real inputs:** Add preferences, gear storage, location, maps, and forecasts.
 - [ ] **4 · Build and validate recommendations:** Implement local ranking, explanations, backup plans, and missing-data behavior; compare results with field feedback.
 - [ ] **5 · Test the MVP:** Refine accessibility, permission flows, forecast attribution, and trip usability, then prepare a TestFlight beta.
 
-Milestones describe planned work, not release commitments. No build or installation steps are available until the app project is added.
+Milestones describe planned work, not release commitments. The current build is an offline prototype; it is not ready to make real fishing recommendations.
 
 ## 简短中文说明
 
 **Fish or Not** 是一款计划中的 iPhone 钓鱼决策助手。首页只有一个醒目的 **FISH OR NOT?** 主按钮，点击后根据未来几天天气、附近钓点、鱼种、个人偏好和已有装备，回答：**去不去、什么时候去、去哪、钓什么、带什么**。
 
-第一版从有限区域的淡水钓鱼场景开始，采用 SwiftUI、MapKit、WeatherKit，以及本地数据与可解释的推荐引擎。当前仓库处于产品规划阶段，尚未包含可运行的 App。
+第一版计划从有限区域的淡水钓鱼场景开始，采用 SwiftUI、MapKit、WeatherKit，以及本地数据与可解释的推荐引擎。当前已包含可运行的 SwiftUI 原型：大按钮首页、推荐结果、空结果、装备清单和偏好设置；真实天气、地图及钓点尚未接入。用 Xcode 打开 `FishOrNot.xcodeproj`，选择 iPhone 模拟器即可运行。
