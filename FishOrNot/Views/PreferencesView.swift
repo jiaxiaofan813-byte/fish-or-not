@@ -4,9 +4,16 @@ struct PreferencesView: View {
     @Bindable var store: AppStore
     @Environment(\.dismiss) private var dismiss
 
+    @State private var showLocation = false
+
     var body: some View {
         NavigationStack {
             Form {
+                Section("Starting point") {
+                    Button { showLocation = true } label: {
+                        Label(store.startingPoint?.name ?? L10n.text("Choose starting point"), systemImage: "location")
+                    }
+                }
                 Section {
                     Stepper(L10n.text("Max drive: %d min", store.preferences.maxDriveMinutes), value: $store.preferences.maxDriveMinutes, in: 10...90, step: 5)
                         .accessibilityIdentifier("maxDrive")
@@ -22,16 +29,21 @@ struct PreferencesView: View {
                     }
                 } header: { Text("Your kind of trip") }
                 footer: { Text("Changes save on this iPhone and apply to the next recommendation.") }
+                Section("Comparison scope") {
+                    Toggle("Compare all eligible waters", isOn: $store.preferences.compareAllWaters)
+                    Text("By default, compare the 12 closest eligible waters using one nearby access point per water. Comparing all 50 can take longer. Driving limits still apply.").font(.caption).foregroundStyle(.secondary)
+                }
                 Section("Launch coverage") {
                     Text(LaunchCoverage.displayName)
                     Text(LaunchCoverage.status).foregroundStyle(.secondary)
-                    Text("Fictional freshwater lakes with sample drive times. Your real location is not used.")
-                    Text("Explore real waters from the home screen. Weather and fishing scores remain demo data.")
+                    Text("Real Apple Maps drive times and NOAA/NWS hourly forecasts. Open-water planning only.")
+                    Text("The score describes weather comfort for a trip, not catch probability. Species come from DNR records; verify current regulations and access before travel.")
                         .foregroundStyle(.secondary)
                 }
             }
             .scrollContentBackground(.hidden).background(Palette.ink)
             .navigationTitle("Preferences")
+            .sheet(isPresented: $showLocation) { StartingPointView(store: store) }
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } } }
         }
     }

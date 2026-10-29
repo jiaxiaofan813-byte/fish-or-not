@@ -39,12 +39,37 @@ struct Preferences: Codable, Equatable {
     var durationHours = 2
     var access: Access = .shore
     var species: Species = .any
+    var compareAllWaters = false
+    enum CodingKeys: String, CodingKey { case maxDriveMinutes, durationHours, access, species, compareAllWaters }
+    init() {}
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        maxDriveMinutes = min(90, max(10, try c.decodeIfPresent(Int.self, forKey: .maxDriveMinutes) ?? 30))
+        durationHours = min(4, max(1, try c.decodeIfPresent(Int.self, forKey: .durationHours) ?? 2))
+        access = try c.decodeIfPresent(Access.self, forKey: .access) ?? .shore
+        species = try c.decodeIfPresent(Species.self, forKey: .species) ?? .any
+        compareAllWaters = try c.decodeIfPresent(Bool.self, forKey: .compareAllWaters) ?? false
+    }
 }
 
 struct GearItem: Identifiable, Codable, Equatable {
     var id: UUID = UUID()
     var name: String
     var packed = false
+    var category: GearCategory = .other
+    var target: Species? = nil
+    enum CodingKeys: String, CodingKey { case id, name, packed, category, target }
+    init(id: UUID = UUID(), name: String, packed: Bool = false, category: GearCategory = .other, target: Species? = nil) {
+        self.id = id; self.name = name; self.packed = packed; self.category = category; self.target = target
+    }
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        id = try c.decodeIfPresent(UUID.self, forKey: .id) ?? UUID()
+        name = try c.decode(String.self, forKey: .name)
+        packed = try c.decodeIfPresent(Bool.self, forKey: .packed) ?? false
+        category = try c.decodeIfPresent(GearCategory.self, forKey: .category) ?? .other
+        target = try c.decodeIfPresent(Species.self, forKey: .target)
+    }
 }
 
 enum AccessPointType: String, Codable, CaseIterable {

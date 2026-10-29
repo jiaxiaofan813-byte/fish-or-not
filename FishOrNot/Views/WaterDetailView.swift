@@ -44,6 +44,15 @@ struct WaterDetailView: View {
                 if let point = selected {
                     accessDetails(point).id(point.id)
                 }
+                if let record = try? SpeciesEvidence.bundled().first(where: { $0.lakeNumber == water.lakeNumber }) {
+                    SectionCard(title: "Recorded target species") {
+                        if record.supported.isEmpty { Text("No supported target species are listed in this DNR record.") }
+                        else { ForEach(record.supported) { Text($0.displayName) } }
+                        Text("Historical species presence, not current abundance or catch probability. Survey year is not supplied in this listing.").font(.caption).foregroundStyle(Palette.muted)
+                        Text(L10n.text("Record checked %@", record.checkedAt.formatted(date: .abbreviated, time: .omitted))).font(.caption)
+                        Link("Official DNR species record", destination: record.sourceURL)
+                    }
+                }
                 SectionCard(title: "Before you go") {
                     Text("Source checked, not a live opening report. Piers, ramps and parking may have seasonal or temporary restrictions.")
                         .font(.subheadline)

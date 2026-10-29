@@ -1,7 +1,23 @@
 {
   "sourceLanguage": "en",
   "strings": {
-    "/ 100": {},
+    "/ 100": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/ 100"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/ 100"
+          }
+        }
+      }
+    },
     "%@": {},
     "%@ · %@": {
       "localizations": {
@@ -2186,6 +2202,1723 @@
           "stringUnit": {
             "state": "translated",
             "value": "%d 个水域"
+          }
+        }
+      }
+    },
+    "%d min drive from %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d min drive from %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从 %2$@ 出发驾车 %1$d 分钟"
+          }
+        }
+      }
+    },
+    "%d of %d catalog waters have eligible access and recorded species for your preferences.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d of %d catalog waters have eligible access and recorded species for your preferences."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目录中有 %1$d / %2$d 个水域的入口和鱼种记录符合你的偏好。"
+          }
+        }
+      }
+    },
+    "%d waters evaluated · %d routes found · %d within your drive limit · %d forecasts available": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d waters evaluated · %d routes found · %d within your drive limit · %d forecasts available"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已比较 %1$d 个水域 · 找到 %2$d 条路线 · %3$d 个在车程限制内 · %4$d 份可用预报"
+          }
+        }
+      }
+    },
+    "%d/100 · %@ · %d min drive": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d/100 · %@ · %d min drive"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$d/100 · %2$@ · 驾车 %3$d 分钟"
+          }
+        }
+      }
+    },
+    "A good window today.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A good window today."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今天有个不错的时段。"
+          }
+        }
+      }
+    },
+    "A better window ahead.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A better window ahead."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "接下来有更好的时段。"
+          }
+        }
+      }
+    },
+    "A listed species is historical evidence of presence, not a current abundance or catch forecast. This app does not determine whether harvesting a fish is legal.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A listed species is historical evidence of presence, not a current abundance or catch forecast. This app does not determine whether harvesting a fish is legal."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "鱼种记录表明该鱼曾在此出现，不代表当前数量或咬口。本应用不判断渔获是否可以合法带走。"
+          }
+        }
+      }
+    },
+    "Access details & official source": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Access details & official source"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "入口详情与官方来源"
+          }
+        }
+      }
+    },
+    "All trip times use Minnesota time.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All trip times use Minnesota time."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "行程时间均为明尼苏达当地时间。"
+          }
+        }
+      }
+    },
+    "Also bring a valid license when required, sun protection, water and appropriate safety equipment.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Also bring a valid license when required, sun protection, water and appropriate safety equipment."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "另请按要求携带有效钓鱼执照、防晒用品、饮用水及适当的安全装备。"
+          }
+        }
+      }
+    },
+    "Apple Maps estimate checked %@. Traffic and seasonal access can change before your trip.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Maps estimate checked %@. Traffic and seasonal access can change before your trip."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple 地图预计车程于 %@ 核对。出发前交通和季节性开放情况可能变化。"
+          }
+        }
+      }
+    },
+    "Apple Maps receives the starting point and destination to calculate driving routes. NOAA/NWS receives only the public access coordinates for weather. No account is required.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Maps receives the starting point and destination to calculate driving routes. NOAA/NWS receives only the public access coordinates for weather. No account is required."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple 地图会接收出发点与目的地以计算驾车路线。NOAA/NWS 只接收公共入口坐标以查询天气，无需账户。"
+          }
+        }
+      }
+    },
+    "Apple Maps · NOAA/NWS · Minnesota DNR": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple Maps · NOAA/NWS · Minnesota DNR"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple 地图 · NOAA/NWS · 明尼苏达 DNR"
+          }
+        }
+      }
+    },
+    "Available hourly forecast through %@. Missing hours are excluded.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Available hourly forecast through %@. Missing hours are excluded."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可用逐小时预报截至 %@。缺失的小时不会参与推荐。"
+          }
+        }
+      }
+    },
+    "Bait": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bait"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "鱼饵"
+          }
+        }
+      }
+    },
+    "Bring from your gear": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bring from your gear"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从已有装备中携带"
+          }
+        }
+      }
+    },
+    "By default, compare the 12 closest eligible waters using one nearby access point per water. Comparing all 50 can take longer. Driving limits still apply.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "By default, compare the 12 closest eligible waters using one nearby access point per water. Comparing all 50 can take longer. Driving limits still apply."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "默认比较距离最近的 12 个符合条件的水域，每个水域使用一个附近入口。比较全部 50 个会耗时更长，仍会按车程上限筛选。"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消"
+          }
+        }
+      }
+    },
+    "Candidates are ordered by straight-line proximity. We use one nearby verified access point per water, then calculate actual driving time. Default comparison covers the closest 12; Preferences can expand it to all eligible waters.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Candidates are ordered by straight-line proximity. We use one nearby verified access point per water, then calculate actual driving time. Default comparison covers the closest 12; Preferences can expand it to all eligible waters."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "先按直线距离选择候选水域，每个使用一个附近的已核验入口，再计算实际车程。默认比较最近的 12 个，可在偏好中扩大到全部符合条件的水域。"
+          }
+        }
+      }
+    },
+    "Category": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Category"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "装备类别"
+          }
+        }
+      }
+    },
+    "Check your setup": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Check your setup"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "检查并补齐装备"
+          }
+        }
+      }
+    },
+    "Checking routes and hourly forecasts…": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Checking routes and hourly forecasts…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在查询路线与逐小时天气…"
+          }
+        }
+      }
+    },
+    "Choose a starting point to compare real drive times.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose a starting point to compare real drive times."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请选择出发点，以比较真实车程。"
+          }
+        }
+      }
+    },
+    "Choose starting point": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose starting point"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择出发点"
+          }
+        }
+      }
+    },
+    "Choose the category and fish this item suits. Only classified gear is matched to recommendations. Any species applies to general tools. Swipe left to remove an item.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose the category and fish this item suits. Only classified gear is matched to recommendations. Any species applies to general tools. Swipe left to remove an item."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "标注装备类别与适用鱼种后，才能匹配到推荐。“任意鱼种”适用于通用工具。左滑可删除。"
+          }
+        }
+      }
+    },
+    "Clear starting point": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clear starting point"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "清除出发点"
+          }
+        }
+      }
+    },
+    "Compare all eligible waters": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compare all eligible waters"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "比较全部符合条件的水域"
+          }
+        }
+      }
+    },
+    "Comparing %d of %d waters…": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparing %d of %d waters…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在比较第 %1$d / %2$d 个水域…"
+          }
+        }
+      }
+    },
+    "Comparison scope": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparison scope"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "比较范围"
+          }
+        }
+      }
+    },
+    "Current forecasts are unavailable. No demo forecast has been substituted.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Current forecasts are unavailable. No demo forecast has been substituted."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂时无法获取有效天气预报，不会用演示数据替代。"
+          }
+        }
+      }
+    },
+    "Current location": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Current location"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前位置"
+          }
+        }
+      }
+    },
+    "Current location is kept only for this session. A city or address you choose is saved on this iPhone.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Current location is kept only for this session. A city or address you choose is saved on this iPhone."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前位置仅在本次使用期间保留；手动选择的城市或地址会保存在这台 iPhone 上。"
+          }
+        }
+      }
+    },
+    "DNR record names are shown as published in English.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DNR record names are shown as published in English."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DNR 鱼种名称按来源保留英文。"
+          }
+        }
+      }
+    },
+    "Driving routes are unavailable. Check your connection or choose another starting point.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Driving routes are unavailable. Check your connection or choose another starting point."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂时无法获取驾车路线，请检查网络或更换出发点。"
+          }
+        }
+      }
+    },
+    "Finding your location…": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finding your location…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在获取位置…"
+          }
+        }
+      }
+    },
+    "General tool": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "General tool"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "通用工具"
+          }
+        }
+      }
+    },
+    "Historical species presence, not current abundance or catch probability. Survey year is not supplied in this listing.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Historical species presence, not current abundance or catch probability. Survey year is not supplied in this listing."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "历史鱼种出现记录，不代表当前数量或咬口概率。此列表未提供调查年份。"
+          }
+        }
+      }
+    },
+    "How the score works": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How the score works"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "评分规则"
+          }
+        }
+      }
+    },
+    "Issued %@ · fetched %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Issued %@ · fetched %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "预报发布于 %1$@ · 获取于 %2$@"
+          }
+        }
+      }
+    },
+    "Line": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Line"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "鱼线"
+          }
+        }
+      }
+    },
+    "Location is unavailable. Allow location in Settings, or search for a city or address below.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Location is unavailable. Allow location in Settings, or search for a city or address below."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法获取位置。可在系统设置中允许定位，或在下方搜索城市或地址。"
+          }
+        }
+      }
+    },
+    "Lure": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lure"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拟饵"
+          }
+        }
+      }
+    },
+    "Minnesota time": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minnesota time"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "明尼苏达当地时间"
+          }
+        }
+      }
+    },
+    "NO WINDOW YET.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NO WINDOW YET."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂时没有合适时段。"
+          }
+        }
+      }
+    },
+    "NOAA/NWS hourly forecast": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NOAA/NWS hourly forecast"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NOAA/NWS 逐小时天气预报"
+          }
+        }
+      }
+    },
+    "No evaluated water is within your driving limit. Try a longer drive or a different starting point.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No evaluated water is within your driving limit. Try a longer drive or a different starting point."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本次比较的水域均超出车程上限，可提高上限或更换出发点。"
+          }
+        }
+      }
+    },
+    "No places found. Try a nearby city or a fuller address.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No places found. Try a nearby city or a fuller address."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没有找到地点，请尝试附近城市或更完整的地址。"
+          }
+        }
+      }
+    },
+    "No source-checked waters match this access type and recorded target species.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No source-checked waters match this access type and recorded target species."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没有入口类型及鱼种记录都符合偏好的已核验水域。"
+          }
+        }
+      }
+    },
+    "No suitable daylight open-water window was found in the available next-five-day forecasts.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No suitable daylight open-water window was found in the available next-five-day forecasts."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在未来五天的可用预报中，未找到合适的白天开放水面垂钓时段。"
+          }
+        }
+      }
+    },
+    "No supported target species are listed in this DNR record.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No supported target species are listed in this DNR record."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此 DNR 记录未列出应用支持的目标鱼种。"
+          }
+        }
+      }
+    },
+    "Not classified": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not classified"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "尚未标注"
+          }
+        }
+      }
+    },
+    "Open-water planning only. Air temperature cannot establish whether a lake is ice-free or safe. Check conditions, access hours and current fishing regulations locally.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open-water planning only. Air temperature cannot establish whether a lake is ice-free or safe. Check conditions, access hours and current fishing regulations locally."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅供开放水面出行规划。气温不能判断湖面是否无冰或安全。请核实当地实况、入口开放时间和现行钓鱼规定。"
+          }
+        }
+      }
+    },
+    "Open-water planning only. Verify conditions, access and fishing regulations before travel.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open-water planning only. Verify conditions, access and fishing regulations before travel."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅供开放水面规划；出发前请核实实况、入口和钓鱼规定。"
+          }
+        }
+      }
+    },
+    "Or choose a starting point": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Or choose a starting point"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "或手动选择出发点"
+          }
+        }
+      }
+    },
+    "Rain chance up to %d%%": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rain chance up to %d%%"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最高降雨概率 %d%%"
+          }
+        }
+      }
+    },
+    "Ranked by daylight, wind, rain and air-temperature comfort. This is not a bite or ice-safety forecast.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ranked by daylight, wind, rain and air-temperature comfort. This is not a bite or ice-safety forecast."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "根据日照时段、风、雨和气温舒适度排序，不是咬口或冰面安全预测。"
+          }
+        }
+      }
+    },
+    "Real Apple Maps drive times and NOAA/NWS hourly forecasts. Open-water planning only.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Real Apple Maps drive times and NOAA/NWS hourly forecasts. Open-water planning only."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用真实 Apple 地图车程及 NOAA/NWS 逐小时预报，仅供开放水面规划。"
+          }
+        }
+      }
+    },
+    "Recent cached NOAA/NWS forecast": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recent cached NOAA/NWS forecast"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "近期缓存的 NOAA/NWS 预报"
+          }
+        }
+      }
+    },
+    "Record checked %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Record checked %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "记录核对于 %@"
+          }
+        }
+      }
+    },
+    "Rod": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rod"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "鱼竿"
+          }
+        }
+      }
+    },
+    "Search": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索"
+          }
+        }
+      }
+    },
+    "Search cancelled.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search cancelled."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已取消查询。"
+          }
+        }
+      }
+    },
+    "Search is unavailable. Check your connection and try again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search is unavailable. Check your connection and try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂时无法搜索，请检查网络后重试。"
+          }
+        }
+      }
+    },
+    "Searching…": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Searching…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在搜索…"
+          }
+        }
+      }
+    },
+    "Selected from recorded species, with preference for your classified gear. This is a practical starting setup, not a prediction of what is biting.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selected from recorded species, with preference for your classified gear. This is a practical starting setup, not a prediction of what is biting."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从有记录的鱼种中选择，优先匹配已标注的装备。这是基础配置建议，不代表当前咬口预测。"
+          }
+        }
+      }
+    },
+    "Share plan": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Share plan"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分享计划"
+          }
+        }
+      }
+    },
+    "Some routes or forecasts were unavailable. The ranking covers only successfully evaluated waters.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Some routes or forecasts were unavailable. The ranking covers only successfully evaluated waters."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "部分路线或预报未能获取；排序仅涵盖成功完成评估的水域。"
+          }
+        }
+      }
+    },
+    "Species records could not be loaded. No species have been guessed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Species records could not be loaded. No species have been guessed."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法载入鱼种记录，不会猜测鱼种。"
+          }
+        }
+      }
+    },
+    "Species source & limitations": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Species source & limitations"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "鱼种来源与局限"
+          }
+        }
+      }
+    },
+    "Start at 100. Subtract 1.4 per mph of wind, 0.35 per percentage point of rain, and 1.5 per degree below 45°F or above 80°F. Require at least 65. Exclude darkness, thunder, frozen precipitation, air below 35°F, wind above 22 mph from shore or 15 mph by boat, and rain chances above 80%. These are conservative planning rules, not validated catch or safety predictions.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start at 100. Subtract 1.4 per mph of wind, 0.35 per percentage point of rain, and 1.5 per degree below 45°F or above 80°F. Require at least 65. Exclude darkness, thunder, frozen precipitation, air below 35°F, wind above 22 mph from shore or 15 mph by boat, and rain chances above 80%. These are conservative planning rules, not validated catch or safety predictions."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "初始分 100。每 1 mph 风速扣 1.4 分，每 1% 降雨概率扣 0.35 分；低于 45°F 或高于 80°F，每度扣 1.5 分。最低要求 65 分。排除夜间、雷暴、冻结降水、低于 35°F、岸钓风速超 22 mph 或船钓超 15 mph、降雨概率超 80% 的时段。这些是保守规划规则，不是经过验证的咬口或安全预测。"
+          }
+        }
+      }
+    },
+    "Starting point": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Starting point"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "出发点"
+          }
+        }
+      }
+    },
+    "Suitable for": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suitable for"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "适用鱼种"
+          }
+        }
+      }
+    },
+    "Survey year is not supplied in this species listing.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Survey year is not supplied in this species listing."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此鱼种列表未提供调查年份。"
+          }
+        }
+      }
+    },
+    "Temperature is the window average; wind and rain are the highest hourly values. Daylight hours only.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temperature is the window average; wind and rain are the highest hourly values. Daylight hours only."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "气温为该时段平均值，风速与降雨概率为其中最高逐小时值，仅限白天。"
+          }
+        }
+      }
+    },
+    "The local water records could not be loaded. Please try again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The local water records could not be loaded. Please try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法载入本地水域记录，请重试。"
+          }
+        }
+      }
+    },
+    "The score describes weather comfort for a trip, not catch probability. Species come from DNR records; verify current regulations and access before travel.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The score describes weather comfort for a trip, not catch probability. Species come from DNR records; verify current regulations and access before travel."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "评分表示出行天气舒适度，不是上鱼概率。鱼种来自 DNR 记录；请在出发前核实规定与入口情况。"
+          }
+        }
+      }
+    },
+    "This can reflect weather, available forecast hours, recorded species or your driving limit. It does not mean there are no fish.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This can reflect weather, available forecast hours, recorded species or your driving limit. It does not mean there are no fish."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可能受到天气、预报覆盖时段、鱼种记录或车程限制的影响，并不代表没有鱼。"
+          }
+        }
+      }
+    },
+    "Unclassified": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unclassified"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未分类"
+          }
+        }
+      }
+    },
+    "Use current location": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use current location"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用当前位置"
+          }
+        }
+      }
+    },
+    "View backup water": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View backup water"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "查看备选水域"
+          }
+        }
+      }
+    },
+    "Weather comfort for a trip · not catch probability": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weather comfort for a trip · not catch probability"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "出行天气舒适度 · 不是上鱼概率"
+          }
+        }
+      }
+    },
+    "Wind up to %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wind up to %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最高风速 %@"
+          }
+        }
+      }
+    },
+    "Target & tackle": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Target & tackle"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标鱼种与装备"
+          }
+        }
+      }
+    },
+    "What we compared": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What we compared"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本次比较范围"
+          }
+        }
+      }
+    },
+    "Recorded target species": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recorded target species"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "有记录的目标鱼种"
+          }
+        }
+      }
+    },
+    "Minnesota fishing regulations": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minnesota fishing regulations"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "明尼苏达钓鱼规定"
+          }
+        }
+      }
+    },
+    "DNR tackle guidance": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DNR tackle guidance"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DNR 装备指导"
+          }
+        }
+      }
+    },
+    "Official DNR species record": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Official DNR species record"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DNR 官方鱼种记录"
+          }
+        }
+      }
+    },
+    "View NWS forecast data": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View NWS forecast data"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "查看 NWS 天气数据"
+          }
+        }
+      }
+    },
+    "City or address": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "City or address"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "城市或地址"
+          }
+        }
+      }
+    },
+    "Light rod": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Light rod"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "轻型鱼竿"
+          }
+        }
+      }
+    },
+    "Light 6 lb line": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Light 6 lb line"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "轻型 6 磅鱼线"
+          }
+        }
+      }
+    },
+    "Small hook with a piece of worm": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Small hook with a piece of worm"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小鱼钩配一小段蚯蚓"
+          }
+        }
+      }
+    },
+    "Line matched to the light tackle": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Line matched to the light tackle"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "与轻型钓组匹配的鱼线"
+          }
+        }
+      }
+    },
+    "Small jig with plastic or bait; a slip float is an option": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Small jig with plastic or bait; a slip float is an option"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小型铅头钩配软饵或鱼饵，也可使用滑漂"
+          }
+        }
+      }
+    },
+    "Rod matched to your lure": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rod matched to your lure"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "与拟饵匹配的鱼竿"
+          }
+        }
+      }
+    },
+    "Line matched to the rod and lure": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Line matched to the rod and lure"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "与鱼竿、拟饵匹配的鱼线"
+          }
+        }
+      }
+    },
+    "Crankbait or a suitable artificial lure": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crankbait or a suitable artificial lure"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "摇摆饵或适当的人工拟饵"
+          }
+        }
+      }
+    },
+    "Verify open-water conditions locally.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verify open-water conditions locally."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请在当地核实水面是否适合开放水面垂钓。"
+          }
+        }
+      }
+    },
+    "Best window": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Best window"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最佳时段"
+          }
+        }
+      }
+    },
+    "Backup option": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Backup option"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "备选方案"
           }
         }
       }

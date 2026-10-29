@@ -8,17 +8,24 @@ An iPhone app that helps you decide **whether to fish, when to go, where to go, 
 >
 > Find your best fishing window.
 
-**Status:** Working SwiftUI prototype with offline demo recommendations. Includes a 50-water, seven-county Twin Cities catalog with 91 DNR-sourced public access points, MapKit previews, and Apple Maps directions. Fishing recommendations and weather remain demo data.
+**Status:** Runnable iOS 17+ pilot with live Apple Maps driving estimates, NOAA/NWS hourly forecasts, a transparent local recommendation engine, and DNR species records. Includes 50 Twin Cities waters and 91 source-checked public access points. Scores describe trip-weather comfort, not catch probability.
 
 > **Development note:** Before changing product scope or core UX, read [`docs/PRODUCT_DECISIONS.md`](docs/PRODUCT_DECISIONS.md). It is the current source of truth for approved product decisions, scope guardrails, localization, sharing, maps, ice-fishing safety, knots, tips, and the planned Fish Camera.
 
 ## Run the Prototype
 
-Open `FishOrNot.xcodeproj` in Xcode 16 or later, select the **FishOrNot** scheme and an iPhone simulator, then Run. The deployment target is **iOS 17+**. No API keys, account, or paid services are required for the demo. To run on a physical iPhone, select your own signing team and a unique bundle identifier in Xcode.
+Open `FishOrNot.xcodeproj` in Xcode 16 or later, select the **FishOrNot** scheme and an iPhone simulator, then Run. The deployment target is **iOS 17+**. No API key or account is required. On a physical iPhone, select your signing team and a unique bundle identifier.
 
-The prototype includes the neutral circular home button with a shared fish-eye reveal and catch-or-escape endings, a recommendation result, a no-match state, editable trip preferences, and a locally saved gear checklist. The decision-button results still use fictional weather, water names, scores, and drive times. **Explore 50 real waters** opens a separate real-place catalog with source links, county and shore/boat filtering, maps, access-point selection, sharing, and Apple Maps directions. Dates are anchored when the plan is created, with times in Minnesota’s America/Chicago time zone. Gear you own is listed separately from general suggestions; tackle compatibility is not yet scored.
+1. Choose a starting point using current location or a city/address search.
+2. Set your maximum drive, shore/boat access, duration and target fish in **Preferences**. Optionally classify your gear.
+3. Tap **FISH OR NOT?**. Compare the closest 12 eligible waters by default; turn on **Compare all eligible waters** for a broader comparison.
+4. Review the best window, verified access, current drive estimate, recorded species and gear suggestions. Open Apple Maps or share the plan.
 
-**Validation:** Run `swift test` for the local recommendation engine. In Xcode, use Product → Test to run the simulator flow and persistence checks. The core tests run independently of the iOS UI via the small Swift package in this repository.
+GPS is session-only; a manually selected origin, preferences and gear stay on this iPhone. Weather errors offer retry, with recent cached forecasts labeled explicitly. Empty results explain what could not fit. The result reports the comparison scope and links to its sources. Times use Minnesota's America/Chicago zone; units follow the locale. English and Simplified Chinese are included.
+
+The neutral circular button still reveals a fish eye, full fish and hook, then catches or escapes after the live result is ready. Reduce Motion skips the decorative animation. There are no fictional recommendations in normal launches.
+
+**Validation:** Run `swift test` for the core. Set `FISH_OR_NOT_NETWORK_TEST=1` to include the real NWS smoke test. Product → Test in Xcode runs simulator flows, localization, missing-data states, manual origin search and the real MapKit/NWS integration. With multiple Xcode installations, select the full developer directory first. See [`docs/LIVE_RECOMMENDATIONS.md`](docs/LIVE_RECOMMENDATIONS.md) for sources, score rules, freshness, comparison limits, privacy and test fixtures.
 
 ## Product Vision
 
@@ -56,7 +63,7 @@ The score will be a relative ranking of trip suitability, **not a probability of
 ## MVP Scope
 
 - **Simple home screen:** One primary button and a short path from question to plan.
-- **Local trip preferences:** Starting location, maximum drive time, shore or boat access, available trip duration, target fish, and bait preferences.
+- **Local trip preferences:** Starting location, maximum drive time, shore or boat access, available trip duration and target fish.
 - **My Gear:** A small, manually maintained inventory of rods, tackle, and bait to inform practical suggestions.
 - **Weather comparison:** Evaluate upcoming windows using available forecast conditions such as temperature, wind, precipitation, and daylight.
 - **Nearby waters:** Start with curated location, access, and species records for the selected launch area, displayed with a map and travel context.
@@ -74,10 +81,10 @@ Catch logs, personalized learning, notifications, widgets, Apple Watch, Siri Sho
 | --- | --- |
 | iPhone interface | Swift and SwiftUI |
 | Maps and travel context | MapKit |
-| Forecast data | WeatherKit, subject to service setup and availability |
+| Forecast data | NOAA/NWS hourly API for the US pilot; replaceable provider, WeatherKit planned after provisioning |
 | Location | Core Location, with a manual location fallback |
 | Water and species data | Bundled, curated local records with source and update metadata |
-| Preferences and gear | On-device persistence; storage choice to be finalized during prototyping |
+| Preferences and gear | On-device Codable profiles in UserDefaults; public weather cache in Caches |
 | Recommendations | Local Swift rules and scoring engine with explainable factors |
 
 Start with a native app and local data. Validate the recommendation flow before adding server infrastructure or more complex models. Map display alone will not establish fishing access or species coverage; those details need their own maintained records.
@@ -85,25 +92,16 @@ Start with a native app and local data. Validate the recommendation flow before 
 ## Roadmap
 
 - [x] Establish the project name, product vision, and repository homepage.
-- [ ] **1 · Define the first trip:** Choose the launch area, initial waters and species, data sources, and scoring factors.
+- [x] **1 · Define the first trip:** Twin Cities pilot, 50 waters, source-matched species and transparent initial weather factors.
 - [x] **2 · Prototype the core flow:** Build the large-button home screen and result screen using clearly labeled sample data, including local preferences and gear storage.
-- [ ] **3 · Connect real inputs:** Add preferences, gear storage, location, maps, and forecasts.
-- [ ] **4 · Build and validate recommendations:** Implement local ranking, explanations, backup plans, and missing-data behavior; compare results with field feedback.
+- [x] **3 · Connect real inputs:** Local preferences/gear, GPS/manual origin, actual MapKit driving estimates and NWS forecasts.
+- [ ] **4 · Field-validate recommendations:** Local ranking, explanations, backup plans and missing-data handling are implemented; calibrate the heuristics with real trip feedback.
 - [ ] **5 · Test the MVP:** Refine accessibility, permission flows, forecast attribution, and trip usability, then prepare a TestFlight beta.
 
-Milestones describe planned work, not release commitments. The current build is an offline prototype; it is not ready to make real fishing recommendations.
+Milestones describe planned work, not release commitments. This is an open-water pilot: live inputs are connected, while field calibration, seasonal closure coverage and beta preparation remain.
 
 ## 简短中文说明
 
-**Fish or Not** 是一款计划中的 iPhone 钓鱼决策助手。首页只有一个醒目的 **FISH OR NOT?** 主按钮，点击后根据未来几天天气、附近钓点、鱼种、个人偏好和已有装备，回答：**去不去、什么时候去、去哪、钓什么、带什么**。
+**Fish or Not（钓鱼还是摸鱼）** 是 iPhone 钓鱼出行助手，回答去不去、什么时候去、去哪、钓什么、带什么。当前版本已接通真实定位／手动出发点、Apple 地图车程、NOAA/NWS 未来五天逐小时天气，以及 50 个 Twin Cities 水域的入口与鱼种记录。默认比较最近的 12 个符合条件的水域，可在偏好中扩大范围。装备支持分类与鱼种匹配，结果支持导航及分享。
 
-第一版计划从有限区域的淡水钓鱼场景开始，采用 SwiftUI、MapKit、WeatherKit，以及本地数据与可解释的推荐引擎。当前已包含可运行的 SwiftUI 原型：大按钮首页、推荐结果、空结果、装备清单和偏好设置；真实天气、地图及钓点尚未接入。用 Xcode 打开 `FishOrNot.xcodeproj`，选择 iPhone 模拟器即可运行。
-
-## October 29, 2026 development increment
-
-- Native SwiftUI signature interaction: a large neutral glowing circle compresses, shrinks into a fish eye, and reveals a fish and hook. Both results share this reveal; a positive result catches and lifts the fish, while a negative result lets it swim away (about 1.0–1.1 seconds).
-- Repeated taps are disabled during the transition. Returning home or interrupting the app resets the interaction. Reduce Motion skips the decorative motion and delay.
-- English / Simplified Chinese String Catalogs cover the home, results, settings, gear, and share summary. Dates and measurement units follow the locale; stored species and access IDs remain language-independent.
-- The Twin Cities metropolitan area in Minnesota is the launch pilot. The real-water catalog exposes 50 waters and 91 source-checked public access points. Demo recommendations remain separate and cannot navigate to fictional destinations.
-- Shared demo plans include a demo disclaimer, an absolute date and time window, and a suitability-score explanation. No app links are emitted until exact-plan restoration is implemented.
-- Simulator verification requires a full Xcode installation. Command Line Tools alone cannot build or run this iOS interface.
+用 Xcode 打开 `FishOrNot.xcodeproj` 即可运行，无需天气 API key。评分是透明规则计算的出行天气舒适度，不代表上鱼概率，也不判断冰面或水域安全。鱼种记录属于历史依据；49 个水域有记录，缺少记录的水域不会被猜测推荐。具体规则、来源及局限见 [`docs/LIVE_RECOMMENDATIONS.md`](docs/LIVE_RECOMMENDATIONS.md)。

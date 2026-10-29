@@ -5,12 +5,14 @@ import Observation
 final class AppStore {
     var preferences: Preferences { didSet { save() } }
     var gear: [GearItem] { didSet { save() } }
+    var startingPoint: StartingPoint? { didSet { save() } }
     private let defaults: UserDefaults
     private static let key = "fish-or-not.profile.v1"
 
     private struct Profile: Codable {
         var preferences: Preferences
         var gear: [GearItem]
+        var startingPoint: StartingPoint?
     }
 
     init(defaults: UserDefaults = .standard) {
@@ -20,10 +22,11 @@ final class AppStore {
         }
         preferences = profile?.preferences ?? Preferences()
         gear = profile?.gear ?? []
+        startingPoint = profile?.startingPoint
     }
 
     private func save() {
-        guard let data = try? JSONEncoder().encode(Profile(preferences: preferences, gear: gear)) else { return }
+        guard let data = try? JSONEncoder().encode(Profile(preferences: preferences, gear: gear, startingPoint: startingPoint?.kind == .manual ? startingPoint : nil)) else { return }
         defaults.set(data, forKey: Self.key)
     }
 }

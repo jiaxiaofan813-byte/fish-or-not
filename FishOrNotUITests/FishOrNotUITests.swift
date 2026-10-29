@@ -5,6 +5,7 @@ final class FishOrNotUITests: XCTestCase {
     func testCoreFlowAndLocalPersistence() {
         let app = XCUIApplication()
         app.launchEnvironment["FISH_OR_NOT_TEST_PROFILE"] = "ui-tests.\(UUID().uuidString)"
+        if app.launchEnvironment["FISH_OR_NOT_TEST_SCENARIO"] == nil { app.launchEnvironment["FISH_OR_NOT_TEST_SCENARIO"] = "demo" }
         app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         app.launch()
         XCTAssertTrue(app.buttons["fishButton"].waitForExistence(timeout: 10))
@@ -43,6 +44,7 @@ final class FishOrNotUITests: XCTestCase {
     func testFishEyeCanBeUsedAgainAfterReturningHome() {
         let app = XCUIApplication()
         app.launchEnvironment["FISH_OR_NOT_TEST_PROFILE"] = "ui-repeat.\(UUID().uuidString)"
+        if app.launchEnvironment["FISH_OR_NOT_TEST_SCENARIO"] == nil { app.launchEnvironment["FISH_OR_NOT_TEST_SCENARIO"] = "demo" }
         app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         app.launch()
         for _ in 0..<2 {
@@ -59,6 +61,7 @@ final class FishOrNotUITests: XCTestCase {
     func testChineseHomeKeepsThePrimaryActionAccessible() {
         let app = XCUIApplication()
         app.launchEnvironment["FISH_OR_NOT_TEST_PROFILE"] = "ui-chinese.\(UUID().uuidString)"
+        if app.launchEnvironment["FISH_OR_NOT_TEST_SCENARIO"] == nil { app.launchEnvironment["FISH_OR_NOT_TEST_SCENARIO"] = "demo" }
         app.launchArguments = ["-AppleLanguages", "(zh-Hans)", "-AppleLocale", "zh_CN"]
         app.launch()
         let eye = app.buttons["fishButton"]
@@ -78,6 +81,7 @@ final class FishOrNotUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchEnvironment["FISH_OR_NOT_TEST_PROFILE"] = "ui-catch.\(UUID().uuidString)"
         app.launchEnvironment["FISH_OR_NOT_TEST_SCENARIO"] = "today"
+        if app.launchEnvironment["FISH_OR_NOT_TEST_SCENARIO"] == nil { app.launchEnvironment["FISH_OR_NOT_TEST_SCENARIO"] = "demo" }
         app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
         app.launch()
         XCTAssertTrue(app.buttons["fishButton"].waitForExistence(timeout: 10))

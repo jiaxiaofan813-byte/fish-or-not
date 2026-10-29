@@ -1,10 +1,11 @@
 import SwiftUI
 
 private enum HomeSheet: String, Identifiable {
-    case gear, preferences, waters
+    case gear, preferences, waters, location
     var id: String { rawValue }
 }
 
+@MainActor
 struct HomeView: View {
     let store: AppStore
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -12,13 +13,21 @@ struct HomeView: View {
     @State private var sheet: HomeSheet?
     @State private var showResult = false
     @State private var checking = false
+    @State private var requestID = UUID()
     @State private var phase: HomeTransitionPhase = .idle
     @State private var plan: TripPlan?
+    @State private var assessment: LiveAssessment?
+    @State private var progressText = ""
+    @State private var errorText: String?
     private let engine: DemoRecommendationEngine
+    private let liveEngine: LiveRecommendationEngine
+    private let demo: Bool
 
-    init(store: AppStore, engine: DemoRecommendationEngine = DemoRecommendationEngine()) {
+    init(store: AppStore, engine: DemoRecommendationEngine = DemoRecommendationEngine(), liveEngine: LiveRecommendationEngine? = nil, demo: Bool = false) {
         self.store = store
         self.engine = engine
+        self.liveEngine = liveEngine ?? LiveRecommendationEngine(weather: NWSWeatherService(), routes: MapKitRouteService())
+        self.demo = demo
     }
 
     var body: some View {
@@ -45,8 +54,11 @@ struct HomeView: View {
                     VStack(spacing: 0) {
                         FishEyeButton(phase: phase) {
                             guard !checking else { return }
-                            checking = true
+                            errorText = nil
+                            if !demo && store.startingPoint == nil { sheet = .location }
+                            else { beginCheck() }
                         }
+                        .disabled(checking)
                         Text("home.tapEye")
                             .font(.caption).foregroundStyle(Palette.muted)
                             .padding(.top, 8)
@@ -58,7 +70,22 @@ struct HomeView: View {
                         Text("home.window").font(.headline)
                         Text("home.horizon")
                             .font(.caption).foregroundStyle(Palette.muted)
-                        DemoNotice()
+                        if demo { DemoNotice() }
+                        else {
+                            Button { sheet = .location } label: {
+                                Label(store.startingPoint?.name ?? L10n.text("Choose starting point"), systemImage: "location")
+                            }.disabled(checking).accessibilityIdentifier("startingPointButton")
+                            Text("Apple Maps · NOAA/NWS · Minnesota DNR").font(.caption2).foregroundStyle(Palette.muted)
+                        }
+                        if checking {
+                            ProgressView(progressText).tint(Palette.lime)
+                            Button("Cancel") { resetTransition() }.accessibilityIdentifier("cancelPlanningButton")
+                        }
+                        if let errorText {
+                            Text(errorText).foregroundStyle(Palette.lime).font(.subheadline)
+                                .accessibilityIdentifier("planningError")
+                            Button("Try again") { beginCheck() }
+                        }
                         Text(LaunchCoverage.displayName)
                             .font(.caption2).foregroundStyle(Palette.muted)
                     }
@@ -79,25 +106,27 @@ struct HomeView: View {
                 }
                 .padding(.horizontal, 26).padding(.bottom, 24)
             }
-            .scrollDisabled(checking)
+            .scrollDisabled(phase != .idle)
             .background(Palette.ink)
             .toolbar(.hidden, for: .navigationBar)
-            .task(id: checking) {
+            .task(id: requestID) {
                 guard checking else { return }
-                await revealPlan()
+                await revealPlan(token: requestID)
             }
             .navigationDestination(isPresented: $showResult) {
-                ResultView(plan: plan) { sheet = .preferences }
+                if demo { ResultView(plan: plan) { sheet = .preferences } }
+                else if let assessment { LiveResultView(assessment: assessment, mode: assessment.accessMode) { sheet = .preferences } }
             }
             .sheet(item: $sheet) { destination in
                 switch destination {
                 case .gear: GearView(store: store)
                 case .waters: WatersView()
+                case .location: StartingPointView(store: store)
                 case .preferences: PreferencesView(store: store)
                 }
             }
             .onChange(of: store.preferences) {
-                plan = engine.recommend(preferences: store.preferences, gear: store.gear)
+                if demo { plan = engine.recommend(preferences: store.preferences, gear: store.gear) }
             }
             .onChange(of: scenePhase) {
                 if scenePhase != .active { resetTransition() }
@@ -110,10 +139,31 @@ struct HomeView: View {
     }
 
     @MainActor
-    private func revealPlan() async {
-        // Snapshot the local result before the animation; this is not a network loading state.
-        let nextPlan = engine.recommend(preferences: store.preferences, gear: store.gear)
-        let isFish = nextPlan != nil && (nextPlan?.goToday == true)
+    private func revealPlan(token: UUID) async {
+        var nextPlan: TripPlan?
+        var nextAssessment: LiveAssessment?
+        errorText = nil
+        progressText = L10n.text("Checking routes and hourly forecasts…")
+        do {
+            if demo { nextPlan = engine.recommend(preferences: store.preferences, gear: store.gear) }
+            else {
+                guard let origin = store.startingPoint else { throw PlanningIssue.location }
+                if origin.kind == .gps && Date().timeIntervalSince(origin.resolvedAt) > 1800 {
+                    store.startingPoint = nil
+                    throw PlanningIssue.location
+                }
+                nextAssessment = try await liveEngine.plan(catalog: WaterCatalog.bundled(), evidence: SpeciesEvidence.bundled(), origin: origin, preferences: store.preferences, gear: store.gear) { value in
+                    await MainActor.run { if token == requestID && checking { progressText = value } }
+                }
+            }
+            try Task.checkCancellation()
+        } catch {
+            guard token == requestID else { return }
+            if !Task.isCancelled { errorText = (error as? PlanningIssue)?.message ?? L10n.text("The local water records could not be loaded. Please try again.") }
+            resetTransition()
+            return
+        }
+        let isFish = demo ? nextPlan?.goToday == true : nextAssessment?.goToday == true
 
         do {
             if reduceMotion {
@@ -130,16 +180,23 @@ struct HomeView: View {
                 }
             }
             try Task.checkCancellation()
-            guard checking, scenePhase == .active else { return }
+            guard token == requestID, checking, scenePhase == .active else { return }
             plan = nextPlan
+            assessment = nextAssessment
             showResult = true
             checking = false
         } catch {
-            resetTransition()
+            if token == requestID { resetTransition() }
         }
     }
 
+    private func beginCheck() {
+        requestID = UUID()
+        checking = true
+    }
+
     private func resetTransition() {
+        requestID = UUID()
         var transaction = Transaction()
         transaction.disablesAnimations = true
         withTransaction(transaction) {

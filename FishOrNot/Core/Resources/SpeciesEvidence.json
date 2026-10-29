@@ -1,0 +1,992 @@
+[
+  {
+    "lakeNumber": "27001600",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "muskellunge",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=27001600",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "27001900",
+    "recordedNames": [
+      "black crappie",
+      "bluegill",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "tiger muskellunge",
+      "walleye",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=27001900",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "27003100",
+    "recordedNames": [
+      "black crappie",
+      "bluegill",
+      "bowfin (dogfish)",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "muskellunge",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=27003100",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "27010400",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "bowfin (dogfish)",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=27010400",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "62001300",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=62001300",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "62005500",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "channel catfish",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=62005500",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "62005700",
+    "recordedNames": [
+      "black crappie",
+      "bluegill",
+      "brown bullhead",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "white sucker",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=62005700",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "62007800",
+    "recordedNames": [
+      "black crappie",
+      "bluegill",
+      "bowfin (dogfish)",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "tiger muskellunge",
+      "walleye",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=62007800",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "62000200",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "bowfin (dogfish)",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "muskellunge",
+      "northern pike",
+      "pumpkinseed",
+      "sunfish",
+      "walleye",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=62000200",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "82016700",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "bowfin (dogfish)",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "muskellunge",
+      "northern pike",
+      "pumpkinseed",
+      "rock bass",
+      "smallmouth bass",
+      "walleye",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=82016700",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "02008400",
+    "recordedNames": [
+      "black crappie",
+      "bluegill",
+      "channel catfish",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=02008400",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "02004500",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "channel catfish",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "white sucker"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=02004500",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "02005300",
+    "recordedNames": [
+      "black crappie",
+      "bluegill",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "yellow bullhead"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=02005300",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "02002600",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "bowfin (dogfish)",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=02002600",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "02000400",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "bowfin (dogfish)",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "redhorse",
+      "walleye",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=02000400",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "10001200",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "brown bullhead",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=10001200",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "10004400",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "bowfin (dogfish)",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=10004400",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "10000900",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "bowfin (dogfish)",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=10000900",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "10004500",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "bowfin (dogfish)",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=10004500",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "10001300",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "brown bullhead",
+      "common carp",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "walleye",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=10001300",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "10005900",
+    "recordedNames": [
+      "bigmouth buffalo",
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "brown bullhead",
+      "common carp",
+      "freshwater drum",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "muskellunge",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=10005900",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "19005900",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "pumpkinseed"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=19005900",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "19045600",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "pumpkinseed",
+      "walleye",
+      "white sucker",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=19045600",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "19002700",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "tiger muskellunge",
+      "walleye",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=19002700",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "19005700",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=19005700",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "19006500",
+    "recordedNames": [
+      "bluegill",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "white sucker"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=19006500",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "19002600",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=19002600",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "27006700",
+    "recordedNames": [
+      "black crappie",
+      "bluegill",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "tiger muskellunge",
+      "walleye",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=27006700",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "27004700",
+    "recordedNames": [
+      "black crappie",
+      "bluegill",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=27004700",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "27004800",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "walleye",
+      "white sucker",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=27004800",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "27017600",
+    "recordedNames": [
+      "bigmouth buffalo",
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "bowfin (dogfish)",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "muskellunge",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=27017600",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "27013300",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "bowfin (dogfish)",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "muskellunge",
+      "northern pike",
+      "pumpkinseed",
+      "rock bass",
+      "smallmouth bass",
+      "walleye",
+      "white crappie",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=27013300",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "27011800",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "bowfin (dogfish)",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "white crappie",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=27011800",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "10000200",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "brown bullhead",
+      "common carp",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=10000200",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "27007100",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "yellow bullhead"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=27007100",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "27011700",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "bowfin (dogfish)",
+      "brown bullhead",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "tiger muskellunge",
+      "walleye",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=27011700",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "27003700",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "white sucker",
+      "yellow bullhead"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=27003700",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "62001600",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "hybrid sunfish",
+      "northern pike",
+      "pumpkinseed",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=62001600",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "62004800",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=62004800",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "62000700",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "tiger muskellunge",
+      "walleye",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=62000700",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "62001000",
+    "recordedNames": [],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=62001000",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "62000100",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "brown bullhead",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=62000100",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "70009100",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "brown bullhead",
+      "common carp",
+      "largemouth bass",
+      "pumpkinseed",
+      "tiger muskellunge",
+      "walleye",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=70009100",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "70002200",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "pumpkinseed"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=70002200",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "70002600",
+    "recordedNames": [
+      "black crappie",
+      "bluegill",
+      "brown bullhead",
+      "common carp",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "white bass",
+      "white crappie",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=70002600",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "70009500",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=70009500",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "82005200",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "brown bullhead",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=82005200",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "82010600",
+    "recordedNames": [
+      "black crappie",
+      "bluegill",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "smallmouth bass",
+      "tiger muskellunge",
+      "tullibee (cisco)",
+      "walleye",
+      "white sucker",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=82010600",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "82004600",
+    "recordedNames": [
+      "black bullhead",
+      "black crappie",
+      "bluegill",
+      "brown bullhead",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "white sucker",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=82004600",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  },
+  {
+    "lakeNumber": "82011500",
+    "recordedNames": [
+      "black crappie",
+      "bluegill",
+      "green sunfish",
+      "hybrid sunfish",
+      "largemouth bass",
+      "northern pike",
+      "pumpkinseed",
+      "walleye",
+      "yellow bullhead",
+      "yellow perch"
+    ],
+    "sourceURL": "https://services.dnr.state.mn.us/api/lakefinder/by_id/v1?id=82011500",
+    "checkedAt": "2026-10-29T17:11:29Z",
+    "surveyYear": null
+  }
+]

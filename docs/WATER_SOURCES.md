@@ -1,6 +1,6 @@
 # Twin Cities water catalog — October 29, 2026
 
-The shipped catalog contains **50 distinct waters and 91 public access points**: 50 shore-fishing sites/piers/breakwaters and 41 separate trailer-launch sites. These are real places, available independently of the fictional weather/recommendation demo.
+The shipped catalog contains **50 distinct waters and 91 public access points**: 50 shore-fishing sites/piers/breakwaters and 41 separate trailer-launch sites. These real places support both offline browsing/navigation and live trip comparisons. Species provenance and the MapKit/NWS recommendation pipeline are documented in `LIVE_RECOMMENDATIONS.md`.
 
 ## Sources and method
 
