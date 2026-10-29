@@ -27,32 +27,31 @@ struct LiveRecommendationEngine: Sendable {
             return (water, access, fish)
         }.sorted { origin.coordinate.distance(to: .init(latitude: $0.1.latitude, longitude: $0.1.longitude)) < origin.coordinate.distance(to: .init(latitude: $1.1.latitude, longitude: $1.1.longitude)) }
         // Bound external API work for a statewide catalog; coverage is disclosed in the result.
-        let selected = Array(eligible.prefix(60))
+        let selected = Array(eligible.prefix(preferences.compareAllWaters ? 60 : 12))
         var checked = 0, reachable = 0, forecastCount = 0, successfulRoutes = 0
         var candidates: [LiveCandidate] = []
-        for (water, access, fish) in selected {
-            try Task.checkCancellation()
-            checked += 1
-            await progress(L10n.text("Comparing %d of %d waters…", checked, selected.count))
-            let point = GeoPoint(latitude: access.latitude, longitude: access.longitude)
-            let route: RouteEstimate
-            do { route = try await routes.route(from: origin.coordinate, to: point) }
-            catch { try Task.checkCancellation(); continue }
-            guard route.seconds.isFinite, (0...86_400).contains(route.seconds), route.distanceMeters.isFinite, route.distanceMeters >= 0, (-300...300).contains(evaluationTime().timeIntervalSince(route.checkedAt)) else { continue }
-            successfulRoutes += 1
-            guard route.minutes <= preferences.maxDriveMinutes else { continue }
-            reachable += 1
-            let forecast: ForecastSnapshot
-            do { forecast = try await weather.forecast(at: point) }
-            catch { try Task.checkCancellation(); continue }
-            guard (-300...21_600).contains(evaluationTime().timeIntervalSince(forecast.updatedAt)),
-                  (-300...10_800).contains(evaluationTime().timeIntervalSince(forecast.fetchedAt)),
-                  forecast.hours.contains(where: { $0.end > evaluationTime() }) else { continue }
-            forecastCount += 1
-            let species = chooseSpecies(fish.supported.filter { preferences.targetSize == .any || $0.sizeGroup == preferences.targetSize }, preferences: preferences, gear: gear)
-            candidates += Self.windows(water: water, access: access, route: route, forecast: forecast,
-                                       species: species, evidence: fish, duration: preferences.durationHours,
-                                       mode: preferences.access, gear: gear, now: evaluationTime())
+        try await withThrowingTaskGroup(of: Evaluation.self) { group in
+            var next = 0
+            func enqueue() {
+                guard next < selected.count else { return }
+                let item = selected[next]
+                next += 1
+                group.addTask {
+                    try Task.checkCancellation()
+                    return try await evaluate(item, origin: origin, preferences: preferences, gear: gear, now: now, startedAt: startedAt)
+                }
+            }
+            for _ in 0..<min(3, selected.count) { enqueue() }
+            for try await result in group {
+                try Task.checkCancellation()
+                checked += 1
+                successfulRoutes += result.routes
+                reachable += result.reachable
+                forecastCount += result.forecasts
+                candidates += result.candidates
+                await progress(L10n.text("Comparing %d of %d waters…", checked, selected.count))
+                enqueue()
+            }
         }
         try Task.checkCancellation()
         if !selected.isEmpty && successfulRoutes == 0 { throw PlanningIssue.routes }
@@ -75,6 +74,40 @@ struct LiveRecommendationEngine: Sendable {
         else { note = L10n.text("Ranked by daylight, wind, rain and air-temperature comfort. This is not a bite or ice-safety forecast.") }
         return .init(best: best, backup: backup, compared: checked, reachable: reachable, routeCount: successfulRoutes, eligibleCount: eligible.count, forecastCount: forecastCount,
                      catalogCount: catalog.waters.count, origin: origin, accessMode: preferences.access, createdAt: finishedAt, note: note)
+    }
+
+    private struct Evaluation: Sendable {
+        var routes = 0
+        var reachable = 0
+        var forecasts = 0
+        var candidates: [LiveCandidate] = []
+    }
+
+    private func evaluate(_ item: (WaterRecord, AccessPoint, SpeciesEvidence), origin: StartingPoint,
+                          preferences: Preferences, gear: [GearItem], now: Date, startedAt: Date) async throws -> Evaluation {
+        let (water, access, fish) = item
+        var result = Evaluation()
+        func evaluationTime() -> Date { now.addingTimeInterval(Date().timeIntervalSince(startedAt)) }
+        let point = GeoPoint(latitude: access.latitude, longitude: access.longitude)
+        let route: RouteEstimate
+        do { route = try await routes.route(from: origin.coordinate, to: point) }
+        catch { try Task.checkCancellation(); return result }
+        guard route.seconds.isFinite, (0...86_400).contains(route.seconds), route.distanceMeters.isFinite, route.distanceMeters >= 0, (-300...300).contains(evaluationTime().timeIntervalSince(route.checkedAt)) else { return result }
+        result.routes = 1
+        guard route.minutes <= preferences.maxDriveMinutes else { return result }
+        result.reachable = 1
+        let forecast: ForecastSnapshot
+        do { forecast = try await weather.forecast(at: point) }
+        catch { try Task.checkCancellation(); return result }
+        guard (-300...21_600).contains(evaluationTime().timeIntervalSince(forecast.updatedAt)),
+              (-300...10_800).contains(evaluationTime().timeIntervalSince(forecast.fetchedAt)),
+              forecast.hours.contains(where: { $0.end > evaluationTime() }) else { return result }
+        result.forecasts = 1
+        let species = chooseSpecies(fish.supported.filter { preferences.targetSize == .any || $0.sizeGroup == preferences.targetSize }, preferences: preferences, gear: gear)
+        result.candidates = Self.windows(water: water, access: access, route: route, forecast: forecast,
+                                   species: species, evidence: fish, duration: preferences.durationHours,
+                                   mode: preferences.access, gear: gear, now: evaluationTime())
+        return result
     }
 
     private func chooseSpecies(_ supported: [Species], preferences: Preferences, gear: [GearItem]) -> Species {

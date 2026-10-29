@@ -81,6 +81,7 @@ final class LivePlanningUITests: XCTestCase {
     }
     @MainActor func testRealNetworkRouteAndForecastIntegration() {
         let app = launch("live-network")
+        let queryStarted = Date()
         app.buttons["fishButton"].tap()
         let summary = app.staticTexts["comparisonSummary"]
         let result = app.staticTexts["liveDecision"]
@@ -90,6 +91,7 @@ final class LivePlanningUITests: XCTestCase {
         XCTAssertEqual(XCTWaiter.wait(for: [completed], timeout: 240), .completed)
         XCTAssertFalse(error.exists, error.label)
         XCTAssertTrue(result.exists || noWindow.exists)
+        print("REAL_QUERY_SECONDS: \(Date().timeIntervalSince(queryStarted))")
         capture("Real Apple Maps and NWS result")
         if result.exists {
             let navigate = app.buttons["liveNavigateButton"]
@@ -141,7 +143,7 @@ final class LivePlanningUITests: XCTestCase {
         capture("Compatible owned gear in plan")
         let summary = app.staticTexts["comparisonSummary"]
         for _ in 0..<8 { if summary.isHittable { break }; app.swipeUp() }
-        XCTAssertTrue(summary.label.contains("60 waters evaluated"), summary.label)
+        XCTAssertTrue(summary.label.contains("12 waters evaluated"), summary.label)
     }
     @MainActor func testFavoritesScopeOnHomeUsesOnlySavedWater() {
         let app = launch("live-success")

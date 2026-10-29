@@ -26,7 +26,7 @@ struct HomeView: View {
     init(store: AppStore, engine: DemoRecommendationEngine = DemoRecommendationEngine(), liveEngine: LiveRecommendationEngine? = nil, demo: Bool = false) {
         self.store = store
         self.engine = engine
-        self.liveEngine = liveEngine ?? LiveRecommendationEngine(weather: NWSWeatherService(), routes: MapKitRouteService())
+        self.liveEngine = liveEngine ?? LiveRecommendationEngine(weather: NWSWeatherService(), routes: MapKitRouteService.shared)
         self.demo = demo
     }
 

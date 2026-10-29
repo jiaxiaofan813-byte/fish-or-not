@@ -8,6 +8,9 @@ struct SearchScopeView: View {
             Picker("Search scope", selection: $store.preferences.searchScope) {
                 ForEach(SearchScope.allCases) { Text($0.title).tag($0) }
             }.accessibilityIdentifier("searchScopePicker")
+            Toggle("Compare more waters (up to 60)", isOn: $store.preferences.compareAllWaters)
+            Text(store.preferences.compareAllWaters ? "Broader comparison takes longer." : "Quick search compares the 12 nearest eligible waters.")
+                .font(.caption).foregroundStyle(Palette.muted)
             Picker("Target fish", selection: $store.preferences.species) {
                 ForEach(Species.allCases) { Text($0.displayName).tag($0) }
             }
@@ -17,7 +20,7 @@ struct SearchScopeView: View {
             Text("Size groups describe species, not guaranteed catch size.").font(.caption).foregroundStyle(Palette.muted)
             NavigationLink("Fish, hooks & bait guide") { FishGuideView() }
             switch store.preferences.searchScope {
-            case .all: Text("Search the statewide catalog; compare up to 60 nearest eligible waters.").font(.caption).foregroundStyle(Palette.muted)
+            case .all: Text("Search eligible waters across Minnesota.").font(.caption).foregroundStyle(Palette.muted)
             case .radius:
                 Stepper(L10n.text("Within %d miles", store.preferences.radiusMiles), value: $store.preferences.radiusMiles, in: 5...150, step: 5)
                 Text("Straight-line distance from your starting point; driving limits also apply.").font(.caption).foregroundStyle(Palette.muted)

@@ -2,6 +2,7 @@ import MapKit
 
 @MainActor
 final class MapKitRouteService: RouteProviding {
+    static let shared = MapKitRouteService()
     private var cache: [String: RouteEstimate] = [:]
     private var lastRequest = Date.distantPast
 
@@ -10,9 +11,12 @@ final class MapKitRouteService: RouteProviding {
         guard origin.valid, destination.valid else { throw PlanningIssue.routes }
         let key = "\(origin.latitude),\(origin.longitude)>\(destination.latitude),\(destination.longitude)"
         if let value = cache[key], Date().timeIntervalSince(value.checkedAt) < 300 { return value }
-        let delay = 0.3 - Date().timeIntervalSince(lastRequest)
+        // Reserve a slot before yielding, so concurrent callers cannot start together.
+        let slot = max(Date(), lastRequest.addingTimeInterval(0.3))
+        lastRequest = slot
+        let delay = slot.timeIntervalSinceNow
         if delay > 0 { try await Task.sleep(for: .seconds(delay)) }
-        lastRequest = Date()
+        try Task.checkCancellation()
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: .init(latitude: origin.latitude, longitude: origin.longitude)))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: .init(latitude: destination.latitude, longitude: destination.longitude)))

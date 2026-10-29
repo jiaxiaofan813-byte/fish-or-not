@@ -19,7 +19,35 @@ private struct FixedForecast: ForecastProviding {
     }
 }
 
+private actor MeasuredRoutes: RouteProviding {
+    let now: Date
+    var active = 0
+    var peak = 0
+    var calls = 0
+    init(now: Date) { self.now = now }
+    func route(from origin: GeoPoint, to destination: GeoPoint) async throws -> RouteEstimate {
+        active += 1; calls += 1; peak = max(peak, active)
+        defer { active -= 1 }
+        try await Task.sleep(for: .milliseconds(100))
+        return .init(seconds: 600, distanceMeters: 5000, checkedAt: now)
+    }
+}
+
 final class LivePlanningTests: XCTestCase {
+    func testQuickSearchUsesBoundedParallelRequests() async throws {
+        let routes = MeasuredRoutes(now: now)
+        let start = Date()
+        let result = try await LiveRecommendationEngine(weather: FixedForecast(snapshot: snapshot()), routes: routes)
+            .plan(catalog: WaterCatalog.bundled(), evidence: SpeciesEvidence.bundled(), origin: origin, preferences: Preferences(), gear: [], now: now)
+        let peak = await routes.peak, calls = await routes.calls, active = await routes.active
+        XCTAssertEqual(result.compared, 12)
+        XCTAssertEqual(calls, 12)
+        XCTAssertEqual(peak, 3)
+        XCTAssertEqual(active, 0)
+        XCTAssertNotNil(result.best)
+        print("QUICK_SEARCH_SIMULATED_SECONDS: \(Date().timeIntervalSince(start)) (12 routes at 100 ms each)")
+    }
+
     func testExpandedSpeciesAndSizeMigration() throws {
         let records = try SpeciesEvidence.bundled()
         let harriet = try XCTUnwrap(records.first { $0.lakeNumber == "27001600" })
@@ -56,9 +84,9 @@ final class LivePlanningTests: XCTestCase {
     }
     func testAllEligibleWatersRespectRealRoutesAndRecordedFish() async throws {
         let result = try await plan()
-        XCTAssertEqual(result.compared, 60)
-        XCTAssertEqual(result.routeCount, 60)
-        XCTAssertEqual(result.forecastCount, 60)
+        XCTAssertEqual(result.compared, 12)
+        XCTAssertEqual(result.routeCount, 12)
+        XCTAssertEqual(result.forecastCount, 12)
         let best = try XCTUnwrap(result.best)
         XCTAssertTrue(best.evidence.supported.contains(best.species))
         XCTAssertGreaterThanOrEqual(best.start, now.addingTimeInterval(1500))
