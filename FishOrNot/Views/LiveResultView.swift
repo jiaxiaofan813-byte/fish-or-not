@@ -157,7 +157,7 @@ struct LiveResultView: View {
             Text(L10n.text("%d waters evaluated · %d routes found · %d within your drive limit · %d forecasts available", assessment.compared, assessment.routeCount, assessment.reachable, assessment.forecastCount))
                 .font(.subheadline).accessibilityIdentifier("comparisonSummary")
             Text(L10n.text("%d of %d catalog waters have eligible access and recorded species for your preferences.", assessment.eligibleCount, assessment.catalogCount)).font(.caption).foregroundStyle(Palette.muted)
-            Text("Candidates are ordered by straight-line proximity. We use one nearby verified access point per water, then calculate actual driving time. Default comparison covers the closest 12; Preferences can expand it to all eligible waters.")
+            Text("All eligible waters in your selected scope are compared, using one nearby verified access point per water and actual driving time. Radius uses straight-line miles to that access point. Driving limits, species and access preferences still apply.")
                 .font(.caption).foregroundStyle(Palette.muted)
             if assessment.routeCount < assessment.compared || assessment.forecastCount < assessment.reachable {
                 Text("Some routes or forecasts were unavailable. The ranking covers only successfully evaluated waters.")

@@ -18,7 +18,7 @@ Open `FishOrNot.xcodeproj` in Xcode 16 or later, select the **FishOrNot** scheme
 
 1. Choose a starting point using current location or a city/address search.
 2. Set your maximum drive, shore/boat access, duration and target fish in **Preferences**. Optionally classify your gear.
-3. Tap **FISH OR NOT?**. Compare the closest 12 eligible waters by default; turn on **Compare all eligible waters** for a broader comparison.
+3. Tap **FISH OR NOT?**. Choose **All waters**, a straight-line mile radius, a county, or **Favorites** on the home screen before tapping. Star waters in the catalog or detail screen. All eligible waters inside that scope are compared.
 4. Review the best window, verified access, current drive estimate, recorded species and gear suggestions. Open Apple Maps or share the plan.
 
 GPS is session-only; a manually selected origin, preferences and gear stay on this iPhone. Weather errors offer retry, with recent cached forecasts labeled explicitly. Empty results explain what could not fit. The result reports the comparison scope and links to its sources. Times use Minnesota's America/Chicago zone; units follow the locale. English and Simplified Chinese are included.
@@ -102,6 +102,11 @@ Milestones describe planned work, not release commitments. This is an open-water
 
 ## 简短中文说明
 
-**Fish or Not（钓鱼还是摸鱼）** 是 iPhone 钓鱼出行助手，回答去不去、什么时候去、去哪、钓什么、带什么。当前版本已接通真实定位／手动出发点、Apple 地图车程、NOAA/NWS 未来五天逐小时天气，以及 50 个 Twin Cities 水域的入口与鱼种记录。默认比较最近的 12 个符合条件的水域，可在偏好中扩大范围。装备支持分类与鱼种匹配，结果支持导航及分享。
+**Fish or Not（钓鱼还是摸鱼）** 是 iPhone 钓鱼出行助手，回答去不去、什么时候去、去哪、钓什么、带什么。当前版本已接通真实定位／手动出发点、Apple 地图车程、NOAA/NWS 未来五天逐小时天气，以及 50 个 Twin Cities 水域的入口与鱼种记录。点按前可选全部水域、英里半径、County 或收藏，并比较范围内全部符合条件的水域。装备支持分类与鱼种匹配，结果支持导航及分享。
 
 用 Xcode 打开 `FishOrNot.xcodeproj` 即可运行，无需天气 API key。评分是透明规则计算的出行天气舒适度，不代表上鱼概率，也不判断冰面或水域安全。鱼种记录属于历史依据；49 个水域有记录，缺少记录的水域不会被猜测推荐。具体规则、来源及局限见 [`docs/LIVE_RECOMMENDATIONS.md`](docs/LIVE_RECOMMENDATIONS.md)。
+
+
+### Scope and waiting interaction update
+
+Users choose all catalog waters, a mile radius, a county, or favorites before tapping. Favorite IDs, radius and county persist with existing preferences; the legacy compare-all flag is decoded for migration but no longer limits scope to 12 waters. The shared press/eye/fish/hook reveal starts immediately, then holds with a small worm on the hook while inputs load. Only the catch/lift or hesitate/turn/escape ending waits for the verdict. Escape flips the fish to face left before it swims left. Reduce Motion continues to skip decorative motion, and cancellation resets the scene.

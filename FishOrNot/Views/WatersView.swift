@@ -8,6 +8,7 @@ private enum WaterFilter: String, CaseIterable, Identifiable {
 }
 
 struct WatersView: View {
+    var store: AppStore? = nil
     @Environment(\.dismiss) private var dismiss
     @State private var query = ""
     @State private var county: String?
@@ -32,6 +33,7 @@ struct WatersView: View {
             }
             .background(Palette.ink)
             .navigationTitle("Explore waters")
+            .toolbar(.visible, for: .navigationBar)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } } }
         }
@@ -61,8 +63,9 @@ struct WatersView: View {
             }
             Section {
                 ForEach(waters) { water in
+                    HStack {
                     NavigationLink {
-                        WaterDetailView(water: water, preferredMode: filter.mode)
+                        WaterDetailView(water: water, preferredMode: filter.mode, store: store)
                     } label: {
                         VStack(alignment: .leading, spacing: 6) {
                             Text(water.name).font(.headline)
@@ -76,6 +79,8 @@ struct WatersView: View {
                         }.padding(.vertical, 5)
                     }
                     .accessibilityIdentifier("water-" + water.id)
+                    if let store { FavoriteWaterButton(store: store, water: water) }
+                    }
                 }
             } header: { Text(L10n.text(waters.count == 1 ? "%d water" : "%d waters", waters.count)).accessibilityIdentifier("waterCount") }
             if waters.isEmpty {

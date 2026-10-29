@@ -51,6 +51,8 @@ struct HomeView: View {
                     }
                     .padding(.top, 12)
 
+                    SearchScopeView(store: store) { sheet = .waters }.disabled(checking)
+
                     VStack(spacing: 0) {
                         FishEyeButton(phase: phase) {
                             guard !checking else { return }
@@ -106,7 +108,7 @@ struct HomeView: View {
                 }
                 .padding(.horizontal, 26).padding(.bottom, 24)
             }
-            .scrollDisabled(phase != .idle)
+            .scrollDisabled(false)
             .background(Palette.ink)
             .toolbar(.hidden, for: .navigationBar)
             .task(id: requestID) {
@@ -120,7 +122,7 @@ struct HomeView: View {
             .sheet(item: $sheet) { destination in
                 switch destination {
                 case .gear: GearView(store: store)
-                case .waters: WatersView()
+                case .waters: WatersView(store: store)
                 case .location: StartingPointView(store: store)
                 case .preferences: PreferencesView(store: store)
                 }
@@ -145,6 +147,12 @@ struct HomeView: View {
         errorText = nil
         progressText = L10n.text("Checking routes and hourly forecasts…")
         do {
+            if !reduceMotion {
+                for step in HomeTransitionStep.sequence(for: .fish).prefix(3) {
+                    withAnimation(.easeInOut(duration: Double(step.milliseconds) / 1000)) { phase = step.phase }
+                    try await Task.sleep(for: .milliseconds(step.milliseconds))
+                }
+            }
             if demo { nextPlan = engine.recommend(preferences: store.preferences, gear: store.gear) }
             else {
                 guard let origin = store.startingPoint else { throw PlanningIssue.location }
@@ -170,7 +178,7 @@ struct HomeView: View {
                 // No travel, shaking, or artificial delay for Reduce Motion users.
                 try Task.checkCancellation()
             } else {
-                for step in HomeTransitionStep.sequence(for: isFish ? .fish : .escape) {
+                for step in HomeTransitionStep.sequence(for: isFish ? .fish : .escape).dropFirst(3) {
                     let duration = Double(step.milliseconds) / 1_000
                     let animation: Animation = step.phase == .fishStruggle
                         ? .easeInOut(duration: 0.06).repeatCount(4, autoreverses: true)

@@ -6,7 +6,7 @@ enum HomeTransitionOutcome {
 
 enum HomeTransitionPhase: Equatable {
     case idle, pressed, fishZoomOut, fishHookDrop
-    case fishStruggle, fishLift, fishHesitate, fishEscape
+    case fishStruggle, fishLift, fishHesitate, fishTurn, fishEscape
 }
 
 struct HomeTransitionStep: Equatable {
@@ -23,7 +23,7 @@ struct HomeTransitionStep: Equatable {
         case .fish:
             return reveal + [.init(phase: .fishStruggle, milliseconds: 240), .init(phase: .fishLift, milliseconds: 260)]
         case .escape:
-            return reveal + [.init(phase: .fishHesitate, milliseconds: 120), .init(phase: .fishEscape, milliseconds: 300)]
+            return reveal + [.init(phase: .fishHesitate, milliseconds: 120), .init(phase: .fishTurn, milliseconds: 180), .init(phase: .fishEscape, milliseconds: 300)]
         }
     }
 }

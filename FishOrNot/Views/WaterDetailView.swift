@@ -3,10 +3,12 @@ import MapKit
 
 struct WaterDetailView: View {
     let water: WaterRecord
+    var store: AppStore?
     @State private var selectedID: String
     @State private var launchFailed = false
 
-    init(water: WaterRecord, preferredMode: Access? = nil) {
+    init(water: WaterRecord, preferredMode: Access? = nil, store: AppStore? = nil) {
+        self.store = store
         self.water = water
         let preferred = water.accessPoints.first { point in
             preferredMode.map { point.verification?.supportedAccess.contains($0) == true } ?? true
@@ -68,6 +70,7 @@ struct WaterDetailView: View {
         }
         .background(Palette.ink)
         .navigationTitle(water.name).navigationBarTitleDisplayMode(.inline)
+        .toolbar { if let store { ToolbarItem(placement: .topBarTrailing) { FavoriteWaterButton(store: store, water: water) } } }
         .alert("Could not open Apple Maps", isPresented: $launchFailed) {
             Button("OK", role: .cancel) { }
         } message: { Text("Try again or use the source information below.") }

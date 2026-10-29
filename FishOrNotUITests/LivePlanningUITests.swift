@@ -130,16 +130,6 @@ final class LivePlanningUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["My light rod"].exists)
         capture("Classified gear")
         app.navigationBars.buttons["Done"].tap()
-        let preferences = app.buttons["Preferences"]
-        if !preferences.isHittable { app.swipeUp() }
-        preferences.tap()
-        let scope = app.switches["Compare all eligible waters"]
-        for _ in 0..<3 { if scope.isHittable { break }; app.swipeUp() }
-        capture("Comparison scope before change")
-        scope.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)).tap()
-        XCTAssertEqual(scope.value as? String, "1")
-        capture("All eligible waters selected")
-        app.navigationBars.buttons["Done"].tap()
         app.terminate(); app.launch()
         let eye = app.buttons["fishButton"]
         XCTAssertTrue(eye.waitForExistence(timeout: 10)); eye.tap()
@@ -152,6 +142,32 @@ final class LivePlanningUITests: XCTestCase {
         for _ in 0..<8 { if summary.isHittable { break }; app.swipeUp() }
         XCTAssertTrue(summary.label.contains("49 waters evaluated"), summary.label)
     }
+    @MainActor func testFavoritesScopeOnHomeUsesOnlySavedWater() {
+        let app = launch("live-success")
+        let explore = app.buttons["exploreWatersButton"]
+        if !explore.isHittable { app.swipeUp() }
+        explore.tap()
+        let search = app.searchFields.firstMatch
+        XCTAssertTrue(search.waitForExistence(timeout: 5))
+        search.tap(); search.typeText("Harriet\n")
+        let star = app.buttons["favorite-mn-27001600"]
+        XCTAssertTrue(star.waitForExistence(timeout: 5)); star.tap()
+        if app.buttons["close"].exists { app.buttons["close"].tap() }
+        if app.buttons["Cancel"].exists { app.buttons["Cancel"].tap() }
+        if app.navigationBars.buttons["Done"].exists { app.navigationBars.buttons["Done"].tap() }
+        app.swipeDown()
+        let scope = app.buttons["searchScopePicker"]
+        if !scope.isHittable { app.swipeDown() }
+        scope.tap(); app.buttons["Favorites"].tap()
+        capture("Favorites selected before tap")
+        let eye = app.buttons["fishButton"]
+        if !eye.isHittable { app.swipeUp() }
+        eye.tap()
+        XCTAssertTrue(app.staticTexts["liveDecision"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.staticTexts["Lake Harriet"].exists)
+        capture("Favorite water recommendation")
+    }
+
     @MainActor private func capture(_ name: String) {
         Thread.sleep(forTimeInterval: 0.6)
         let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())

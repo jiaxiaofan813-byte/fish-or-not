@@ -18,7 +18,7 @@ struct FishOrNotApp: App {
             localStore.startingPoint = .init(name: "Minneapolis", coordinate: .init(latitude: 44.9778, longitude: -93.2650), kind: .manual)
         }
         if scenario.hasPrefix("live-") && scenario != "live-network" && scenario != "live-no-origin" {
-            liveEngine = .init(weather: TestWeather(fail: scenario == "live-weather-error", noWindow: scenario == "live-no-window"), routes: TestRoutes(delay: scenario == "live-slow" ? 1 : 0))
+            liveEngine = .init(weather: TestWeather(fail: scenario == "live-weather-error", noWindow: scenario == "live-no-window"), routes: TestRoutes(delay: scenario == "live-slow" ? 0.2 : 0))
         } else { liveEngine = .init(weather: NWSWeatherService(), routes: MapKitRouteService()) }
         engine = DemoRecommendationEngine(windows: todayOnly ? [DemoRecommendationEngine.fixtures[0]] : DemoRecommendationEngine.fixtures)
         _store = State(initialValue: localStore)

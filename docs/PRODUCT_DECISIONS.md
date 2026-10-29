@@ -441,3 +441,8 @@ This sets the geographic direction; it does not imply statewide verified coverag
 ## 15. Implemented live-input pilot — October 29, 2026
 
 Following the product owner's request to connect location, driving time, weather, recommendations and species/gear in one increment, normal launches now use live MapKit ETA and NOAA/NWS hourly forecasts over the curated catalog. The US NWS provider avoids a WeatherKit provisioning dependency; the provider is replaceable. Default scope is the closest 12 eligible waters, with an explicit all-eligible-waters preference and visible evaluation counts. The local score is weather comfort for a trip, not a validated bite model. DNR records support targets for 49 of the 50 waters; missing species are excluded from recommendations. Gear compatibility uses explicit user classification, with generic source-linked suggestions for missing categories. See `LIVE_RECOMMENDATIONS.md` for the current algorithm, sources and limitations. Field calibration remains outstanding.
+
+
+## 16. Scope, favorites and waiting animation update
+
+The product owner requested pre-tap selection of all waters, a mile radius, county or saved favorites. The app compares all eligible waters within that selected scope. Favorites are local water IDs with star controls in catalog and details. The fish and worm-baited hook reveal starts on tap and remains visible during loading. Once the result is ready, the fish either bites and lifts or turns around and swims away. This supersedes the earlier wait-until-ready reveal and default closest-12 comparison.

@@ -7,7 +7,7 @@ The primary decision button now uses **a real origin, actual driving estimates, 
 ### Implemented
 
 - Current-location permission on demand, with manual MapKit city/address search and clear denied/unavailable states. Manual origin persists; GPS stays session-only and requires refresh after 30 minutes. Origin can be cleared.
-- Actual MapKit automobile ETA to one nearby eligible public access per candidate water. Default comparison covers the closest 12 eligible waters, with a saved preference to compare all eligible waters. Driving limits, timeout, cancellation, retry and per-stage comparison counts are visible.
+- Actual MapKit automobile ETA to one nearby eligible public access per candidate water. The home screen offers all waters, mile radius, county or favorites before the tap. Star controls in the catalog and water detail persist favorite IDs on this iPhone. Driving limits, timeout, cancellation, retry and per-stage comparison counts are visible.
 - Official NWS point/grid hourly forecasts over the next five Minnesota calendar days. Validate temperature, wind, rain, daylight, continuity, freshness and source host. Explicit recent-cache labeling and stale-data rejection; missing fields are never treated as favorable zero values.
 - Explainable local weather-comfort ranking, 1–4-hour daylight windows, arrival/preparation time, weather exclusions, a best window and a different-water/day backup. Query time counts toward departure readiness. No-window, source errors and partial evaluations are distinct states.
 - 50 lake-ID-matched DNR species profiles, 49 with listings. Missing species are excluded; rock bass is not mistaken for the bass target. Survey year remains unknown because the listing does not supply it. Results and water details link to official records and show check dates.
@@ -27,10 +27,15 @@ The primary decision button now uses **a real origin, actual driving estimates, 
 ## Practical limits and remaining work
 
 - The score is an initial **trip-weather-comfort heuristic**, not field-validated catch prediction. Field feedback and calibration are still needed.
-- The default 12-water comparison is a candidate search, not a proof that no better water exists elsewhere. Each water uses one nearby access point. All-eligible scope is available but takes longer.
+- Scope limits are explicit before the tap; distance is straight-line miles to the selected access. Each water uses one nearby access point, so comparisons do not establish the fastest entrance to every lake.
 - NWS supplies US weather without a key. WeatherKit remains a provider option after Apple provisioning; it is not used in this build.
 - Access records are historical source checks, not live opening reports. Current closures, ice, water temperature/levels, waves, severe-alert feeds and harvest eligibility are not modeled. The UI identifies open-water scope and links current DNR rules.
 - No survey year or current abundance is fabricated. Generic gear advice does not infer exact rod/line/lure specifications from free text.
 - Remaining beta work includes device field tests, recommendation calibration, catalog maintenance/update delivery, app icon/store/privacy preparation and TestFlight distribution. Exact-plan restoration links, contextual knot walkthroughs and later product features remain separate work.
 
 No accounts, social feed, Fish Camera or modeled ice-thickness claims are added. See `LIVE_RECOMMENDATIONS.md` for provider details, policies and sources, and `WATER_SOURCES.md` for the access catalog.
+
+
+### Scope and waiting interaction update
+
+Users choose all catalog waters, a mile radius, a county, or favorites before tapping. Favorite IDs, radius and county persist with existing preferences; the legacy compare-all flag is decoded for migration but no longer limits scope to 12 waters. The shared press/eye/fish/hook reveal starts immediately, then holds with a small worm on the hook while inputs load. Only the catch/lift or hesitate/turn/escape ending waits for the verdict. Escape flips the fish to face left before it swims left. Reduce Motion continues to skip decorative motion, and cancellation resets the scene.

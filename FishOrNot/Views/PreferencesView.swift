@@ -29,10 +29,6 @@ struct PreferencesView: View {
                     }
                 } header: { Text("Your kind of trip") }
                 footer: { Text("Changes save on this iPhone and apply to the next recommendation.") }
-                Section("Comparison scope") {
-                    Toggle("Compare all eligible waters", isOn: $store.preferences.compareAllWaters)
-                    Text("By default, compare the 12 closest eligible waters using one nearby access point per water. Comparing all 50 can take longer. Driving limits still apply.").font(.caption).foregroundStyle(.secondary)
-                }
                 Section("Launch coverage") {
                     Text(LaunchCoverage.displayName)
                     Text(LaunchCoverage.status).foregroundStyle(.secondary)

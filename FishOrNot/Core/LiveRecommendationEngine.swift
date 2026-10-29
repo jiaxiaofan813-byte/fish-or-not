@@ -4,7 +4,7 @@ struct LiveRecommendationEngine: Sendable {
     let weather: any ForecastProviding
     let routes: any RouteProviding
 
-    /// Compare the closest 12 waters by default; All Waters explicitly expands the candidate pool.
+    /// Apply the saved geographic/favorites scope before querying every eligible candidate.
     func plan(catalog: WaterCatalog, evidence: [SpeciesEvidence], origin: StartingPoint,
               preferences: Preferences, gear: [GearItem], now: Date = .now,
               progress: @escaping @Sendable (String) async -> Void = { _ in }) async throws -> LiveAssessment {
@@ -17,9 +17,16 @@ struct LiveRecommendationEngine: Sendable {
                   preferences.species == .any || fish.supported.contains(preferences.species),
                   let access = water.accessPoints.filter({ $0.permitsNavigation(for: preferences.access, at: now) })
                     .min(by: { origin.coordinate.distance(to: .init(latitude: $0.latitude, longitude: $0.longitude)) < origin.coordinate.distance(to: .init(latitude: $1.latitude, longitude: $1.longitude)) }) else { return nil }
+            switch preferences.searchScope {
+            case .all: break
+            case .radius:
+                guard origin.coordinate.distance(to: .init(latitude: access.latitude, longitude: access.longitude)) <= Double(preferences.radiusMiles) * 1609.344 else { return nil }
+            case .county: guard water.county == preferences.scopeCounty else { return nil }
+            case .favorites: guard preferences.favoriteWaterIDs.contains(water.id) else { return nil }
+            }
             return (water, access, fish)
         }.sorted { origin.coordinate.distance(to: .init(latitude: $0.1.latitude, longitude: $0.1.longitude)) < origin.coordinate.distance(to: .init(latitude: $1.1.latitude, longitude: $1.1.longitude)) }
-        let selected = Array(eligible.prefix(preferences.compareAllWaters ? 50 : 12))
+        let selected = eligible
         var checked = 0, reachable = 0, forecastCount = 0, successfulRoutes = 0
         var candidates: [LiveCandidate] = []
         for (water, access, fish) in selected {

@@ -34,13 +34,23 @@ enum Species: String, Codable, CaseIterable, Identifiable {
     }
 }
 
+enum SearchScope: String, Codable, CaseIterable, Identifiable {
+    case all, radius, county, favorites
+    var id: String { rawValue }
+    var title: String { L10n.text(["all":"All waters", "radius":"Within miles", "county":"County", "favorites":"Favorites"][rawValue]!) }
+}
+
 struct Preferences: Codable, Equatable {
     var maxDriveMinutes = 30
     var durationHours = 2
     var access: Access = .shore
     var species: Species = .any
     var compareAllWaters = false
-    enum CodingKeys: String, CodingKey { case maxDriveMinutes, durationHours, access, species, compareAllWaters }
+    var searchScope: SearchScope = .all
+    var radiusMiles = 25
+    var scopeCounty = "Hennepin"
+    var favoriteWaterIDs: Set<String> = []
+    enum CodingKeys: String, CodingKey { case maxDriveMinutes, durationHours, access, species, compareAllWaters, searchScope, radiusMiles, scopeCounty, favoriteWaterIDs }
     init() {}
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
@@ -48,6 +58,10 @@ struct Preferences: Codable, Equatable {
         durationHours = min(4, max(1, try c.decodeIfPresent(Int.self, forKey: .durationHours) ?? 2))
         access = try c.decodeIfPresent(Access.self, forKey: .access) ?? .shore
         species = try c.decodeIfPresent(Species.self, forKey: .species) ?? .any
+        searchScope = try c.decodeIfPresent(SearchScope.self, forKey: .searchScope) ?? .all
+        radiusMiles = min(150, max(5, try c.decodeIfPresent(Int.self, forKey: .radiusMiles) ?? 25))
+        scopeCounty = try c.decodeIfPresent(String.self, forKey: .scopeCounty) ?? "Hennepin"
+        favoriteWaterIDs = try c.decodeIfPresent(Set<String>.self, forKey: .favoriteWaterIDs) ?? []
         compareAllWaters = try c.decodeIfPresent(Bool.self, forKey: .compareAllWaters) ?? false
     }
 }

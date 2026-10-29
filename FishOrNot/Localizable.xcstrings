@@ -2167,7 +2167,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "所在县"
+            "value": "县"
           }
         }
       }
@@ -3919,6 +3919,210 @@
           "stringUnit": {
             "state": "translated",
             "value": "备选方案"
+          }
+        }
+      }
+    },
+    "All waters": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All waters"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全部水域"
+          }
+        }
+      }
+    },
+    "Within miles": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Within miles"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "距离范围"
+          }
+        }
+      }
+    },
+    "Favorites": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Favorites"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "收藏"
+          }
+        }
+      }
+    },
+    "Search scope": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search scope"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "推荐范围"
+          }
+        }
+      }
+    },
+    "Compare all eligible catalog waters.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compare all eligible catalog waters."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "比较目录中全部符合条件的水域。"
+          }
+        }
+      }
+    },
+    "Within %d miles": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Within %d miles"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "方圆 %d 英里"
+          }
+        }
+      }
+    },
+    "Straight-line distance from your starting point; driving limits also apply.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Straight-line distance from your starting point; driving limits also apply."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按出发点到入口的直线距离筛选，同时遵守车程上限。"
+          }
+        }
+      }
+    },
+    "%d favorite waters": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d favorite waters"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已收藏 %d 个水域"
+          }
+        }
+      }
+    },
+    "Choose favorites": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose favorites"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择收藏水域"
+          }
+        }
+      }
+    },
+    "Remove %@ from favorites": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove %@ from favorites"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消收藏 %@"
+          }
+        }
+      }
+    },
+    "Add %@ to favorites": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add %@ to favorites"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "收藏 %@"
+          }
+        }
+      }
+    },
+    "All eligible waters in your selected scope are compared, using one nearby verified access point per water and actual driving time. Radius uses straight-line miles to that access point. Driving limits, species and access preferences still apply.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All eligible waters in your selected scope are compared, using one nearby verified access point per water and actual driving time. Radius uses straight-line miles to that access point. Driving limits, species and access preferences still apply."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "比较所选范围内全部符合条件的水域，每个水域使用一个附近已核验入口及真实车程。距离按出发点到该入口的直线英里数计算，仍按车程、鱼种和出入方式筛选。"
           }
         }
       }

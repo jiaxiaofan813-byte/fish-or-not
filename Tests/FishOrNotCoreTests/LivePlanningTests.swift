@@ -42,11 +42,11 @@ final class LivePlanningTests: XCTestCase {
         let rock = SpeciesEvidence(lakeNumber: "x", recordedNames: ["rock bass"], sourceURL: evidence[0].sourceURL, checkedAt: now, surveyYear: nil)
         XCTAssertFalse(rock.supported.contains(.bass))
     }
-    func testDefaultTwelveAndExplicitAllRespectRealRoutesAndRecordedFish() async throws {
+    func testAllEligibleWatersRespectRealRoutesAndRecordedFish() async throws {
         let result = try await plan()
-        XCTAssertEqual(result.compared, 12)
-        XCTAssertEqual(result.routeCount, 12)
-        XCTAssertEqual(result.forecastCount, 12)
+        XCTAssertEqual(result.compared, 49)
+        XCTAssertEqual(result.routeCount, 49)
+        XCTAssertEqual(result.forecastCount, 49)
         let best = try XCTUnwrap(result.best)
         XCTAssertTrue(best.evidence.supported.contains(best.species))
         XCTAssertGreaterThanOrEqual(best.start, now.addingTimeInterval(1500))
@@ -58,6 +58,29 @@ final class LivePlanningTests: XCTestCase {
         XCTAssertEqual(expanded.compared, 49)
         XCTAssertNotNil(expanded.backup)
     }
+    func testScopesFilterBeforeRoutingAndFavoritesPersist() async throws {
+        let catalog = try WaterCatalog.bundled()
+        var prefs = Preferences(); prefs.searchScope = .favorites
+        let empty = try await plan(prefs: prefs)
+        XCTAssertEqual(empty.compared, 0)
+        prefs.favoriteWaterIDs = [catalog.waters[0].id]
+        let favorite = try await plan(prefs: prefs)
+        XCTAssertEqual(favorite.compared, 1)
+        XCTAssertEqual(favorite.best?.water.id, catalog.waters[0].id)
+        let restored = try JSONDecoder().decode(Preferences.self, from: JSONEncoder().encode(prefs))
+        XCTAssertEqual(restored, prefs)
+        prefs.searchScope = .county; prefs.scopeCounty = "Carver"
+        let county = try await plan(prefs: prefs)
+        XCTAssertEqual(county.compared, 6)
+        XCTAssertEqual(county.best?.water.county, "Carver")
+        prefs.searchScope = .radius; prefs.radiusMiles = 5
+        let radius = try await plan(prefs: prefs)
+        XCTAssertLessThan(radius.compared, 49)
+        if let best = radius.best {
+            XCTAssertLessThanOrEqual(origin.coordinate.distance(to: .init(latitude: best.accessPoint.latitude, longitude: best.accessPoint.longitude)), 5 * 1609.344)
+        }
+    }
+
     func testDriveLimitHasNoInventedFallback() async throws {
         let result = try await plan(routes: FixedRoutes(seconds: 3600, now: now))
         XCTAssertNil(result.best)
