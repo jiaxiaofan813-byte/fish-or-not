@@ -40,24 +40,82 @@ The Chinese name is intentionally playful rather than a literal translation. “
 
 ## 3. Signature Home-Screen Interaction
 
-The home screen should remain visually minimal. The primary **Fish or Not** control is integrated into a simple fish illustration: **the button functions visually as the fish's eye**.
+This interaction is a core piece of the Fish or Not brand and must preserve the **surprise reveal**.
 
-### Tap transition
+### Home screen before the tap
 
-After the user taps the fish-eye button:
+The initial screen should remain extremely minimal. The user sees a clean **circular Fish or Not button** and should **not be able to tell that the circle is part of a fish**.
 
-1. The eye/button reacts briefly to the tap.
-2. A fishing line and hook appear from the top of the screen.
-3. The hook catches the fish.
-4. The fish gives a short, playful struggle/tail movement.
-5. The fish is pulled off screen.
-6. The next results interface is revealed.
+Before the user taps, do not show visual clues that reveal the trick:
 
-Target duration: roughly **0.8–1.3 seconds**. The animation should feel like a branded transition, not a delay.
+- no fish body or silhouette
+- no tail
+- no water ripple implying a fish
+- no hook or fishing line
+- no eye styling that makes the button obviously look like an eye
 
-A future variation may allow the animation to reflect the recommendation result (for example, a successful bite on a strong fishing day and a missed bite on a poor day), but V1 should prioritize a polished, reliable transition over branching animation complexity.
+The circle should read simply as a polished round button.
 
-Implementation preference: native SwiftUI animation where practical. Avoid introducing a game engine solely for this transition unless the visual design later requires it.
+The key design requirement is:
+
+> **The user first discovers what the circle really is only after tapping it.**
+
+### Result-dependent reveal
+
+The recommendation result determines which of two distinct branded transitions plays.
+
+#### FISH — good fishing conditions
+
+If the recommendation is positive:
+
+1. The user taps the circular button.
+2. The interface rapidly **zooms out / pulls back**, while keeping visual continuity with the original circle.
+3. During the zoom-out, the user realizes that the original circular button is actually **the eye of a fish**.
+4. The zoom continues until the full fish is visible.
+5. A fishing line and hook appear in sync with the reveal.
+6. The hook catches the fish.
+7. The fish gives a brief, playful movement or struggle.
+8. The fish is pulled away/off screen.
+9. The fishing recommendation result screen is revealed.
+
+The intended surprise is:
+
+**Button → Eye → Full Fish → Hook → Caught → Result**
+
+The zoom-out is a visual/scale transition; it does not require a literal camera system.
+
+#### NOT — poor fishing conditions
+
+If the recommendation is negative:
+
+1. The user taps the same circular button.
+2. Instead of becoming a fish eye, the circle is revealed/transformed as a **ping-pong ball**.
+3. A ping-pong paddle quickly enters the scene.
+4. The paddle strikes the ball.
+5. The ball is hit rapidly out of the screen.
+6. The **NOT TODAY** / negative recommendation result screen is revealed.
+
+The intended surprise is:
+
+**Button → Ping-Pong Ball → Paddle Hit → Ball Flies Away → Result**
+
+This is a deliberate Chinese-language visual pun as well as a playful global animation: when the user should not go fishing, the app visually switches from fishing to “doing something else / 摸鱼”. The animation should still make sense without requiring the user to understand the Chinese pun.
+
+### Critical design rule
+
+**Do not show the fish before the tap.**
+
+The earlier concept where the home screen visibly contained a fish with the button already acting as its eye is rejected. The reveal itself is the experience.
+
+Likewise, the negative state should not be telegraphed before the tap. The same home-screen circle must support both outcomes so the user does not know which animation is coming.
+
+### Timing and implementation
+
+The transition should be fast enough to feel responsive and short enough not to become annoying with repeated use. Aim for roughly **0.8–1.4 seconds**, subject to animation tuning.
+
+Implementation preference: native SwiftUI animation where practical, using scale, position, masking, shape/path animation, keyframes, and transitions. Avoid introducing SpriteKit or another game engine solely for this interaction unless native SwiftUI proves unable to achieve the required polish.
+
+The recommendation can be computed immediately on tap (or already be ready), and the animation can then branch to the FISH or NOT sequence without exposing a loading state unless data retrieval actually requires one.
 
 ---
 
