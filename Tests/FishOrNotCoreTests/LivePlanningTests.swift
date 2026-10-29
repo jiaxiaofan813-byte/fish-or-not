@@ -33,7 +33,63 @@ private actor MeasuredRoutes: RouteProviding {
     }
 }
 
+private actor CountedWeather: ForecastProviding {
+    let snapshot: ForecastSnapshot
+    let delay: Duration
+    var calls = 0
+    var active = 0
+    init(snapshot: ForecastSnapshot, delay: Duration = .milliseconds(50)) {
+        self.snapshot = snapshot; self.delay = delay
+    }
+    func forecast(at point: GeoPoint) async throws -> ForecastSnapshot {
+        calls += 1; active += 1
+        defer { active -= 1 }
+        try await Task.sleep(for: delay)
+        return snapshot
+    }
+}
+
 final class LivePlanningTests: XCTestCase {
+    func testCountyWeatherIsSharedAndDifferentCountiesRemainSeparate() async throws {
+        let weather = CountedWeather(snapshot: snapshot())
+        var prefs = Preferences(); prefs.searchScope = .county; prefs.scopeCounty = "Hennepin"
+        let engine = LiveRecommendationEngine(weather: weather, routes: FixedRoutes(now: now))
+        let result = try await engine.plan(catalog: WaterCatalog.bundled(), evidence: SpeciesEvidence.bundled(), origin: origin, preferences: prefs, gear: [], now: now)
+        let calls = await weather.calls
+        XCTAssertEqual(calls, 1)
+        XCTAssertEqual(result.weatherAreaCount, 1)
+        XCTAssertEqual(result.forecastCount, 12)
+        XCTAssertEqual(result.best?.forecast.countyName, "Hennepin")
+        XCTAssertNotNil(result.best?.forecast.referenceWater)
+        XCTAssertEqual(result.best?.forecast, result.backup?.forecast)
+        let other = CountedWeather(snapshot: snapshot())
+        prefs.searchScope = .favorites
+        prefs.favoriteWaterIDs = ["mn-27001600", "mn-62005500"]
+        let mixed = try await LiveRecommendationEngine(weather: other, routes: FixedRoutes(now: now))
+            .plan(catalog: WaterCatalog.bundled(), evidence: SpeciesEvidence.bundled(), origin: origin, preferences: prefs, gear: [], now: now)
+        let otherCalls = await other.calls
+        XCTAssertEqual(otherCalls, 2)
+        XCTAssertEqual(mixed.weatherAreaCount, 2)
+    }
+
+    func testCancellationStopsSharedCountyForecast() async throws {
+        let weather = CountedWeather(snapshot: snapshot(), delay: .seconds(10))
+        let catalog = try WaterCatalog.bundled(), evidence = try SpeciesEvidence.bundled()
+        let engine = LiveRecommendationEngine(weather: weather, routes: FixedRoutes(now: now))
+        var prefs = Preferences(); prefs.searchScope = .county; prefs.scopeCounty = "Hennepin"
+        let task = Task { try await engine.plan(catalog: catalog, evidence: evidence, origin: origin, preferences: prefs, gear: [], now: now) }
+        for _ in 0..<100 {
+            if await weather.calls > 0 { break }
+            try await Task.sleep(for: .milliseconds(10))
+        }
+        task.cancel()
+        do { _ = try await task.value; XCTFail("Expected cancellation") }
+        catch { XCTAssertTrue(error is CancellationError) }
+        let calls = await weather.calls, active = await weather.active
+        XCTAssertEqual(calls, 1)
+        XCTAssertEqual(active, 0)
+    }
+
     func testQuickSearchUsesBoundedParallelRequests() async throws {
         let routes = MeasuredRoutes(now: now)
         let start = Date()

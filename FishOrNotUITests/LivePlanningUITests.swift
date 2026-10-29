@@ -173,7 +173,12 @@ final class LivePlanningUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["liveDecision"].waitForExistence(timeout: 10))
         XCTAssertTrue(app.staticTexts["Harriet"].exists)
         XCTAssertEqual(Set(app.descendants(matching: .any).matching(NSPredicate(format: "identifier BEGINSWITH %@", "topFish-")).allElementsBoundByIndex.map(\.identifier)).count, 3)
-        capture("Favorite water recommendation")
+        for _ in 0..<8 {
+            if app.staticTexts["Hennepin County reference weather"].isHittable { break }
+            app.swipeUp()
+        }
+        XCTAssertTrue(app.staticTexts["Hennepin County reference weather"].exists)
+        capture("County reference weather")
     }
 
     @MainActor private func capture(_ name: String) {

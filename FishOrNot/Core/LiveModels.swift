@@ -89,6 +89,8 @@ struct ForecastSnapshot: Codable, Equatable {
     let fetchedAt: Date
     let sourceURL: URL
     var cached = false
+    var countyName: String? = nil
+    var referenceWater: String? = nil
 }
 
 struct RouteEstimate: Codable, Equatable {
@@ -148,6 +150,7 @@ struct LiveAssessment: Equatable {
         guard let best else { return false }
         return MinnesotaTime.calendar.isDate(best.start, inSameDayAs: createdAt) && best.score >= 65
     }
+    var weatherAreaCount: Int = 0
 }
 
 enum PlanningIssue: Error, Equatable {

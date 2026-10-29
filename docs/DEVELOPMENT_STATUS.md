@@ -67,3 +67,11 @@ The directory includes LakeFinder river/reservoir records and is not a complete 
 Default comparison is now 12 nearest eligible waters, with an explicit Customize search toggle for up to 60. Three bounded workers overlap independent route/weather pipelines; completed counts remain accurate, and cancellation is propagated to child work. MapKit reserves 300 ms launch slots before yielding, preserving request spacing under concurrency. Its shared service retains exact origin/destination estimates for five minutes; existing NWS grid/hourly caching remains in use. The final ranking still rechecks freshness and reachable arrival time. This reduces work rather than claiming an exhaustive statewide answer.
 
 Validation: 34 core tests (33 passed, one opt-in network test skipped); bounded-concurrency fixture reached three simultaneous requests and completed twelve 100 ms route calls in approximately 0.47 seconds. Simulator cancellation/restart and real Apple Maps/NWS tests passed. One live Minneapolis search took 9.83 seconds from tap to result detection, with 12 routes and 12 forecasts available; this is one measurement, not a latency guarantee or a cold-cache benchmark.
+
+## County weather reuse
+
+One forecast-provider request per county per comparison, using the nearest selected eligible water as the deterministic reference. In-flight success and failure are shared among concurrent lake evaluations. A cancelled comparison cancels the shared weather tasks; later comparisons start with a fresh pool and still benefit from the underlying NWS cache. Results disclose county/reference water and county request count, while forecast coverage counts continue to count waters. Routes and arrival/freshness checks remain per water. This is a user-requested regional approximation, not a NOAA county forecast or a local wind/safety guarantee.
+
+Core tests verify 12 Hennepin waters use one forecast, Hennepin/Ramsey favorites use two, and cancellation stops a pending shared forecast without leaving active work. 36 core tests: 35 passed, one optional live network test skipped.
+
+The optional real-network simulator check was interrupted after prolonged external-service waiting (over two minutes); no new live-latency improvement is claimed from that run. County reuse and cancellation are covered by deterministic provider tests.

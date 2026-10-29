@@ -119,3 +119,6 @@ The bundled LakeFinder snapshot now contains **7,788 unique water IDs** from sea
 Quick searches evaluate up to the **12 nearest eligible waters** (or 60 when “Compare more waters” is enabled) within the chosen county, radius or favorites scope. The result discloses evaluated versus eligible counts; this is not an exhaustive statewide ranking. Old favorites retain their stable DNR IDs.
 
 Refresh: `python3 scripts/import_minnesota.py` validates a new snapshot without saving; add `--write` to replace resources after validation. `--resume` reuses downloaded responses less than an hour old. Coverage counts and exclusions are recorded in `MinnesotaImportManifest.json`. Access review expires after 90 days; official status and site signs still apply.
+
+
+Weather is shared by county within each comparison. The nearest selected water in that county supplies the NOAA/NWS reference location; it is not an official county-wide forecast. Concurrent lakes share one in-flight request, and the result identifies the county and reference water. Routes, access checks and arrival windows remain specific to each lake. Local conditions can differ within a county, particularly on large lakes.

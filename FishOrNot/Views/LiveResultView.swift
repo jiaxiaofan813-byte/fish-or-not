@@ -166,6 +166,11 @@ struct LiveResultView: View {
     private func weather(_ best: LiveCandidate) -> some View {
         SectionCard(title: "Why this window") {
             Text(assessment.note).font(.subheadline)
+            if let county = best.forecast.countyName, let reference = best.forecast.referenceWater {
+                Text(county + " County reference weather").font(.headline)
+                Text("Shared across this county, using the forecast near " + reference + ". Conditions can vary across the county, especially wind on large lakes.")
+                    .font(.caption).foregroundStyle(Palette.muted)
+            }
             Label(L10n.temperature(Int(best.fahrenheit.rounded())), systemImage: "thermometer.medium")
             Label(L10n.text("Wind up to %@", L10n.wind(Int(best.windMPH.rounded()))), systemImage: "wind")
             Label(L10n.text("Rain chance up to %d%%", Int(best.rainPercent.rounded())), systemImage: "cloud.rain")
@@ -191,6 +196,7 @@ struct LiveResultView: View {
         SectionCard(title: "What we compared") {
             Text(L10n.text("%d waters evaluated · %d routes found · %d within your drive limit · %d forecasts available", assessment.compared, assessment.routeCount, assessment.reachable, assessment.forecastCount))
                 .font(.subheadline).accessibilityIdentifier("comparisonSummary")
+            Text(L10n.text("%d county weather requests; lakes in the same county share one forecast.", assessment.weatherAreaCount)).font(.caption).foregroundStyle(Palette.muted)
             Text(L10n.text("%d of %d catalog waters have eligible access and recorded species for your preferences.", assessment.eligibleCount, assessment.catalogCount)).font(.caption).foregroundStyle(Palette.muted)
             Text("Quick search compares up to 12 nearest eligible waters; Customize search can expand this to 60. Both use your selected scope, using one verified access per water and actual driving time. Narrow by county, miles or favorites to compare other waters. Radius uses straight-line miles. This is not an exhaustive statewide ranking.")
                 .font(.caption).foregroundStyle(Palette.muted)

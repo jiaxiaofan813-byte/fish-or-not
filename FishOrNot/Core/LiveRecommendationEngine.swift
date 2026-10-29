@@ -28,30 +28,39 @@ struct LiveRecommendationEngine: Sendable {
         }.sorted { origin.coordinate.distance(to: .init(latitude: $0.1.latitude, longitude: $0.1.longitude)) < origin.coordinate.distance(to: .init(latitude: $1.1.latitude, longitude: $1.1.longitude)) }
         // Bound external API work for a statewide catalog; coverage is disclosed in the result.
         let selected = Array(eligible.prefix(preferences.compareAllWaters ? 60 : 12))
+        var references: [String: CountyWeather.Reference] = [:]
+        for (water, access, _) in selected where references[water.county] == nil {
+            references[water.county] = .init(name: water.name, point: .init(latitude: access.latitude, longitude: access.longitude))
+        }
+        let countyWeather = CountyWeather(provider: weather, references: references)
         var checked = 0, reachable = 0, forecastCount = 0, successfulRoutes = 0
         var candidates: [LiveCandidate] = []
-        try await withThrowingTaskGroup(of: Evaluation.self) { group in
-            var next = 0
-            func enqueue() {
-                guard next < selected.count else { return }
-                let item = selected[next]
-                next += 1
-                group.addTask {
+        try await withTaskCancellationHandler {
+            try await withThrowingTaskGroup(of: Evaluation.self) { group in
+                var next = 0
+                func enqueue() {
+                    guard next < selected.count else { return }
+                    let item = selected[next]
+                    next += 1
+                    group.addTask {
+                        try Task.checkCancellation()
+                        return try await evaluate(item, origin: origin, preferences: preferences, gear: gear, now: now, startedAt: startedAt, countyWeather: countyWeather)
+                    }
+                }
+                for _ in 0..<min(3, selected.count) { enqueue() }
+                for try await result in group {
                     try Task.checkCancellation()
-                    return try await evaluate(item, origin: origin, preferences: preferences, gear: gear, now: now, startedAt: startedAt)
+                    checked += 1
+                    successfulRoutes += result.routes
+                    reachable += result.reachable
+                    forecastCount += result.forecasts
+                    candidates += result.candidates
+                    await progress(L10n.text("Comparing %d of %d waters…", checked, selected.count))
+                    enqueue()
                 }
             }
-            for _ in 0..<min(3, selected.count) { enqueue() }
-            for try await result in group {
-                try Task.checkCancellation()
-                checked += 1
-                successfulRoutes += result.routes
-                reachable += result.reachable
-                forecastCount += result.forecasts
-                candidates += result.candidates
-                await progress(L10n.text("Comparing %d of %d waters…", checked, selected.count))
-                enqueue()
-            }
+        } onCancel: {
+            Task { await countyWeather.cancel() }
         }
         try Task.checkCancellation()
         if !selected.isEmpty && successfulRoutes == 0 { throw PlanningIssue.routes }
@@ -73,7 +82,7 @@ struct LiveRecommendationEngine: Sendable {
         else if best == nil { note = L10n.text("No suitable daylight open-water window was found in the available next-five-day forecasts.") }
         else { note = L10n.text("Ranked by daylight, wind, rain and air-temperature comfort. This is not a bite or ice-safety forecast.") }
         return .init(best: best, backup: backup, compared: checked, reachable: reachable, routeCount: successfulRoutes, eligibleCount: eligible.count, forecastCount: forecastCount,
-                     catalogCount: catalog.waters.count, origin: origin, accessMode: preferences.access, createdAt: finishedAt, note: note)
+                     catalogCount: catalog.waters.count, origin: origin, accessMode: preferences.access, createdAt: finishedAt, note: note, weatherAreaCount: await countyWeather.requestCount)
     }
 
     private struct Evaluation: Sendable {
@@ -84,7 +93,7 @@ struct LiveRecommendationEngine: Sendable {
     }
 
     private func evaluate(_ item: (WaterRecord, AccessPoint, SpeciesEvidence), origin: StartingPoint,
-                          preferences: Preferences, gear: [GearItem], now: Date, startedAt: Date) async throws -> Evaluation {
+                          preferences: Preferences, gear: [GearItem], now: Date, startedAt: Date, countyWeather: CountyWeather) async throws -> Evaluation {
         let (water, access, fish) = item
         var result = Evaluation()
         func evaluationTime() -> Date { now.addingTimeInterval(Date().timeIntervalSince(startedAt)) }
@@ -97,7 +106,7 @@ struct LiveRecommendationEngine: Sendable {
         guard route.minutes <= preferences.maxDriveMinutes else { return result }
         result.reachable = 1
         let forecast: ForecastSnapshot
-        do { forecast = try await weather.forecast(at: point) }
+        do { forecast = try await countyWeather.forecast(for: water.county) }
         catch { try Task.checkCancellation(); return result }
         guard (-300...21_600).contains(evaluationTime().timeIntervalSince(forecast.updatedAt)),
               (-300...10_800).contains(evaluationTime().timeIntervalSince(forecast.fetchedAt)),
@@ -143,5 +152,51 @@ struct LiveRecommendationEngine: Sendable {
                                  fahrenheit: temp, windMPH: wind, rainPercent: rain, gear: .make(species: species, inventory: gear)))
         }
         return results
+    }
+}
+
+/// One request (including an in-flight request or failure) per county per comparison.
+/// The nearest selected water supplies the reference location, never an invented NOAA county product.
+private actor CountyWeather {
+    struct Reference: Sendable {
+        let name: String
+        let point: GeoPoint
+    }
+    let provider: any ForecastProviding
+    let references: [String: Reference]
+    private var pending: [String: Task<ForecastSnapshot, Error>] = [:]
+    private var cancelled = false
+    var requestCount: Int { pending.count }
+
+    init(provider: any ForecastProviding, references: [String: Reference]) {
+        self.provider = provider
+        self.references = references
+    }
+
+    func forecast(for county: String) async throws -> ForecastSnapshot {
+        try Task.checkCancellation()
+        guard !cancelled else { throw CancellationError() }
+        guard let reference = references[county] else { throw PlanningIssue.forecasts }
+        let task: Task<ForecastSnapshot, Error>
+        if let existing = pending[county] { task = existing }
+        else {
+            let provider = self.provider
+            task = Task {
+                var forecast = try await provider.forecast(at: reference.point)
+                try Task.checkCancellation()
+                forecast.countyName = county
+                forecast.referenceWater = reference.name
+                return forecast
+            }
+            pending[county] = task
+        }
+        let result = try await task.value
+        try Task.checkCancellation()
+        return result
+    }
+
+    func cancel() {
+        cancelled = true
+        for task in pending.values { task.cancel() }
     }
 }
