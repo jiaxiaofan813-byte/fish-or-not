@@ -4415,6 +4415,108 @@
           }
         }
       }
+    },
+    "Representative photo": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Representative photo"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "代表照片"
+          }
+        }
+      }
+    },
+    "Representative photo: %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Representative photo: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "代表照片：%@"
+          }
+        }
+      }
+    },
+    "Photo source": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photo source"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "照片来源"
+          }
+        }
+      }
+    },
+    "Fish photos & credits": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fish photos & credits"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "鱼类照片与署名"
+          }
+        }
+      }
+    },
+    "Photo not yet available": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photo not yet available"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂无核验照片"
+          }
+        }
+      }
+    },
+    "Real reference photographs. Appearance varies with age, season and individual fish. Photos are not identification, harvest or food-safety advice.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Real reference photographs. Appearance varies with age, season and individual fish. Photos are not identification, harvest or food-safety advice."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "真实参考照片。外观因年龄、季节和个体而异。照片不构成鱼种鉴定、捕捞或食用安全建议。"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

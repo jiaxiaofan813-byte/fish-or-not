@@ -74,6 +74,7 @@ struct FishGuideView: View {
     var body: some View {
         List(Species.allCases.filter { $0 != .any }) { fish in
             Section(fish.displayName) {
+                SpeciesPhotoCard(species: fish)
                 Text("Hooks: " + fish.tackle.hook)
                 Text("Natural bait: " + fish.tackle.bait)
                 Text("Artificial lures: " + fish.tackle.lure)
@@ -136,7 +137,13 @@ struct SpeciesSelectionView: View {
                 dismiss()
             } label: {
                 HStack {
-                    Text(species.displayName).foregroundStyle(.primary)
+                    SpeciesThumbnail(species: species)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(species.displayName).foregroundStyle(.primary)
+                        if species.photo?.representative == true {
+                            Text("Representative photo").font(.caption2).foregroundStyle(Palette.muted)
+                        }
+                    }
                     Spacer()
                     Image(systemName: selection == species ? "checkmark.circle.fill" : "circle")
                         .foregroundStyle(selection == species ? Palette.lime : Palette.muted.opacity(0.4))
@@ -151,6 +158,12 @@ struct SpeciesSelectionView: View {
         .background(Palette.ink)
         .searchable(text: $query, prompt: "Search fish, e.g. muskie, trout, catfish")
         .navigationTitle("Target fish")
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink { FishPhotoCreditsView() } label: { Image(systemName: "info.circle") }
+                    .accessibilityLabel("Fish photos & credits")
+            }
+        }
         .toolbar(.visible, for: .navigationBar)
         .overlay { if matches.isEmpty { ContentUnavailableView.search(text: query) } }
         .safeAreaInset(edge: .bottom) {

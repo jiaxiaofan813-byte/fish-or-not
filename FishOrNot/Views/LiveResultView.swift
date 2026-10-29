@@ -102,6 +102,8 @@ struct LiveResultView: View {
                         .font(.caption).foregroundStyle(Palette.muted)
                 }
             }
+            NavigationLink("Fish photos & credits") { FishPhotoCreditsView() }
+                .font(.caption)
             Divider()
             Text("Weather comfort for a trip · not catch probability").font(.caption).foregroundStyle(Palette.muted)
             Text("Verify open-water conditions locally.").font(.caption).foregroundStyle(Palette.muted)
@@ -155,6 +157,7 @@ struct LiveResultView: View {
     private func speciesAndGear(_ best: LiveCandidate) -> some View {
         SectionCard(title: "Target & tackle") {
             Text(best.species.displayName).font(.title3.bold())
+            SpeciesPhotoCard(species: best.species)
             Text("Selected from recorded species, with preference for your classified gear. This is a practical starting setup, not a prediction of what is biting.")
                 .font(.subheadline).foregroundStyle(Palette.muted)
             if !best.gear.owned.isEmpty {
@@ -185,6 +188,7 @@ struct LiveResultView: View {
             ForEach(fish) { species in
                 DisclosureGroup {
                     VStack(alignment: .leading, spacing: 12) {
+                        SpeciesPhotoCard(species: species)
                         Label("Hooks: " + species.tackle.hook, systemImage: "link")
                         Label("Natural bait: " + species.tackle.bait, systemImage: "leaf")
                         Label("Lures: " + species.tackle.lure, systemImage: "water.waves")

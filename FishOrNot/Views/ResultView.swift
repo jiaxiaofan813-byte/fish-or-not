@@ -31,7 +31,8 @@ struct ResultView: View {
                         Label(L10n.text(plan.best.water), systemImage: "water.waves").font(.title3.weight(.semibold))
                         Text(L10n.text("Fictional water · %d min sample drive", plan.best.driveMinutes))
                             .font(.caption).foregroundStyle(Palette.muted)
-                        Label(L10n.text("Target: %@", plan.best.species.displayName), systemImage: "fish")
+                        FishTargetRow(species: plan.best.species, recommended: true)
+                        NavigationLink("Fish photos & credits") { FishPhotoCreditsView() }
                         HStack(spacing: 18) {
                             Label(L10n.temperature(plan.best.temperature), systemImage: "thermometer.medium")
                             Label(L10n.wind(plan.best.windMPH), systemImage: "wind")

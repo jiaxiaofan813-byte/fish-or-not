@@ -56,14 +56,13 @@ struct FishTargetRow: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: "fish.fill")
-                .font(.body)
-                .foregroundStyle(recommended ? Palette.lime : Palette.muted)
-                .frame(width: 36, height: 36)
-                .background(.white.opacity(0.04), in: RoundedRectangle(cornerRadius: 10))
+            SpeciesThumbnail(species: species)
             VStack(alignment: .leading, spacing: 3) {
                 Text(species.displayName).font(.subheadline.weight(.semibold))
                     .foregroundStyle(.primary).fixedSize(horizontal: false, vertical: true)
+                if species.photo?.representative == true {
+                    Text("Representative photo").font(.caption2).foregroundStyle(Palette.muted)
+                }
                 if recommended {
                     Text("Recommended").font(.caption).foregroundStyle(Palette.lime)
                 }

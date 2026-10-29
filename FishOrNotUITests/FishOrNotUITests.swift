@@ -47,6 +47,25 @@ final class FishOrNotUITests: XCTestCase {
     }
 
     @MainActor
+    func testFishPhotosAndAttributionAreAvailableOffline() {
+        let app = XCUIApplication()
+        app.launchEnvironment["FISH_OR_NOT_TEST_PROFILE"] = "photos.\(UUID().uuidString)"
+        app.launchEnvironment["FISH_OR_NOT_TEST_SCENARIO"] = "demo"
+        app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+        app.launch()
+        XCTAssertTrue(app.buttons["Preferences"].waitForExistence(timeout: 10))
+        app.buttons["Preferences"].tap()
+        app.buttons["chooseTargetSpecies"].tap()
+        XCTAssertTrue(app.buttons["chooseSpecies-bluegill"].waitForExistence(timeout: 5))
+        capture("Fish photo picker")
+        app.buttons["Fish photos & credits"].tap()
+        XCTAssertTrue(app.navigationBars["Fish photos & credits"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.images["Bluegill"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.links["Photo source"].firstMatch.exists)
+        capture("Fish photo attribution")
+    }
+
+    @MainActor
     func testFishEyeCanBeUsedAgainAfterReturningHome() {
         let app = XCUIApplication()
         app.launchEnvironment["FISH_OR_NOT_TEST_PROFILE"] = "ui-repeat.\(UUID().uuidString)"

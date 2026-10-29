@@ -72,6 +72,7 @@ struct WaterDetailView: View {
                                 ForEach(record.supported) { FishTargetRow(species: $0) }
                             }
                         }
+                        NavigationLink("Fish photos & credits") { FishPhotoCreditsView() }
                         if !record.recordedNames.isEmpty {
                             DisclosureGroup("All recorded fish (DNR names)") {
                                 Text(record.recordedNames.joined(separator: ", ")).font(.caption)
