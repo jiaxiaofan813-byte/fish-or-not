@@ -53,7 +53,9 @@ struct SpeciesEvidence: Codable, Equatable {
             }
         }
     }
-    static func bundled() throws -> [Self] {
+    private static let cached: Result<[Self], Error> = Result { try loadBundle() }
+    static func bundled() throws -> [Self] { try cached.get() }
+    private static func loadBundle() throws -> [Self] {
         #if SWIFT_PACKAGE
         let bundle = Bundle.module
         #else

@@ -14,14 +14,16 @@ final class WaterNavigationUITests: XCTestCase {
         return app
     }
 
-    @MainActor func testFiftyWatersFilterAndAppleMapsHandoff() {
+    @MainActor func testStatewideWatersFilterAndAppleMapsHandoff() {
         let app = launch()
-        XCTAssertEqual(app.staticTexts["waterCount"].label, "50 waters")
+        XCTAssertEqual(app.staticTexts["waterCount"].label, "7788 waters")
         app.segmentedControls.buttons["Boat"].tap()
-        XCTAssertEqual(app.staticTexts["waterCount"].label, "41 waters")
+        XCTAssertEqual(app.staticTexts["waterCount"].label, "1618 waters")
         app.segmentedControls.buttons["All access"].tap()
-        XCTAssertEqual(app.staticTexts["waterCount"].label, "50 waters")
-        capture("Fifty real waters")
+        XCTAssertEqual(app.staticTexts["waterCount"].label, "7788 waters")
+        capture("Statewide waters")
+        app.searchFields.firstMatch.tap()
+        app.searchFields.firstMatch.typeText("62000200\n")
         let baldEagle = app.buttons["water-mn-62000200"]
         if !baldEagle.isHittable { app.swipeUp() }
         baldEagle.tap()
@@ -38,19 +40,19 @@ final class WaterNavigationUITests: XCTestCase {
         let maps = XCUIApplication(bundleIdentifier: "com.apple.Maps")
         XCTAssertTrue(maps.wait(for: .runningForeground, timeout: 15))
         app.activate()
-        XCTAssertTrue(app.navigationBars["Bald Eagle Lake"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.navigationBars["Bald Eagle"].waitForExistence(timeout: 5))
     }
 
     @MainActor func testChineseCatalogSearchAndShoreOnlyWater() {
         let app = launch(language: "zh-Hans", locale: "zh_CN")
-        XCTAssertEqual(app.staticTexts["waterCount"].label, "50 个水域")
+        XCTAssertEqual(app.staticTexts["waterCount"].label, "7788 个水域")
         let search = app.searchFields.firstMatch
         XCTAssertTrue(search.waitForExistence(timeout: 5))
         search.tap()
-        search.typeText("Como\n")
+        search.typeText("62005500\n")
         XCTAssertEqual(app.staticTexts["waterCount"].label, "1 个水域")
         app.buttons["water-mn-62005500"].tap()
-        XCTAssertTrue(app.navigationBars["Como Lake"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.navigationBars["Como"].waitForExistence(timeout: 5))
         XCTAssertTrue(app.buttons["access-5831df86-aa0f-46ac-a4c6-cf8be2dfded1"].exists)
         if !app.buttons["navigateWaterButton"].isHittable { app.swipeUp() }
         XCTAssertTrue(app.buttons["navigateWaterButton"].isEnabled)
@@ -61,17 +63,26 @@ final class WaterNavigationUITests: XCTestCase {
         let app = launch()
         app.buttons["waterCountyFilter"].tap()
         app.buttons["Carver County"].tap()
-        XCTAssertEqual(app.staticTexts["waterCount"].label, "6 waters")
+        XCTAssertEqual(app.staticTexts["waterCount"].label, "89 waters")
         app.buttons["waterCountyFilter"].tap()
         app.buttons["All counties"].tap()
-        XCTAssertEqual(app.staticTexts["waterCount"].label, "50 waters")
+        XCTAssertEqual(app.staticTexts["waterCount"].label, "7788 waters")
         let search = app.searchFields.firstMatch
         search.tap()
         search.typeText("Fish Hennepin\n")
         XCTAssertEqual(app.staticTexts["waterCount"].label, "1 water")
         app.buttons["water-mn-27011800"].tap()
-        XCTAssertTrue(app.navigationBars["Fish Lake"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.navigationBars["Fish"].waitForExistence(timeout: 5))
         capture("Same-name lake disambiguated")
+    }
+
+    @MainActor func testStatewideNorthernLakeAndMissingAccess() {
+        let app = launch()
+        let search = app.searchFields.firstMatch
+        search.tap(); search.typeText("69037800\n")
+        app.buttons["water-mn-69037800"].tap()
+        XCTAssertTrue(app.navigationBars["Vermilion"].waitForExistence(timeout: 5))
+        capture("Northern Minnesota lake detail")
     }
 
     @MainActor private func capture(_ name: String) {

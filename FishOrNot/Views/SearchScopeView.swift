@@ -17,7 +17,7 @@ struct SearchScopeView: View {
             Text("Size groups describe species, not guaranteed catch size.").font(.caption).foregroundStyle(Palette.muted)
             NavigationLink("Fish, hooks & bait guide") { FishGuideView() }
             switch store.preferences.searchScope {
-            case .all: Text("Compare all eligible catalog waters.").font(.caption).foregroundStyle(Palette.muted)
+            case .all: Text("Search the statewide catalog; compare up to 60 nearest eligible waters.").font(.caption).foregroundStyle(Palette.muted)
             case .radius:
                 Stepper(L10n.text("Within %d miles", store.preferences.radiusMiles), value: $store.preferences.radiusMiles, in: 5...150, step: 5)
                 Text("Straight-line distance from your starting point; driving limits also apply.").font(.caption).foregroundStyle(Palette.muted)

@@ -110,3 +110,12 @@ Milestones describe planned work, not release commitments. This is an open-water
 ### Scope and waiting interaction update
 
 Users choose all catalog waters, a mile radius, a county, or favorites before tapping. Favorite IDs, radius and county persist with existing preferences; the legacy compare-all flag is decoded for migration but no longer limits scope to 12 waters. The shared press/eye/fish/hook reveal starts immediately, then holds with a small worm on the hook while inputs load. Only the catch/lift or hesitate/turn/escape ending waits for the verdict. Escape flips the fish to face left before it swims left. Reduce Motion continues to skip decorative motion, and cancellation resets the scene.
+
+
+### Statewide Minnesota directory
+
+The bundled LakeFinder snapshot now contains **7,788 unique water IDs** from searches of all **87 counties** (Red Lake County returns no records). It includes lakes, reservoirs and river records present in LakeFinder, rather than every physical water body in Minnesota. **2,842** have fish listings; **1,706** have matched public access, totaling **2,386** access records. Waters without a matched entrance remain searchable and favoritable but cannot generate navigation or trip recommendations. Lake details include available area/depth data and links to official surveys, maps and regulations.
+
+Trip searches evaluate up to the **60 nearest eligible waters** within the chosen county, radius or favorites scope. The result discloses evaluated versus eligible counts; this is not an exhaustive statewide ranking. Old favorites retain their stable DNR IDs.
+
+Refresh: `python3 scripts/import_minnesota.py` validates a new snapshot without saving; add `--write` to replace resources after validation. `--resume` reuses downloaded responses less than an hour old. Coverage counts and exclusions are recorded in `MinnesotaImportManifest.json`. Access review expires after 90 days; official status and site signs still apply.

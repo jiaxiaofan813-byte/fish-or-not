@@ -46,7 +46,7 @@ struct WatersView: View {
         return List {
             Section {
                 Text(LaunchCoverage.displayName).font(.headline)
-                Text(L10n.text("%d real waters · Official DNR access records", catalog.waters.count))
+                Text(L10n.text("%d waters · Minnesota DNR directory", catalog.waters.count))
                     .font(.subheadline).foregroundStyle(Palette.muted)
                 Text("Choose a water and a public access point. Weather and bite forecasts are not included here.")
                     .font(.caption).foregroundStyle(Palette.muted)

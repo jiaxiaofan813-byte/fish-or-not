@@ -141,7 +141,7 @@ final class LivePlanningUITests: XCTestCase {
         capture("Compatible owned gear in plan")
         let summary = app.staticTexts["comparisonSummary"]
         for _ in 0..<8 { if summary.isHittable { break }; app.swipeUp() }
-        XCTAssertTrue(summary.label.contains("49 waters evaluated"), summary.label)
+        XCTAssertTrue(summary.label.contains("60 waters evaluated"), summary.label)
     }
     @MainActor func testFavoritesScopeOnHomeUsesOnlySavedWater() {
         let app = launch("live-success")
@@ -150,7 +150,7 @@ final class LivePlanningUITests: XCTestCase {
         explore.tap()
         let search = app.searchFields.firstMatch
         XCTAssertTrue(search.waitForExistence(timeout: 5))
-        search.tap(); search.typeText("Harriet\n")
+        search.tap(); search.typeText("27001600\n")
         let star = app.buttons["favorite-mn-27001600"]
         XCTAssertTrue(star.waitForExistence(timeout: 5)); star.tap()
         if app.buttons["close"].exists { app.buttons["close"].tap() }
@@ -169,7 +169,7 @@ final class LivePlanningUITests: XCTestCase {
         if !eye.isHittable { app.swipeUp() }
         eye.tap()
         XCTAssertTrue(app.staticTexts["liveDecision"].waitForExistence(timeout: 10))
-        XCTAssertTrue(app.staticTexts["Lake Harriet"].exists)
+        XCTAssertTrue(app.staticTexts["Harriet"].exists)
         XCTAssertEqual(Set(app.descendants(matching: .any).matching(NSPredicate(format: "identifier BEGINSWITH %@", "topFish-")).allElementsBoundByIndex.map(\.identifier)).count, 3)
         capture("Favorite water recommendation")
     }

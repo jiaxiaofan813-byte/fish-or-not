@@ -31,7 +31,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--write', action='store_true')
     args = parser.parse_args()
-    waters = json.loads((ROOT / 'FishOrNot/Core/Resources/TwinCitiesWaters.json').read_text())['waters']
+    waters = json.loads((ROOT / 'FishOrNot/Core/Resources/MinnesotaWaters.json').read_text())['waters']
     old = {p['lakeNumber']: p for p in json.loads(TARGET.read_text())} if TARGET.exists() else {}
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
         profiles = list(pool.map(fetch, waters))

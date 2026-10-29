@@ -8,8 +8,8 @@ from pathlib import Path
 import subprocess
 from urllib.parse import urlparse
 
-CATALOG = Path(__file__).resolve().parents[1] / 'FishOrNot/Core/Resources/TwinCitiesWaters.json'
-COUNTIES = {'Anoka', 'Carver', 'Dakota', 'Hennepin', 'Ramsey', 'Scott', 'Washington'}
+CATALOG = Path(__file__).resolve().parents[1] / 'FishOrNot/Core/Resources/MinnesotaWaters.json'
+COUNTIES = set(json.loads((CATALOG.parent / 'MinnesotaImportManifest.json').read_text())['countyCounts'])
 SITE_TYPES = {'Fishing Pier': 'fishing_pier', 'Shore Fishing Site': 'shore_access',
               'Breakwater Fishing Site': 'breakwater'}
 

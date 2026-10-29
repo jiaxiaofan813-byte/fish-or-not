@@ -55,3 +55,9 @@ Home now opens the saved geographic, species and size filters through a single C
 ## Motion refinement
 
 The reveal retains the eye-to-fish transition. A paused-when-idle 30 Hz local timeline drives subtle swim, tail and bait motion without an indefinitely repeating animation transaction. The fish approaches before the catch, briefly struggles, then rises with the hook; the negative ending retreats, rotates around the body and accelerates out. The scene clips departures within its own bounds. The revealed fish is scaled to preserve space around its tail and bait. Reduce Motion skips the animated sequence; cancellation resets the scene immediately. Shared reveal is 620 ms; result ending is 860 ms for catch and 880 ms for escape, separate from network waiting.
+
+## Statewide LakeFinder expansion
+
+Supersedes the Twin Cities-only catalog and exhaustive selected-scope comparison. All 87 county searches were checked: 7,788 unique water IDs, 2,842 fish listings, 1,706 waters with 2,386 matched public access records. Three unnamed access records, 487 unsupported/alerted access records, and 612 access records without an exact LakeFinder ID were excluded. Red Lake County explicitly returned no results. Lake ID 01007101 has two source names with otherwise identical metadata; both names are preserved on one record.
+
+The directory includes LakeFinder river/reservoir records and is not a complete inventory of every physical Minnesota lake. Lake metadata and absence of public access are visible. Import checks full GIS object-ID coverage and all counties before publishing. Recommendations cap external route/weather work at 60 nearest eligible waters and disclose partial comparison. Resources are cached after decoding to keep statewide searches responsive.

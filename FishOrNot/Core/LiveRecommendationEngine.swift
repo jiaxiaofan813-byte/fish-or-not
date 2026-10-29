@@ -26,7 +26,8 @@ struct LiveRecommendationEngine: Sendable {
             }
             return (water, access, fish)
         }.sorted { origin.coordinate.distance(to: .init(latitude: $0.1.latitude, longitude: $0.1.longitude)) < origin.coordinate.distance(to: .init(latitude: $1.1.latitude, longitude: $1.1.longitude)) }
-        let selected = eligible
+        // Bound external API work for a statewide catalog; coverage is disclosed in the result.
+        let selected = Array(eligible.prefix(60))
         var checked = 0, reachable = 0, forecastCount = 0, successfulRoutes = 0
         var candidates: [LiveCandidate] = []
         for (water, access, fish) in selected {

@@ -8,6 +8,12 @@ struct WaterRecord: Codable, Identifiable, Equatable {
     let lakeFinderURL: URL
     let accessPoints: [AccessPoint]
 
+    var sourceCheckedAt: Date? = nil
+    var areaAcres: Double? = nil
+    var maxDepthFeet: Double? = nil
+    var availableReports: [String]? = nil
+    var metadataSourceURL: URL? = nil
+
     var supportedAccess: Set<Access> {
         accessPoints.reduce(into: Set<Access>()) { $0.formUnion($1.verification?.supportedAccess ?? []) }
     }
@@ -15,7 +21,7 @@ struct WaterRecord: Codable, Identifiable, Equatable {
     func matches(_ query: String, access: Access?, county: String? = nil) -> Bool {
         if let county, self.county != county { return false }
         if let access, !supportedAccess.contains(access) { return false }
-        let text = [name, self.county, lakeNumber, name == "Bde Maka Ska" ? "Calhoun" : ""].joined(separator: " ")
+        let text = [name, self.county, lakeNumber, lakeNumber == "27003100" ? "Calhoun Bde Maka Ska" : ""].joined(separator: " ")
         let terms = query.split(whereSeparator: \.isWhitespace)
         return terms.allSatisfy { text.localizedStandardContains(String($0)) }
     }
@@ -52,13 +58,15 @@ struct WaterCatalog: Codable {
 
     enum CatalogError: Error { case missingResource, invalidRecords }
 
-    static func bundled() throws -> Self {
+    private static let cached: Result<Self, Error> = Result { try loadBundle() }
+    static func bundled() throws -> Self { try cached.get() }
+    private static func loadBundle() throws -> Self {
         #if SWIFT_PACKAGE
         let bundle = Bundle.module
         #else
         let bundle = Bundle.main
         #endif
-        guard let url = bundle.url(forResource: "TwinCitiesWaters", withExtension: "json") else {
+        guard let url = bundle.url(forResource: "MinnesotaWaters", withExtension: "json") else {
             throw CatalogError.missingResource
         }
         return try decode(Data(contentsOf: url))
@@ -75,7 +83,7 @@ struct WaterCatalog: Codable {
         var pointIDs = Set<String>()
         for water in catalog.waters {
             guard water.id == "mn-" + water.lakeNumber, water.lakeNumber.count == 8,
-                  !water.name.isEmpty, LaunchCoverage.counties.contains(water.county), !water.accessPoints.isEmpty,
+                  !water.name.isEmpty, LaunchCoverage.counties.contains(water.county),
                   water.lakeFinderURL.host == "www.dnr.state.mn.us" else { throw CatalogError.invalidRecords }
             for point in water.accessPoints {
                 guard pointIDs.insert(point.id).inserted, !point.isDemo,

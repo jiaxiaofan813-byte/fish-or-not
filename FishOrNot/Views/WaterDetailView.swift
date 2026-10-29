@@ -24,7 +24,20 @@ struct WaterDetailView: View {
             VStack(alignment: .leading, spacing: 22) {
                 Text(water.name).font(.largeTitle.bold())
                 Text(L10n.text("%@ County", water.county)).foregroundStyle(Palette.muted)
+                SectionCard(title: "Lake information") {
+                    Text("DNR ID: " + water.lakeNumber)
+                    if let area = water.areaAcres, area > 0 { Text("Area: \(area.formatted()) acres") }
+                    if let depth = water.maxDepthFeet, depth > 0 { Text("Maximum depth: \(depth.formatted()) ft") }
+                    if let checked = water.sourceCheckedAt { Text("Updated " + checked.formatted(date: .abbreviated, time: .omitted)).font(.caption) }
+                    if let reports = water.availableReports {
+                        Text(reports.compactMap { ["lakeSurvey": "Fish survey", "lakeMap": "Depth map", "fishStocking": "Stocking", "waterQuality": "Water quality", "waterLevels": "Water levels", "specialFishingRegs": "Special regulations", "fca": "Fish consumption guidance"][$0] }.joined(separator: " · ")).font(.caption).foregroundStyle(Palette.muted)
+                    }
+                    Link("Official lake reports, maps & regulations", destination: water.lakeFinderURL)
+                }
                 SectionCard(title: "Public access points") {
+                    if water.accessPoints.isEmpty {
+                        Text("No matched public access record is available. This water can be explored and saved, but is excluded from trip recommendations and navigation.")
+                    }
                     ForEach(water.accessPoints) { point in
                         Button { selectedID = point.id } label: {
                             HStack(alignment: .top) {
@@ -50,6 +63,11 @@ struct WaterDetailView: View {
                     SectionCard(title: "Recorded target species") {
                         if record.supported.isEmpty { Text("No supported target species are listed in this DNR record.") }
                         else { ForEach(record.supported) { Text($0.displayName) } }
+                        if !record.recordedNames.isEmpty {
+                            DisclosureGroup("All recorded fish (DNR names)") {
+                                Text(record.recordedNames.joined(separator: ", ")).font(.caption)
+                            }
+                        }
                         Text("Historical species presence, not current abundance or catch probability. Survey year is not supplied in this listing.").font(.caption).foregroundStyle(Palette.muted)
                         Text(L10n.text("Record checked %@", record.checkedAt.formatted(date: .abbreviated, time: .omitted))).font(.caption)
                         Link("Official DNR species record", destination: record.sourceURL)

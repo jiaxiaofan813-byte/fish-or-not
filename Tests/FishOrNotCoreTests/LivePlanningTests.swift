@@ -47,18 +47,18 @@ final class LivePlanningTests: XCTestCase {
     }
     func testAllSpeciesProfilesJoinExactlyAndRockBassIsNotLargemouth() throws {
         let evidence = try SpeciesEvidence.bundled(), catalog = try WaterCatalog.bundled()
-        XCTAssertEqual(evidence.count, 50)
+        XCTAssertGreaterThan(evidence.count, 7500)
         XCTAssertEqual(Set(evidence.map(\.lakeNumber)), Set(catalog.waters.map(\.lakeNumber)))
-        XCTAssertEqual(evidence.filter { !$0.recordedNames.isEmpty }.count, 49)
+        XCTAssertGreaterThan(evidence.filter { !$0.recordedNames.isEmpty }.count, 2800)
         XCTAssertTrue(evidence.allSatisfy { $0.surveyYear == nil })
         let rock = SpeciesEvidence(lakeNumber: "x", recordedNames: ["rock bass"], sourceURL: evidence[0].sourceURL, checkedAt: now, surveyYear: nil)
         XCTAssertFalse(rock.supported.contains(.bass))
     }
     func testAllEligibleWatersRespectRealRoutesAndRecordedFish() async throws {
         let result = try await plan()
-        XCTAssertEqual(result.compared, 49)
-        XCTAssertEqual(result.routeCount, 49)
-        XCTAssertEqual(result.forecastCount, 49)
+        XCTAssertEqual(result.compared, 60)
+        XCTAssertEqual(result.routeCount, 60)
+        XCTAssertEqual(result.forecastCount, 60)
         let best = try XCTUnwrap(result.best)
         XCTAssertTrue(best.evidence.supported.contains(best.species))
         XCTAssertGreaterThanOrEqual(best.start, now.addingTimeInterval(1500))
@@ -66,8 +66,8 @@ final class LivePlanningTests: XCTestCase {
         XCTAssertNotNil(best.water.destination(accessID: best.accessPoint.id, for: .shore, at: now))
         var all = Preferences(); all.compareAllWaters = true
         let expanded = try await plan(prefs: all)
-        XCTAssertEqual(expanded.compared, expanded.eligibleCount)
-        XCTAssertEqual(expanded.compared, 49)
+        XCTAssertEqual(expanded.compared, min(60, expanded.eligibleCount))
+        XCTAssertEqual(expanded.compared, 60)
         XCTAssertNotNil(expanded.backup)
     }
     func testScopesFilterBeforeRoutingAndFavoritesPersist() async throws {
@@ -75,15 +75,15 @@ final class LivePlanningTests: XCTestCase {
         var prefs = Preferences(); prefs.searchScope = .favorites
         let empty = try await plan(prefs: prefs)
         XCTAssertEqual(empty.compared, 0)
-        prefs.favoriteWaterIDs = [catalog.waters[0].id]
+        prefs.favoriteWaterIDs = ["mn-27001600"]
         let favorite = try await plan(prefs: prefs)
         XCTAssertEqual(favorite.compared, 1)
-        XCTAssertEqual(favorite.best?.water.id, catalog.waters[0].id)
+        XCTAssertEqual(favorite.best?.water.id, "mn-27001600")
         let restored = try JSONDecoder().decode(Preferences.self, from: JSONEncoder().encode(prefs))
         XCTAssertEqual(restored, prefs)
         prefs.searchScope = .county; prefs.scopeCounty = "Carver"
         let county = try await plan(prefs: prefs)
-        XCTAssertEqual(county.compared, 6)
+        XCTAssertGreaterThanOrEqual(county.compared, 6)
         XCTAssertEqual(county.best?.water.county, "Carver")
         prefs.searchScope = .radius; prefs.radiusMiles = 5
         let radius = try await plan(prefs: prefs)
