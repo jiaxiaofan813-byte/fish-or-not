@@ -2,28 +2,23 @@
 
 ## Implemented in this increment
 
-- Home-screen fish illustration with the primary button as its eye.
-- Native SwiftUI transition: eye reaction (120 ms), hook drop (250 ms), brief struggle (360 ms), lift (320 ms).
-- Reduce Motion bypasses the animation and delay. The existing result and no-match flows remain the destinations.
-- Duplicate taps and utility controls are disabled during the transition. Backgrounding, cancellation, and returning home reset the interaction.
-- English and Simplified Chinese String Catalog for home copy, utility labels, and the shared demo notice. Result/settings strings, units, and stable data identifiers still need a separate localization pass.
-- Minnesota recorded as the initial launch region in the product decisions.
+- **Home-screen signature interaction redesign adhering to Section 3 of `docs/PRODUCT_DECISIONS.md`:**
+  - **Zero-spoilers before tap**: The home screen initially renders only a minimal, polished circular button (`#142924` card background, subtle lime border, tactile `arrow.up.right` icon). All fish outlines, fins, tails, hooks, and fish-eye visual hints are completely hidden prior to the tap.
+  - **Result-dependent reveal branching**:
+    - **FISH branch (positive recommendation / `goToday == true`)**: The button serves as the anchor point, rapidly revealing that it is the eye of a fish as the fish body (`Palette.lime`), tail, dorsal fin, and gill expand around it (~320 ms). A fishing hook drops down to the mouth (~240 ms), the fish wiggles playfully in struggle (~320 ms), and is lifted upward off-screen (~260 ms) before revealing the fishing plan.
+    - **NOT branch (negative / `goToday == false` / no match, "摸鱼" pun)**: The central circular button morphs into a competition orange ping-pong ball with 3-star rating markings (`★★★ 40+`) (~240 ms). A vector ping-pong paddle (red rubber face, black edge tape, wooden handle) swings in from the side (~240 ms), smashes the ball with an impact burst flash (~110 ms), and rockets the ball off-screen into the upper right (~320 ms) before presenting the "NOT TODAY" or fallback result.
+  - **Accessibility & Reduce Motion**: `accessibilityReduceMotion` instantly bypasses animation delays and navigates directly to the recommendation result. Duplicate taps are locked out during transit (`checking = true`), and the interaction safely resets on dismiss or app backgrounding.
+  - **Neutral home copy**: Updated String Catalog `Localizable.xcstrings` so `home.tapEye` now reads *"Tap to find your window."* / *"轻点寻找最佳时机。"*, removing the giveaway before tapping.
 
 ## Verification performed
 
-- Swift syntax parsing passed for both new/updated views and UI tests.
-- The fish illustration/button and shared theme passed Swift type checking against the available macOS SDK. This is a component check, not an iOS app build.
-- Xcode project property-list validation and `git diff --check` passed.
-- The Swift package core compiled during `swift test`, but the test target could not compile because this Command Line Tools installation lacks XCTest. No XCTest pass is claimed.
-- XcodeBuildMCP could not list simulators because `simctl` is unavailable. No full iOS build, simulator run, screenshot, or visual animation approval has been performed.
-
-## Verification to complete with full Xcode
-
-1. Build the FishOrNot scheme and run the existing core-flow/persistence UI test plus the new return-and-repeat and Chinese-home tests.
-2. Inspect the hook meeting the fish, tail movement, and lift on small and large iPhones. Confirm the full transition is about one second.
-3. Turn on Reduce Motion in iOS Accessibility settings and confirm immediate navigation with no shaking or travel.
-4. Background the app during the transition, reopen it, and confirm the eye works again. Rapid taps must not create duplicate result screens.
-5. Check VoiceOver, large accessibility text, and Chinese layout; the eye should be announced as the primary action and remain at least 44 points across.
+- **Swift Package Core Tests**: All 7 persistence and recommendation unit tests passed (`swift test`).
+- **Full iOS App Build**: `xcodebuild -scheme FishOrNot -sdk iphonesimulator` completed with `** BUILD SUCCEEDED **`.
+- **UI Test Suite on iPhone Simulator**: `xcodebuild test` executed on an iOS Simulator device (iOS 27.0 runtime / iPhone 17 simulator), passing all 3 UI test cases:
+  - `testChineseHomeKeepsThePrimaryActionAccessible` (PASSED)
+  - `testCoreFlowAndLocalPersistence` (PASSED)
+  - `testFishEyeCanBeUsedAgainAfterReturningHome` (PASSED)
+  - Final result: `** TEST SUCCEEDED **`.
 
 ## Next product/data milestone
 

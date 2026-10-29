@@ -13,6 +13,7 @@ struct PreferencesView: View {
                     Picker("Fishing time", selection: $store.preferences.durationHours) {
                         ForEach(1...4, id: \.self) { Text("\($0) hours").tag($0) }
                     }
+                    .accessibilityIdentifier("Fishing time")
                     Picker("Access", selection: $store.preferences.access) {
                         ForEach(Access.allCases) { Text($0.rawValue).tag($0) }
                     }

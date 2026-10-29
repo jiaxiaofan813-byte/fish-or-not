@@ -92,13 +92,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tap the eye. Find your window."
+            "value": "Tap to find your window."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "点点鱼眼，找个好时机。"
+            "value": "轻点寻找最佳时机。"
           }
         }
       }
