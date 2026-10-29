@@ -24,9 +24,7 @@ struct PreferencesView: View {
                     Picker("Access", selection: $store.preferences.access) {
                         ForEach(Access.allCases) { Text($0.displayName).tag($0) }
                     }
-                    Picker("Target fish", selection: $store.preferences.species) {
-                        ForEach(Species.allCases) { Text($0.displayName).tag($0) }
-                    }
+                    SpeciesChoiceRow(selection: $store.preferences.species)
                 } header: { Text("Your kind of trip") }
                 footer: { Text("Changes save on this iPhone and apply to the next recommendation.") }
                 Section("Launch coverage") {

@@ -156,7 +156,7 @@ struct LiveResultView: View {
             Text("Highlighted: simplest starting approach among recorded species. This is a general tackle-based suggestion, not a measured catch forecast.").font(.caption)
             ForEach(fish) { species in
                 VStack(alignment: .leading, spacing: 6) {
-                    Text(species.displayName + (species == fish.first ? " ★ Easiest starting point" : "")).font(.headline).foregroundStyle(species == fish.first ? Palette.lime : .primary)
+                    Text(species.displayName + (species == fish.first && species.approachRank < 99 ? " ★ Easiest starting point" : "")).font(.headline).foregroundStyle(species == fish.first ? Palette.lime : .primary)
                     Text("Hooks: " + species.tackle.hook)
                     Text("Natural bait: " + species.tackle.bait)
                     Text("Lures: " + species.tackle.lure)
@@ -165,7 +165,7 @@ struct LiveResultView: View {
             if fish.count < 5 {
                 Text("Fewer than five supported species are recorded here. Explore the guide for other species; their presence at this water is not confirmed.").font(.caption)
             }
-            NavigationLink("All six species & tackle guide") { FishGuideView() }
+            NavigationLink("All recorded species & tackle guide") { FishGuideView() }
         }
     }
 

@@ -11,9 +11,7 @@ struct SearchScopeView: View {
             Toggle("Compare more waters (up to 60)", isOn: $store.preferences.compareAllWaters)
             Text(store.preferences.compareAllWaters ? "Broader comparison takes longer." : "Quick search compares the 12 nearest eligible waters.")
                 .font(.caption).foregroundStyle(Palette.muted)
-            Picker("Target fish", selection: $store.preferences.species) {
-                ForEach(Species.allCases) { Text($0.displayName).tag($0) }
-            }
+            SpeciesChoiceRow(selection: $store.preferences.species)
             Picker("Typical fish size", selection: $store.preferences.targetSize) {
                 ForEach(FishSize.allCases) { Text($0.rawValue.capitalized).tag($0) }
             }
@@ -87,6 +85,48 @@ struct CustomizeSearchView: View {
                 }
             }
             .sheet(isPresented: $showWaters) { WatersView(store: store) }
+        }
+    }
+}
+
+struct SpeciesChoiceRow: View {
+    @Binding var selection: Species
+    var body: some View {
+        NavigationLink {
+            SpeciesSelectionView(selection: $selection)
+        } label: {
+            LabeledContent("Target fish", value: selection.displayName)
+        }.accessibilityIdentifier("chooseTargetSpecies")
+    }
+}
+
+struct SpeciesSelectionView: View {
+    @Binding var selection: Species
+    @Environment(\.dismiss) private var dismiss
+    @State private var query = ""
+    private var matches: [Species] {
+        Species.allCases.filter { query.isEmpty || $0.searchText.localizedStandardContains(query) }
+    }
+    var body: some View {
+        List(matches) { species in
+            Button {
+                selection = species
+                dismiss()
+            } label: {
+                HStack {
+                    Text(species.displayName).foregroundStyle(.primary)
+                    Spacer()
+                    if selection == species { Image(systemName: "checkmark").foregroundStyle(Palette.lime) }
+                }
+            }.accessibilityIdentifier("chooseSpecies-" + species.rawValue)
+        }
+        .searchable(text: $query, prompt: "Search fish, e.g. muskie, trout, catfish")
+        .navigationTitle("Target fish")
+        .toolbar(.visible, for: .navigationBar)
+        .overlay { if matches.isEmpty { ContentUnavailableView.search(text: query) } }
+        .safeAreaInset(edge: .bottom) {
+            Text("Only waters with a matching DNR species record can be recommended. Some species lack classified size or tackle guidance.")
+                .font(.caption).padding().background(.regularMaterial)
         }
     }
 }

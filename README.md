@@ -122,3 +122,6 @@ Refresh: `python3 scripts/import_minnesota.py` validates a new snapshot without 
 
 
 Weather is shared by county within each comparison. The nearest selected water in that county supplies the NOAA/NWS reference location; it is not an official county-wide forecast. Concurrent lakes share one in-flight request, and the result identifies the county and reference water. Routes, access checks and arrival windows remain specific to each lake. Local conditions can differ within a county, particularly on large lakes.
+
+
+Fish selection now covers every recorded DNR fish name in the bundled statewide snapshot: 75 selectable species/group entries, plus Any species. Customize search and Preferences use a searchable selection screen. Broad Bass/Crappie selections remain available alongside exact recorded species such as largemouth/smallmouth bass and black/white crappie. Existing saved identifiers remain compatible. New names without classified size or tackle information explicitly show that gap; they are not assigned generic bass tackle or invented difficulty ratings.

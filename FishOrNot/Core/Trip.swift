@@ -14,24 +14,48 @@ enum Access: String, Codable, CaseIterable, Identifiable {
     }
 }
 
-enum Species: String, Codable, CaseIterable, Identifiable {
-    case any, crappie, bass, bluegill, perch, walleye, pike
+struct Species: RawRepresentable, Codable, CaseIterable, Identifiable, Hashable, Sendable {
+    let rawValue: String
     var id: String { rawValue }
+    private init(known: String) { rawValue = known }
+    static let any = Self(known: "any"), crappie = Self(known: "crappie"), bass = Self(known: "bass")
+    static let bluegill = Self(known: "bluegill"), perch = Self(known: "perch")
+    static let walleye = Self(known: "walleye"), pike = Self(known: "pike")
+    static let allCases: [Self] = {
+        let legacy: [Self] = [.any, .bluegill, .crappie, .bass, .perch, .walleye, .pike]
+        let aliases: Set<String> = ["bluegill", "yellow perch", "walleye", "northern pike", "crappie"]
+        let names = Set(((try? SpeciesEvidence.bundled()) ?? []).flatMap(\.recordedNames))
+        return legacy + names.subtracting(aliases).sorted().map { Self(known: $0) }
+    }()
+    private static let byID: [String: Self] = {
+        var values = Dictionary(uniqueKeysWithValues: allCases.map { ($0.rawValue, $0) })
+        values["yellow perch"] = .perch; values["northern pike"] = .pike
+        return values
+    }()
+    init?(rawValue: String) {
+        let value = rawValue == "Any species" ? "any" : rawValue.lowercased()
+        guard let known = Self.byID[value] else { return nil }
+        self = known
+    }
     var displayName: String {
         switch self {
         case .any: return L10n.text("Any species")
-        case .crappie: return L10n.text("Crappie")
-        case .bass: return L10n.text("Bass")
+        case .crappie: return "Crappie (any)"
+        case .bass: return "Bass (largemouth or smallmouth)"
         case .bluegill: return L10n.text("Bluegill")
         case .perch: return "Yellow perch"
         case .walleye: return "Walleye"
         case .pike: return "Northern pike"
+        default: return rawValue.capitalized
         }
     }
+    func encode(to encoder: Encoder) throws {
+        var c = encoder.singleValueContainer(); try c.encode(rawValue)
+    }
     init(from decoder: Decoder) throws {
-        let value = try decoder.singleValueContainer().decode(String.self)
-        guard let species = Self(rawValue: value == "Any species" ? "any" : value.lowercased()) else {
-            throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath, debugDescription: "Unknown species ID"))
+        let c = try decoder.singleValueContainer(), value = try c.decode(String.self)
+        guard let species = Self(rawValue: value) else {
+            throw DecodingError.dataCorruptedError(in: c, debugDescription: "Unknown species ID")
         }
         self = species
     }
@@ -336,9 +360,19 @@ enum FishSize: String, Codable, CaseIterable, Identifiable {
 }
 extension Species {
     var sizeGroup: FishSize {
-        switch self { case .any: return .any; case .bluegill, .perch, .crappie: return .small; case .bass, .walleye: return .medium; case .pike: return .large }
+        switch self { case .any: return .any; case .bluegill, .perch, .crappie: return .small; case .bass, .walleye: return .medium; case .pike: return .large; default: return adviceGroup?.sizeGroup ?? .any }
     }
-    var approachRank: Int { [.bluegill, .perch, .crappie, .bass, .pike, .walleye].firstIndex(of: self) ?? 99 }
+    private var adviceGroup: Self? {
+        switch rawValue {
+        case "largemouth bass", "smallmouth bass": return .bass
+        case "black crappie", "white crappie", "hybrid crappie": return .crappie
+        default: return nil
+        }
+    }
+    var searchText: String {
+        displayName + (rawValue.contains("muskellunge") ? " muskie musky" : "")
+    }
+    var approachRank: Int { [.bluegill, .perch, .crappie, .bass, .pike, .walleye].firstIndex(of: self) ?? adviceGroup?.approachRank ?? 99 }
     var tackle: (hook: String, bait: String, lure: String) {
         switch self {
         case .bluegill: return ("Small long-shank hook, #8–12", "Small worm piece, waxworm", "Tiny jig, small fly")
@@ -348,6 +382,7 @@ extension Species {
         case .walleye: return ("Octopus hook, #4–6", "Minnow, leech, nightcrawler", "Jig, minnow-style crankbait")
         case .pike: return ("Strong bait hook, #4–6; bite-resistant leader", "Legal bait-shop minnow", "Spoon, spinnerbait, jerkbait")
         case .any: return ("Choose a species", "Choose a species", "Choose a species")
+        default: return adviceGroup?.tackle ?? ("Species-specific guidance not yet available", "Check official species guidance", "Check official species guidance")
         }
     }
 }

@@ -121,7 +121,13 @@ struct LiveRecommendationEngine: Sendable {
 
     private func chooseSpecies(_ supported: [Species], preferences: Preferences, gear: [GearItem]) -> Species {
         if preferences.species != .any { return preferences.species }
-        return supported.max { a, b in gear.filter { $0.category != .other && $0.target == a }.count < gear.filter { $0.category != .other && $0.target == b }.count } ?? .bluegill
+        return supported.sorted { a, b in
+            let ownedA = gear.filter { $0.category != .other && $0.target == a }.count
+            let ownedB = gear.filter { $0.category != .other && $0.target == b }.count
+            if ownedA != ownedB { return ownedA > ownedB }
+            if a.approachRank != b.approachRank { return a.approachRank < b.approachRank }
+            return a.displayName < b.displayName
+        }.first ?? .bluegill
     }
 
     static func windows(water: WaterRecord, access: AccessPoint, route: RouteEstimate, forecast: ForecastSnapshot,

@@ -90,6 +90,18 @@ final class LivePlanningTests: XCTestCase {
         XCTAssertEqual(active, 0)
     }
 
+    func testEveryRecordedNameIsSelectableAndSpecificTargetsStayExact() throws {
+        let records = try SpeciesEvidence.bundled()
+        for name in Set(records.flatMap(\.recordedNames)) { XCTAssertNotNil(Species(rawValue: name), name) }
+        let largemouth = try XCTUnwrap(Species(rawValue: "largemouth bass"))
+        let smallmouth = try XCTUnwrap(Species(rawValue: "smallmouth bass"))
+        let record = SpeciesEvidence(lakeNumber: "test", recordedNames: ["largemouth bass"], sourceURL: records[0].sourceURL, checkedAt: now, surveyYear: nil)
+        XCTAssertTrue(record.supported.contains(largemouth))
+        XCTAssertFalse(record.supported.contains(smallmouth))
+        XCTAssertEqual(try JSONDecoder().decode(Species.self, from: Data("\"bass\"".utf8)), .bass)
+        XCTAssertEqual(try JSONDecoder().decode(Species.self, from: JSONEncoder().encode(largemouth)), largemouth)
+    }
+
     func testQuickSearchUsesBoundedParallelRequests() async throws {
         let routes = MeasuredRoutes(now: now)
         let start = Date()
@@ -107,7 +119,7 @@ final class LivePlanningTests: XCTestCase {
     func testExpandedSpeciesAndSizeMigration() throws {
         let records = try SpeciesEvidence.bundled()
         let harriet = try XCTUnwrap(records.first { $0.lakeNumber == "27001600" })
-        XCTAssertEqual(Set(harriet.supported), Set([.crappie, .bass, .bluegill, .perch, .walleye, .pike]))
+        XCTAssertTrue(Set([Species.crappie, .bass, .bluegill, .perch, .walleye, .pike]).isSubset(of: Set(harriet.supported)))
         XCTAssertEqual(try JSONDecoder().decode(Preferences.self, from: Data("{}".utf8)).targetSize, .any)
         var preferences = Preferences()
         preferences.targetSize = .large

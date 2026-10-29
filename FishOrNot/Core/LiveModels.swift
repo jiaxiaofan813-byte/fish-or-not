@@ -41,17 +41,11 @@ struct SpeciesEvidence: Codable, Equatable {
     let checkedAt: Date
     let surveyYear: Int?
     var supported: [Species] {
-        Species.allCases.filter { species in
-            switch species {
-            case .any: return false
-            case .perch: return recordedNames.contains("yellow perch")
-            case .walleye: return recordedNames.contains("walleye")
-            case .pike: return recordedNames.contains("northern pike")
-            case .bluegill: return recordedNames.contains("bluegill")
-            case .crappie: return recordedNames.contains("black crappie") || recordedNames.contains("white crappie")
-            case .bass: return recordedNames.contains("largemouth bass") || recordedNames.contains("smallmouth bass")
-            }
-        }
+        var species = Set(recordedNames.compactMap { Species(rawValue: $0) })
+        if recordedNames.contains("largemouth bass") || recordedNames.contains("smallmouth bass") { species.insert(.bass) }
+        if recordedNames.contains("black crappie") || recordedNames.contains("white crappie") { species.insert(.crappie) }
+        species.remove(.any)
+        return species.sorted { $0.approachRank == $1.approachRank ? $0.rawValue < $1.rawValue : $0.approachRank < $1.approachRank }
     }
     private static let cached: Result<[Self], Error> = Result { try loadBundle() }
     static func bundled() throws -> [Self] { try cached.get() }
@@ -110,7 +104,8 @@ struct GearAdvice: Equatable {
         switch species {
         case .bluegill: basics = [(.rod, "Light rod"), (.line, "Light 6 lb line"), (.bait, "Small hook with a piece of worm")]
         case .crappie: basics = [(.rod, "Light rod"), (.line, "Line matched to the light tackle"), (.lure, "Small jig with plastic or bait; a slip float is an option")]
-        default: basics = [(.rod, "Rod matched to your lure"), (.line, "Line matched to the rod and lure"), (.lure, "Crankbait or a suitable artificial lure")]
+        case .bass, .pike, .walleye: basics = [(.rod, "Rod matched to your lure"), (.line, "Line matched to the rod and lure"), (.lure, "Crankbait or a suitable artificial lure")]
+        default: basics = [(.rod, "Check species-specific tackle before fishing")]
         }
         return .init(owned: owned.map(\.name), needed: basics.filter { category, _ in !owned.contains { $0.category == category } }.map { L10n.text($0.1) },
                      sourceURL: URL(string: species == .bluegill ? "https://www.dnr.state.mn.us/minnaqua/speciesprofile/bluegill.html" : species == .crappie ? "https://www.dnr.state.mn.us/mcvmagazine/issues/2021/may-jun/crappie.html" : "https://www.dnr.state.mn.us/fishing/fin/equipment.html")!)
