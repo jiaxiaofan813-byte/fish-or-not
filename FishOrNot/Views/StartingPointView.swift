@@ -20,7 +20,7 @@ struct StartingPointView: View {
                     }.disabled(location.locating || searching)
                     if location.locating { ProgressView("Finding your location…") }
                     if let message = location.message { Text(message).foregroundStyle(.secondary) }
-                } footer: { Text("Current location is kept only for this session. A city or address you choose is saved on this iPhone.") }
+                } footer: { Text("Current location is kept only for this session. A city or address you choose is saved on this device.") }
                 Section("Or choose a starting point") {
                     HStack {
                         TextField("City or address", text: $query).textInputAutocapitalization(.words)

@@ -37,12 +37,13 @@ struct SearchScopeView: View {
 struct FavoriteWaterButton: View {
     let store: AppStore
     let water: WaterRecord
+    var color: Color = Palette.lime
     private var saved: Bool { store.preferences.favoriteWaterIDs.contains(water.id) }
     var body: some View {
         Button {
             if saved { store.preferences.favoriteWaterIDs.remove(water.id) }
             else { store.preferences.favoriteWaterIDs.insert(water.id) }
-        } label: { Image(systemName: saved ? "star.fill" : "star").foregroundStyle(Palette.lime) }
+        } label: { Image(systemName: saved ? "star.fill" : "star").foregroundStyle(color) }
             .buttonStyle(.borderless)
             .accessibilityLabel(L10n.text(saved ? "Remove %@ from favorites" : "Add %@ to favorites", water.name))
             .accessibilityIdentifier("favorite-" + water.id)
@@ -84,7 +85,7 @@ struct CustomizeSearchView: View {
                     Button("Done") { dismiss() }.accessibilityIdentifier("doneCustomizingSearch")
                 }
             }
-            .sheet(isPresented: $showWaters) { WatersView(store: store) }
+            .fullScreenCover(isPresented: $showWaters) { WatersView(store: store) }
         }
     }
 }

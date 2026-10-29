@@ -10,16 +10,17 @@ private enum WaterFilter: String, CaseIterable, Identifiable {
 struct WatersView: View {
     var store: AppStore? = nil
     @Environment(\.dismiss) private var dismiss
+    @State private var selectedWaterID: String?
     @State private var query = ""
     @State private var target: Species = .any
-    @State private var evidence: [SpeciesEvidence] = []
+    @State private var speciesByLake: [String: Set<Species>] = [:]
     @State private var county: String?
     @State private var filter: WaterFilter = .all
     @State private var catalog: WaterCatalog?
     @State private var failed = false
 
     var body: some View {
-        NavigationStack {
+        NavigationSplitView {
             Group {
                 if let catalog {
                     catalogList(catalog)
@@ -38,12 +39,21 @@ struct WatersView: View {
             .toolbar(.visible, for: .navigationBar)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } } }
+        } detail: {
+            if let id = selectedWaterID, let water = catalog?.waters.first(where: { $0.id == id }) {
+                WaterDetailView(water: water, preferredMode: filter.mode, store: store)
+                    .id(water.id)
+            } else {
+                ContentUnavailableView("Choose a lake", systemImage: "water.waves", description: Text("Search or filter the directory, then choose a water to see species and public access."))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity).background(Palette.ink)
+            }
         }
+        .navigationSplitViewStyle(.balanced)
     }
 
     private func catalogList(_ catalog: WaterCatalog) -> some View {
-        let waters = catalog.search(query, access: filter.mode, county: county).filter { water in target == .any || evidence.contains { $0.lakeNumber == water.lakeNumber && $0.supported.contains(target) } }
-        return List {
+        let waters = catalog.search(query, access: filter.mode, county: county).filter { water in target == .any || speciesByLake[water.lakeNumber]?.contains(target) == true }
+        return List(selection: $selectedWaterID) {
             Section {
                 Text(LaunchCoverage.displayName).font(.headline)
                 Text(L10n.text("%d waters · Minnesota DNR directory", catalog.waters.count))
@@ -69,22 +79,20 @@ struct WatersView: View {
             Section {
                 ForEach(waters) { water in
                     HStack {
-                    NavigationLink {
-                        WaterDetailView(water: water, preferredMode: filter.mode, store: store)
-                    } label: {
+                    NavigationLink(value: water.id) {
                         VStack(alignment: .leading, spacing: 6) {
-                            Text(water.name).font(.headline)
+                            Text(water.name).font(.headline).foregroundStyle(selectedWaterID == water.id ? Palette.ink : Color.primary)
                             Text(L10n.text("%@ County", water.county))
-                                .font(.caption).foregroundStyle(Palette.muted)
+                                .font(.caption).foregroundStyle(selectedWaterID == water.id ? Palette.ink.opacity(0.8) : Palette.muted)
                             HStack(spacing: 12) {
                                 ForEach(Access.allCases.filter { water.supportedAccess.contains($0) }) { mode in
                                     Label(mode.displayName, systemImage: mode == .shore ? "figure.fishing" : "sailboat")
                                 }
-                            }.font(.caption).foregroundStyle(Palette.lime)
+                            }.font(.caption).foregroundStyle(selectedWaterID == water.id ? Palette.ink : Palette.lime)
                         }.padding(.vertical, 5)
                     }
                     .accessibilityIdentifier("water-" + water.id)
-                    if let store { FavoriteWaterButton(store: store, water: water) }
+                    if let store { FavoriteWaterButton(store: store, water: water, color: selectedWaterID == water.id ? Palette.ink : Palette.lime) }
                     }
                 }
             } header: { Text(L10n.text(waters.count == 1 ? "%d water" : "%d waters", waters.count)).accessibilityIdentifier("waterCount") }
@@ -98,7 +106,7 @@ struct WatersView: View {
     }
 
     private func load() {
-        do { evidence = try SpeciesEvidence.bundled(); catalog = try WaterCatalog.bundled(); failed = false }
+        do { speciesByLake = Dictionary(uniqueKeysWithValues: try SpeciesEvidence.bundled().map { ($0.lakeNumber, Set($0.supported)) }); catalog = try WaterCatalog.bundled(); failed = false }
         catch { catalog = nil; failed = true }
     }
 }

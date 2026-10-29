@@ -26,6 +26,18 @@ final class LivePlanningUITests: XCTestCase {
         capture("Adaptive portrait result preserved")
     }
 
+    @MainActor func testTabletSearchAndResultLayout() {
+        XCUIDevice.shared.orientation = .landscapeLeft
+        let app = launch("live-success")
+        capture("Tablet landscape home")
+        app.buttons["fishButton"].tap()
+        XCTAssertTrue(app.staticTexts["liveDecision"].waitForExistence(timeout: 25))
+        capture("Tablet landscape result")
+        XCUIDevice.shared.orientation = .portrait
+        XCTAssertTrue(app.staticTexts["liveDecision"].exists)
+        capture("Tablet portrait result")
+    }
+
     @MainActor func testLiveResultHasActualCatalogAccessGearWeatherAndShare() {
         let app = launch("live-success")
         XCTAssertFalse(app.staticTexts["demoNotice"].exists)

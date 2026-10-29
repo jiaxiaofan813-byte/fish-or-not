@@ -26,7 +26,7 @@ struct PreferencesView: View {
                     }
                     SpeciesChoiceRow(selection: $store.preferences.species)
                 } header: { Text("Your kind of trip") }
-                footer: { Text("Changes save on this iPhone and apply to the next recommendation.") }
+                footer: { Text("Changes save on this device and apply to the next recommendation.") }
                 Section("Launch coverage") {
                     Text(LaunchCoverage.displayName)
                     Text(LaunchCoverage.status).foregroundStyle(.secondary)

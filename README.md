@@ -125,3 +125,8 @@ Weather is shared by county within each comparison. The nearest selected water i
 
 
 Fish selection now covers every recorded DNR fish name in the bundled statewide snapshot: 75 selectable species/group entries, plus Any species. Customize search and Preferences use a searchable selection screen. Broad Bass/Crappie selections remain available alongside exact recorded species such as largemouth/smallmouth bass and black/white crappie. Existing saved identifiers remain compatible. New names without classified size or tackle information explicitly show that gap; they are not assigned generic bass tackle or invented difficulty ratings.
+
+
+### iPad
+
+The app is now a universal iPhone/iPad target. iPad supports all four orientations and resizable windows. The full-window lake directory uses a native list/detail split view that collapses to a navigation stack in compact space. On windows at least 900 pt wide, the live result pairs the best-window card with its access map; narrower windows stack them. Home and forms retain readable content widths. Saved preferences, favorites and gear continue using the same local profile.

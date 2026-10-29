@@ -8,6 +8,7 @@ struct LiveResultView: View {
     @State private var launchFailed = false
 
     var body: some View {
+        GeometryReader { geometry in
         ScrollView {
             VStack(alignment: .leading, spacing: 22) {
                 if let best = assessment.best {
@@ -16,8 +17,15 @@ struct LiveResultView: View {
                         .accessibilityIdentifier("liveDecision")
                     Text(LocalizedStringKey(assessment.goToday ? "A good window today." : "A better window ahead."))
                         .font(.title3).foregroundStyle(Palette.muted)
-                    bestWindow(best)
-                    access(best)
+                    if geometry.size.width >= 900 {
+                        HStack(alignment: .top, spacing: 22) {
+                            bestWindow(best).frame(maxWidth: .infinity)
+                            access(best).frame(maxWidth: .infinity)
+                        }
+                    } else {
+                        bestWindow(best)
+                        access(best)
+                    }
                     speciesAndGear(best)
                     speciesOptions(best)
                     weather(best)
@@ -60,6 +68,7 @@ struct LiveResultView: View {
             }
         }
         .alert("Could not open Apple Maps", isPresented: $launchFailed) { Button("OK", role: .cancel) { } }
+        }
     }
 
     private func bestWindow(_ best: LiveCandidate) -> some View {

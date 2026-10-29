@@ -1,7 +1,7 @@
 import SwiftUI
 
 private enum HomeSheet: String, Identifiable {
-    case gear, preferences, waters, location, search
+    case gear, preferences, location, search
     var id: String { rawValue }
 }
 
@@ -11,6 +11,7 @@ struct HomeView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.scenePhase) private var scenePhase
     @State private var sheet: HomeSheet?
+    @State private var showWaters = false
     @State private var showResult = false
     @State private var checking = false
     @State private var requestID = UUID()
@@ -100,7 +101,7 @@ struct HomeView: View {
                             .font(.caption2).foregroundStyle(Palette.muted)
                     }
 
-                    Button { sheet = .waters } label: {
+                    Button { showWaters = true } label: {
                         Label(LaunchCoverage.exploreTitle, systemImage: "map")
                             .font(.subheadline.weight(.semibold)).frame(maxWidth: .infinity, minHeight: 44)
                     }
@@ -133,11 +134,11 @@ struct HomeView: View {
                 switch destination {
                 case .search: CustomizeSearchView(store: store)
                 case .gear: GearView(store: store)
-                case .waters: WatersView(store: store)
                 case .location: StartingPointView(store: store)
                 case .preferences: PreferencesView(store: store)
                 }
             }
+            .fullScreenCover(isPresented: $showWaters) { WatersView(store: store) }
             .onChange(of: store.preferences) {
                 if demo { plan = engine.recommend(preferences: store.preferences, gear: store.gear) }
             }
