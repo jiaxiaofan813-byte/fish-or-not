@@ -26,7 +26,7 @@ struct PreferencesView: View {
                     Text(LaunchCoverage.displayName)
                     Text(LaunchCoverage.status).foregroundStyle(.secondary)
                     Text("Fictional freshwater lakes with sample drive times. Your real location is not used.")
-                    Text("Live weather and verified local waters will be added in a later milestone.")
+                    Text("Explore real waters from the home screen. Weather and fishing scores remain demo data.")
                         .foregroundStyle(.secondary)
                 }
             }

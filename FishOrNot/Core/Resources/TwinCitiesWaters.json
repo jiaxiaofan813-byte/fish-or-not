@@ -1,0 +1,438 @@
+{
+  "schemaVersion": 1,
+  "regionID": "us_mn_twin_cities",
+  "waters": [
+    {
+      "id": "mn-27001600",
+      "name": "Lake Harriet",
+      "county": "Hennepin",
+      "lakeNumber": "27001600",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=27001600",
+      "accessPoints": [
+        {
+          "id": "54953140-07da-47be-bbe5-dab38cf35b71",
+          "name": "Harriet Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.92817262336965,
+          "longitude": -93.30615562446687,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B54953140-07DA-47BE-BBE5-DAB38CF35B71%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "d23df6cc-2c76-4b6c-89b7-8ca466c10895",
+          "name": "Lake Harriet Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.92817003931781,
+          "longitude": -93.3069623400798,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BD23DF6CC-2C76-4B6C-89B7-8CA466C10895%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-27001900",
+      "name": "Lake Nokomis",
+      "county": "Hennepin",
+      "lakeNumber": "27001900",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=27001900",
+      "accessPoints": [
+        {
+          "id": "f3043ab4-71aa-416a-ba7a-60f997068346",
+          "name": "Nokomis Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.90198066568497,
+          "longitude": -93.24461482542821,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BF3043AB4-71AA-416A-BA7A-60F997068346%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "775940bd-5975-4dff-9844-584f09b09e08",
+          "name": "Lake Nokomis Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.91045035946087,
+          "longitude": -93.24493987062453,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B775940BD-5975-4DFF-9844-584F09B09E08%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-27003100",
+      "name": "Bde Maka Ska",
+      "county": "Hennepin",
+      "lakeNumber": "27003100",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=27003100",
+      "accessPoints": [
+        {
+          "id": "2bc73f8d-389e-4f41-a92a-b11e2265283b",
+          "name": "Calhoun Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.937432196621174,
+          "longitude": -93.30460002157083,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B2BC73F8D-389E-4F41-A92A-B11E2265283B%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "0349c501-676a-45f0-99be-01d0c5f1d571",
+          "name": "Bde Maka Ska Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 44.94777078904814,
+          "longitude": -93.3066825601683,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B0349C501-676A-45F0-99BE-01D0C5F1D571%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-27010400",
+      "name": "Medicine Lake",
+      "county": "Hennepin",
+      "lakeNumber": "27010400",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=27010400",
+      "accessPoints": [
+        {
+          "id": "94a47690-9563-48b7-b2de-a2abe9407077",
+          "name": "Medicine Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.99997267421289,
+          "longitude": -93.42851303120257,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B94A47690-9563-48B7-B2DE-A2ABE9407077%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "7c019910-e54b-425b-951c-228b4d8536d8",
+          "name": "Medicine Lake, French Regional Park Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.017526159119534,
+          "longitude": -93.4265323704858,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B7C019910-E54B-425B-951C-228B4D8536D8%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-62001300",
+      "name": "Lake Phalen",
+      "county": "Ramsey",
+      "lakeNumber": "62001300",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=62001300",
+      "accessPoints": [
+        {
+          "id": "17bd94d9-906d-4b11-8928-3129003a53b4",
+          "name": "Lake Phalen Regional Park Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.99044405359012,
+          "longitude": -93.05727334120374,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B17BD94D9-906D-4B11-8928-3129003A53B4%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-62005500",
+      "name": "Como Lake",
+      "county": "Ramsey",
+      "lakeNumber": "62005500",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=62005500",
+      "accessPoints": [
+        {
+          "id": "5831df86-aa0f-46ac-a4c6-cf8be2dfded1",
+          "name": "Como Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 44.97616595675738,
+          "longitude": -93.13712244701222,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B5831DF86-AA0F-46AC-A4C6-CF8BE2DFDED1%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-62005700",
+      "name": "Lake Josephine",
+      "county": "Ramsey",
+      "lakeNumber": "62005700",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=62005700",
+      "accessPoints": [
+        {
+          "id": "30409357-c5f4-4ec4-9d62-adfc20e12816",
+          "name": "Lake Josephine County Park Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.034798072735704,
+          "longitude": -93.1491919300475,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B30409357-C5F4-4EC4-9D62-ADFC20E12816%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "1d9e8f5b-75e5-48d1-9676-9b436dc2d1e2",
+          "name": "Josephine Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.035007039891326,
+          "longitude": -93.14901996101932,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7B1D9E8F5B-75E5-48D1-9676-9B436DC2D1E2%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-62007800",
+      "name": "Lake Johanna",
+      "county": "Ramsey",
+      "lakeNumber": "62007800",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=62007800",
+      "accessPoints": [
+        {
+          "id": "84998db3-38e4-4cb4-abdc-f171f162b81c",
+          "name": "Johanna Lake Fishing Site",
+          "type": "shore_access",
+          "latitude": 45.04710968077452,
+          "longitude": -93.1763553871645,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B84998DB3-38E4-4CB4-ABDC-F171F162B81C%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "b487f100-3fd7-40fe-ae03-cc3973801dac",
+          "name": "Johanna Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.04739020927108,
+          "longitude": -93.17274720073631,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BB487F100-3FD7-40FE-AE03-CC3973801DAC%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-62000200",
+      "name": "Bald Eagle Lake",
+      "county": "Ramsey",
+      "lakeNumber": "62000200",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=62000200",
+      "accessPoints": [
+        {
+          "id": "27e4e140-356f-4309-bad6-1a329d5e903b",
+          "name": "Bald Eagle Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.113922661200775,
+          "longitude": -93.00197822775486,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7B27E4E140-356F-4309-BAD6-1A329D5E903B%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "fd6f507d-7584-4fac-8900-822044206142",
+          "name": "Bald Eagle Lake Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.11486033942002,
+          "longitude": -93.00394213129219,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BFD6F507D-7584-4FAC-8900-822044206142%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    },
+    {
+      "id": "mn-82016700",
+      "name": "White Bear Lake",
+      "county": "Ramsey",
+      "lakeNumber": "82016700",
+      "lakeFinderURL": "https://www.dnr.state.mn.us/lakefind/lake.html?id=82016700",
+      "accessPoints": [
+        {
+          "id": "d80d0e76-1677-4599-9957-7d510f57ac11",
+          "name": "White Bear Lake Fishing Pier",
+          "type": "fishing_pier",
+          "latitude": 45.07382770394926,
+          "longitude": -93.0148608727614,
+          "note": "Follow posted parking signs, then walk to the fishing access.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_fishing_sites_in_minnesota/FeatureServer/0/query?where=fc_prod_facility_pt_id+%3D+%27%7BD80D0E76-1677-4599-9957-7D510F57AC11%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "shore"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        },
+        {
+          "id": "a8b8cf74-cce8-465b-9f2a-a8750a35bcdf",
+          "name": "White Bear Lake, Matoska Public Water Access Site",
+          "type": "boat_launch",
+          "latitude": 45.087067119504184,
+          "longitude": -92.99892070131392,
+          "note": "Boat-launch access. Check local launch conditions and posted restrictions.",
+          "isDemo": false,
+          "verification": {
+            "sourceURL": "https://enterprise.gisdata.mn.gov/aghost/rest/services/us_mn_state_dnr/struc_water_access_sites/FeatureServer/0/query?where=stable_prod_guid+%3D+%27%7BA8B8CF74-CCE8-465B-9F2A-A8750A35BCDF%7D%27&outFields=%2A&outSR=4326&f=pjson",
+            "checkedAt": "2026-10-29T16:47:11Z",
+            "reviewBy": "2027-01-27T16:47:11Z",
+            "publicAccessConfirmed": true,
+            "supportedAccess": [
+              "boat"
+            ],
+            "regionID": "us_mn_twin_cities"
+          }
+        }
+      ]
+    }
+  ]
+}

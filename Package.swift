@@ -6,7 +6,7 @@ let package = Package(
     platforms: [.macOS(.v14)],
     products: [.library(name: "FishOrNotCore", targets: ["FishOrNotCore"])],
     targets: [
-        .target(name: "FishOrNotCore", path: "FishOrNot/Core"),
+        .target(name: "FishOrNotCore", path: "FishOrNot/Core", resources: [.process("Resources")]),
         .testTarget(name: "FishOrNotCoreTests", dependencies: ["FishOrNotCore"])
     ]
 )

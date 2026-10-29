@@ -1,7 +1,7 @@
 import SwiftUI
 
 private enum HomeSheet: String, Identifiable {
-    case gear, preferences
+    case gear, preferences, waters
     var id: String { rawValue }
 }
 
@@ -63,6 +63,14 @@ struct HomeView: View {
                             .font(.caption2).foregroundStyle(Palette.muted)
                     }
 
+                    Button { sheet = .waters } label: {
+                        Label("Explore 10 real waters", systemImage: "map")
+                            .font(.subheadline.weight(.semibold)).frame(maxWidth: .infinity, minHeight: 44)
+                    }
+                    .foregroundStyle(Palette.lime)
+                    .accessibilityIdentifier("exploreWatersButton")
+                    .disabled(checking)
+
                     HStack(spacing: 14) {
                         utilityButton("My Gear", icon: "backpack", destination: .gear)
                         utilityButton("Preferences", icon: "slider.horizontal.3", destination: .preferences)
@@ -84,6 +92,7 @@ struct HomeView: View {
             .sheet(item: $sheet) { destination in
                 switch destination {
                 case .gear: GearView(store: store)
+                case .waters: WatersView()
                 case .preferences: PreferencesView(store: store)
                 }
             }

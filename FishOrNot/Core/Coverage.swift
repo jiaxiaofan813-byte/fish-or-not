@@ -3,7 +3,7 @@ import Foundation
 enum LaunchCoverage {
     static let regionID = "us_mn_twin_cities"
     static var displayName: String { L10n.text("Twin Cities, Minnesota") }
-    static var status: String { L10n.text("Launch area selected. Verified waters are not available yet.") }
+    static var status: String { L10n.text("Official access records checked for 10 waters.") }
 }
 
 struct AccessVerification: Codable, Equatable {

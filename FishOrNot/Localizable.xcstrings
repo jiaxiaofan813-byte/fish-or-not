@@ -1,6 +1,325 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "/ 100": {},
+    "%@": {},
+    "%@ · %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ · %2$@"
+          }
+        }
+      }
+    },
+    "%@ fishing · %d-hour trip.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ fishing · %d-hour trip."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ · 出钓 %d 小时。"
+          }
+        }
+      }
+    },
+    "%d hours": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d hours"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d 小时"
+          }
+        }
+      }
+    },
+    "%d-minute sample drive, within your %d-minute limit.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d-minute sample drive, within your %d-minute limit."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "示例车程 %d 分钟，在你设定的 %d 分钟以内。"
+          }
+        }
+      }
+    },
+    "• %@": {},
+    "A little planning. A better day outside.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A little planning. A better day outside."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "提前规划，享受更好的户外时光。"
+          }
+        }
+      }
+    },
+    "A rod, your favorite tackle, a trusty net. Start with the basics.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A rod, your favorite tackle, a trusty net. Start with the basics."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从基本装备开始：鱼竿、常用钓具和顺手的抄网。"
+          }
+        }
+      }
+    },
+    "A second option": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A second option"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "备选方案"
+          }
+        }
+      }
+    },
+    "Access": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Access"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "出钓方式"
+          }
+        }
+      }
+    },
+    "Access information source": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Access information source"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "出入口信息来源"
+          }
+        }
+      }
+    },
+    "Access: %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Access: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "出入口：%@"
+          }
+        }
+      }
+    },
+    "Add": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加"
+          }
+        }
+      }
+    },
+    "Add what you own": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add what you own"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加已有装备"
+          }
+        }
+      }
+    },
+    "Adjust preferences": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adjust preferences"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "调整偏好"
+          }
+        }
+      }
+    },
+    "ALSO CONSIDER": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ALSO CONSIDER"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "也可以考虑"
+          }
+        }
+      }
+    },
+    "Any species": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Any species"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不限鱼种"
+          }
+        }
+      }
+    },
+    "Bass": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bass"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "黑鲈"
+          }
+        }
+      }
+    },
+    "Bluegill": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bluegill"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "蓝鳃太阳鱼"
+          }
+        }
+      }
+    },
+    "Boat": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boat"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "船钓"
+          }
+        }
+      }
+    },
+    "Boat Launch": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boat Launch"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "公共下水坡道"
+          }
+        }
+      }
+    },
     "brand.name": {
       "extractionState": "manual",
       "localizations": {
@@ -18,36 +337,342 @@
         }
       }
     },
-    "home.headline": {
+    "Bring this": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Less guessing.\nMore fishing."
+            "value": "Bring this"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "少点猜测，\n多点垂钓。"
+            "value": "带上这些"
           }
         }
       }
     },
-    "home.subtitle": {
+    "Cedar Lake": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Your next good day on the water starts here."
+            "value": "Cedar Lake"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "下一次钓鱼好时光，从这里开始。"
+            "value": "雪松湖（演示）"
+          }
+        }
+      }
+    },
+    "Changes save on this iPhone and apply to the next recommendation.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Changes save on this iPhone and apply to the next recommendation."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设置保存在这台 iPhone 上，下次推荐时生效。"
+          }
+        }
+      }
+    },
+    "Conditions: %@ · Wind %@ · Rain %d%%": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conditions: %@ · Wind %@ · Rain %d%%"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "天气：%@ · 风速 %@ · 降水概率 %d%%"
+          }
+        }
+      }
+    },
+    "Crappie": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crappie"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "刺盖太阳鱼"
+          }
+        }
+      }
+    },
+    "Date: %@ (Minnesota time)": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Date: %@ (Minnesota time)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日期：%@（明尼苏达当地时间）"
+          }
+        }
+      }
+    },
+    "DEMO · Fictional waters & weather": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DEMO · Fictional waters & weather"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "演示 · 虚构水域与天气"
+          }
+        }
+      }
+    },
+    "Demo locations cannot be opened as real destinations.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demo locations cannot be opened as real destinations."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "演示钓点不能作为真实导航目的地。"
+          }
+        }
+      }
+    },
+    "DEMO ONLY · Fictional waters and weather. Do not use for navigation.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DEMO ONLY · Fictional waters and weather. Do not use for navigation."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅供演示 · 水域和天气均为虚构，请勿用于导航。"
+          }
+        }
+      }
+    },
+    "Demo score ranks sample trip suitability. It is not a catch probability. Live weather, fishing access, regulations, and route estimates are not connected.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Demo score ranks sample trip suitability. It is not a catch probability. Live weather, fishing access, regulations, and route estimates are not connected."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "演示评分表示示例出行的适合度，并非上鱼概率。尚未接入实时天气、真实出入口、当地规定及路线估算。"
+          }
+        }
+      }
+    },
+    "Done": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成"
+          }
+        }
+      }
+    },
+    "e.g. Ultralight rod": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "e.g. Ultralight rod"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "例如：超轻型鱼竿"
+          }
+        }
+      }
+    },
+    "Fictional freshwater lakes with sample drive times. Your real location is not used.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fictional freshwater lakes with sample drive times. Your real location is not used."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "虚构的淡水湖及示例车程，不会使用你的真实位置。"
+          }
+        }
+      }
+    },
+    "Fictional water · %d min sample drive": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fictional water · %d min sample drive"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "虚构水域 · 示例车程 %d 分钟"
+          }
+        }
+      }
+    },
+    "Fish or Not · Fishing plan": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fish or Not · Fishing plan"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "钓鱼还是摸鱼 · 钓鱼计划"
+          }
+        }
+      }
+    },
+    "Fishing Pier": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fishing Pier"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "钓鱼码头"
+          }
+        }
+      }
+    },
+    "Fishing time": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fishing time"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "出钓时长"
+          }
+        }
+      }
+    },
+    "FROM YOUR GEAR": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "FROM YOUR GEAR"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你已有的装备"
+          }
+        }
+      }
+    },
+    "Gear is saved on your iPhone. Swipe left to remove an item.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gear is saved on your iPhone. Swipe left to remove an item."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "装备保存在这台 iPhone 上，向左轻扫可删除。"
+          }
+        }
+      }
+    },
+    "General suggestions only; gear compatibility is not yet evaluated.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "General suggestions only; gear compatibility is not yet evaluated."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅为通用建议，尚未评估装备搭配。"
           }
         }
       }
@@ -86,23 +711,6 @@
         }
       }
     },
-    "home.tapEye": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tap to find your window."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "轻点寻找最佳时机。"
-          }
-        }
-      }
-    },
     "home.checking": {
       "extractionState": "manual",
       "localizations": {
@@ -120,19 +728,19 @@
         }
       }
     },
-    "home.window": {
+    "home.headline": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Find your best fishing window."
+            "value": "Less guessing.\nMore fishing."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "找到适合你的钓鱼时段。"
+            "value": "少点猜测，\n多点垂钓。"
           }
         }
       }
@@ -154,189 +762,70 @@
         }
       }
     },
-    "My Gear": {
+    "home.subtitle": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "My Gear"
+            "value": "Your next good day on the water starts here."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "我的装备"
+            "value": "下一次钓鱼好时光，从这里开始。"
           }
         }
       }
     },
-    "Preferences": {
+    "home.tapEye": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Preferences"
+            "value": "Tap to find your window."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "偏好设置"
+            "value": "轻点寻找最佳时机。"
           }
         }
       }
     },
-    "DEMO · Fictional waters & weather": {
+    "home.window": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "DEMO · Fictional waters & weather"
+            "value": "Find your best fishing window."
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "演示 · 虚构水域与天气"
+            "value": "找到适合你的钓鱼时段。"
           }
         }
       }
     },
-    "Location & Access": {
+    "Last reviewed: %@": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Location & Access"
+            "value": "Last reviewed: %@"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "位置与出入口"
-          }
-        }
-      }
-    },
-    "Navigate in Apple Maps": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Navigate in Apple Maps"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "使用 Apple 地图导航"
-          }
-        }
-      }
-    },
-    "Share Fishing Plan": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Share Fishing Plan"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "分享钓鱼计划"
-          }
-        }
-      }
-    },
-    "Fishing Pier": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fishing Pier"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "钓鱼码头"
-          }
-        }
-      }
-    },
-    "Boat Launch": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Boat Launch"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "公共下水坡道"
-          }
-        }
-      }
-    },
-    "Shoreline Access": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Shoreline Access"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "岸钓出入口"
-          }
-        }
-      }
-    },
-    "Parking Area": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parking Area"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "停车场"
-          }
-        }
-      }
-    },
-    "Twin Cities, Minnesota": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Twin Cities, Minnesota"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "明尼苏达州 · 双城都会区"
+            "value": "最近核验：%@"
           }
         }
       }
@@ -392,886 +881,19 @@
         }
       }
     },
-    "Demo locations cannot be opened as real destinations.": {
+    "Location & Access": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Demo locations cannot be opened as real destinations."
+            "value": "Location & Access"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "演示钓点不能作为真实导航目的地。"
-          }
-        }
-      }
-    },
-    "Navigation unavailable: no verified access point.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Navigation unavailable: no verified access point."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "暂无已核验出入口，无法导航。"
-          }
-        }
-      }
-    },
-    "Access information source": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Access information source"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "出入口信息来源"
-          }
-        }
-      }
-    },
-    "Last reviewed: %@": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Last reviewed: %@"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最近核验：%@"
-          }
-        }
-      }
-    },
-    "Fish or Not · Fishing plan": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fish or Not · Fishing plan"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "钓鱼还是摸鱼 · 钓鱼计划"
-          }
-        }
-      }
-    },
-    "YES. Go today!": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "YES. Go today!"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "今天去钓鱼！"
-          }
-        }
-      }
-    },
-    "NOT TODAY. Better window ahead.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "NOT TODAY. Better window ahead."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "今天先不钓，更好的时机在后面。"
-          }
-        }
-      }
-    },
-    "Score: %d/100 · Trip suitability, not catch probability": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Score: %d/100 · Trip suitability, not catch probability"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "评分：%d/100 · 出行适合度，并非上鱼概率"
-          }
-        }
-      }
-    },
-    "Date: %@ (Minnesota time)": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Date: %@ (Minnesota time)"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "日期：%@（明尼苏达当地时间）"
-          }
-        }
-      }
-    },
-    "Window: %@": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Window: %@"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最佳时段：%@"
-          }
-        }
-      }
-    },
-    "Water: %@": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Water: %@"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "水域：%@"
-          }
-        }
-      }
-    },
-    "Target: %@": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Target: %@"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "目标鱼种：%@"
-          }
-        }
-      }
-    },
-    "Conditions: %@ · Wind %@ · Rain %d%%": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Conditions: %@ · Wind %@ · Rain %d%%"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "天气：%@ · 风速 %@ · 降水概率 %d%%"
-          }
-        }
-      }
-    },
-    "Access: %@": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Access: %@"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "出入口：%@"
-          }
-        }
-      }
-    },
-    "DEMO ONLY · Fictional waters and weather. Do not use for navigation.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DEMO ONLY · Fictional waters and weather. Do not use for navigation."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "仅供演示 · 水域和天气均为虚构，请勿用于导航。"
-          }
-        }
-      }
-    },
-    "Shore": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Shore"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "岸钓"
-          }
-        }
-      }
-    },
-    "Boat": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Boat"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "船钓"
-          }
-        }
-      }
-    },
-    "Any species": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Any species"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "不限鱼种"
-          }
-        }
-      }
-    },
-    "Crappie": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Crappie"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "刺盖太阳鱼"
-          }
-        }
-      }
-    },
-    "Bass": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bass"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "黑鲈"
-          }
-        }
-      }
-    },
-    "Bluegill": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bluegill"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "蓝鳃太阳鱼"
-          }
-        }
-      }
-    },
-    "Willow Lake": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Willow Lake"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "柳树湖（演示）"
-          }
-        }
-      }
-    },
-    "Cedar Lake": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cedar Lake"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "雪松湖（演示）"
-          }
-        }
-      }
-    },
-    "Pine Reservoir": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pine Reservoir"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "松树水库（演示）"
-          }
-        }
-      }
-    },
-    "Sample wind: %@.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sample wind: %@."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "示例风速：%@。"
-          }
-        }
-      }
-    },
-    "%d-minute sample drive, within your %d-minute limit.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%d-minute sample drive, within your %d-minute limit."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "示例车程 %d 分钟，在你设定的 %d 分钟以内。"
-          }
-        }
-      }
-    },
-    "%@ fishing · %d-hour trip.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ fishing · %d-hour trip."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ · 出钓 %d 小时。"
-          }
-        }
-      }
-    },
-    "Small hooks and worms": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Small hooks and worms"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "小号鱼钩和蚯蚓"
-          }
-        }
-      }
-    },
-    "Ultralight rod and small jigs": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ultralight rod and small jigs"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "超轻型鱼竿和小型铅头钩"
-          }
-        }
-      }
-    },
-    "Medium rod and soft plastics": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Medium rod and soft plastics"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "中等硬度鱼竿和软饵"
-          }
-        }
-      }
-    },
-    "Water, sun protection, and a valid fishing license": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Water, sun protection, and a valid fishing license"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "饮用水、防晒用品及有效钓鱼许可"
-          }
-        }
-      }
-    },
-    "Your best window": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Your best window"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最佳出钓时段"
-          }
-        }
-      }
-    },
-    "Fictional water · %d min sample drive": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fictional water · %d min sample drive"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "虚构水域 · 示例车程 %d 分钟"
-          }
-        }
-      }
-    },
-    "Rain: %d%%": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rain: %d%%"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "降水：%d%%"
-          }
-        }
-      }
-    },
-    "Why this window": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Why this window"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "为什么选这个时段"
-          }
-        }
-      }
-    },
-    "Bring this": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bring this"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "带上这些"
-          }
-        }
-      }
-    },
-    "Your gear list is empty. Add what you own from My Gear.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Your gear list is empty. Add what you own from My Gear."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "装备清单还是空的，去“我的装备”添加你已有的装备吧。"
-          }
-        }
-      }
-    },
-    "FROM YOUR GEAR": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "FROM YOUR GEAR"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "你已有的装备"
-          }
-        }
-      }
-    },
-    "ALSO CONSIDER": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ALSO CONSIDER"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "也可以考虑"
-          }
-        }
-      }
-    },
-    "General suggestions only; gear compatibility is not yet evaluated.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "General suggestions only; gear compatibility is not yet evaluated."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "仅为通用建议，尚未评估装备搭配。"
-          }
-        }
-      }
-    },
-    "A second option": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A second option"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "备选方案"
-          }
-        }
-      }
-    },
-    "Demo score ranks sample trip suitability. It is not a catch probability. Live weather, fishing access, regulations, and route estimates are not connected.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Demo score ranks sample trip suitability. It is not a catch probability. Live weather, fishing access, regulations, and route estimates are not connected."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "演示评分表示示例出行的适合度，并非上鱼概率。尚未接入实时天气、真实出入口、当地规定及路线估算。"
-          }
-        }
-      }
-    },
-    "No matching sample trips": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No matching sample trips"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "没有匹配的演示行程"
-          }
-        }
-      }
-    },
-    "Try a longer drive, a shorter trip, another species, or a different access type. Coverage is limited to fictional demo waters.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Try a longer drive, a shorter trip, another species, or a different access type. Coverage is limited to fictional demo waters."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "试试放宽车程、缩短出钓时间、更换鱼种或出钓方式。目前仅覆盖虚构的演示水域。"
-          }
-        }
-      }
-    },
-    "Adjust preferences": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Adjust preferences"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "调整偏好"
-          }
-        }
-      }
-    },
-    "Your fishing plan": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Your fishing plan"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "你的钓鱼计划"
-          }
-        }
-      }
-    },
-    "YES.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "YES."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "去钓鱼！"
-          }
-        }
-      }
-    },
-    "NOT TODAY.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "NOT TODAY."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "今天先不钓。"
-          }
-        }
-      }
-    },
-    "Your window is today.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Your window is today."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "今天就有合适时段。"
-          }
-        }
-      }
-    },
-    "Next window: %@": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Next window: %@"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "下次好时机：%@"
-          }
-        }
-      }
-    },
-    "A little planning. A better day outside.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A little planning. A better day outside."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "提前规划，享受更好的户外时光。"
-          }
-        }
-      }
-    },
-    "Times shown in Minnesota time.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Times shown in Minnesota time."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "时间均为明尼苏达当地时间。"
+            "value": "位置与出入口"
           }
         }
       }
@@ -1293,206 +915,36 @@
         }
       }
     },
-    "Fishing time": {
+    "Medium rod and soft plastics": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Fishing time"
+            "value": "Medium rod and soft plastics"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "出钓时长"
+            "value": "中等硬度鱼竿和软饵"
           }
         }
       }
     },
-    "%d hours": {
+    "My Gear": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "%d hours"
+            "value": "My Gear"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "%d 小时"
-          }
-        }
-      }
-    },
-    "Access": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Access"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "出钓方式"
-          }
-        }
-      }
-    },
-    "Target fish": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Target fish"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "目标鱼种"
-          }
-        }
-      }
-    },
-    "Your kind of trip": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Your kind of trip"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "按你的方式出钓"
-          }
-        }
-      }
-    },
-    "Changes save on this iPhone and apply to the next recommendation.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Changes save on this iPhone and apply to the next recommendation."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "设置保存在这台 iPhone 上，下次推荐时生效。"
-          }
-        }
-      }
-    },
-    "Fictional freshwater lakes with sample drive times. Your real location is not used.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fictional freshwater lakes with sample drive times. Your real location is not used."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "虚构的淡水湖及示例车程，不会使用你的真实位置。"
-          }
-        }
-      }
-    },
-    "Done": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Done"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "完成"
-          }
-        }
-      }
-    },
-    "e.g. Ultralight rod": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "e.g. Ultralight rod"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "例如：超轻型鱼竿"
-          }
-        }
-      }
-    },
-    "Add": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Add"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "添加"
-          }
-        }
-      }
-    },
-    "Add what you own": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Add what you own"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "添加已有装备"
-          }
-        }
-      }
-    },
-    "Gear is saved on your iPhone. Swipe left to remove an item.": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gear is saved on your iPhone. Swipe left to remove an item."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "装备保存在这台 iPhone 上，向左轻扫可删除。"
+            "value": "我的装备"
           }
         }
       }
@@ -1514,19 +966,121 @@
         }
       }
     },
-    "A rod, your favorite tackle, a trusty net. Start with the basics.": {
+    "Navigate in Apple Maps": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "A rod, your favorite tackle, a trusty net. Start with the basics."
+            "value": "Navigate in Apple Maps"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "从基本装备开始：鱼竿、常用钓具和顺手的抄网。"
+            "value": "使用 Apple 地图导航"
+          }
+        }
+      }
+    },
+    "Navigation unavailable: no verified access point.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Navigation unavailable: no verified access point."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂无已核验出入口，无法导航。"
+          }
+        }
+      }
+    },
+    "Next window: %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next window: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下次好时机：%@"
+          }
+        }
+      }
+    },
+    "No matching sample trips": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No matching sample trips"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没有匹配的演示行程"
+          }
+        }
+      }
+    },
+    "Not packed yet": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not packed yet"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "尚未装包"
+          }
+        }
+      }
+    },
+    "NOT TODAY.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NOT TODAY."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今天先不钓。"
+          }
+        }
+      }
+    },
+    "NOT TODAY. Better window ahead.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NOT TODAY. Better window ahead."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今天先不钓，更好的时机在后面。"
           }
         }
       }
@@ -1548,19 +1102,988 @@
         }
       }
     },
-    "Not packed yet": {
+    "Parking Area": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Not packed yet"
+            "value": "Parking Area"
           }
         },
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "尚未装包"
+            "value": "停车场"
+          }
+        }
+      }
+    },
+    "Pine Reservoir": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pine Reservoir"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "松树水库（演示）"
+          }
+        }
+      }
+    },
+    "Preferences": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preferences"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "偏好设置"
+          }
+        }
+      }
+    },
+    "Rain: %d%%": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rain: %d%%"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "降水：%d%%"
+          }
+        }
+      }
+    },
+    "Sample wind: %@.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sample wind: %@."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "示例风速：%@。"
+          }
+        }
+      }
+    },
+    "Score: %d/100 · Trip suitability, not catch probability": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Score: %d/100 · Trip suitability, not catch probability"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "评分：%d/100 · 出行适合度，并非上鱼概率"
+          }
+        }
+      }
+    },
+    "Share Fishing Plan": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Share Fishing Plan"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分享钓鱼计划"
+          }
+        }
+      }
+    },
+    "Shore": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shore"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "岸钓"
+          }
+        }
+      }
+    },
+    "Shoreline Access": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shoreline Access"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "岸钓出入口"
+          }
+        }
+      }
+    },
+    "Small hooks and worms": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Small hooks and worms"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小号鱼钩和蚯蚓"
+          }
+        }
+      }
+    },
+    "Target fish": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Target fish"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标鱼种"
+          }
+        }
+      }
+    },
+    "Target: %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Target: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标鱼种：%@"
+          }
+        }
+      }
+    },
+    "Times shown in Minnesota time.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Times shown in Minnesota time."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "时间均为明尼苏达当地时间。"
+          }
+        }
+      }
+    },
+    "Try a longer drive, a shorter trip, another species, or a different access type. Coverage is limited to fictional demo waters.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Try a longer drive, a shorter trip, another species, or a different access type. Coverage is limited to fictional demo waters."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "试试放宽车程、缩短出钓时间、更换鱼种或出钓方式。目前仅覆盖虚构的演示水域。"
+          }
+        }
+      }
+    },
+    "Twin Cities, Minnesota": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Twin Cities, Minnesota"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "明尼苏达州 · 双城都会区"
+          }
+        }
+      }
+    },
+    "Ultralight rod and small jigs": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ultralight rod and small jigs"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "超轻型鱼竿和小型铅头钩"
+          }
+        }
+      }
+    },
+    "Water, sun protection, and a valid fishing license": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Water, sun protection, and a valid fishing license"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "饮用水、防晒用品及有效钓鱼许可"
+          }
+        }
+      }
+    },
+    "Water: %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Water: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "水域：%@"
+          }
+        }
+      }
+    },
+    "Why this window": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Why this window"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "为什么选这个时段"
+          }
+        }
+      }
+    },
+    "Willow Lake": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Willow Lake"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "柳树湖（演示）"
+          }
+        }
+      }
+    },
+    "Window: %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Window: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最佳时段：%@"
+          }
+        }
+      }
+    },
+    "YES.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "YES."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "去钓鱼！"
+          }
+        }
+      }
+    },
+    "YES. Go today!": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "YES. Go today!"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今天去钓鱼！"
+          }
+        }
+      }
+    },
+    "Your best window": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your best window"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最佳出钓时段"
+          }
+        }
+      }
+    },
+    "Your fishing plan": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your fishing plan"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的钓鱼计划"
+          }
+        }
+      }
+    },
+    "Your gear list is empty. Add what you own from My Gear.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your gear list is empty. Add what you own from My Gear."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "装备清单还是空的，去“我的装备”添加你已有的装备吧。"
+          }
+        }
+      }
+    },
+    "Your kind of trip": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your kind of trip"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "按你的方式出钓"
+          }
+        }
+      }
+    },
+    "Your window is today.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your window is today."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今天就有合适时段。"
+          }
+        }
+      }
+    },
+    "Official access records checked for 10 waters.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Official access records checked for 10 waters."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已核对 10 个水域的官方公共入口记录。"
+          }
+        }
+      }
+    },
+    "Explore 10 real waters": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Explore 10 real waters"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "探索 10 个真实水域"
+          }
+        }
+      }
+    },
+    "This recommendation uses fictional waters. You can explore real public access separately.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This recommendation uses fictional waters. You can explore real public access separately."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此推荐使用虚构水域，你也可以单独查看真实公共入口。"
+          }
+        }
+      }
+    },
+    "Explore real waters from the home screen. Weather and fishing scores remain demo data.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Explore real waters from the home screen. Weather and fishing scores remain demo data."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可从首页探索真实水域，天气与钓鱼评分仍为演示数据。"
+          }
+        }
+      }
+    },
+    "Explore waters": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Explore waters"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "探索水域"
+          }
+        }
+      }
+    },
+    "All access": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All access"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全部方式"
+          }
+        }
+      }
+    },
+    "%d real waters · Official DNR access records": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d real waters · Official DNR access records"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d 个真实水域 · DNR 官方入口记录"
+          }
+        }
+      }
+    },
+    "Choose a water and a public access point. Weather and bite forecasts are not included here.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose a water and a public access point. Weather and bite forecasts are not included here."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择水域和公共入口，此处不包含天气和咬口预测。"
+          }
+        }
+      }
+    },
+    "%@ County": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ County"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 县"
+          }
+        }
+      }
+    },
+    "%d waters": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d waters"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d 个水域"
+          }
+        }
+      }
+    },
+    "Search water or county": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search water or county"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索水域或县名"
+          }
+        }
+      }
+    },
+    "Public access points": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Public access points"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "公共入口"
+          }
+        }
+      }
+    },
+    "Before you go": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Before you go"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "出发前确认"
+          }
+        }
+      }
+    },
+    "Source checked, not a live opening report. Piers, ramps and parking may have seasonal or temporary restrictions.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Source checked, not a live opening report. Piers, ramps and parking may have seasonal or temporary restrictions."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已核对资料来源，但不是实时开放报告。码头、坡道和停车区域可能存在季节性或临时限制。"
+          }
+        }
+      }
+    },
+    "Check current DNR water information": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Check current DNR water information"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "查看 DNR 当前水域信息"
+          }
+        }
+      }
+    },
+    "Fishing regulations, permits and on-site signs still apply. No ice-safety assessment is provided.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fishing regulations, permits and on-site signs still apply. No ice-safety assessment is provided."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请遵守钓鱼规定、许可要求及现场标识。此处不提供冰面安全评估。"
+          }
+        }
+      }
+    },
+    "Share water & access": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Share water & access"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分享水域与入口"
+          }
+        }
+      }
+    },
+    "Could not open Apple Maps": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not open Apple Maps"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未能打开 Apple 地图"
+          }
+        }
+      }
+    },
+    "OK": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "好"
+          }
+        }
+      }
+    },
+    "Try again or use the source information below.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Try again or use the source information below."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请重试，或使用下方的来源信息。"
+          }
+        }
+      }
+    },
+    "Source checked: %@": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Source checked: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "来源核对日期：%@"
+          }
+        }
+      }
+    },
+    "View official access record": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View official access record"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "查看官方入口记录"
+          }
+        }
+      }
+    },
+    "Access review is overdue. Navigation is paused until the record is checked again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Access review is overdue. Navigation is paused until the record is checked again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "入口资料已超过复核期限，重新核对前暂不提供导航。"
+          }
+        }
+      }
+    },
+    "Directions lead to the access area. Follow posted parking signs and walk the final section where needed.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Directions lead to the access area. Follow posted parking signs and walk the final section where needed."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "导航前往入口周边区域，请遵循停车标识，必要时步行完成最后一段。"
+          }
+        }
+      }
+    },
+    "Source checked, not a live opening report. Check current access conditions before travel.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Source checked, not a live opening report. Check current access conditions before travel."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已核对资料来源，但不是实时开放报告，请在出发前确认入口现况。"
+          }
+        }
+      }
+    },
+    "Follow posted parking signs, then walk to the fishing access.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Follow posted parking signs, then walk to the fishing access."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请按现场标识停车，再步行前往岸钓入口。"
+          }
+        }
+      }
+    },
+    "Boat-launch access. Check local launch conditions and posted restrictions.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boat-launch access. Check local launch conditions and posted restrictions."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "船只下水入口，请确认当地下水条件及现场限制。"
+          }
+        }
+      }
+    },
+    "Waters unavailable": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waters unavailable"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "水域资料暂不可用"
+          }
+        }
+      }
+    },
+    "The saved water catalog could not be loaded. Try again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The saved water catalog could not be loaded. Try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法读取已保存的水域资料，请重试。"
+          }
+        }
+      }
+    },
+    "Try again": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Try again"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重试"
           }
         }
       }

@@ -4,6 +4,7 @@ import MapKit
 struct ResultView: View {
     let plan: TripPlan?
     let editPreferences: () -> Void
+    @State private var showWaters = false
 
     var body: some View {
         ScrollView {
@@ -103,6 +104,7 @@ struct ResultView: View {
             }.padding(24)
         }
         .background(Palette.ink)
+        .sheet(isPresented: $showWaters) { WatersView() }
         .navigationTitle("Your fishing plan")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.visible, for: .navigationBar)
@@ -169,7 +171,10 @@ struct ResultView: View {
                 Label("Navigation unavailable: no verified access point.", systemImage: "mappin.slash")
                     .font(.headline).accessibilityIdentifier("navigationUnavailable")
                 Text(LaunchCoverage.displayName).foregroundStyle(Palette.lime)
-                Text(LaunchCoverage.status).font(.subheadline).foregroundStyle(Palette.muted)
+                Text("This recommendation uses fictional waters. You can explore real public access separately.")
+                    .font(.subheadline).foregroundStyle(Palette.muted)
+                Button("Explore 10 real waters") { showWaters = true }
+                    .accessibilityIdentifier("resultExploreWatersButton")
                 Text("Demo locations cannot be opened as real destinations.")
                     .font(.caption).foregroundStyle(Palette.muted)
             }

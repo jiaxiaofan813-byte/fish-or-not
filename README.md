@@ -8,7 +8,7 @@ An iPhone app that helps you decide **whether to fish, when to go, where to go, 
 >
 > Find your best fishing window.
 
-**Status:** Working SwiftUI prototype with offline demo recommendations. Live weather, maps, location, and real water coverage are not connected yet.
+**Status:** Working SwiftUI prototype with offline demo recommendations. Includes a 10-water Twin Cities catalog with 18 DNR-sourced public access points, MapKit previews, and Apple Maps directions. Fishing recommendations and weather remain demo data.
 
 > **Development note:** Before changing product scope or core UX, read [`docs/PRODUCT_DECISIONS.md`](docs/PRODUCT_DECISIONS.md). It is the current source of truth for approved product decisions, scope guardrails, localization, sharing, maps, ice-fishing safety, knots, tips, and the planned Fish Camera.
 
@@ -16,7 +16,7 @@ An iPhone app that helps you decide **whether to fish, when to go, where to go, 
 
 Open `FishOrNot.xcodeproj` in Xcode 16 or later, select the **FishOrNot** scheme and an iPhone simulator, then Run. The deployment target is **iOS 17+**. No API keys, account, or paid services are required for the demo. To run on a physical iPhone, select your own signing team and a unique bundle identifier in Xcode.
 
-The prototype includes the neutral circular home button with a shared fish-eye reveal and catch-or-escape endings, a recommendation result, a no-match state, editable trip preferences, and a locally saved gear checklist. All weather, water names, scores, and drive times are fictional sample data. Dates are anchored when the plan is created, with times in Minnesota’s America/Chicago time zone. Gear you own is listed separately from general suggestions; tackle compatibility is not yet scored.
+The prototype includes the neutral circular home button with a shared fish-eye reveal and catch-or-escape endings, a recommendation result, a no-match state, editable trip preferences, and a locally saved gear checklist. The decision-button results still use fictional weather, water names, scores, and drive times. **Explore 10 real waters** opens a separate real-place catalog with source links, shore/boat filtering, maps, access-point selection, sharing, and Apple Maps directions. Dates are anchored when the plan is created, with times in Minnesota’s America/Chicago time zone. Gear you own is listed separately from general suggestions; tackle compatibility is not yet scored.
 
 **Validation:** Run `swift test` for the local recommendation engine. In Xcode, use Product → Test to run the simulator flow and persistence checks. The core tests run independently of the iOS UI via the small Swift package in this repository.
 
@@ -24,7 +24,7 @@ The prototype includes the neutral circular home button with a shared fish-eye r
 
 Turn a simple question—“Should I go fishing?”—into a clear, practical plan. Fish or Not starts with a recommendation, then explains the conditions behind it so anglers can make their own call.
 
-The first release will focus on short freshwater trips in a limited launch area, with a curated set of waters and species. The launch pilot is the Twin Cities metropolitan area in Minnesota; its initial waters and access points still need to be verified.
+The first release will focus on short freshwater trips in a limited launch area, with a curated set of waters and species. The launch pilot is the Twin Cities metropolitan area in Minnesota; the first 10-water / 18-access-point catalog is documented in [`docs/WATER_SOURCES.md`](docs/WATER_SOURCES.md).
 
 ## Core Experience
 
@@ -104,6 +104,6 @@ Milestones describe planned work, not release commitments. The current build is 
 - Native SwiftUI signature interaction: a large neutral glowing circle compresses, shrinks into a fish eye, and reveals a fish and hook. Both results share this reveal; a positive result catches and lifts the fish, while a negative result lets it swim away (about 1.0–1.1 seconds).
 - Repeated taps are disabled during the transition. Returning home or interrupting the app resets the interaction. Reduce Motion skips the decorative motion and delay.
 - English / Simplified Chinese String Catalogs cover the home, results, settings, gear, and share summary. Dates and measurement units follow the locale; stored species and access IDs remain language-independent.
-- The Twin Cities metropolitan area in Minnesota is the confirmed launch pilot. Data remains fictional; map previews and navigation require a non-demo plan plus a sourced, current, public, compatible access record.
+- The Twin Cities metropolitan area in Minnesota is the launch pilot. The real-water catalog exposes 10 waters and 18 source-checked public access points. Demo recommendations remain separate and cannot navigate to fictional destinations.
 - Shared demo plans include a demo disclaimer, an absolute date and time window, and a suitability-score explanation. No app links are emitted until exact-plan restoration is implemented.
 - Simulator verification requires a full Xcode installation. Command Line Tools alone cannot build or run this iOS interface.

@@ -1,29 +1,37 @@
 # Development status — October 29, 2026
 
-## Current increment: Twin Cities pilot and trusted-data boundaries
+## Current increment: 10 real waters and Apple Maps navigation
 
-Product scope follows `docs/PRODUCT_DECISIONS.md`. The launch pilot is **Twin Cities, Minnesota**, confirmed by the product owner. No real waters or access points have been enabled yet.
+The Twin Cities pilot now includes **10 real waters and 18 source-checked public access points**. The catalog is separate from the decision button's fictional weather and recommendation results.
 
 ### Implemented
 
-- Home and preferences identify the selected pilot area without claiming verified coverage. The resting button is a dominant 232-point neutral circle with a restrained halo and press response. Both outcomes share the fish-eye zoom-out and hook reveal; only then does the fish get caught and lifted, or escape while the hook stays behind. The rejected ping-pong artwork has been removed. Transition budgets are 1.12 seconds for catch and 1.04 seconds for escape; Reduce Motion bypasses the sequence.
-- Map previews and Apple Maps handoff require both a non-demo plan and a non-demo, verified access record. Verification must include an HTTPS source, a check date, a future review deadline, confirmation of public access, the supported fishing access modes, the pilot-region ID, and valid coordinates. The handoff rechecks eligibility when tapped. Review deadlines are supplied by record curators, not inferred from a coordinate.
-- Fictional samples cannot launch navigation. The result explains that verified access is unavailable instead of displaying a real-world map of a fictional destination.
-- Share summaries carry the demo disclaimer, an absolute plan date and window in Minnesota time, weather context, target species, and the score interpretation. They omit unverified access names and the unsupported `fishornot://` link. Exact-plan links remain deferred until routing and plan restoration exist.
-- Result, preferences, gear, coverage, recommendation explanations, and share copy use English / Simplified Chinese String Catalog entries. Temperature and wind units follow the locale. User-entered gear names are preserved.
-- Access, species, and access-point types use stable IDs. Legacy English access/species values remain readable so existing preferences and gear do not need to be discarded.
-- Window dates are anchored when the recommendation is created; time ranges are formatted from structured hours/minutes in `America/Chicago` rather than hard-coded English time strings.
+- Home and result screens open **Explore 10 real waters**.
+- Offline water list with name/county/lake-number search and shore/boat filters. All 10 waters have a public shore-fishing site or pier; 8 also have a separately sourced trailer launch.
+- Water details support access-point selection and an embedded MapKit preview pinned to the selected public access, rather than a lake centroid.
+- Apple Maps driving handoff uses the selected access name and coordinates. Eligibility is rechecked on tap. Failed app handoffs show a retry message. The final approach can require walking from signed parking.
+- Each access links to its exact DNR record and displays the source-check date. Each water links to DNR LakeFinder. Source checks are not field inspections or live opening reports.
+- Real-water sharing includes the selected public access and an Apple Maps directions link, with current-condition context. It does not attach demo weather or scores to real waters.
+- English and Simplified Chinese UI includes the list, filters, detail, source labels, navigation action, errors and sharing context. Official place/facility names stay in their source language for recognition on maps and signs.
+- Bundled catalog loading fails visibly on missing or invalid data. Duplicate lake/site IDs, unexpected regions, non-DNR source hosts, invalid coordinates and malformed verification records fail validation. Unknown, mismatched or overdue points cannot produce navigation destinations.
+- Source provenance, included waters and the 90-day editorial review policy are documented in `WATER_SOURCES.md`.
 
-## Validation
+## Verification
 
-- Core recommendation, persistence, migration, navigation eligibility, share formatting, and the shared reveal/timing contract: 12 tests passed.
-- iOS simulator build passed. All 4 UI tests passed on the iPhone 17 / iOS 27.0 simulator: Chinese home/result, preference persistence and no-match fallback, repeated return/tap, and the positive catch ending.
-- The first attempt to launch the updated UI suite stalled in the simulator test service. Restarting only the selected test device and running the already-built test products resolved it.
-- The String Catalog contains 92 bilingual entries, checked for matching format placeholders.
-- Earlier MapKit demo pins and their coordinates are **fictional fixtures**, not verified public access records. Earlier verification of a visible navigation button did not establish the validity of those destinations; this increment deliberately removes that behavior.
+- Queried all **18 individual DNR source records**, checked stable IDs and coordinates, and matched lake IDs between fishing sites and launches.
+- **16 core tests passed**, including catalog resource loading, counts, shore/boat filtering, search, routing coordinates, expiry, and invalid-data handling, plus existing recommendation, persistence, migration and animation tests.
+- **6 UI tests passed** on iPhone 18 Pro / iOS 27.0. The two new tests cover Chinese search and shore-only details, 10/8/all filtering, launch selection, enabled navigation, actual Apple Maps foreground handoff and return to the app. Four existing tests cover localized decisions, saved preferences, repeated taps and the catch ending.
+- Inspected exported list and navigation screenshots. Full simulator app/test builds succeeded.
 
-## Next data milestone
+## Existing behavior retained
 
-Curate a small initial set of Twin Cities waters. For each, record a stable water ID, species sources, an actual practical public access point, compatible shore/boat use, source URL, check date, and review deadline. Validate coordinates against the source and check current access restrictions before enabling any real destination. Integrate real forecasts separately; selecting a pilot area does not turn demo conditions into live recommendations.
+The large neutral circular button reveals a fish eye, full fish and hook before branching into a catch or escape. Reduce Motion skips decorative motion. Demo destinations remain blocked from real navigation. Existing preferences and gear remain local and compatible with the original English identifiers.
 
-No accounts, social feed, Fish Camera, ice-thickness prediction, or separate article library are introduced in this increment.
+## Remaining work
+
+- Real forecast integration, user-selected starting location and actual route-time comparison inside recommendations.
+- Species-specific data and validated tackle guidance for the real-water catalog.
+- Exact-plan restoration links; unsupported `fishornot://` links remain omitted.
+- Periodic source review and eventual catalog update delivery. This release bundles source records checked on October 29, 2026; app navigation pauses for records that pass their individual review deadline.
+
+No accounts, social feed, Fish Camera or modeled ice-thickness claims are added.
