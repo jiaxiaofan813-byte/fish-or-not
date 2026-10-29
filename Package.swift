@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "FishOrNotCore",
-    platforms: [.macOS(.v13)],
+    platforms: [.macOS(.v14)],
     products: [.library(name: "FishOrNotCore", targets: ["FishOrNotCore"])],
     targets: [
         .target(name: "FishOrNotCore", path: "FishOrNot/Core"),

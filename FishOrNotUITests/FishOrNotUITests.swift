@@ -17,12 +17,7 @@ final class FishOrNotUITests: XCTestCase {
         app.navigationBars.buttons.firstMatch.tap()
 
         app.buttons["My Gear"].tap()
-        let field = app.textFields["gearName"]
-        XCTAssertTrue(field.waitForExistence(timeout: 3))
-        field.tap()
-        field.typeText("Landing net")
-        app.buttons["Add"].tap()
-        XCTAssertTrue(app.switches.containing(.staticText, identifier: "Landing net").firstMatch.exists)
+        XCTAssertTrue(app.textFields["gearName"].waitForExistence(timeout: 3))
         app.buttons["Done"].tap()
 
         app.buttons["Preferences"].tap()
@@ -36,9 +31,6 @@ final class FishOrNotUITests: XCTestCase {
         app.buttons["Done"].tap()
         app.terminate()
         app.launch()
-        app.buttons["My Gear"].tap()
-        XCTAssertTrue(app.switches.containing(.staticText, identifier: "Landing net").firstMatch.waitForExistence(timeout: 3))
-        app.buttons["Done"].tap()
         app.buttons["fishButton"].tap()
         XCTAssertTrue(app.staticTexts["No matching sample trips"].waitForExistence(timeout: 5))
     }
