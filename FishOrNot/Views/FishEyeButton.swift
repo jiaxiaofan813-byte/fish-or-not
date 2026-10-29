@@ -2,6 +2,7 @@ import SwiftUI
 
 struct FishEyeButton: View {
     let phase: HomeTransitionPhase
+    var sceneHeight: CGFloat = 300
     let action: () -> Void
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var motionStart = Date()
@@ -22,6 +23,7 @@ struct FishEyeButton: View {
     }
 
     var body: some View {
+        GeometryReader { geometry in
         TimelineView(.animation(minimumInterval: 1.0 / 30, paused: !activeMotion)) { context in
             let time = activeMotion ? context.date.timeIntervalSince(motionStart) : 0
             let wave = sin(time * 2.4)
@@ -65,9 +67,13 @@ struct FishEyeButton: View {
                 .opacity(hookVisible ? 1 : 0)
                 .accessibilityHidden(true)
             }
-            .frame(maxWidth: .infinity).frame(height: 300)
+            .frame(width: 350, height: 300)
+            .scaleEffect(min(1, max(0.1, geometry.size.width / 350), max(0.1, geometry.size.height / 300)))
+            .frame(width: geometry.size.width, height: geometry.size.height)
             .clipped()
         }
+        }
+        .frame(height: sceneHeight)
         .onChange(of: phase) { _, value in
             if value == .pressed { motionStart = .now }
         }

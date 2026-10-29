@@ -10,6 +10,22 @@ final class LivePlanningUITests: XCTestCase {
         XCTAssertTrue(app.buttons["fishButton"].waitForExistence(timeout: 10))
         return app
     }
+    @MainActor func testResizeKeepsSearchAndResult() {
+        XCUIDevice.shared.orientation = .portrait
+        let app = launch("live-success")
+        capture("Adaptive portrait home")
+        XCUIDevice.shared.orientation = .landscapeLeft
+        capture("Adaptive landscape home")
+        let eye = app.buttons["fishButton"]
+        XCTAssertTrue(app.frame.contains(eye.frame))
+        eye.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+        XCTAssertTrue(app.staticTexts["liveDecision"].waitForExistence(timeout: 10))
+        capture("Adaptive landscape result")
+        XCUIDevice.shared.orientation = .portrait
+        XCTAssertTrue(app.staticTexts["liveDecision"].exists)
+        capture("Adaptive portrait result preserved")
+    }
+
     @MainActor func testLiveResultHasActualCatalogAccessGearWeatherAndShare() {
         let app = launch("live-success")
         XCTAssertFalse(app.staticTexts["demoNotice"].exists)

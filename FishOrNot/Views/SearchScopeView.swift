@@ -75,7 +75,7 @@ struct CustomizeSearchView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                SearchScopeView(store: store) { showWaters = true }.padding(20)
+                SearchScopeView(store: store) { showWaters = true }.padding(20).frame(maxWidth: 640).frame(maxWidth: .infinity)
             }
             .background(Palette.ink)
             .navigationTitle("Customize search")

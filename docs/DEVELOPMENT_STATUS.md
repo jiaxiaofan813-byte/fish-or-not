@@ -75,3 +75,13 @@ One forecast-provider request per county per comparison, using the nearest selec
 Core tests verify 12 Hennepin waters use one forecast, Hennepin/Ramsey favorites use two, and cancellation stops a pending shared forecast without leaving active work. 36 core tests: 35 passed, one optional live network test skipped.
 
 The optional real-network simulator check was interrupted after prolonged external-service waiting (over two minutes); no new live-latency improvement is claimed from that run. County reuse and cancellation are covered by deterministic provider tests.
+
+## Resizable iPhone / Duo preparation
+
+Reviewed Apple’s iPhone Duo preparation guidance and exported Xcode app-resizability skill. No global screen/orientation/idiom or UIKit lifecycle migration sites were found. SwiftUI WindowGroup and native safe-area behavior remain in use. Build uses iOS 27.1 SDK; generated Info.plist contains portrait and both landscape orientations, a launch screen and no full-screen opt-out.
+
+Home/customization content is bounded to 640 pt and result/detail content to 860 pt inside the scene. The fish scene measures its current container and scales as the width changes, preserving animation state. Result name/score adapts from a row to a column when intrinsic content does not fit. An orientation UI test checks home action usability and result preservation. Native Duo testing depends on the matching simulator runtime; iOS 27.0 rejects the Duo device type.
+
+Validation update: installed the iOS 27.1 runtime and created Fish or Not Duo QA. Native Duo home captures show the full button, readable copy, no compatibility black bars, and clear separation from the right-side status rail. The first standard iPhone rotation/result test passed. A subsequent compact-layout run hit an XCTest activation-point error despite an in-bounds frame; the test now checks the visible frame and taps its center. The native Duo run captured portrait/landscape home but then stalled querying the result; screenshot/shutdown commands also stalled. CoreSimulator was restarted once. Full fold/unfold and native button-to-result acceptance remain unverified. Final generic iPhoneOS Release build succeeded with signing disabled (not a signed TestFlight archive).
+
+Short-window home now uses a compact heading and 200 pt scene. Scene scaling accounts for both available width and height. Settings/gear/location forms use a 720 pt content maximum. Temporary inactive-scene display transitions retain the comparison; backgrounding still cancels it, and result presentation waits for the scene to reactivate.

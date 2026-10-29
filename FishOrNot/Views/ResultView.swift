@@ -101,7 +101,7 @@ struct ResultView: View {
                     }
                     .accessibilityIdentifier("emptyResult")
                 }
-            }.padding(24)
+            }.padding(24).frame(maxWidth: 860).frame(maxWidth: .infinity)
         }
         .background(Palette.ink)
         .sheet(isPresented: $showWaters) { WatersView() }

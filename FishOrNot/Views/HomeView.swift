@@ -32,27 +32,29 @@ struct HomeView: View {
 
     var body: some View {
         NavigationStack {
+            GeometryReader { geometry in
+            let compact = geometry.size.height < 500
             ScrollView {
-                VStack(spacing: 24) {
+                VStack(spacing: compact ? 12 : 24) {
                     HStack(spacing: 8) {
                         Circle().fill(Palette.lime).frame(width: 8, height: 8)
                         Text("brand.name").tracking(2).font(.caption.weight(.black))
                         Spacer()
                     }
-                    .padding(.top, 20)
+                    .padding(.top, compact ? 0 : 20)
 
                     VStack(spacing: 10) {
                         Text("home.headline")
-                            .font(.system(.largeTitle, design: .serif, weight: .medium))
+                            .font(.system(compact ? .title2 : .largeTitle, design: .serif, weight: .medium))
                             .multilineTextAlignment(.center)
-                        Text("home.subtitle")
+                        if !compact { Text("home.subtitle")
                             .font(.subheadline).foregroundStyle(Palette.muted)
-                            .multilineTextAlignment(.center)
+                            .multilineTextAlignment(.center) }
                     }
-                    .padding(.top, 12)
+                    .padding(.top, compact ? 0 : 12)
 
                     VStack(spacing: 0) {
-                        FishEyeButton(phase: phase) {
+                        FishEyeButton(phase: phase, sceneHeight: compact ? 200 : 300) {
                             guard !checking else { return }
                             errorText = nil
                             if !demo && store.startingPoint == nil { sheet = .location }
@@ -113,6 +115,8 @@ struct HomeView: View {
                     .disabled(checking)
                 }
                 .padding(.horizontal, 26).padding(.bottom, 24)
+                .frame(maxWidth: 640)
+                .frame(maxWidth: .infinity)
             }
             .scrollDisabled(false)
             .background(Palette.ink)
@@ -138,12 +142,13 @@ struct HomeView: View {
                 if demo { plan = engine.recommend(preferences: store.preferences, gear: store.gear) }
             }
             .onChange(of: scenePhase) {
-                if scenePhase != .active { resetTransition() }
+                if scenePhase == .background { resetTransition() }
             }
             .onChange(of: showResult) {
                 if !showResult { resetTransition() }
             }
             .onDisappear { resetTransition() }
+            }
         }
     }
 
@@ -193,6 +198,11 @@ struct HomeView: View {
                     withAnimation(animation) { phase = step.phase }
                     try await Task.sleep(for: .milliseconds(step.milliseconds))
                 }
+            }
+            try Task.checkCancellation()
+            // A display transition may briefly deactivate the scene without backgrounding it.
+            while scenePhase == .inactive {
+                try await Task.sleep(for: .milliseconds(100))
             }
             try Task.checkCancellation()
             guard token == requestID, checking, scenePhase == .active else { return }

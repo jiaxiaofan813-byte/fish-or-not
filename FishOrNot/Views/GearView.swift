@@ -53,7 +53,8 @@ struct GearView: View {
                     .onDelete { store.gear.remove(atOffsets: $0) }
                 }
             }
-            .scrollContentBackground(.hidden).background(Palette.ink)
+            .scrollContentBackground(.hidden)
+            .frame(maxWidth: 720).frame(maxWidth: .infinity).background(Palette.ink)
             .navigationTitle("My Gear")
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } } }
         }

@@ -47,7 +47,7 @@ struct LiveResultView: View {
                     Text("A listed species is historical evidence of presence, not a current abundance or catch forecast. This app does not determine whether harvesting a fish is legal.")
                         .font(.caption).foregroundStyle(Palette.muted)
                 }
-            }.padding(24)
+            }.padding(24).frame(maxWidth: 860).frame(maxWidth: .infinity)
         }
         .background(Palette.ink)
         .navigationTitle("Your fishing plan").navigationBarTitleDisplayMode(.inline)
@@ -64,11 +64,17 @@ struct LiveResultView: View {
 
     private func bestWindow(_ best: LiveCandidate) -> some View {
         SectionCard(title: "Best window") {
+            ViewThatFits(in: .horizontal) {
             HStack(alignment: .firstTextBaseline) {
-                Text(best.water.name).font(.title.bold())
+                Text(best.water.name).font(.title.bold()).fixedSize(horizontal: true, vertical: false)
                 Spacer()
                 Text("\(best.score)").font(.system(.largeTitle, design: .rounded, weight: .bold)).foregroundStyle(Palette.lime)
                 Text("/ 100").font(.caption).foregroundStyle(Palette.muted)
+            }
+            VStack(alignment: .leading, spacing: 8) {
+                Text(best.water.name).font(.title.bold())
+                Text("\(best.score) / 100").font(.title.bold()).foregroundStyle(Palette.lime)
+            }
             }
             Text(MinnesotaTime.window(best.start, best.end)).font(.headline)
             Text("All trip times use Minnesota time.").font(.caption).foregroundStyle(Palette.muted)

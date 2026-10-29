@@ -84,7 +84,7 @@ struct WaterDetailView: View {
                     Label("Share water & access", systemImage: "square.and.arrow.up")
                         .frame(maxWidth: .infinity, minHeight: 44)
                 }.accessibilityIdentifier("shareWaterButton")
-            }.padding(24)
+            }.padding(24).frame(maxWidth: 860).frame(maxWidth: .infinity)
         }
         .background(Palette.ink)
         .navigationTitle(water.name).navigationBarTitleDisplayMode(.inline)
