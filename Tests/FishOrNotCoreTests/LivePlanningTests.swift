@@ -20,6 +20,18 @@ private struct FixedForecast: ForecastProviding {
 }
 
 final class LivePlanningTests: XCTestCase {
+    func testExpandedSpeciesAndSizeMigration() throws {
+        let records = try SpeciesEvidence.bundled()
+        let harriet = try XCTUnwrap(records.first { $0.lakeNumber == "27001600" })
+        XCTAssertEqual(Set(harriet.supported), Set([.crappie, .bass, .bluegill, .perch, .walleye, .pike]))
+        XCTAssertEqual(try JSONDecoder().decode(Preferences.self, from: Data("{}".utf8)).targetSize, .any)
+        var preferences = Preferences()
+        preferences.targetSize = .large
+        preferences.species = .pike
+        XCTAssertEqual(try JSONDecoder().decode(Preferences.self, from: JSONEncoder().encode(preferences)), preferences)
+        XCTAssertEqual(Species.pike.sizeGroup, .large)
+    }
+
     let now = NWSWeatherService.isoDate("2026-10-30T11:00:00-05:00")!
     var origin: StartingPoint { .init(name: "Minneapolis", coordinate: .init(latitude: 44.9778, longitude: -93.265), kind: .manual) }
     func snapshot(_ hours: [ForecastHour]? = nil, age: TimeInterval = 0) -> ForecastSnapshot {

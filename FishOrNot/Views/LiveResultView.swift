@@ -19,6 +19,7 @@ struct LiveResultView: View {
                     bestWindow(best)
                     access(best)
                     speciesAndGear(best)
+                    speciesOptions(best)
                     weather(best)
                     if let backup = assessment.backup {
                         SectionCard(title: "Backup option") {
@@ -125,6 +126,25 @@ struct LiveResultView: View {
                 Text("Survey year is not supplied in this species listing.").font(.caption).foregroundStyle(Palette.muted)
                 Link("Official DNR species record", destination: best.evidence.sourceURL)
             }
+        }
+    }
+
+    private func speciesOptions(_ best: LiveCandidate) -> some View {
+        let fish = best.evidence.supported.sorted { $0.approachRank < $1.approachRank }
+        return SectionCard(title: "Fish to target here") {
+            Text("Highlighted: simplest starting approach among recorded species. This is a general tackle-based suggestion, not a measured catch forecast.").font(.caption)
+            ForEach(fish) { species in
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(species.displayName + (species == fish.first ? " ★ Easiest starting point" : "")).font(.headline).foregroundStyle(species == fish.first ? Palette.lime : .primary)
+                    Text("Hooks: " + species.tackle.hook)
+                    Text("Natural bait: " + species.tackle.bait)
+                    Text("Lures: " + species.tackle.lure)
+                }.font(.subheadline).padding(.vertical, 8)
+            }
+            if fish.count < 5 {
+                Text("Fewer than five supported species are recorded here. Explore the guide for other species; their presence at this water is not confirmed.").font(.caption)
+            }
+            NavigationLink("All six species & tackle guide") { FishGuideView() }
         }
     }
 

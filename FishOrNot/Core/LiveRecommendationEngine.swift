@@ -13,7 +13,7 @@ struct LiveRecommendationEngine: Sendable {
         guard origin.coordinate.valid else { throw PlanningIssue.location }
         let evidenceByID = Dictionary(evidence.map { ($0.lakeNumber, $0) }, uniquingKeysWith: { first, _ in first })
         let eligible = catalog.waters.compactMap { water -> (WaterRecord, AccessPoint, SpeciesEvidence)? in
-            guard let fish = evidenceByID[water.lakeNumber], !fish.supported.isEmpty,
+            guard let fish = evidenceByID[water.lakeNumber], !fish.supported.filter { (preferences.targetSize == .any || $0.sizeGroup == preferences.targetSize) && (preferences.species == .any || $0 == preferences.species) }.isEmpty,
                   preferences.species == .any || fish.supported.contains(preferences.species),
                   let access = water.accessPoints.filter({ $0.permitsNavigation(for: preferences.access, at: now) })
                     .min(by: { origin.coordinate.distance(to: .init(latitude: $0.latitude, longitude: $0.longitude)) < origin.coordinate.distance(to: .init(latitude: $1.latitude, longitude: $1.longitude)) }) else { return nil }
@@ -48,7 +48,7 @@ struct LiveRecommendationEngine: Sendable {
                   (-300...10_800).contains(evaluationTime().timeIntervalSince(forecast.fetchedAt)),
                   forecast.hours.contains(where: { $0.end > evaluationTime() }) else { continue }
             forecastCount += 1
-            let species = chooseSpecies(fish.supported, preferences: preferences, gear: gear)
+            let species = chooseSpecies(fish.supported.filter { preferences.targetSize == .any || $0.sizeGroup == preferences.targetSize }, preferences: preferences, gear: gear)
             candidates += Self.windows(water: water, access: access, route: route, forecast: forecast,
                                        species: species, evidence: fish, duration: preferences.durationHours,
                                        mode: preferences.access, gear: gear, now: evaluationTime())

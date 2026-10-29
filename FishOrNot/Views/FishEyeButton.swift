@@ -3,6 +3,8 @@ import SwiftUI
 struct FishEyeButton: View {
     let phase: HomeTransitionPhase
     let action: () -> Void
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var bob = false
 
     private var revealed: Bool { phase != .idle && phase != .pressed }
     private var lifted: Bool { phase == .fishLift }
@@ -20,7 +22,9 @@ struct FishEyeButton: View {
             }
             .scaleEffect(x: phase == .fishTurn || escaped ? -1 : 1, y: 1)
             .rotationEffect(.degrees(phase == .fishStruggle ? -7 : escaped ? -12 : 0))
-            .offset(x: escaped ? -420 : revealed ? 48 : 0, y: lifted ? -460 : escaped ? -70 : 0)
+            .offset(x: escaped ? -420 : revealed ? (phase == .fishHookDrop ? 8 : 48) : 0, y: lifted ? -460 : escaped ? -70 : (phase == .fishHookDrop && bob ? -5 : 0))
+            .animation(phase == .fishHookDrop && !reduceMotion ? .easeInOut(duration: 1.1).repeatForever(autoreverses: true) : .default, value: bob)
+            .onChange(of: phase) { _, value in bob = value == .fishHookDrop && !reduceMotion }
             .opacity(lifted || escaped ? 0 : 1)
 
             WormBait()

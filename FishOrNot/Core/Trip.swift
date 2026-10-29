@@ -15,7 +15,7 @@ enum Access: String, Codable, CaseIterable, Identifiable {
 }
 
 enum Species: String, Codable, CaseIterable, Identifiable {
-    case any, crappie, bass, bluegill
+    case any, crappie, bass, bluegill, perch, walleye, pike
     var id: String { rawValue }
     var displayName: String {
         switch self {
@@ -23,6 +23,9 @@ enum Species: String, Codable, CaseIterable, Identifiable {
         case .crappie: return L10n.text("Crappie")
         case .bass: return L10n.text("Bass")
         case .bluegill: return L10n.text("Bluegill")
+        case .perch: return "Yellow perch"
+        case .walleye: return "Walleye"
+        case .pike: return "Northern pike"
         }
     }
     init(from decoder: Decoder) throws {
@@ -46,11 +49,12 @@ struct Preferences: Codable, Equatable {
     var access: Access = .shore
     var species: Species = .any
     var compareAllWaters = false
+    var targetSize: FishSize = .any
     var searchScope: SearchScope = .all
     var radiusMiles = 25
     var scopeCounty = "Hennepin"
     var favoriteWaterIDs: Set<String> = []
-    enum CodingKeys: String, CodingKey { case maxDriveMinutes, durationHours, access, species, compareAllWaters, searchScope, radiusMiles, scopeCounty, favoriteWaterIDs }
+    enum CodingKeys: String, CodingKey { case targetSize, maxDriveMinutes, durationHours, access, species, compareAllWaters, searchScope, radiusMiles, scopeCounty, favoriteWaterIDs }
     init() {}
     init(from decoder: Decoder) throws {
         let c = try decoder.container(keyedBy: CodingKeys.self)
@@ -58,6 +62,7 @@ struct Preferences: Codable, Equatable {
         durationHours = min(4, max(1, try c.decodeIfPresent(Int.self, forKey: .durationHours) ?? 2))
         access = try c.decodeIfPresent(Access.self, forKey: .access) ?? .shore
         species = try c.decodeIfPresent(Species.self, forKey: .species) ?? .any
+        targetSize = try c.decodeIfPresent(FishSize.self, forKey: .targetSize) ?? .any
         searchScope = try c.decodeIfPresent(SearchScope.self, forKey: .searchScope) ?? .all
         radiusMiles = min(150, max(5, try c.decodeIfPresent(Int.self, forKey: .radiusMiles) ?? 25))
         scopeCounty = try c.decodeIfPresent(String.self, forKey: .scopeCounty) ?? "Hennepin"
@@ -322,4 +327,27 @@ struct DemoRecommendationEngine: RecommendationProviding {
             )
         )
     ]
+}
+
+// Size describes a typical species group, not a measured population at a water.
+enum FishSize: String, Codable, CaseIterable, Identifiable {
+    case any, small, medium, large
+    var id: String { rawValue }
+}
+extension Species {
+    var sizeGroup: FishSize {
+        switch self { case .any: return .any; case .bluegill, .perch, .crappie: return .small; case .bass, .walleye: return .medium; case .pike: return .large }
+    }
+    var approachRank: Int { [.bluegill, .perch, .crappie, .bass, .pike, .walleye].firstIndex(of: self) ?? 99 }
+    var tackle: (hook: String, bait: String, lure: String) {
+        switch self {
+        case .bluegill: return ("Small long-shank hook, #8–12", "Small worm piece, waxworm", "Tiny jig, small fly")
+        case .crappie: return ("Light-wire hook, #4–8", "Small minnow", "Tube jig, curly-tail grub")
+        case .perch: return ("Small bait hook, #6–10", "Worm piece, small minnow", "Small jig, beetle spinner")
+        case .bass: return ("Offset worm hook, 1/0–3/0", "Nightcrawler", "Soft plastic worm, crankbait, spinnerbait")
+        case .walleye: return ("Octopus hook, #4–6", "Minnow, leech, nightcrawler", "Jig, minnow-style crankbait")
+        case .pike: return ("Strong bait hook, #4–6; bite-resistant leader", "Legal bait-shop minnow", "Spoon, spinnerbait, jerkbait")
+        case .any: return ("Choose a species", "Choose a species", "Choose a species")
+        }
+    }
 }

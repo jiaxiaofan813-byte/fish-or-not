@@ -8,6 +8,14 @@ struct SearchScopeView: View {
             Picker("Search scope", selection: $store.preferences.searchScope) {
                 ForEach(SearchScope.allCases) { Text($0.title).tag($0) }
             }.accessibilityIdentifier("searchScopePicker")
+            Picker("Target fish", selection: $store.preferences.species) {
+                ForEach(Species.allCases) { Text($0.displayName).tag($0) }
+            }
+            Picker("Typical fish size", selection: $store.preferences.targetSize) {
+                ForEach(FishSize.allCases) { Text($0.rawValue.capitalized).tag($0) }
+            }
+            Text("Size groups describe species, not guaranteed catch size.").font(.caption).foregroundStyle(Palette.muted)
+            NavigationLink("Fish, hooks & bait guide") { FishGuideView() }
             switch store.preferences.searchScope {
             case .all: Text("Compare all eligible catalog waters.").font(.caption).foregroundStyle(Palette.muted)
             case .radius:
@@ -37,5 +45,21 @@ struct FavoriteWaterButton: View {
             .buttonStyle(.borderless)
             .accessibilityLabel(L10n.text(saved ? "Remove %@ from favorites" : "Add %@ to favorites", water.name))
             .accessibilityIdentifier("favorite-" + water.id)
+    }
+}
+
+struct FishGuideView: View {
+    var body: some View {
+        List(Species.allCases.filter { $0 != .any }) { fish in
+            Section(fish.displayName) {
+                Text("Hooks: " + fish.tackle.hook)
+                Text("Natural bait: " + fish.tackle.bait)
+                Text("Artificial lures: " + fish.tackle.lure)
+            }
+        }
+        .navigationTitle("Fish & tackle")
+        .safeAreaInset(edge: .bottom) {
+            Link("DNR tackle guidance · check local bait rules", destination: URL(string: "https://www.dnr.state.mn.us/fishing/fin/equipment.html")!).font(.caption).padding().background(.regularMaterial)
+        }
     }
 }

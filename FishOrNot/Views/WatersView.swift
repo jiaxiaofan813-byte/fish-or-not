@@ -11,6 +11,8 @@ struct WatersView: View {
     var store: AppStore? = nil
     @Environment(\.dismiss) private var dismiss
     @State private var query = ""
+    @State private var target: Species = .any
+    @State private var evidence: [SpeciesEvidence] = []
     @State private var county: String?
     @State private var filter: WaterFilter = .all
     @State private var catalog: WaterCatalog?
@@ -40,7 +42,7 @@ struct WatersView: View {
     }
 
     private func catalogList(_ catalog: WaterCatalog) -> some View {
-        let waters = catalog.search(query, access: filter.mode, county: county)
+        let waters = catalog.search(query, access: filter.mode, county: county).filter { water in target == .any || evidence.contains { $0.lakeNumber == water.lakeNumber && $0.supported.contains(target) } }
         return List {
             Section {
                 Text(LaunchCoverage.displayName).font(.headline)
@@ -48,6 +50,9 @@ struct WatersView: View {
                     .font(.subheadline).foregroundStyle(Palette.muted)
                 Text("Choose a water and a public access point. Weather and bite forecasts are not included here.")
                     .font(.caption).foregroundStyle(Palette.muted)
+                Picker("Recorded fish", selection: $target) {
+                    ForEach(Species.allCases) { Text($0.displayName).tag($0) }
+                }
                 Picker("County", selection: $county) {
                     Text("All counties").tag(Optional<String>.none)
                     ForEach(catalog.counties, id: \.self) { name in
@@ -93,7 +98,7 @@ struct WatersView: View {
     }
 
     private func load() {
-        do { catalog = try WaterCatalog.bundled(); failed = false }
+        do { evidence = try SpeciesEvidence.bundled(); catalog = try WaterCatalog.bundled(); failed = false }
         catch { catalog = nil; failed = true }
     }
 }

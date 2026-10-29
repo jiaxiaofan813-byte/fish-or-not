@@ -44,6 +44,9 @@ struct SpeciesEvidence: Codable, Equatable {
         Species.allCases.filter { species in
             switch species {
             case .any: return false
+            case .perch: return recordedNames.contains("yellow perch")
+            case .walleye: return recordedNames.contains("walleye")
+            case .pike: return recordedNames.contains("northern pike")
             case .bluegill: return recordedNames.contains("bluegill")
             case .crappie: return recordedNames.contains("black crappie") || recordedNames.contains("white crappie")
             case .bass: return recordedNames.contains("largemouth bass") || recordedNames.contains("smallmouth bass")

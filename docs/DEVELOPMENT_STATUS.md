@@ -39,3 +39,11 @@ No accounts, social feed, Fish Camera or modeled ice-thickness claims are added.
 ### Scope and waiting interaction update
 
 Users choose all catalog waters, a mile radius, a county, or favorites before tapping. Favorite IDs, radius and county persist with existing preferences; the legacy compare-all flag is decoded for migration but no longer limits scope to 12 waters. The shared press/eye/fish/hook reveal starts immediately, then holds with a small worm on the hook while inputs load. Only the catch/lift or hesitate/turn/escape ending waits for the verdict. Escape flips the fish to face left before it swims left. Reduce Motion continues to skip decorative motion, and cancellation resets the scene.
+
+## Species and tackle expansion
+
+Six supported groups: bluegill, crappie, bass, yellow perch, walleye and northern pike. Home filters combine species and typical species-size group with geographic scope. Size is not a measured lake population or guaranteed catch length. The water browser also filters official species records. All 50 DNR profiles were refreshed; 49 have species listings.
+
+Results list supported recorded species with hook, natural bait and artificial lure suggestions. A general beginner approach order highlights the simplest starting option, not a validated catch probability. Waters with fewer than five supported groups disclose the gap and link to the full six-group guide. Hook sizes are starting suggestions; select for actual bait, tackle and local rules. Sources: https://www.dnr.state.mn.us/fishing/fin/equipment.html, https://www.dnr.state.mn.us/gofishing/how-catch-walleye.html, https://www.dnr.state.mn.us/gofishing/how-catch-northern-pike.html, https://www.dnr.state.mn.us/minnaqua/speciesprofile/yellowperch.html.
+
+Waiting animation keeps separation between fish and hook, gently bobs the fish, and respects Reduce Motion. Existing ending phases close the gap before the catch or turn away before escape.
