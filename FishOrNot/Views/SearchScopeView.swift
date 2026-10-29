@@ -18,10 +18,10 @@ struct SearchScopeView: View {
                     ForEach(LaunchCoverage.counties.sorted(), id: \.self) { Text(L10n.text("%@ County", $0)).tag($0) }
                 }
             case .favorites:
-                Text(L10n.text("%d favorite waters", store.preferences.favoriteWaterIDs.count)).font(.caption)
+                Text(L10n.text(store.preferences.favoriteWaterIDs.count == 1 ? "%d favorite water" : "%d favorite waters", store.preferences.favoriteWaterIDs.count)).font(.caption)
                 Button("Choose favorites", action: manageFavorites)
             }
-        }.padding(16).background(Palette.card, in: RoundedRectangle(cornerRadius: 18))
+        }.frame(maxWidth: .infinity, alignment: .leading).padding(16).background(Palette.card, in: RoundedRectangle(cornerRadius: 18))
     }
 }
 

@@ -82,8 +82,7 @@ struct FishEyeButton: View {
     private var fishBody: some View {
         ZStack {
             FishTail().fill(Palette.lime).frame(width: 60, height: 96)
-                .scaleEffect(x: phase == .fishTurn || escaped ? -1 : 1, y: 1)
-            .rotationEffect(.degrees(phase == .fishStruggle ? -18 : phase == .fishEscape ? 16 : 0), anchor: .trailing)
+                .rotationEffect(.degrees(phase == .fishStruggle ? -18 : phase == .fishEscape ? 16 : 0), anchor: .trailing)
                 .offset(x: -160, y: 8)
             FishDorsalFin().fill(Palette.lime.opacity(0.85)).frame(width: 58, height: 32).offset(x: -70, y: -48)
             Ellipse().fill(Palette.lime).frame(width: 210, height: 116).offset(x: -54, y: 6)

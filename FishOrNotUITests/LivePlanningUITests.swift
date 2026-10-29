@@ -107,6 +107,7 @@ final class LivePlanningUITests: XCTestCase {
         app.buttons["fishButton"].tap()
         let cancel = app.buttons["cancelPlanningButton"]
         XCTAssertTrue(cancel.waitForExistence(timeout: 3))
+        capture("Waiting fish hook and worm")
         if !cancel.isHittable { app.swipeUp() }
         cancel.tap()
         XCTAssertFalse(app.staticTexts["planningError"].exists)
