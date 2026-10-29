@@ -187,8 +187,8 @@ struct HomeView: View {
             } else {
                 for step in HomeTransitionStep.sequence(for: isFish ? .fish : .escape).dropFirst(3) {
                     let duration = Double(step.milliseconds) / 1_000
-                    let animation: Animation = step.phase == .fishStruggle
-                        ? .easeInOut(duration: 0.06).repeatCount(4, autoreverses: true)
+                    let animation: Animation = step.phase == .fishLift || step.phase == .fishEscape
+                        ? .easeIn(duration: duration)
                         : .easeInOut(duration: duration)
                     withAnimation(animation) { phase = step.phase }
                     try await Task.sleep(for: .milliseconds(step.milliseconds))

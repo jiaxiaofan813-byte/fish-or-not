@@ -51,3 +51,7 @@ Waiting animation keeps separation between fish and hook, gently bobs the fish, 
 ## Compact home and result summary
 
 Home now opens the saved geographic, species and size filters through a single Customize search button below the primary fish button. The customization sheet retains favorites management and the tackle guide. The first result card shows the recommended species plus two other supported recorded species when available. It does not invent difficulty ratings or extra species for waters with fewer than three records.
+
+## Motion refinement
+
+The reveal retains the eye-to-fish transition. A paused-when-idle 30 Hz local timeline drives subtle swim, tail and bait motion without an indefinitely repeating animation transaction. The fish approaches before the catch, briefly struggles, then rises with the hook; the negative ending retreats, rotates around the body and accelerates out. The scene clips departures within its own bounds. The revealed fish is scaled to preserve space around its tail and bait. Reduce Motion skips the animated sequence; cancellation resets the scene immediately. Shared reveal is 620 ms; result ending is 860 ms for catch and 880 ms for escape, separate from network waiting.
