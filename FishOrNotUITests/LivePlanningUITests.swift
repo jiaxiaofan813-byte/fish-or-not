@@ -157,15 +157,20 @@ final class LivePlanningUITests: XCTestCase {
         if app.buttons["Cancel"].exists { app.buttons["Cancel"].tap() }
         if app.navigationBars.buttons["Done"].exists { app.navigationBars.buttons["Done"].tap() }
         app.swipeDown()
+        app.buttons["customizeSearchButton"].tap()
         let scope = app.buttons["searchScopePicker"]
         if !scope.isHittable { app.swipeDown() }
         scope.tap(); app.buttons["Favorites"].tap()
         capture("Favorites selected before tap")
+        app.buttons["doneCustomizingSearch"].tap()
+        XCTAssertFalse(app.buttons["searchScopePicker"].exists)
+        capture("Compact home")
         let eye = app.buttons["fishButton"]
         if !eye.isHittable { app.swipeUp() }
         eye.tap()
         XCTAssertTrue(app.staticTexts["liveDecision"].waitForExistence(timeout: 10))
         XCTAssertTrue(app.staticTexts["Lake Harriet"].exists)
+        XCTAssertEqual(Set(app.descendants(matching: .any).matching(NSPredicate(format: "identifier BEGINSWITH %@", "topFish-")).allElementsBoundByIndex.map(\.identifier)).count, 3)
         capture("Favorite water recommendation")
     }
 

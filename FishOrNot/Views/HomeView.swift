@@ -1,7 +1,7 @@
 import SwiftUI
 
 private enum HomeSheet: String, Identifiable {
-    case gear, preferences, waters, location
+    case gear, preferences, waters, location, search
     var id: String { rawValue }
 }
 
@@ -51,8 +51,6 @@ struct HomeView: View {
                     }
                     .padding(.top, 12)
 
-                    SearchScopeView(store: store) { sheet = .waters }.disabled(checking)
-
                     VStack(spacing: 0) {
                         FishEyeButton(phase: phase) {
                             guard !checking else { return }
@@ -67,6 +65,14 @@ struct HomeView: View {
                             .opacity(checking ? 0 : 1)
                     }
                     .padding(.bottom, 12)
+
+                    Button { sheet = .search } label: {
+                        Label("Customize search", systemImage: "slider.horizontal.3")
+                            .font(.subheadline.weight(.semibold))
+                            .frame(minHeight: 44)
+                    }
+                    .accessibilityIdentifier("customizeSearchButton")
+                    .disabled(checking)
 
                     VStack(spacing: 12) {
                         Text("home.window").font(.headline)
@@ -121,6 +127,7 @@ struct HomeView: View {
             }
             .sheet(item: $sheet) { destination in
                 switch destination {
+                case .search: CustomizeSearchView(store: store)
                 case .gear: GearView(store: store)
                 case .waters: WatersView(store: store)
                 case .location: StartingPointView(store: store)

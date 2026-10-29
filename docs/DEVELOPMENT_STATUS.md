@@ -47,3 +47,7 @@ Six supported groups: bluegill, crappie, bass, yellow perch, walleye and norther
 Results list supported recorded species with hook, natural bait and artificial lure suggestions. A general beginner approach order highlights the simplest starting option, not a validated catch probability. Waters with fewer than five supported groups disclose the gap and link to the full six-group guide. Hook sizes are starting suggestions; select for actual bait, tackle and local rules. Sources: https://www.dnr.state.mn.us/fishing/fin/equipment.html, https://www.dnr.state.mn.us/gofishing/how-catch-walleye.html, https://www.dnr.state.mn.us/gofishing/how-catch-northern-pike.html, https://www.dnr.state.mn.us/minnaqua/speciesprofile/yellowperch.html.
 
 Waiting animation keeps separation between fish and hook, gently bobs the fish, and respects Reduce Motion. Existing ending phases close the gap before the catch or turn away before escape.
+
+## Compact home and result summary
+
+Home now opens the saved geographic, species and size filters through a single Customize search button below the primary fish button. The customization sheet retains favorites management and the tackle guide. The first result card shows the recommended species plus two other supported recorded species when available. It does not invent difficulty ratings or extra species for waters with fewer than three records.

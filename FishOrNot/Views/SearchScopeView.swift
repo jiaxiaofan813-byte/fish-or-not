@@ -63,3 +63,27 @@ struct FishGuideView: View {
         }
     }
 }
+
+struct CustomizeSearchView: View {
+    let store: AppStore
+    @Environment(\.dismiss) private var dismiss
+    @State private var showWaters = false
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                SearchScopeView(store: store) { showWaters = true }.padding(20)
+            }
+            .background(Palette.ink)
+            .navigationTitle("Customize search")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar(.visible, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") { dismiss() }.accessibilityIdentifier("doneCustomizingSearch")
+                }
+            }
+            .sheet(isPresented: $showWaters) { WatersView(store: store) }
+        }
+    }
+}

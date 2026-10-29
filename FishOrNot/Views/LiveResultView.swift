@@ -72,7 +72,22 @@ struct LiveResultView: View {
             }
             Text(MinnesotaTime.window(best.start, best.end)).font(.headline)
             Text("All trip times use Minnesota time.").font(.caption).foregroundStyle(Palette.muted)
-            Label(best.species.displayName, systemImage: "fish.fill")
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Fish to target").font(.subheadline.weight(.semibold))
+                ForEach(([best.species] + best.evidence.supported.filter { $0 != best.species }
+                    .sorted { $0.approachRank < $1.approachRank }).prefix(3)) { species in
+                    HStack {
+                        Label(species.displayName, systemImage: "fish.fill")
+                        if species == best.species {
+                            Text("Recommended").font(.caption.weight(.semibold)).foregroundStyle(Palette.lime)
+                        }
+                    }.accessibilityIdentifier("topFish-" + species.rawValue)
+                }
+                if best.evidence.supported.count < 3 {
+                    Text("Fewer than three supported species are recorded at this water.")
+                        .font(.caption).foregroundStyle(Palette.muted)
+                }
+            }
             Text("Weather comfort for a trip · not catch probability").font(.caption).foregroundStyle(Palette.muted)
             Text("Verify open-water conditions locally.").font(.caption).foregroundStyle(Palette.muted)
         }
