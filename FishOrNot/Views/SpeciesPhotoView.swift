@@ -38,6 +38,7 @@ struct SpeciesPhotoCard: View {
                 if let note = photo.note { Text(note).font(.caption).foregroundStyle(Palette.muted) }
                 Text(photo.credit).font(.caption2).foregroundStyle(Palette.muted)
                 HStack(spacing: 20) {
+                    Link("Wikipedia", destination: species.wikipediaURL)
                     Link("Photo source", destination: photo.sourceURL)
                     Link(photo.license, destination: photo.licenseURL)
                 }.font(.caption)

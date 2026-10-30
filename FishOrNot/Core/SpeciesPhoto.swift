@@ -27,5 +27,10 @@ struct SpeciesPhoto: Codable, Identifiable {
 }
 
 extension Species {
+    var wikipediaURL: URL {
+        var components = URLComponents(string: "https://en.wikipedia.org/w/index.php")!
+        components.queryItems = [URLQueryItem(name: "search", value: photo?.scientificName ?? displayName)]
+        return components.url!
+    }
     var photo: SpeciesPhoto? { SpeciesPhoto.catalog[rawValue] }
 }

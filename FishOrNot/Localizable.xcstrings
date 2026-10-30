@@ -4517,6 +4517,22 @@
           }
         }
       }
+    },
+    "Show waters without shore or boat access labels": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show waters without shore or boat access labels"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示无岸钓或船钓标签的水域"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

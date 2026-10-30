@@ -18,6 +18,7 @@ struct WatersView: View {
     @State private var filter: WaterFilter = .all
     @State private var catalog: WaterCatalog?
     @State private var failed = false
+    @AppStorage("showWatersWithoutAccess") private var showWatersWithoutAccess = false
 
     var body: some View {
         NavigationSplitView {
@@ -52,7 +53,7 @@ struct WatersView: View {
     }
 
     private func catalogList(_ catalog: WaterCatalog) -> some View {
-        let waters = catalog.search(query, access: filter.mode, county: county).filter { water in target == .any || speciesByLake[water.lakeNumber]?.contains(target) == true }
+        let waters = catalog.search(query, access: filter.mode, county: county).filter { water in (showWatersWithoutAccess || !water.supportedAccess.isEmpty) && (target == .any || speciesByLake[water.lakeNumber]?.contains(target) == true) }
         return List(selection: $selectedWaterID) {
             Section {
                 Text(LaunchCoverage.displayName).font(.headline)
@@ -70,6 +71,8 @@ struct WatersView: View {
                     }
                 }
                 .accessibilityIdentifier("waterCountyFilter")
+                Toggle("Show waters without shore or boat access labels", isOn: $showWatersWithoutAccess)
+                    .accessibilityIdentifier("showWatersWithoutAccess")
                 Picker("Access", selection: $filter) {
                     ForEach(WaterFilter.allCases) { Text($0.title).tag($0) }
                 }

@@ -3,9 +3,11 @@ import SwiftUI
 struct FishEyeButton: View {
     let phase: HomeTransitionPhase
     var sceneHeight: CGFloat = 300
+    var isVisible = true
     let action: () -> Void
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var motionStart = Date()
+    @State private var tapCount = 0
 
     private var revealed: Bool { phase != .idle && phase != .pressed }
     private var lifted: Bool { phase == .fishLift }
@@ -72,8 +74,15 @@ struct FishEyeButton: View {
             .frame(width: geometry.size.width, height: geometry.size.height)
             .clipped()
         }
+        // The bloom lives outside the fish scene's clip so it can spread beyond the button.
+        .background {
+            ButtonTapBloom(trigger: tapCount, isVisible: isVisible)
+                .frame(width: 232, height: 232)
+                .scaleEffect(min(1, geometry.size.width / 350, geometry.size.height / 300))
+        }
         }
         .frame(height: sceneHeight)
+        .sensoryFeedback(.impact(weight: .medium, intensity: 0.75), trigger: tapCount)
         .onChange(of: phase) { _, value in
             if value == .pressed { motionStart = .now }
         }
@@ -88,7 +97,10 @@ struct FishEyeButton: View {
     }
 
     private var primaryCircleButton: some View {
-        Button(action: action) {
+        Button {
+            tapCount += 1
+            action()
+        } label: {
             ZStack {
                 Circle()
                     .fill(LinearGradient(
@@ -97,6 +109,8 @@ struct FishEyeButton: View {
                     .overlay(Circle().strokeBorder(revealed ? Palette.ink.opacity(0.6) : Palette.lime.opacity(0.55), lineWidth: revealed ? 3 : 1.5))
                     .shadow(color: Palette.lime.opacity(revealed ? 0 : 0.14), radius: 28)
                     .shadow(color: .black.opacity(0.35), radius: 12, y: 9)
+                ButtonFlowingHalo(isActive: isVisible && phase == .idle)
+                    .opacity(revealed ? 0 : 1)
                 VStack(spacing: 16) {
                     Text("home.action").font(.title2.weight(.black))
                     Image(systemName: "arrow.up.right").font(.title3.weight(.semibold))
@@ -112,6 +126,7 @@ struct FishEyeButton: View {
             .frame(width: revealed ? 48 : 232, height: revealed ? 48 : 232)
             .scaleEffect(phase == .pressed ? 0.94 : 1)
             .brightness(phase == .pressed ? 0.06 : 0)
+            .contentShape(Circle())
         }
         .buttonStyle(.plain)
         .disabled(phase != .idle)
@@ -133,6 +148,98 @@ struct FishEyeButton: View {
             FishTail().fill(Palette.ink.opacity(0.18)).frame(width: 32, height: 38)
                 .rotationEffect(.degrees(180)).offset(x: -36, y: 28)
         }
+    }
+}
+
+/// A single tap releases two luminous ripples; it never delays the recommendation.
+private struct ButtonTapBloom: View {
+    let trigger: Int
+    let isVisible: Bool
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.scenePhase) private var scenePhase
+    @State private var startedAt: Date?
+
+    var body: some View {
+        TimelineView(.animation(minimumInterval: 1.0 / 60, paused: startedAt == nil)) { context in
+            let duration = reduceMotion ? 0.3 : 0.85
+            let progress = startedAt.map { min(1, max(0, context.date.timeIntervalSince($0) / duration)) } ?? 1
+            let expansion = 1 - pow(1 - progress, 3)
+            let light = sin(.pi * progress) * (1 - progress)
+            ZStack {
+                Circle()
+                    .fill(RadialGradient(colors: [Palette.lime.opacity(0.65), Palette.lime.opacity(0.32),
+                                                  Color(red: 0.3, green: 0.8, blue: 0.6).opacity(0.14), .clear],
+                                         center: .center, startRadius: 35, endRadius: 116))
+                    .scaleEffect(reduceMotion ? 1.12 : 1 + expansion * 1.7)
+                    .opacity(light * (reduceMotion ? 0.4 : 1.5))
+                    .blur(radius: 12)
+                if !reduceMotion {
+                    Circle().stroke(Palette.lime.opacity(0.7), lineWidth: 9)
+                        .blur(radius: 7)
+                        .scaleEffect(1 + expansion * 1.55)
+                        .opacity(light)
+                    Circle().stroke(Color(red: 0.94, green: 1, blue: 0.76), lineWidth: 1.5)
+                        .scaleEffect(1 + expansion * 1.55)
+                        .opacity(light * 1.3)
+                    Circle().stroke(Palette.lime, lineWidth: 2)
+                        .blur(radius: 2)
+                        .scaleEffect(1 + expansion * 0.95)
+                        .opacity(light * 0.65)
+                }
+            }
+        }
+        .transaction { $0.animation = nil }
+        .task(id: trigger) {
+            guard trigger > 0, isVisible, scenePhase == .active else { return }
+            startedAt = .now
+            do { try await Task.sleep(for: .milliseconds(reduceMotion ? 300 : 850)) }
+            catch { return }
+            startedAt = nil
+        }
+        .onChange(of: isVisible) { _, visible in if !visible { startedAt = nil } }
+        .onChange(of: scenePhase) { _, value in if value != .active { startedAt = nil } }
+        .onDisappear { startedAt = nil }
+        .allowsHitTesting(false)
+        .accessibilityHidden(true)
+    }
+}
+
+/// Only this decorative layer refreshes while the home button rests.
+private struct ButtonFlowingHalo: View {
+    let isActive: Bool
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.scenePhase) private var scenePhase
+    @State private var start = Date()
+
+    private var animates: Bool { isActive && !reduceMotion && scenePhase == .active }
+
+    var body: some View {
+        TimelineView(.animation(minimumInterval: 1.0 / 30, paused: !animates)) { context in
+            let elapsed = animates ? context.date.timeIntervalSince(start) : 0
+            let angle = elapsed.truncatingRemainder(dividingBy: 12) / 12 * 360
+            let breath = 0.86 + 0.14 * sin(elapsed * .pi / 4)
+            let light = AngularGradient(stops: [
+                .init(color: .clear, location: 0),
+                .init(color: Palette.lime.opacity(0.08), location: 0.18),
+                .init(color: Palette.lime.opacity(0.75), location: 0.38),
+                .init(color: Color(red: 0.94, green: 1, blue: 0.76), location: 0.46),
+                .init(color: .clear, location: 0.58),
+                .init(color: Color(red: 0.32, green: 0.78, blue: 0.62).opacity(0.55), location: 0.8),
+                .init(color: .clear, location: 1)
+            ], center: .center, angle: .degrees(angle - 100))
+            ZStack {
+                // A broad soft glow and a fine moving rim share one continuous current.
+                Circle().stroke(light, lineWidth: 12)
+                    .blur(radius: 14)
+                    .opacity(0.65 * breath)
+                Circle().stroke(light, lineWidth: 4)
+                    .blur(radius: 3)
+                    .opacity(0.75)
+                Circle().strokeBorder(light, lineWidth: 1.8)
+            }
+        }
+        .allowsHitTesting(false)
+        .accessibilityHidden(true)
     }
 }
 

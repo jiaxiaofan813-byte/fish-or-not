@@ -55,7 +55,8 @@ struct HomeView: View {
                     .padding(.top, compact ? 0 : 12)
 
                     VStack(spacing: 0) {
-                        FishEyeButton(phase: phase, sceneHeight: compact ? 200 : 300) {
+                        FishEyeButton(phase: phase, sceneHeight: compact ? 200 : 300,
+                                      isVisible: sheet == nil && !showWaters && !showResult) {
                             guard !checking else { return }
                             errorText = nil
                             if !demo && store.startingPoint == nil { sheet = .location }
