@@ -35,6 +35,12 @@ struct PreferencesView: View {
                     Text("The score describes weather comfort for a trip, not catch probability. Species come from DNR records; verify current regulations and access before travel.")
                         .foregroundStyle(.secondary)
                 }.listRowBackground(Palette.card)
+                Section {
+                    Link(destination: URL(string: "https://github.com/jiaxiaofan813-byte/fish-or-not/blob/main/PRIVACY.md")!) {
+                        Label("Privacy Policy", systemImage: "hand.raised")
+                    }
+                    .accessibilityIdentifier("privacyPolicyLink")
+                }.listRowBackground(Palette.card)
             }
             .scrollContentBackground(.hidden)
             .frame(maxWidth: 720).frame(maxWidth: .infinity).background(Palette.ink)
