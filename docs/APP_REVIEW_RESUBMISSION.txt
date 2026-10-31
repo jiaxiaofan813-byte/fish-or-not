@@ -1,36 +1,31 @@
 Fish or Not 2.1 审核补件 — 2026-10-31
 
-状态：第 2–6 项英文说明已填写到 App Store Connect 备注；照片授权/来源证据包已添加为附件。第 1 项真机录屏和真机 QA 待完成。不要现在重新提交。
-工作目录：/Volumes/Extreme Pro/GitHub/fish-or-not；分支 codex/app-review-2-1。
-APP_REVIEW_NOTES.txt 为本地详细备份，在线备注使用等义精简措辞。
-依据：GitHub main f1ef778；App Store Connect 显示送审版本 0.2.0、构建 1。相同版本号不能证明代码与已上传二进制完全一致，录制前核对实际安装版本及功能。
+本次提交：iOS/iPadOS 0.2.0，构建 1。
+审核附件：FishOrNot-AppReview-Submission.zip（16,075,019 字节）。
+包含完整 1 分 54 秒 MP4 真机录屏，以及此前的照片授权/数据来源证据。
+本地附件：/Users/jiaxiaofan/Downloads/FishOrNot-AppReview-Submission.zip
+SHA-256：6ad34bffa88c05fb89dae0899efdccd0c59259df02b4e0d80da3e1d0de558cb3
 
-你需要做的步骤（约 3–5 分钟）
-1. 在实体 iPhone 上安装此次送审的 0.2.0 (1)，优先使用对应 TestFlight 构建。确认是最新公开版 iOS；记录具体机型和系统版本。不要用模拟器视频代替。
-2. 打开勿扰以免私人通知进入视频。使用 Minneapolis 作为手动出发城市，避免展示家庭地址或精确 GPS。确保联网。
-3. 从控制中心开始屏幕录制，返回桌面，点 Fish or Not 图标启动 App。连续录制以下操作，不剪掉等待或出错流程。
-4. Choose starting point → City or address 输入 Minneapolis, Minnesota → Search → 选择 Minneapolis → 返回首页。无需给定位权限。
-5. Preferences → Max drive 90 min、Fishing time 1 hour、Access Shore、Target fish Any species → Done。Customize search → All waters，关闭 Compare more waters → Done。
-6. 点 FISH OR NOT?，等真实天气和路线计算结束。展示决定、时间、天气、鱼种、装备、地图和来源。秋冬时 NO WINDOW YET 可能是正确结果；不要伪造晴天或固定“YES”。如无合适时段，展示原因，再继续目录功能；如服务报错，检查联网并重试。
-7. Explore waters → 搜索 Bde Maka Ska → 打开详情、鱼种照片和来源 → 添加/取消收藏。展示可用入口；有 Navigate 时打开 Apple Maps 后回到 App。入口不符合当前条件时不强求导航。
-8. My Gear → 添加 Review rod → 分类 → 标记 Packed → 删除测试条目。展示 Preferences 和 Privacy Policy。有真实方案时展示 Share 的系统面板后取消，不必向别人发送。
-9. 停止录制，将原始视频保存/传到 Mac，并把文件路径发回此聊天。另告知机型、完整 iOS 版本、App 版本/构建及实测结果。
-10. 同时在实体 iPad 上检查启动、目录/详情、横竖屏、偏好和核心流程；记录机型、iPadOS 版本和结果。当前版本支持 iPhone 和 iPad。
+视频检查
+- 原始 MOV 已完整接收；转成 H.264 MP4，保留完整时间轴，没有删剪流程。
+- MP4 完整解码无报错；时长 113.74 秒。
+- 画面包含桌面启动、实时路线/天气比较、推荐结果、水域详情、鱼种、装备添加、偏好及隐私政策。
+- 已配对实体 iPhone 型号标识 iPhone19,4，系统 iOS 27.2，安装的 Fish or Not 为 0.2.0 (1)。
+- 录屏展示的功能操作正常；这不是所有设备、所有网络条件的完整 QA，也不代表已完成实体 iPad 测试。
 
-提交前收尾
-- 替换 APP_REVIEW_NOTES.txt 第 1 节的 PENDING 段落：填入视频链接/附件名、实体设备型号、系统版本、已验证的 App 版本及构建；只能据实填写测试结果。
-- 视频须无需登录或申请权限即可让审核员观看；上传到审核附件或提供审核员可访问的链接。
-- 将全部六节存入 App Review Information > Notes；“需要登录”保持关闭。
-- 照片授权证据包包含原始出处、作者、逐照片授权页和哈希；若补件需要，添加到审核附件。此包记录项目已有授权元数据，不是额外采购或新取得授权。
-- 确认现有 Store 描述和截图与 0.2.0 (1) 实际一致，再 Update Review 并重新提交。仅补元数据通常不需要重传二进制；代码若变更则上传更高构建号并重新测试/录屏。
-- 尚未发送回复、点击重新提交或发布。
+审核资料
+- 英文备注六节已填写；第 1 节已替换 PENDING 提示，改为录屏附件名、设备/系统版本及演示内容。
+- 备注说明 Minnesota 覆盖限制、手动 Minneapolis 出发点、无账号/内购/社区上传、外部服务和照片授权。
+- 包内 README 指向 MP4；Content-Evidence 目录包含照片及 DNR 来源记录。
+- 原始录屏及完整视频附件未加入公开 GitHub 仓库。
 
-本次验证
-- 最新项目 swift test：39 项，38 通过，1 个可选实时 NWS 测试跳过，0 失败。
-- generic iOS Release 构建成功，签名关闭；这不是新上传的签名归档，也不证明已送审二进制测试通过。
-- 照片脚本校验：75 个选择项，66 张内置照片的授权元数据和资源校验通过；未逐一重新取得摄影师许可或联网复核每个授权页。
-- 没有完成实体设备 QA、最新实时联网端到端验收或真机录屏。
+此前代码验证（GitHub f1ef778）
+- 39 项核心测试：38 通过、1 个可选实时 NWS 测试跳过、0 失败。
+- generic iOS Release 构建成功，签名关闭。
+- 75 个鱼种选择项和 66 张内置照片资源/授权元数据校验通过。
+- 测试和构建不是对已上传二进制的重新签名验证；本次仅补充审核元数据，没有上传新的 App 构建。
 
-Apple 参考
-https://developer.apple.com/help/app-review/before-submitting-for-review/complete-review/
-https://developer.apple.com/app-store/review/guidelines/
+审核状态：已重新提交，App Store Connect 显示“等待审核”。
+提交时间：2026-10-31 12:52 America/Chicago。
+提交 ID：0941fa68-1bb9-49dd-b267-daf81d5000f0。
+审核页面：https://appstoreconnect.apple.com/apps/6828826150/distribution/reviewsubmissions/details/0941fa68-1bb9-49dd-b267-daf81d5000f0
