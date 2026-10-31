@@ -1,0 +1,25 @@
+Fish or Not - iOS/iPadOS 0.2.0 (build 1)
+
+1. Physical-device screen recording
+PENDING: A recording of this submitted build on a physical iPhone running the latest public iOS will be provided before resubmission. It will start with launching the app and demonstrate the main user flow. Physical-device QA is pending; do not resubmit this draft.
+
+2. Purpose and audience
+Fish or Not is a public consumer fishing-trip planner for recreational freshwater anglers visiting Minnesota, USA. It reduces the work of comparing driving time, daylight and hourly weather with trip preferences, recorded fish species and owned gear. Users can browse waters, save favorites, compare upcoming windows, review tackle guidance, open Apple Maps and share a plan. Scores describe relative trip-weather comfort, not catch probability or a safety guarantee. This is open-water planning, not ice-safety advice.
+
+3. Setup and review access
+No account, registration, login, API key, sample file or payment is required. There are no in-app purchases, subscriptions, ads, public posts, messaging or in-app community uploads. Gear entries and favorites are private local data. There is no account-deletion flow because there are no accounts. Sharing uses the system share sheet.
+
+An internet connection is required for location search, driving estimates and forecasts. Reviewers outside Minnesota can use manual search without GPS:
+a. Launch the app. Tap Choose starting point, enter Minneapolis, Minnesota in City or address, tap Search, select the Minneapolis result, then return home.
+b. In Preferences, use a 90-minute drive limit, 1-hour fishing time, Shore access and Any species. In Customize search, select All waters and leave Compare more waters off for the quick search.
+c. Tap FISH OR NOT? and wait for route/forecast comparison. Review the decision, time window, weather, fish, gear, access map and sources. YES, NOT TODAY or NO WINDOW YET depends on current conditions; a suitable window is not guaranteed, particularly in cold weather. Errors offer retry; Cancel stops comparison.
+d. Open Explore waters, search a Minnesota water such as Bde Maka Ska, view species/access/source details and save a favorite. Navigation requires a currently eligible public access record. My Gear supports adding, classifying, packing and deleting items. Preferences saves locally.
+
+4. External services and tools
+Apple MapKit/Maps: city/address search, maps, automobile travel estimates and navigation. Core Location: optional When In Use location permission. NOAA/NWS (api.weather.gov): hourly US forecasts; a reference water supplies shared county weather, disclosed in results. Minnesota DNR LakeFinder/public-access sources: bundled water, species and access records and links. iNaturalist: licensed photographs bundled in the app, not fetched while browsing. Wikipedia and photo/license/DNR links open external reference pages. The developer operates no backend; ranking runs locally in Swift. No AI service, authentication provider, payment processor, analytics SDK or tracking service is used. WeatherKit is not used in this build.
+
+5. Regions
+The feature set is the same across storefronts. Geographic content and trip recommendations cover Minnesota only, not the world. Directory browsing works elsewhere; choose a Minnesota manual origin for route/forecast testing. Dates use America/Chicago; English/Simplified Chinese and locale-based units are supported. Network availability may vary.
+
+6. Regulation and third-party content
+This is a recreation planner, not a regulated professional service or government app. It does not issue fishing licenses, determine legal harvest eligibility or certify access/ice safety. Official DNR regulations are linked. Fish photos use photo-level CC0 or CC BY licenses, with author, original source and license links in the app. See the evidence package: FishPhotoSources.json for photo rights; WATER_SOURCES.md for DNR provenance. No DNR/NOAA endorsement is claimed.
