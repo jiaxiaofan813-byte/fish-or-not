@@ -2,23 +2,29 @@
 
 **One question. Your next fishing plan.**
 
-An iPhone app that helps you decide **whether to fish, when to go, where to go, what to target, and what to bring**—based on the next few days of weather, nearby waters, fish species, and the gear you already own.
+An iPhone and iPad app that helps you decide **whether to fish, when to go, where to go, what to target, and what to bring**—based on the next few days of weather, nearby waters, fish species, and the gear you already own.
 
 > **FISH OR NOT?**
 >
 > Find your best fishing window.
 
-**Status:** Runnable iOS 17+ pilot with live Apple Maps driving estimates, NOAA/NWS hourly forecasts, a transparent local recommendation engine, and DNR species records. Includes 50 Twin Cities waters and 91 source-checked public access points. Scores describe trip-weather comfort, not catch probability.
+**App status:** Available on the [App Store](https://apps.apple.com/us/app/fish-or-not/id6828826150) for iPhone and iPad.
+
+[Project overview](https://jiaxiaofan.net/projects/fish-or-not/) · [Xiaofan Jia · More projects](https://jiaxiaofan.net/)
+
+**Public source snapshot:** This repository contains the iOS 17+ source and development history. The checked-in Xcode project declares version **0.2.0 (build 1)**; this does not establish that it matches the current App Store binary. The instructions and feature notes below describe this public source snapshot, not a release certification.
+
+The snapshot uses live Apple Maps driving estimates, NOAA/NWS hourly forecasts, a transparent local recommendation engine, and statewide Minnesota DNR records. See [Statewide Minnesota directory](#statewide-minnesota-directory) for coverage and comparison limits. Scores describe trip-weather comfort, not catch probability.
 
 > **Development note:** Before changing product scope or core UX, read [`docs/PRODUCT_DECISIONS.md`](docs/PRODUCT_DECISIONS.md). It is the current source of truth for approved product decisions, scope guardrails, localization, sharing, maps, ice-fishing safety, knots, tips, and the planned Fish Camera.
 
-## Run the Prototype
+## Run the Public Source
 
 Open `FishOrNot.xcodeproj` in Xcode 16 or later, select the **FishOrNot** scheme and an iPhone simulator, then Run. The deployment target is **iOS 17+**. No API key or account is required. On a physical iPhone, select your signing team and a unique bundle identifier.
 
 1. Choose a starting point using current location or a city/address search.
 2. Set your maximum drive, shore/boat access, duration and target fish in **Preferences**. Optionally classify your gear.
-3. Tap **FISH OR NOT?**. Choose **All waters**, a straight-line mile radius, a county, or **Favorites** on the home screen before tapping. Star waters in the catalog or detail screen. All eligible waters inside that scope are compared.
+3. Tap **FISH OR NOT?**. Choose **All waters**, a straight-line mile radius, a county, or **Favorites** on the home screen before tapping. Star waters in the catalog or detail screen. The nearest 12 eligible waters are compared, or up to 60 with **Compare more waters** enabled.
 4. Review the best window, verified access, current drive estimate, recorded species and gear suggestions. Open Apple Maps or share the plan.
 
 GPS is session-only; a manually selected origin, preferences and gear stay on this iPhone. Weather errors offer retry, with recent cached forecasts labeled explicitly. Empty results explain what could not fit. The result reports the comparison scope and links to its sources. Times use Minnesota's America/Chicago zone; units follow the locale. English and Simplified Chinese are included.
@@ -31,7 +37,7 @@ The neutral circular button still reveals a fish eye, full fish and hook, then c
 
 Turn a simple question—“Should I go fishing?”—into a clear, practical plan. Fish or Not starts with a recommendation, then explains the conditions behind it so anglers can make their own call.
 
-The first release will focus on short freshwater trips in a limited launch area, with a curated set of waters and species. The launch pilot is the Twin Cities metropolitan area in Minnesota; the 50-water / 91-access-point catalog is documented in [`docs/WATER_SOURCES.md`](docs/WATER_SOURCES.md).
+The project began with a 50-water / 91-access-point Twin Cities pilot, documented in [`docs/WATER_SOURCES.md`](docs/WATER_SOURCES.md). The public source now includes a statewide Minnesota LakeFinder snapshot; see [Statewide Minnesota directory](#statewide-minnesota-directory) for its coverage and limits.
 
 ## Core Experience
 
@@ -58,9 +64,9 @@ The first release will focus on short freshwater trips in a limited launch area,
 >
 > **Why:** A favorable morning window that fits your shore access and gear preferences.
 
-The score will be a relative ranking of trip suitability, **not a probability of catching fish**. Results should explain their main factors and clearly identify missing or stale data. If the app cannot make a useful recommendation, it should say so.
+The score is a relative ranking of trip suitability, **not a probability of catching fish**. Results should explain their main factors and clearly identify missing or stale data. If the app cannot make a useful recommendation, it should say so.
 
-## MVP Scope
+## Original MVP Scope
 
 - **Simple home screen:** One primary button and a short path from question to plan.
 - **Local trip preferences:** Starting location, maximum drive time, shore or boat access, available trip duration and target fish.
@@ -75,9 +81,9 @@ The score will be a relative ranking of trip suitability, **not a probability of
 
 Catch logs, personalized learning, notifications, widgets, Apple Watch, Siri Shortcuts, broader geographic coverage, and richer species or tackle guidance. Social feeds, a marketplace, and a cloud account system are outside the initial scope.
 
-## Planned Tech Stack
+## Public Source Tech Stack
 
-| Area | Planned approach |
+| Area | Approach |
 | --- | --- |
 | iPhone interface | Swift and SwiftUI |
 | Maps and travel context | MapKit |
@@ -89,27 +95,28 @@ Catch logs, personalized learning, notifications, widgets, Apple Watch, Siri Sho
 
 Start with a native app and local data. Validate the recommendation flow before adding server infrastructure or more complex models. Map display alone will not establish fishing access or species coverage; those details need their own maintained records.
 
-## Roadmap
+## Development Milestones
 
 - [x] Establish the project name, product vision, and repository homepage.
 - [x] **1 · Define the first trip:** Twin Cities pilot, 50 waters, source-matched species and transparent initial weather factors.
 - [x] **2 · Prototype the core flow:** Build the large-button home screen and result screen using clearly labeled sample data, including local preferences and gear storage.
 - [x] **3 · Connect real inputs:** Local preferences/gear, GPS/manual origin, actual MapKit driving estimates and NWS forecasts.
 - [ ] **4 · Field-validate recommendations:** Local ranking, explanations, backup plans and missing-data handling are implemented; calibrate the heuristics with real trip feedback.
-- [ ] **5 · Test the MVP:** Refine accessibility, permission flows, forecast attribution, and trip usability, then prepare a TestFlight beta.
+- [ ] **5 · Continue validation:** Refine accessibility, permission flows, forecast attribution, and trip usability through device and field testing.
+- [x] **App availability:** Fish or Not is available on the App Store. This milestone does not certify that the public source matches the distributed binary.
 
-Milestones describe planned work, not release commitments. This is an open-water pilot: live inputs are connected, while field calibration, seasonal closure coverage and beta preparation remain.
+These milestones record the project's development history and remaining validation work, not release commitments. App Store availability is separate from field calibration and seasonal closure coverage. Earlier dated development and review notes describe the status at the time they were written.
 
 ## 简短中文说明
 
-**Fish or Not（钓鱼还是摸鱼）** 是 iPhone 钓鱼出行助手，回答去不去、什么时候去、去哪、钓什么、带什么。当前版本已接通真实定位／手动出发点、Apple 地图车程、NOAA/NWS 未来五天逐小时天气，以及 50 个 Twin Cities 水域的入口与鱼种记录。点按前可选全部水域、英里半径、County 或收藏，并比较范围内全部符合条件的水域。装备支持分类与鱼种匹配，结果支持导航及分享。
+**Fish or Not（钓鱼还是摸鱼）** 是 iPhone 和 iPad 钓鱼出行助手，已在 [App Store](https://apps.apple.com/us/app/fish-or-not/id6828826150) 上架，回答去不去、什么时候去、去哪、钓什么、带什么。本公开仓库的 Xcode 项目标记为 **0.2.0（构建 1）**，尚未核实与当前商店安装包完全一致。以下运行说明与功能记录针对公开源码：真实定位／手动出发点、Apple 地图车程、NOAA/NWS 天气，以及 Minnesota 全州 LakeFinder 数据快照。点按前可选全部水域、英里半径、County 或收藏，默认比较最近的 12 个符合条件的水域，开启扩大比较后最多 60 个。装备支持分类与鱼种匹配，结果支持导航及分享。
 
-用 Xcode 打开 `FishOrNot.xcodeproj` 即可运行，无需天气 API key。评分是透明规则计算的出行天气舒适度，不代表上鱼概率，也不判断冰面或水域安全。鱼种记录属于历史依据；49 个水域有记录，缺少记录的水域不会被猜测推荐。具体规则、来源及局限见 [`docs/LIVE_RECOMMENDATIONS.md`](docs/LIVE_RECOMMENDATIONS.md)。
+用 Xcode 打开 `FishOrNot.xcodeproj` 即可运行，无需天气 API key。评分是透明规则计算的出行天气舒适度，不代表上鱼概率，也不判断冰面或水域安全。鱼种记录属于历史依据；全州快照的覆盖数量与局限见下方说明，缺少记录的水域不会被猜测推荐。具体规则、来源及局限见 [`docs/LIVE_RECOMMENDATIONS.md`](docs/LIVE_RECOMMENDATIONS.md)。
 
 
 ### Scope and waiting interaction update
 
-Users choose all catalog waters, a mile radius, a county, or favorites before tapping. Favorite IDs, radius and county persist with existing preferences; the legacy compare-all flag is decoded for migration but no longer limits scope to 12 waters. The shared press/eye/fish/hook reveal starts immediately, then holds with a small worm on the hook while inputs load. Only the catch/lift or hesitate/turn/escape ending waits for the verdict. Escape flips the fish to face left before it swims left. Reduce Motion continues to skip decorative motion, and cancellation resets the scene.
+Users choose all catalog waters, a mile radius, a county, or favorites before tapping. Favorite IDs, radius and county persist with existing preferences; the legacy compare-all flag is decoded for migration. The current 12/60-water comparison limits are described below. The shared press/eye/fish/hook reveal starts immediately, then holds with a small worm on the hook while inputs load. Only the catch/lift or hesitate/turn/escape ending waits for the verdict. Escape flips the fish to face left before it swims left. Reduce Motion continues to skip decorative motion, and cancellation resets the scene.
 
 
 ### Statewide Minnesota directory
